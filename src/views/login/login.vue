@@ -5,7 +5,8 @@
       <span style="margin-left:15px;font-size: 16px;font-weight: bold;color: dimgray">留学生研究生信息管理系统</span>
       <span
         style="margin-left:15px;padding-left:15px;border-left: 1px solid gainsboro;font-size: 16px;font-weight: bold;color: dimgray"
-      >学生登录</span>
+      >{{ $t('route.loginTitle') }}</span>
+      <lang-select  style="position: absolute;right: 15%;"/>
     </div>
 
     <div class="main-content">
@@ -17,7 +18,7 @@
             </div>
 
             <div style="position: relative;width: 100%;margin-top: 30px;">
-              <input  v-model="loginForm.password" maxlength="12" placeholder="请输入密码" :type="showPassword?'':'password'" class="login-form-input">
+              <input v-model="loginForm.password" maxlength="12" placeholder="请输入密码" :type="showPassword?'':'password'" class="login-form-input">
               <el-button
                 type="text"
                 style="position: absolute;top:0;right: 0px;padding-top: 5px;"
@@ -42,26 +43,22 @@
       </div>
 
       <el-carousel indicator-position="none" class="bgflux">
-        <el-carousel-item class="bgflux" style="background: url('https://gradms.sdu.edu.cn/applogin/images/back1.png') repeat-x; background-size: 100% 100%;" >
-        </el-carousel-item>
-        <el-carousel-item class="bgflux" style="background: url('https://gradms.sdu.edu.cn/applogin/images/back2.png') repeat-x; background-size: 100% 100%;" >
-        </el-carousel-item>
-        <el-carousel-item class="bgflux" style="background: url('https://gradms.sdu.edu.cn/applogin/images/back3.png') repeat-x; background-size: 100% 100%;" >
-        </el-carousel-item>
+        <el-carousel-item class="bgflux" style="background: url('https://gradms.sdu.edu.cn/applogin/images/back1.png') repeat-x; background-size: 100% 100%;" />
+        <el-carousel-item class="bgflux" style="background: url('https://gradms.sdu.edu.cn/applogin/images/back2.png') repeat-x; background-size: 100% 100%;" />
+        <el-carousel-item class="bgflux" style="background: url('https://gradms.sdu.edu.cn/applogin/images/back3.png') repeat-x; background-size: 100% 100%;" />
       </el-carousel>
       <img class="rightimg">
 
     </div>
 
     <div class="notice">
-      <div style="width: 75%;background-color: gainsboro;height: 1px;"></div>
+      <div style="width: 75%;background-color: gainsboro;height: 1px;" />
       <div class="notice-title">友情提示:</div>
       <span style="color: gray;font-size: 14px;line-height: 200%;">
 
+        <dd>（1）学生登陆为学生学号，缺省密码为前缀D（博士）/ 硕士（M）+证件号码后7位，证件号码中的字母为大写字母</dd>
 
-<dd>（1）学生登陆为学生学号，缺省密码为前缀D（博士）/ 硕士（M）+证件号码后7位，证件号码中的字母为大写字母</dd>
-
-<dd>（2）建议使用google、火狐等浏览器，不建议使用IE</dd>
+        <dd>（2）建议使用google、火狐等浏览器，不建议使用IE</dd>
 
       </span>
 
@@ -73,6 +70,7 @@
 
 <script>
 import { login } from '@/api/user'
+import LangSelect from '@/components/LangSelect'
 
 export default {
 
@@ -90,6 +88,7 @@ export default {
       swiperList: ['https://gradms.sdu.edu.cn/applogin/images/back1.png', 'https://gradms.sdu.edu.cn/applogin/images/back2.png', 'https://gradms.sdu.edu.cn/applogin/images/back3.png']
     }
   },
+  components: { LangSelect },
   methods: {
     toRegister() {
       this.$router.push({ path: '/preregister' })

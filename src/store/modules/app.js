@@ -1,6 +1,7 @@
 import Cookies from 'js-cookie'
 
 const state = {
+  language: 'en',
   sidebar: {
     opened: Cookies.get('sidebarStatus') ? !!+Cookies.get('sidebarStatus') : true,
     withoutAnimation: false
@@ -25,10 +26,16 @@ const mutations = {
   },
   TOGGLE_DEVICE: (state, device) => {
     state.device = device
+  },
+  SET_LANGUAGE: (state, language) => {
+    state.language = language
   }
 }
 
 const actions = {
+  setLanguage({ commit }, language) {
+    commit('SET_LANGUAGE', language)
+  },
   toggleSideBar({ commit }) {
     commit('TOGGLE_SIDEBAR')
   },
