@@ -28,7 +28,12 @@
             </div>
           </div>
           <div style="width: 100%;">
-            <el-button type="primary" style="width: 100%" :loading="loading" @click="login">登录</el-button>
+            <el-row>
+              <el-button type="primary" style="width: 100%;margin-bottom: 5%" :loading="loading" @click="login">登录</el-button>
+            </el-row>
+            <el-row>
+              <el-button type="primary" style="width: 100%;" :loading="loading" @click="reDirect">跳转至统一身份认证登陆</el-button>
+            </el-row>
             <div
               style="display: flex;flex-direction: row;justify-content: space-between;align-items: center;width: 100%;margin-top: 25px;"
             >
@@ -108,6 +113,9 @@ export default {
       }).catch(error => {
         this.loading = false
       })
+    },
+    reDirect() {
+      window.location.href = 'http://pass.sdu.edu.cn/cas/login?service=https%3A%2F%2F202.194.7.29%2Fcaslogin.jsp'
     }
   }
 
