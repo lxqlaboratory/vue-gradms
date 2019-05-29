@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import i18n from '@/lang' // Internationalization
 
 Vue.use(Router)
 
@@ -60,105 +61,205 @@ export const constantRoutes = [
   },
 
   {
-    path: '/example',
+    path: '/personInformation',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    redirect: '/personInformation',
+    name: 'personInformation',
+    meta: { title: 'route.personInformation', icon: 'form' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        path: 'changePassword',
+        name: 'changePassword',
+        component: () => import('@/views/personInformation/changePassword'),
+        meta: { title: 'route.changePassword', icon: 'form' }
       },
       {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        path: 'schoolRoll',
+        name: 'schoolRoll',
+        component: () => import('@/views/personInformation/schoolRoll'),
+        meta: { title: ('route.schoolRoll'), icon: 'form' }
       }
     ]
   },
-
   {
-    path: '/form',
+    path: '/pygl',
     component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
-      }
-    ]
-  },
-
-  {
-    path: '/nested',
-    component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
+    name: 'pygl',
     meta: {
-      title: 'Nested',
+      title: ('route.pygl'),
       icon: 'nested'
     },
     children: [
       {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
+        path: 'menu2',
+        component: () => import('@/views/pygl/index'),
+        alwaysShow: true,
+        meta: { title: ('route.xjhpygl'), icon: 'nested' },
         children: [
           {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
+            path: 'dyzxzm',
+            component: () => import('@/views/pygl/menu2/xjhpygl/dyzxzm'),
+            name: 'dyzxzm',
+            meta: { title: ('route.dyzxzm'), icon: 'nested' }
           }
         ]
       },
       {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        meta: { title: 'menu2' }
+        path: 'menu1',
+        component: () => import('@/views/pygl/index'),
+        meta: { title: ('route.pyfayxsgrjh'), icon: 'nested' },
+        children: [
+          {
+            path: 'pyfacx',
+            component: () => import('@/views/pygl/menu1/pyfayxsgrjh/pyfacx'),
+            name: 'pyfacx',
+            meta: { title: ('route.pyfacx'), icon: 'nested' }
+          },
+          {
+            path: 'ckbrpyfa',
+            component: () => import('@/views/pygl/menu1/pyfayxsgrjh/ckbrpyfa'),
+            name: 'ckbrpyfa',
+            meta: { title: ('route.ckbrpyfa'), icon: 'nested' }
+          },
+          {
+            path: 'zdckpyjh',
+            component: () => import('@/views/pygl/menu1/pyfayxsgrjh/zdckpyjh'),
+            name: 'ckbrpyfa',
+            meta: { title: ('route.zdckpyjh'), icon: 'nested' }
+          }
+        ]
+      },
+      {
+        path: 'menu3',
+        component: () => import('@/views/pygl/index'),
+        alwaysShow: true,
+        meta: { title: ('route.kcyxk'), icon: 'nested' },
+        children: [
+          {
+            path: 'kccx',
+            component: () => import('@/views/pygl/menu3/kcyxk/kccx'),
+            name: 'kccx',
+            meta: { title: ('route.kccx'), icon: 'nested' }
+          },
+          {
+            path: 'jxapdc',
+            component: () => import('@/views/pygl/menu3/kcyxk/jxapdc'),
+            name: 'jxapdc',
+            meta: { title: ('route.jxapdc'), icon: 'nested' }
+          },
+          {
+            path: 'xsxk',
+            component: () => import('@/views/pygl/menu3/kcyxk/xsxk'),
+            name: 'xsxk',
+            meta: { title: ('route.xsxk'), icon: 'nested' }
+          }
+        ]
+      },
+      {
+        path: 'menu4',
+        component: () => import('@/views/pygl/index'),
+        alwaysShow: true,
+        meta: { title: ('route.cjgl'), icon: 'nested' },
+        children: [
+          {
+            path: 'cjcx',
+            component: () => import('@/views/pygl/menu4/cjgl/cjcx'),
+            name: 'cjcx',
+            meta: { title: ('route.cjcx'), icon: 'nested' }
+          }
+        ]
+      },
+      {
+        path: 'menu5',
+        component: () => import('@/views/pygl/index'),
+        alwaysShow: true,
+        meta: { title: ('route.zqkh'), icon: 'nested' },
+        children: [
+          {
+            path: 'tjktbg',
+            component: () => import('@/views/pygl/menu5/zqkh/tjktbg'),
+            name: 'cjcx',
+            meta: { title: ('route.tjktbg'), icon: 'nested' }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    path: '/byhxwgl',
+    component: Layout,
+    name: 'byhxwgl',
+    meta: { title: ('route.byhxwgl'), icon: 'form' },
+    children: [
+      {
+        path: 'txxwxx',
+        name: 'txxwxx',
+        component: () => import('@/views/byhxwgl/txxwxx'),
+        meta: { title: ('route.txxwxx'), icon: 'form' }
+      },
+      {
+        path: 'tjbysq',
+        name: 'tjbysq',
+        component: () => import('@/views/byhxwgl/tjbysq'),
+        meta: { title: ('route.tjbysq'), icon: 'form' }
+      },
+      {
+        path: 'xxsclw',
+        name: 'xxsclw',
+        component: () => import('@/views/byhxwgl/xxsclw'),
+        meta: { title: ('route.xxsclw'), icon: 'form' }
+      },
+      {
+        path: 'cklwpyjg',
+        name: 'cklwpyjg',
+        component: () => import('@/views/byhxwgl/cklwpyjg'),
+        meta: { title: ('route.cklwpyjg'), icon: 'form' }
+      },
+      {
+        path: 'txbsdbgg',
+        name: 'txbsdbgg',
+        component: () => import('@/views/byhxwgl/txbsdbgg'),
+        meta: { title: ('route.txbsdbgg'), icon: 'form' }
+      },
+      {
+        path: 'lrdbjv',
+        name: 'lrdbjv',
+        component: () => import('@/views/byhxwgl/lrdbjv'),
+        meta: { title: ('route.lrdbjv'), icon: 'form' }
+      },
+      {
+        path: 'pydbxxck',
+        name: 'pydbxxck',
+        component: () => import('@/views/byhxwgl/pydbxxck'),
+        meta: { title: ('route.pydbxxck'), icon: 'form' }
+      },
+      {
+        path: 'byxxhd',
+        name: 'byxxhd',
+        component: () => import('@/views/byhxwgl/byxxhd'),
+        meta: { title: ('route.byxxhd'), icon: 'form' }
+      },
+      {
+        path: 'xwxxhd',
+        name: 'xwxxhd',
+        component: () => import('@/views/byhxwgl/xwxxhd'),
+        meta: { title: ('route.xwxxhd'), icon: 'form' }
       }
     ]
   },
 
   {
-    path: 'external-link',
+    path: '/dagl',
     component: Layout,
+    name: 'dagl',
+    alwaysShow: true,
+    meta: { title: ('route.dagl'), icon: 'form' },
     children: [
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
+        path: 'txqnml',
+        name: 'txqnml',
+        component: () => import('@/views/dagl/txqnml'),
+        meta: { title: ('route.txqnml'), icon: 'form' }
       }
     ]
   },
