@@ -3,7 +3,7 @@
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <sidebar class="sidebar-container" />
     <div class="main-container">
-      <div :class="{'fixed-header':fixedHeader}">
+      <div class="fixed-header">
         <navbar />
       </div>
       <app-main />
@@ -30,9 +30,7 @@ export default {
     device() {
       return this.$store.state.app.device
     },
-    fixedHeader() {
-      return this.$store.state.settings.fixedHeader
-    },
+
     classObj() {
       return {
         hideSidebar: !this.sidebar.opened,

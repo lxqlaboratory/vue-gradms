@@ -1,4 +1,13 @@
 export default {
+
+  login: {
+    title: 'Login Form',
+    logIn: 'Log in',
+    username: 'Username',
+    password: 'Password',
+    notice1: '（1）asdhjkasdhakjsdhjk',
+    notice2: '（2）asdhjkasdhakjsdhjk'
+  },
   base: {
     curLanguage: 'Language'
   },
@@ -76,15 +85,7 @@ export default {
     theme: 'Theme',
     size: 'Global Size'
   },
-  login: {
-    title: 'Login Form',
-    logIn: 'Log in',
-    username: 'Username',
-    password: 'Password',
-    any: 'any',
-    thirdparty: 'Or connect with',
-    thirdpartyTips: 'Can not be simulated on local, so please combine you own business simulation! ! !'
-  },
+
   documentation: {
     documentation: 'Documentation',
     github: 'Github Repository'
