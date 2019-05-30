@@ -3,7 +3,7 @@ export default {
     curLanguage: 'Language'
   },
   route: {
-    loginTitle:'title',
+    loginTitle: 'title',
     personInformation: 'personal information',
     changePassword: 'change password',
     schoolRoll: 'enrollment status',

@@ -3,7 +3,7 @@ export default {
     curLanguage: '当前语言'
   },
   route: {
-    loginTitle:'标题',
+    loginTitle: '标题',
     personInformation: '个人信息',
     changePassword: '修改密码',
     schoolRoll: '学籍信息',
