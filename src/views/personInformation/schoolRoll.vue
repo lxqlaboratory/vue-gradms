@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+    <el-tabs v-model="activeName" type="border-card" @tab-click="handleClick">
       <el-tab-pane name="first" :label="$t('route.baseInformation')">
         <el-form >
           <table class="content" cellspacing="0" width="100%">
