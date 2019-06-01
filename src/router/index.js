@@ -78,6 +78,12 @@ export const constantRoutes = [
         name: 'schoolRoll',
         component: () => import('@/views/personInformation/schoolRoll'),
         meta: { title: ('route.schoolRoll'), icon: 'form' }
+      },
+      {
+        path: 'studentInformance',
+        name: 'studentInformance',
+        component: () => import('@/views/personInformation/studentInformance'),
+        meta: { title: ('route.studentInformance'), icon: 'form' }
       }
     ]
   },

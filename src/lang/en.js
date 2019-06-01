@@ -22,6 +22,7 @@ export default {
     personInformation: 'personal information',
     changePassword: 'change password',
     schoolRoll: 'enrollment status',
+    studentInformance: 'student informance',
     pygl: 'cultivation management',
     xjhpygl: 'status and cultivation',
     dyzxzm: 'print the education certificate',
@@ -48,6 +49,30 @@ export default {
     byxxhd: 'check the graduatrion information',
     xwxxhd: 'degree information check',
     dagl: 'archive management',
-    txqnml: '填写圈内目录'
+    txqnml: '填写圈内目录',
+
+    baseInformation: 'base information',
+    cultivationInformation: 'cultivation information',
+    beforeSchool: 'before school information',
+    personalInformation: 'personal information',
+    name: 'name',
+    englishName: 'English name',
+    studentNumber: 'student number',
+    sex: 'sex',
+    nationality: 'nationality',
+    photo: 'photo',
+    date: 'date of birth',
+    ID: 'ID number',
+    religion: 'religion',
+    person: 'personal contact number',
+    contact: 'Contact number',
+    phone: 'mobile phone number',
+    qq: 'qq number',
+    wechat: 'wechat',
+    email: 'E-mail',
+    remark: 'remark',
+
+    modify: 'modify',
+    save: 'save'
   }
 }
