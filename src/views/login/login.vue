@@ -2,11 +2,11 @@
   <div class="prologin-container">
     <div class="header">
       <img style="width: 150px;height: 45px;" src="@/assets/login/schoollogo.png">
-      <span style="margin-left:15px;font-size: 16px;font-weight: bold;color: dimgray">{{$t('login.manaegerTitle')}}</span>
+      <span style="margin-left:15px;font-size: 16px;font-weight: bold;color: dimgray">{{ $t('login.manaegerTitle') }}</span>
       <span
         style="margin-left:15px;padding-left:15px;border-left: 1px solid gainsboro;font-size: 16px;font-weight: bold;color: dimgray"
       >{{ $t('login.loginTitle') }}</span>
-      <lang-select  style="position: absolute;right: 15%;"/>
+      <lang-select style="position: absolute;right: 15%;" />
     </div>
 
     <div class="main-content">
@@ -14,7 +14,7 @@
         <div class="input-form">
           <div style="width: 100%;">
             <div style="position: relative;width: 100%;margin-top: 15px;">
-              <input v-model="loginForm.telAccount" :placeholder="$t('login.placeholdUsername')" maxlength="11" class="login-form-input">
+              <input v-model="loginForm.userName" :placeholder="$t('login.placeholdUsername')" maxlength="11" class="login-form-input">
             </div>
 
             <div style="position: relative;width: 100%;margin-top: 30px;">
@@ -28,14 +28,14 @@
             </div>
           </div>
           <div style="width: 100%;">
-            <el-button type="primary" style="width: 100%" :loading="loading" @click="login">{{$t('login.loginTitle')}}</el-button>
+            <el-button type="primary" style="width: 100%" :loading="loading" @click="login">{{ $t('login.loginTitle') }}</el-button>
             <div
               style="display: flex;flex-direction: row;justify-content: space-between;align-items: center;width: 100%;margin-top: 25px;"
             >
               <el-checkbox v-model="ydxy"><span
                 style="font-size: 13px;"
-              >{{$t('login.rememberPassword')}}</span></el-checkbox>
-              <el-button type="text" style="padding: 0;" @click="toRegister">{{$t('login.forgetPassword')}}？</el-button>
+              >{{ $t('login.rememberPassword') }}</span></el-checkbox>
+              <el-button type="text" style="padding: 0;" @click="toRegister">{{ $t('login.forgetPassword') }}？</el-button>
             </div>
           </div>
         </div>
@@ -53,14 +53,14 @@
 
     <div class="notice">
       <div style="width: 75%;background-color: gainsboro;height: 1px;" />
-      <div class="notice-title">{{$t('login.noticeTitle')}}:</div>
+      <div class="notice-title">{{ $t('login.noticeTitle') }}:</div>
       <span style="color: gray;font-size: 14px;line-height: 200%;">
-        <dd>{{$t('login.notice1')}}</dd>
-        <dd>{{$t('login.notice2')}}</dd>
+        <dd>{{ $t('login.notice1') }}</dd>
+        <dd>{{ $t('login.notice2') }}</dd>
       </span>
     </div>
 
-    <div class="login-bottom">Copyright © {{$t('login.graduateSdu')}}</div>
+    <div class="login-bottom">Copyright © {{ $t('login.graduateSdu') }}</div>
   </div>
 </template>
 
@@ -71,27 +71,27 @@ import LangSelect from '@/components/LangSelect'
 export default {
 
   name: 'Prelogin',
+  components: { LangSelect },
   data() {
     return {
       showPassword: false,
       loading: false,
       loginForm: {
-        telAccount: '',
-        password: '',
-        messageCode: ''
+        userName: '',
+        password: ''
       },
       ydxy: true,
       swiperList: ['https://gradms.sdu.edu.cn/applogin/images/back1.png', 'https://gradms.sdu.edu.cn/applogin/images/back2.png', 'https://gradms.sdu.edu.cn/applogin/images/back3.png']
     }
   },
-  components: { LangSelect },
   methods: {
     toRegister() {
       this.$router.push({ path: '/preregister' })
     },
     login: function() {
       this.loading = true
-      login(this.loginForm.telAccount, this.loginForm.password).then(response => {
+      const jsonForm = JSON.stringify({ username: this.loginForm.userName, password: this.loginForm.password })
+      login(jsonForm).then(response => {
         if (response.status) {
           this.$router.push({ path: '/dashboard' })
         } else {

@@ -1,11 +1,9 @@
-<template>
-
-</template>
+<template />
 
 <script>
-  export default {
-    name: 'pydbxxck'
-  }
+export default {
+  name: 'Pydbxxck'
+}
 </script>
 
 <style scoped>

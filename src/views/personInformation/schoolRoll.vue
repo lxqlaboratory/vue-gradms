@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-tabs v-model="activeName" type="border-card" @tab-click="handleClick">
       <el-tab-pane name="first" :label="$t('route.baseInformation')">
-        <el-form >
+        <el-form>
           <table class="content" cellspacing="0" width="100%">
             <tbody><tr>
               <td align="center" valign="top">
@@ -181,312 +181,289 @@
             </tbody></table>
         </el-form>
       </el-tab-pane>
-      <el-tab-pane :label="$t('route.cultivationInformation')" name="second" >
-        <el-row >
-          <el-col  :span="24" ><div  class="grid-content bg-purple row-jz"  >
+      <el-tab-pane :label="$t('route.cultivationInformation')" name="second">
+        <el-row>
+          <el-col :span="24"><div class="grid-content bg-purple row-jz">
             学生培养信息
           </div>
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz" >学生类型</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <el-select v-model="value" disabled placeholder="外籍博士" size="medium" class="el-w" >
+          <el-col :span="6"><div class="grid-content bg-purple row-jz">学生类型</div></el-col>
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <el-select v-model="value" disabled placeholder="外籍博士" size="medium" class="el-w">
               <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
-                :value="item.value">
-              </el-option>
+                :value="item.value"
+              />
             </el-select>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz">
             外籍博士</div></el-col>
           <el-col :span="6"><div class="grid-content bg-purple row-jz">所属院系</div></el-col>
-          <el-col :span="6" v-if="isEdit2"><div class="grid-content bg-purple-light">
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
             <el-select v-model="value" disabled placeholder="007-政治学与公共管理学院" size="medium" class="el-w">
               <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
-                :value="item.value">
-              </el-option>
+                :value="item.value"
+              />
             </el-select>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz">
             007-政治学与公共管理学院</div></el-col>
         </el-row>
         <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz" >培养方式</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <el-select v-model="value"  placeholder="请选择" size="medium" class="el-w" >
+          <el-col :span="6"><div class="grid-content bg-purple row-jz">培养方式</div></el-col>
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <el-select v-model="value" placeholder="请选择" size="medium" class="el-w">
               <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
-                :value="item.value">
-              </el-option>
+                :value="item.value"
+              />
             </el-select>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz">
             非定向</div></el-col>
           <el-col :span="6"><div class="grid-content bg-purple row-jz">所属专业</div></el-col>
-          <el-col :span="6" v-if="isEdit2"><div class="grid-content bg-purple-light">
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
             <el-select v-model="value" disabled placeholder="007-政治学与公共管理学院" size="medium" class="el-w">
               <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
-                :value="item.value">
-              </el-option>
+                :value="item.value"
+              />
             </el-select>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz">
             03026-国际政治</div></el-col>
         </el-row>
         <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz" >学习方式</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <el-select v-model="value"  placeholder="请选择" size="medium" class="el-w" >
+          <el-col :span="6"><div class="grid-content bg-purple row-jz">学习方式</div></el-col>
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <el-select v-model="value" placeholder="请选择" size="medium" class="el-w">
               <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
-                :value="item.value">
-              </el-option>
+                :value="item.value"
+              />
             </el-select>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-            </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
           <el-col :span="6"><div class="grid-content bg-purple row-jz">委托培养或定向单位</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <input v-model="form.name"  style="width: 100%;  height: 2.2em; ">
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
         </el-row>
         <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz" >入学年月</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-          <el-date-picker v-model="form.date" type="date" value-format="yyyy-MM-dd" placeholder="选择日期"  style="width: 100%;  height: 2em; " @change="startTimeStatus" />
+          <el-col :span="6"><div class="grid-content bg-purple row-jz">入学年月</div></el-col>
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <el-date-picker v-model="form.date" type="date" value-format="yyyy-MM-dd" placeholder="选择日期" style="width: 100%;  height: 2em; " @change="startTimeStatus" />
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
           <el-col :span="6"><div class="grid-content bg-purple row-jz">预计离校时间</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <el-date-picker v-model="form.date" type="date" value-format="yyyy-MM-dd" placeholder="选择日期"  style="width: 100%;  height: 2em; " @change="startTimeStatus" />
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <el-date-picker v-model="form.date" type="date" value-format="yyyy-MM-dd" placeholder="选择日期" style="width: 100%;  height: 2em; " @change="startTimeStatus" />
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
         </el-row>
         <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz" >外语水平</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <input v-model="form.name"  style="width: 100%;  height: 2.2em; ">
+          <el-col :span="6"><div class="grid-content bg-purple row-jz">外语水平</div></el-col>
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
           <el-col :span="6"><div class="grid-content bg-purple row-jz">准考证号</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <input v-model="form.name"  style="width: 100%;  height: 2.2em; ">
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
         </el-row>
         <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz" >健康状况</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <input v-model="form.name"  style="width: 100%;  height: 2.2em; ">
+          <el-col :span="6"><div class="grid-content bg-purple row-jz">健康状况</div></el-col>
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
           <el-col :span="6"><div class="grid-content bg-purple row-jz">有何特长</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <input v-model="form.name"  style="width: 100%;  height: 2.2em; ">
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
         </el-row>
         <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz" >经济状况</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <input v-model="form.name"  style="width: 100%;  height: 2.2em; ">
+          <el-col :span="6"><div class="grid-content bg-purple row-jz">经济状况</div></el-col>
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
           <el-col :span="6"><div class="grid-content bg-purple row-jz">本人经济来源</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-          <input v-model="form.name"  style="width: 100%;  height: 2.2em; ">
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
         </el-row>
         <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz" >年级</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <el-select v-model="value"  placeholder="请选择" size="medium" class="el-w" >
+          <el-col :span="6"><div class="grid-content bg-purple row-jz">年级</div></el-col>
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <el-select v-model="value" placeholder="请选择" size="medium" class="el-w">
               <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
-                :value="item.value">
-              </el-option>
+                :value="item.value"
+              />
             </el-select>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
           <el-col :span="6"><div class="grid-content bg-purple row-jz">导师</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <input v-model="form.name"  style="width: 100%;  height: 2.2em; ">
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
         </el-row>
         <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz" >学习地点</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <el-select v-model="value"  placeholder="请选择" size="medium" class="el-w" >
+          <el-col :span="6"><div class="grid-content bg-purple row-jz">学习地点</div></el-col>
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <el-select v-model="value" placeholder="请选择" size="medium" class="el-w">
               <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
-                :value="item.value">
-              </el-option>
+                :value="item.value"
+              />
             </el-select>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
           <el-col :span="6"><div class="grid-content bg-purple row-jz">在学状态</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <el-select v-model="value" disabled placeholder="请选择" size="medium" class="el-w" >
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <el-select v-model="value" disabled placeholder="请选择" size="medium" class="el-w">
               <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
-                :value="item.value">
-              </el-option>
+                :value="item.value"
+              />
             </el-select>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
         </el-row>
         <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz" >所在班级</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <el-select v-model="value"  placeholder="请选择" size="medium" class="el-w" >
+          <el-col :span="6"><div class="grid-content bg-purple row-jz">所在班级</div></el-col>
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <el-select v-model="value" placeholder="请选择" size="medium" class="el-w">
               <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
-                :value="item.value">
-              </el-option>
+                :value="item.value"
+              />
             </el-select>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
           <el-col :span="6"><div class="grid-content bg-purple row-jz">所属校区</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <el-select v-model="value" disabled placeholder="请选择" size="medium" class="el-w" >
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <el-select v-model="value" disabled placeholder="请选择" size="medium" class="el-w">
               <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
-                :value="item.value">
-              </el-option>
+                :value="item.value"
+              />
             </el-select>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
         </el-row>
         <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz" >学制</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <input v-model="form.name"  style="width: 100%;  height: 2.2em; ">
+          <el-col :span="6"><div class="grid-content bg-purple row-jz">学制</div></el-col>
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
           <el-col :span="6"><div class="grid-content bg-purple row-jz">研究方向</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <el-select v-model="value"  placeholder="请选择" size="medium" class="el-w" >
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <el-select v-model="value" placeholder="请选择" size="medium" class="el-w">
               <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
-                :value="item.value">
-              </el-option>
+                :value="item.value"
+              />
             </el-select>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
         </el-row>
         <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz" >二级培养单位</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <el-select v-model="value" disabled placeholder="请选择" size="medium" class="el-w" >
+          <el-col :span="6"><div class="grid-content bg-purple row-jz">二级培养单位</div></el-col>
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <el-select v-model="value" disabled placeholder="请选择" size="medium" class="el-w">
               <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
-                :value="item.value">
-              </el-option>
+                :value="item.value"
+              />
             </el-select>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
           <el-col :span="6"><div class="grid-content bg-purple row-jz">三级培养单位</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <el-select v-model="value" disabled placeholder="请选择" size="medium" class="el-w" >
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <el-select v-model="value" disabled placeholder="请选择" size="medium" class="el-w">
               <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
-                :value="item.value">
-              </el-option>
+                :value="item.value"
+              />
             </el-select>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
         </el-row>
         <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz" >是否华侨</div></el-col>
-          <el-col :span="6"  v-if="isEdit2" ><div class="grid-content bg-purple-light row-jz">
+          <el-col :span="6"><div class="grid-content bg-purple row-jz">是否华侨</div></el-col>
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light row-jz">
             <el-radio v-model="radio" label="1">是</el-radio>
             <el-radio v-model="radio" label="2">否</el-radio>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
           <el-col :span="6"><div class="grid-content bg-purple row-jz">是否英烈子女</div></el-col>
-          <el-col :span="6"  v-if="isEdit2" ><div class="grid-content bg-purple-light row-jz">
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light row-jz">
             <el-radio v-model="radio1" label="1">是</el-radio>
             <el-radio v-model="radio1" label="2">否</el-radio>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
         </el-row>
         <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz" >是否有学籍</div></el-col>
-          <el-col :span="6"  v-if="isEdit2" ><div class="grid-content bg-purple-light row-jz">
+          <el-col :span="6"><div class="grid-content bg-purple row-jz">是否有学籍</div></el-col>
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light row-jz">
             <el-radio v-model="radio2" label="1">是</el-radio>
             <el-radio v-model="radio2" label="2">否</el-radio>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          </div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
           <el-col :span="6"><div class="grid-content bg-purple row-jz">上课时间</div></el-col>
-          <el-col :span="6"   v-if="isEdit2"><div class="grid-content bg-purple-light"  >
-            <el-select v-model="value" disabled placeholder="正常" size="medium" class="el-w" >
+          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
+            <el-select v-model="value" disabled placeholder="正常" size="medium" class="el-w">
               <el-option
                 v-for="item in options"
                 :key="item.value"
                 :label="item.label"
-                :value="item.value">
-              </el-option>
+                :value="item.value"
+              />
             </el-select>
           </div></el-col>
-          <el-col :span="6" v-else ><div class="grid-content bg-purple-light row-jz" >
-          正常</div></el-col>
+          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz">
+            正常</div></el-col>
         </el-row>
         <el-button v-if="!isEdit2" type="primary" name="modifyIt" class="submitbutton " style="display:block;margin:0 auto" @click="edit2">{{ $t('route.modify') }}</el-button>
-        <el-button v-else type="success" name="modifyIt" class="submitbutton" style="display:block;margin:0 auto" @click="save2" >{{ $t('route.save') }}</el-button>
+        <el-button v-else type="success" name="modifyIt" class="submitbutton" style="display:block;margin:0 auto" @click="save2">{{ $t('route.save') }}</el-button>
       </el-tab-pane>
       <el-tab-pane :label="$t('route.beforeSchool')" name="third" />
     </el-tabs>

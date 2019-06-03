@@ -1,11 +1,9 @@
-<template>
-
-</template>
+<template />
 
 <script>
-  export default {
-    name: 'ckbrpyfa'
-  }
+export default {
+  name: 'Ckbrpyfa'
+}
 </script>
 
 <style scoped>

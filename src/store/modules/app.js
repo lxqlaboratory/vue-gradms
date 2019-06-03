@@ -24,7 +24,7 @@ const mutations = {
     state.sidebar.opened = false
     state.sidebar.withoutAnimation = withoutAnimation
   },
-    TOGGLE_DEVICE: (state, device) => {
+  TOGGLE_DEVICE: (state, device) => {
     state.device = device
   },
   SET_LANGUAGE: (state, language) => {

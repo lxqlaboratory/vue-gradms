@@ -1,11 +1,9 @@
-<template>
-
-</template>
+<template />
 
 <script>
-  export default {
-    name: 'jxapdc'
-  }
+export default {
+  name: 'Jxapdc'
+}
 </script>
 
 <style scoped>
