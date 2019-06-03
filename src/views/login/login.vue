@@ -92,14 +92,16 @@ export default {
       this.loading = true
       const jsonForm = JSON.stringify({ username: this.loginForm.userName, password: this.loginForm.password })
       login(jsonForm).then(response => {
-        if (response.status) {
-          this.$router.push({ path: '/dashboard' })
-        } else {
-          this.$message({
-            type: 'error',
-            message: response.message
-          })
-        }
+        this.$router.push({ path: '/dashboard' })
+
+        // if (response.status) {
+        //   this.$router.push({ path: '/dashboard' })
+        // } else {
+        //   this.$message({
+        //     type: 'error',
+        //     message: response.message
+        //   })
+        // }
         this.loading = false
       }).catch(error => {
         this.loading = false
