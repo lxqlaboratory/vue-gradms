@@ -2,10 +2,10 @@
   <div class="prologin-container">
     <div class="header">
       <img style="width: 150px;height: 45px;" src="@/assets/login/schoollogo.png">
-      <span style="margin-left:15px;font-size: 16px;font-weight: bold;color: dimgray">留学生研究生信息管理系统</span>
+      <span style="margin-left:15px;font-size: 16px;font-weight: bold;color: dimgray">{{$t('login.manaegerTitle')}}</span>
       <span
         style="margin-left:15px;padding-left:15px;border-left: 1px solid gainsboro;font-size: 16px;font-weight: bold;color: dimgray"
-      >{{ $t('route.loginTitle') }}</span>
+      >{{ $t('login.loginTitle') }}</span>
       <lang-select  style="position: absolute;right: 15%;"/>
     </div>
 
@@ -14,33 +14,28 @@
         <div class="input-form">
           <div style="width: 100%;">
             <div style="position: relative;width: 100%;margin-top: 15px;">
-              <input v-model="loginForm.telAccount" placeholder="您的学生账户" maxlength="11" class="login-form-input">
+              <input v-model="loginForm.telAccount" :placeholder="$t('login.placeholdUsername')" maxlength="11" class="login-form-input">
             </div>
 
             <div style="position: relative;width: 100%;margin-top: 30px;">
-              <input v-model="loginForm.password" maxlength="12" placeholder="请输入密码" :type="showPassword?'':'password'" class="login-form-input">
+              <input v-model="loginForm.password" maxlength="12" :placeholder="$t('login.placeholdPassword')" :type="showPassword?'':'password'" class="login-form-input">
               <el-button
                 type="text"
                 style="position: absolute;top:0;right: 0px;padding-top: 5px;"
                 @click="showPassword=!showPassword"
-              >{{ !showPassword?'显示密码':'隐藏密码' }}
+              >{{ !showPassword?$t('login.showPassword'):$t('login.hidePassword') }}
               </el-button>
             </div>
           </div>
           <div style="width: 100%;">
-            <el-row>
-              <el-button type="primary" style="width: 100%;margin-bottom: 5%" :loading="loading" @click="login">登录</el-button>
-            </el-row>
-            <el-row>
-              <el-button type="primary" style="width: 100%;" :loading="loading" @click="reDirect">跳转至统一身份认证登陆</el-button>
-            </el-row>
+            <el-button type="primary" style="width: 100%" :loading="loading" @click="login">{{$t('login.loginTitle')}}</el-button>
             <div
               style="display: flex;flex-direction: row;justify-content: space-between;align-items: center;width: 100%;margin-top: 25px;"
             >
               <el-checkbox v-model="ydxy"><span
                 style="font-size: 13px;"
-              >记住密码</span></el-checkbox>
-              <el-button type="text" style="padding: 0;" @click="toRegister">忘记密码？</el-button>
+              >{{$t('login.rememberPassword')}}</span></el-checkbox>
+              <el-button type="text" style="padding: 0;" @click="toRegister">{{$t('login.forgetPassword')}}？</el-button>
             </div>
           </div>
         </div>
@@ -58,18 +53,14 @@
 
     <div class="notice">
       <div style="width: 75%;background-color: gainsboro;height: 1px;" />
-      <div class="notice-title">友情提示:</div>
+      <div class="notice-title">{{$t('login.noticeTitle')}}:</div>
       <span style="color: gray;font-size: 14px;line-height: 200%;">
-
         <dd>{{$t('login.notice1')}}</dd>
-
         <dd>{{$t('login.notice2')}}</dd>
-
       </span>
-
     </div>
 
-    <div class="login-bottom">Copyright © 山东大学研究生院</div>
+    <div class="login-bottom">Copyright © {{$t('login.graduateSdu')}}</div>
   </div>
 </template>
 

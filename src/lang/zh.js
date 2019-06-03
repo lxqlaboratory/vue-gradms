@@ -2,11 +2,26 @@ export default {
   base: {
     curLanguage: '当前语言'
   },
+  login: {
+    graduateSdu: '山东大学研究生院',
+    rememberPassword: '记住密码',
+    forgetPassword: '忘记密码',
+    showPassword: '显示密码',
+    hidePassword: '隐藏密码',
+    placeholdUsername: '您的学生账户',
+    placeholdPassword: '请输入密码',
+    loginTitle: '登录',
+    manaegerTitle: '留学生研究生信息管理系统',
+    noticeTitle: '友情提示',
+    notice1: '（1）学生登陆为学生学号，缺省密码为前缀D（博士）/ 硕士（M）+证件号码后7位，证件号码中的字母为大写字母',
+    notice2: '（2）建议使用9.0以上的IE浏览器或google浏览器,360浏览器请选用极速模式'
+  },
   route: {
-    loginTitle:'标题',
+    loginTitle: '标题',
     personInformation: '个人信息',
     changePassword: '修改密码',
     schoolRoll: '学籍信息',
+    studentInformance: '学生表现信息',
     pygl: '培养管理',
     xjhpygl: '学籍和培养管理',
     dyzxzm: '打印在学证明',
@@ -33,6 +48,30 @@ export default {
     byxxhd: '毕业信息核对',
     xwxxhd: '学位信息核对',
     dagl: '档案管理',
-    txqnml: '填写圈内目录'
+    txqnml: '填写圈内目录',
+
+    baseInformation: '基本信息',
+    cultivationInformation: '培养信息',
+    beforeSchool: '入学前信息',
+    personalInformation: '个人基本信息',
+    name: '姓名',
+    englishName: '英文姓名',
+    studentNumber: '学 号',
+    sex: '性 别',
+    nationality: '国 别 ',
+    photo: '照片',
+    date: '出生日期',
+    ID: '证件号码',
+    religion: '宗教信仰',
+    person: '个人联系方式',
+    contact: '联系电话',
+    phone: '移动电话',
+    qq: 'QQ号',
+    wechat: '微信号',
+    email: '电子邮件',
+    remark: '备注',
+
+    modify: '修改',
+    save: '保存'
   }
 }
