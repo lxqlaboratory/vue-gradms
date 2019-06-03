@@ -28,14 +28,7 @@
             </div>
           </div>
           <div style="width: 100%;">
-            <el-row>
-              <el-col>
-                <el-button type="primary" style="width: 100%;margin-bottom: 5%" :loading="loading" @click="login">{{$t('login.loginTitle')}}</el-button>
-              </el-col>
-              <el-col>
-                <el-button type="primary" style="width: 100%" :loading="loading" @click="reDirect">{{$t('login.authenticationLogin')}}</el-button>
-              </el-col>
-            </el-row>
+            <el-button type="primary" style="width: 100%" :loading="loading" @click="login">{{$t('login.loginTitle')}}</el-button>
             <div
               style="display: flex;flex-direction: row;justify-content: space-between;align-items: center;width: 100%;margin-top: 25px;"
             >
@@ -99,7 +92,7 @@ export default {
     login: function() {
       this.loading = true
       login(this.loginForm.telAccount, this.loginForm.password).then(response => {
-        if (response.status || !response.status) {
+        if (response.status) {
           this.$router.push({ path: '/dashboard' })
         } else {
           this.$message({
@@ -111,9 +104,6 @@ export default {
       }).catch(error => {
         this.loading = false
       })
-    },
-    reDirect() {
-      window.location.href = 'http://pass.sdu.edu.cn/cas/login?service=https%3A%2F%2F202.194.7.29%2Fcaslogin.jsp'
     }
   }
 

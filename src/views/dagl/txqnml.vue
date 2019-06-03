@@ -1,11 +1,9 @@
-<template>
-
-</template>
+<template />
 
 <script>
-  export default {
-    name: 'txqnml'
-  }
+export default {
+  name: 'Txqnml'
+}
 </script>
 
 <style scoped>

@@ -1,17 +1,17 @@
 <template>
   <div class="app-container">
-    <el-form ref="ruleForm" :model="ruleForm" status-icon :rules="rules" label-width="100px" class="demo-ruleForm" >
-      <el-form-item label="旧密码" prop="oldPass"  >
-        <el-input v-model="ruleForm.oldPass"  type="password" autocomplete="off" />
+    <el-form ref="ruleForm" :model="ruleForm" status-icon :rules="rules" label-width="100px" class="demo-ruleForm">
+      <el-form-item label="旧密码" prop="oldPass">
+        <el-input v-model="ruleForm.oldPass" type="password" autocomplete="off" />
       </el-form-item>
       <el-form-item label="输入新密码" prop="newPass">
         <el-input v-model="ruleForm.newPass" type="password" autocomplete="off" />
       </el-form-item>
       <el-form-item label="重复输入密码" prop="checkPass">
-        <el-input v-model="ruleForm.checkPass" type="password" autocomplete="off"/>
+        <el-input v-model="ruleForm.checkPass" type="password" autocomplete="off" />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+        <el-button type="primary" @click="submitForm()">提交</el-button>
         <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import { editPassword } from '@/api/user'
+
 export default {
   data() {
     var validateOldPass = (rule, value, callback) => {
@@ -73,14 +75,11 @@ export default {
     }
   },
   methods: {
-    submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          alert('submit!')
-        } else {
-          console.log('error submit!!')
-          return false
-        }
+    submitForm() {
+      editPassword(this.ruleForm.newPass).then(res => {
+
+      }).catch(e => {
+
       })
     },
     resetForm(formName) {

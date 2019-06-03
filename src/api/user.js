@@ -1,10 +1,10 @@
 import request from '@/utils/request'
 
-export function login(data) {
+export function login(jsonForm) {
   return request({
-    url: '/user/login',
+    url: '/api/apiLogin',
     method: 'post',
-    data
+    data: jsonForm
   })
 }
 
@@ -22,3 +22,14 @@ export function logout() {
     method: 'post'
   })
 }
+
+export function editPassword(passWord) {
+  return request({
+    url: '/func/web/passWord',
+    method: 'POST',
+    data: {
+      passWord
+    }
+  })
+}
+

@@ -1,11 +1,9 @@
-<template>
-
-</template>
+<template />
 
 <script>
-  export default {
-    name: 'pyfacx'
-  }
+export default {
+  name: 'Pyfacx'
+}
 </script>
 
 <style scoped>

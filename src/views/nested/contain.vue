@@ -1,11 +1,11 @@
 <template>
-    $END$
+  $END$
 </template>
 
 <script>
-  export default {
-    name: 'contain'
-  }
+export default {
+  name: 'Contain'
+}
 </script>
 
 <style scoped>
