@@ -79,11 +79,29 @@ export default {
   },
   methods: {
     submitForm() {
-      var md5pass = md5(this.ruleForm.newPass)
-      var newPass = Base64.encode(md5pass)
-      const jsonForm = JSON.stringify({ oldPwd: this.ruleForm.oldPass, newPwd: newPass })
-      editPassword(jsonForm).then(res => {
 
+      var newPass = Base64.encode(md5(this.ruleForm.newPass))
+      var oldPass = Base64.encode(md5(this.ruleForm.oldPass))
+      const jsonForm = JSON.stringify({ oldPwd: oldPass, newPwd: newPass })
+      editPassword(jsonForm).then(res => {
+        console.log(res)
+        if(res){
+          this.$message({
+            type:"success",
+            message:"修改密码成功"
+          })
+        }
+        else{
+          this.ruleForm={
+            oldPass: '',
+              newPass: '',
+              checkPass: ''
+          }
+          this.$message({
+            type :"error",
+            message :"修改密码失败"
+          })
+        }
       }).catch(e => {
 
       })
