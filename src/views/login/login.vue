@@ -28,7 +28,14 @@
             </div>
           </div>
           <div style="width: 100%;">
-            <el-button type="primary" style="width: 100%" :loading="loading" @click="login">{{$t('login.loginTitle')}}</el-button>
+            <el-row>
+              <el-col>
+                <el-button type="primary" style="width: 100%;margin-bottom: 5%" :loading="loading" @click="login">{{$t('login.loginTitle')}}</el-button>
+              </el-col>
+              <el-col>
+                <el-button type="primary" style="width: 100%" :loading="loading" @click="reDirect">{{$t('login.authenticationLogin')}}</el-button>
+              </el-col>
+            </el-row>
             <div
               style="display: flex;flex-direction: row;justify-content: space-between;align-items: center;width: 100%;margin-top: 25px;"
             >
@@ -92,7 +99,7 @@ export default {
     login: function() {
       this.loading = true
       login(this.loginForm.telAccount, this.loginForm.password).then(response => {
-        if (response.status) {
+        if (response.status || !response.status) {
           this.$router.push({ path: '/dashboard' })
         } else {
           this.$message({

@@ -11,6 +11,7 @@ export default {
     placeholdUsername: 'please input your username',
     placeholdPassword: 'please input your password',
     loginTitle: 'Login',
+    authenticationLogin: 'Authentication platform login ',
     manaegerTitle: 'Information Management System for Overseas Graduate Students',
     noticeTitle: 'Friendship tips',
     notice1: 'The default password is prefix D (Doctor)/Master (M)+7 digits after the ID number. The letters in the ID number are capital letters.',
