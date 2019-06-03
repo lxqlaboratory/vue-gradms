@@ -54,7 +54,7 @@ export default {
 
     baseInformation: 'base information',
     cultivationInformation: 'cultivation information',
-    beforeSchool: 'before school information',
+    beforeSchool: 'pre-enrollment information',
     personalInformation: 'personal information',
     name: 'name',
     englishName: 'English name',

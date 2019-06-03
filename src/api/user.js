@@ -23,13 +23,11 @@ export function logout() {
   })
 }
 
-export function editPassword(passWord) {
+export function editPassword(data) {
   return request({
-    url: '/func/web/passWord',
+    url: '/api/changePassword',
     method: 'POST',
-    data: {
-      passWord
-    }
+    data
   })
 }
 

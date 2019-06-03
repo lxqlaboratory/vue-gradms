@@ -76,7 +76,8 @@ export default {
   },
   methods: {
     submitForm() {
-      editPassword(this.ruleForm.newPass).then(res => {
+      let jsonForm=JSON.stringify({opass:this.ruleForm.oldPass, npass:this.ruleForm.newPass})
+      editPassword(jsonForm).then(res => {
 
       }).catch(e => {
 
