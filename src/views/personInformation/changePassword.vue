@@ -20,8 +20,11 @@
 
 <script>
 import { editPassword } from '@/api/user'
+import md5 from 'js-md5'
+let Base64 = require("js-base64").Base64
 
 export default {
+
   data() {
     var validateOldPass = (rule, value, callback) => {
       if (!value) {
@@ -76,7 +79,9 @@ export default {
   },
   methods: {
     submitForm() {
-      let jsonForm=JSON.stringify({opass:this.ruleForm.oldPass, npass:this.ruleForm.newPass})
+      var md5pass = md5(this.ruleForm.newPass)
+      var newPass = Base64.encode(md5pass)
+      const jsonForm = JSON.stringify({ oldPwd: this.ruleForm.oldPass, newPwd: newPass })
       editPassword(jsonForm).then(res => {
 
       }).catch(e => {
