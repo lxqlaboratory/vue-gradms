@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function login(jsonForm) {
   return request({
-    url: '/api/apiLogin',
+    url: '/api/auth/apiLogin',
     method: 'post',
     data: jsonForm
   })
@@ -25,7 +25,7 @@ export function logout() {
 
 export function editPassword(data) {
   return request({
-    url: '/api/changePassword',
+    url: '/api/auth/changePassword',
     method: 'POST',
     data
   })
