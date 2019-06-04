@@ -19,9 +19,8 @@
 </template>
 
 <script>
-import { editPassword } from '@/api/user'
-import md5 from 'js-md5'
-let Base64 = require("js-base64").Base64
+  import { editPassword } from '@/api/user'
+const Base64 = require('js-base64').Base64
 
 export default {
 
@@ -62,7 +61,8 @@ export default {
       ruleForm: {
         oldPass: '',
         newPass: '',
-        checkPass: ''
+        checkPass: '',
+        msg: ''
       },
       rules: {
         oldPass: [
@@ -77,32 +77,33 @@ export default {
       }
     }
   },
+  created() {
+    this.submitForm()
+  },
   methods: {
     submitForm() {
-      const newPass = Base64.encode(md5(this.ruleForm.newPass))
-      const oldPass = Base64.encode(md5(this.ruleForm.oldPass))
+      const newPass = Base64.encode(this.ruleForm.newPass)
+      const oldPass = Base64.encode(this.ruleForm.oldPass)
       const jsonForm = JSON.stringify({ oldPwd: oldPass, newPwd: newPass })
       editPassword(jsonForm).then(res => {
-        console.log(res)
-        if(res){
+        this.msg = res.msg
+        if (this.msg === 'passwordError') {
           this.$message({
-            type:"success",
-            message :"修改密码成功"
+            type: 'error',
+            message: '旧密码不正确'
           })
-        }
-        else{
-          this.ruleForm={
-              oldPass: '',
-              newPass: '',
-              checkPass: ''
-          }
+      } else if (this.msg === 'userError'){
           this.$message({
-            type :"error",
-            message :"修改密码失败"
+            type: 'error',
+            message: '用户不存在'
+          })
+        } else {
+          this.$message({
+            type: 'sucess',
+            message: '用户不存在'
           })
         }
       }).catch(e => {
-
       })
     },
     resetForm(formName) {

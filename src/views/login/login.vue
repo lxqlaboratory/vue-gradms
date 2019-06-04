@@ -62,11 +62,11 @@ import { login } from '@/api/user'
 import LangSelect from '@/components/LangSelect'
 
 export default {
-
   name: 'Prelogin',
   components: { LangSelect },
   data() {
     return {
+      msg: '',
       showPassword: false,
       loading: false,
       loginForm: {
@@ -82,11 +82,29 @@ export default {
       this.$router.push({ path: '/preregister' })
     },
     login: function() {
-      this.loading = true
       const jsonForm = JSON.stringify({ username: this.loginForm.userName, password: this.loginForm.password })
       login(jsonForm).then(response => {
-        this.$router.push({ path: '/dashboard' })
-        this.loading = false
+        this.msg = response.msg
+        if (this.msg === 'userNoExist'){
+          this.$message({
+            type: 'error',
+            message: '用户不存在'
+          })
+        } else if (this.msg === 'passwordError'){
+          this.$message({
+            type: 'error',
+            message: '密码不正确'
+          })
+          console.log('111111111111')
+         } else if (this.msg === 'systemError') {
+          this.$message({
+            type: 'error',
+            message: '系统错误'
+          })
+        } else {
+          this.$router.push({ path: '/dashboard' })
+          this.loading = true
+        }
       }).catch(error => {
         this.loading = false
       })

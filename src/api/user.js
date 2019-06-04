@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function login(jsonForm) {
   return request({
-    url: '/api/auth/apiLogin',
+    url: '/api/apiLogin',
     method: 'post',
     data: jsonForm
   })
@@ -31,3 +31,18 @@ export function editPassword(data) {
   })
 }
 
+export function getStudentInfo() {
+  return request({
+    url: '/api/student/getStudentBaseicInfoData',
+    method: 'POST',
+    data: {}
+  })
+}
+
+export function setStudentInfo(data) {
+  return request({
+    url: '/api/student/updateStudentBaseicInfo',
+    method: 'POST',
+    data
+  })
+}

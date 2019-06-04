@@ -1,9 +1,9 @@
 <template>
   <div class="app-container">
-    <el-tabs v-model="activeName" type="border-card" @tab-click="handleClick">
+    <el-tabs v-model="activeName" >
       <el-tab-pane name="first" :label="$t('route.baseInformation')">
         <el-form>
-          <table class="content" cellspacing="0" width="100%">
+          <table class="content" cellspacing="10" width="100%">
             <tbody><tr>
               <td align="center" valign="top">
                 <table class="content" cellspacing="0" width="100%">
@@ -19,19 +19,19 @@
                         {{ $t('route.name') }}
                       </td>
                       <td v-if="isEdit" width="25%">
-                        <input v-model="form.name">
+                        <input v-model="form.perName">
                       </td>
                       <td v-else width="25%">
-                        {{ form.name }}
+                        {{ form.perName }}
                       </td>
                       <td width="20%" height="25" align="right" class="form-label">
                         {{ $t('route.englishName') }}
                       </td>
                       <td v-if="isEdit" width="25%">
-                        <input v-model="form.englishName">
+                        <input >
                       </td>
                       <td v-else width="25%">
-                        {{ form.englishName }}
+
                       </td>
                       <td width="20%" rowspan="4">
                         <img src="/cultivate/stuinfo/stuinfo_downloadPhoto_info.do?personId=1030214&amp;photoType=02" height="120" align="middle" border="0" alt="photo">
@@ -42,19 +42,19 @@
                         {{ $t('route.studentNumber') }}
                       </td>
                       <td v-if="isEdit">
-                        <input v-model="form.studentNumber">
+                        <input v-model="form.perNum">
                       </td>
                       <td v-else width="20%">
-                        {{ form.studentNumber }}
+                        {{ form.perNum }}
                       </td>
                       <td height="25" width="15%" align="right" class="form-label">
                         {{ $t('route.sex') }}
                       </td>
                       <td v-if="isEdit" width="25%">
-                        <input v-model="form.sex">
+                        <input >
                       </td>
                       <td v-else width="25%">
-                        {{ form.sex }}
+
                       </td>
                     </tr>
                     <tr>
@@ -62,19 +62,19 @@
                         {{ $t('route.date') }}
                       </td>
                       <td v-if="isEdit" width="20%">
-                        <el-date-picker v-model="form.date" type="date" value-format="yyyy-MM-dd" placeholder="选择日期" :picker-options="pickerOptionsStart" style="margin-right: 10px;" @change="startTimeStatus" />
+                        <el-date-picker  type="date" value-format="yyyy-MM-dd" placeholder="chooseBirthDate"  style="margin-right: 10px; " @change="startTimeStatus" />
                       </td>
                       <td v-else width="20%">
-                        {{ form.date }}
+
                       </td>
                       <td height="25" width="15%" align="right" class="form-label">
                         {{ $t('route.nationality') }}
                       </td>
                       <td v-if="isEdit" width="25%">
-                        <input v-model="form.nationality">
+                        <input >
                       </td>
                       <td v-else width="25%">
-                        {{ form.nationality }}
+
                       </td>
                     </tr>
                     <tr>
@@ -82,19 +82,16 @@
                         {{ $t('route.ID') }}
                       </td>
                       <td v-if="isEdit" width="25%">
-                        <input v-model="form.ID">
                       </td>
                       <td v-else width="25%">
-                        {{ form.ID }}
                       </td>
                       <td width="15%" height="25" align="right" class="form-label">
                         {{ $t('route.religion') }}
                       </td>
                       <td v-if="isEdit" width="25%">
-                        <input v-model="form.religion">
+                        <input >
                       </td>
                       <td v-else width="25%">
-                        {{ form.religion }}
                       </td>
                     </tr>
                   </tbody></table>
@@ -110,19 +107,17 @@
                         {{ $t('route.contact') }}
                       </td>
                       <td v-if="isEdit">
-                        <input v-model="form.contactNumber">
+                        <input >
                       </td>
                       <td v-else>
-                        {{ form.contactNumber }}
                       </td>
                       <td height="25" align="right" width="20%" class="form-label">
                         {{ $t('route.phone') }}
                       </td>
                       <td v-if="isEdit">
-                        <input v-model="form.phone">
+                        <input >
                       </td>
                       <td v-else>
-                        {{ form.phone }}
                       </td>
                     </tr>
                     <tr>
@@ -130,19 +125,19 @@
                         {{ $t('route.qq') }}
                       </td>
                       <td v-if="isEdit">
-                        <input v-model="form.qq">
+                        <input >
                       </td>
                       <td v-else>
-                        {{ form.qq }}
+
                       </td>
                       <td height="25" align="right" class="form-label">
                         {{ $t('route.wechat') }}
                       </td>
                       <td v-if="isEdit">
-                        <input v-model="form.wechat">
+                        <input >
                       </td>
                       <td v-else>
-                        {{ form.wechat }}
+
                       </td>
                     </tr>
                     <tr>
@@ -150,9 +145,9 @@
                         {{ $t('route.email') }}
                       </td>
                       <td v-if="isEdit" height="25" colspan="3">
-                        <input v-model="form.email">
+                        <input v-model="form.email" style="width: 30%">
                       </td>
-                      <td v-else height="25" colspan="3">
+                      <td v-else height="25" colspan="3" >
                         {{ form.email }}
                       </td>
                     </tr>
@@ -160,11 +155,10 @@
                       <td height="25" align="right" class="form-label">
                         {{ $t('route.remark') }}
                       </td>
-                      <td v-if="isEdit" height="40" colspan="3">
-                        <input v-model="form.remark">
+                      <td v-if="isEdit" height="40" colspan="3" >
+                        <input  style="width: 50%">
                       </td>
                       <td v-else height="25" colspan="3">
-                        {{ form.remark }}
                       </td>
                     </tr>
                     <tr>
@@ -182,296 +176,731 @@
         </el-form>
       </el-tab-pane>
       <el-tab-pane :label="$t('route.cultivationInformation')" name="second">
-        <el-row>
-          <el-col :span="24"><div class="grid-content bg-purple row-jz">
-            学生培养信息
-          </div>
-          </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">学生类型</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <el-select v-model="value" disabled placeholder="外籍博士" size="medium" class="el-w">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz">
-            外籍博士</div></el-col>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">所属院系</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <el-select v-model="value" disabled placeholder="007-政治学与公共管理学院" size="medium" class="el-w">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz">
-            007-政治学与公共管理学院</div></el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">培养方式</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <el-select v-model="value" placeholder="请选择" size="medium" class="el-w">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz">
-            非定向</div></el-col>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">所属专业</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <el-select v-model="value" disabled placeholder="007-政治学与公共管理学院" size="medium" class="el-w">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz">
-            03026-国际政治</div></el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">学习方式</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <el-select v-model="value" placeholder="请选择" size="medium" class="el-w">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">委托培养或定向单位</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">入学年月</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <el-date-picker v-model="form.date" type="date" value-format="yyyy-MM-dd" placeholder="选择日期" style="width: 100%;  height: 2em; " @change="startTimeStatus" />
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">预计离校时间</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <el-date-picker v-model="form.date" type="date" value-format="yyyy-MM-dd" placeholder="选择日期" style="width: 100%;  height: 2em; " @change="startTimeStatus" />
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">外语水平</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">准考证号</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">健康状况</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">有何特长</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">经济状况</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">本人经济来源</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">年级</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <el-select v-model="value" placeholder="请选择" size="medium" class="el-w">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">导师</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">学习地点</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <el-select v-model="value" placeholder="请选择" size="medium" class="el-w">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">在学状态</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <el-select v-model="value" disabled placeholder="请选择" size="medium" class="el-w">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">所在班级</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <el-select v-model="value" placeholder="请选择" size="medium" class="el-w">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">所属校区</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <el-select v-model="value" disabled placeholder="请选择" size="medium" class="el-w">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">学制</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <input v-model="form.name" style="width: 100%;  height: 2.2em; ">
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">研究方向</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <el-select v-model="value" placeholder="请选择" size="medium" class="el-w">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">二级培养单位</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <el-select v-model="value" disabled placeholder="请选择" size="medium" class="el-w">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">三级培养单位</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <el-select v-model="value" disabled placeholder="请选择" size="medium" class="el-w">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">是否华侨</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light row-jz">
-            <el-radio v-model="radio" label="1">是</el-radio>
-            <el-radio v-model="radio" label="2">否</el-radio>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">是否英烈子女</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light row-jz">
-            <el-radio v-model="radio1" label="1">是</el-radio>
-            <el-radio v-model="radio1" label="2">否</el-radio>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">是否有学籍</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light row-jz">
-            <el-radio v-model="radio2" label="1">是</el-radio>
-            <el-radio v-model="radio2" label="2">否</el-radio>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz" /></el-col>
-          <el-col :span="6"><div class="grid-content bg-purple row-jz">上课时间</div></el-col>
-          <el-col v-if="isEdit2" :span="6"><div class="grid-content bg-purple-light">
-            <el-select v-model="value" disabled placeholder="正常" size="medium" class="el-w">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div></el-col>
-          <el-col v-else :span="6"><div class="grid-content bg-purple-light row-jz">
-            正常</div></el-col>
-        </el-row>
-        <el-button v-if="!isEdit2" type="primary" name="modifyIt" class="submitbutton " style="display:block;margin:0 auto" @click="edit2">{{ $t('route.modify') }}</el-button>
-        <el-button v-else type="success" name="modifyIt" class="submitbutton" style="display:block;margin:0 auto" @click="save2">{{ $t('route.save') }}</el-button>
+        <table class="content" cellspacing="0" width="100%">
+          <tbody><tr>
+            <td height="300" colspan="8" align="center" valign="top">
+              <table class="content" cellspacing="0" width="100%">
+                <tbody><tr>
+                  <td class="head"  colspan="4">
+                    <div align="center">
+                      学生培养信息
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td  align="right" width="25%">
+                    学生类型
+                  </td>
+                  <td v-if="isEdit2" width="25%">
+                    <el-select v-model="value" disabled placeholder="外籍博士" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else width="25%">
+                    外籍博士
+                  </td>
+                  <td  align="right" width="25%">
+                    所属院系
+                  </td>
+                  <td v-if="isEdit2" width="25%">
+                    <el-select v-model="value" disabled placeholder="微生物技术国家重点实验室" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else width="25%">
+                    微生物技术国家重点实验室
+                  </td>
+                </tr>
+                <tr>
+                  <td  align="right">
+                    培养方式
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  placeholder="非定向" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                    非定向
+                  </td>
+                  <td  align="right">
+                    所属专业
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value" disabled placeholder="071005-微生物学" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                    071005-微生物学
+                  </td>
+                </tr>
+                <tr>
+                  <td  align="right">
+                    学习方式
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value" disabled placeholder="半脱产" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                    半脱产
+                  </td>
+                  <td >
+                    委托培养或定向单位
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input  >
+                  </td>
+                  <td v-else>
+                  </td>
+                </tr>
+                <tr>
+                  <td   >
+                    入学年月
+                  </td>
+                  <td v-if="isEdit2" >
+                    <el-date-picker v-model="form.date" type="date" value-format="yyyy-MM-dd" placeholder="选择日期" size="mini" style="width: 80%; " @change="startTimeStatus" />
+                  </td>
+                  <td v-else >
+                    2015-09-01
+                  </td>
+                  <td  >
+                    预计离校时间
+                  </td>
+                  <td v-if="isEdit2" >
+                    <el-date-picker v-model="form.date" type="date" value-format="yyyy-MM-dd" placeholder="选择日期" size="mini" style="width: 80%; " @change="startTimeStatus" />
+                  </td>
+                  <td v-else >
+                    1997-09-01
+                  </td>
+                </tr>
+                <tr>
+                  <td >
+                    外语水平
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input  >
+                  </td>
+                  <td v-else>
+                  </td>
+                  <td >
+                    准考证号
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input  >
+                  </td>
+                  <td v-else>
+                  </td>
+                </tr>
+                <tr>
+                  <td >
+                    健康状况
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input  >
+                  </td>
+                  <td v-else>
+                  </td>
+                  <td>
+                    有何特长
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input  >
+                  </td>
+                  <td v-else>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    经济状况
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input  >
+                  </td>
+                  <td v-else>
+                  </td>
+                  <td >
+                    本人经济来源
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input  >
+                  </td>
+                  <td v-else>
+                  </td>
+                </tr>
+                <tr>
+                  <td >
+                    年级
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  placeholder="半脱产" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                    2015
+                  </td>
+                  <td  >
+                    导师
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input   :disabled="true"  >
+                  </td>
+                  <td v-else>
+                    史玉龙
+                  </td>
+                </tr>
+                <tr>
+                  <td  >
+                    学习地点
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  placeholder="" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                  </td>
+                  <td  >
+                    在学状态
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  placeholder="" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                    在学
+                  </td>
+                </tr>
+                <tr>
+                  <td >
+                    所在班级
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  placeholder="" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                  </td>
+                  <td  >
+                    所属校区
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  placeholder="" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                  </td>
+                </tr>
+                <tr>
+                  <td >
+                    学制
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input  >
+                  </td>
+                  <td v-else>
+                  </td>
+                  <td >
+                    研究方向
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  placeholder="" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                  </td>
+                </tr>
+                <tr>
+                  <td >
+                    二级培养单位
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  disabled placeholder="" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                  </td>
+                  <td  >
+                    三级培养单位
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  disabled placeholder="" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                  </td>
+                </tr>
+                <tr>
+                  <td >
+                    是否有学籍
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-radio v-model="radio2" label="1">是</el-radio>
+                    <el-radio v-model="radio2" label="2">否</el-radio>
+                  </td>
+                  <td v-else>
+                    是
+                  </td>
+                  <td >
+                    上课时间
+                  </td>
+                  <td >
+                    正常
+                  </td>
+                </tr>
+                <tr>
+                  <td  colspan="4">
+                    <div align="center">
+                      <el-button v-if="!isEdit2" type="primary" name="modifyIt" class="submitbutton " style="display:block;margin:0 auto" @click="edit2">{{ $t('route.modify') }}</el-button>
+                      <el-button v-else type="success" name="modifyIt" class="submitbutton" style="display:block;margin:0 auto" @click="save2">{{ $t('route.save') }}</el-button>
+                    </div>
+                  </td>
+                </tr>
+                </tbody></table>
+            </td>
+          </tr>
+          </tbody></table>
       </el-tab-pane>
-      <el-tab-pane :label="$t('route.beforeSchool')" name="third" />
+      <el-tab-pane :label="$t('route.beforeSchool')" name="third" >
+        <table class="content" cellspacing="0" width="100%">
+          <tbody><tr>
+            <td height="300" colspan="8" align="center" valign="top">
+              <table class="content" cellspacing="0" width="100%">
+                <tbody><tr>
+                  <td class="head"  colspan="4">
+                    <div align="center">
+                      学生培养信息
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td  align="right" width="25%">
+                    学生类型
+                  </td>
+                  <td v-if="isEdit2" width="25%">
+                    <el-select v-model="value" disabled placeholder="外籍博士" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else width="25%">
+                    外籍博士
+                  </td>
+                  <td  align="right" width="25%">
+                    所属院系
+                  </td>
+                  <td v-if="isEdit2" width="25%">
+                    <el-select v-model="value" disabled placeholder="微生物技术国家重点实验室" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else width="25%">
+                    微生物技术国家重点实验室
+                  </td>
+                </tr>
+                <tr>
+                  <td  align="right">
+                    培养方式
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  placeholder="非定向" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                    非定向
+                  </td>
+                  <td  align="right">
+                    所属专业
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value" disabled placeholder="071005-微生物学" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                    071005-微生物学
+                  </td>
+                </tr>
+                <tr>
+                  <td  align="right">
+                    学习方式
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value" disabled placeholder="半脱产" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                    半脱产
+                  </td>
+                  <td >
+                    委托培养或定向单位
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input  >
+                  </td>
+                  <td v-else>
+                  </td>
+                </tr>
+                <tr>
+                  <td   >
+                    入学年月
+                  </td>
+                  <td v-if="isEdit2" >
+                    <el-date-picker v-model="form.date" type="date" value-format="yyyy-MM-dd" placeholder="选择日期" size="mini" style="width: 80%; " @change="startTimeStatus" />
+                  </td>
+                  <td v-else >
+                    2015-09-01
+                  </td>
+                  <td  >
+                    预计离校时间
+                  </td>
+                  <td v-if="isEdit2" >
+                    <el-date-picker v-model="form.date" type="date" value-format="yyyy-MM-dd" placeholder="选择日期" size="mini" style="width: 80%; " @change="startTimeStatus" />
+                  </td>
+                  <td v-else >
+                    1997-09-01
+                  </td>
+                </tr>
+                <tr>
+                  <td >
+                    外语水平
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input  >
+                  </td>
+                  <td v-else>
+                  </td>
+                  <td >
+                    准考证号
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input  >
+                  </td>
+                  <td v-else>
+                  </td>
+                </tr>
+                <tr>
+                  <td >
+                    健康状况
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input  >
+                  </td>
+                  <td v-else>
+                  </td>
+                  <td>
+                    有何特长
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input  >
+                  </td>
+                  <td v-else>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    经济状况
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input  >
+                  </td>
+                  <td v-else>
+                  </td>
+                  <td >
+                    本人经济来源
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input  >
+                  </td>
+                  <td v-else>
+                  </td>
+                </tr>
+                <tr>
+                  <td >
+                    年级
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  placeholder="半脱产" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                    2015
+                  </td>
+                  <td  >
+                    导师
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input   :disabled="true"  >
+                  </td>
+                  <td v-else>
+                    史玉龙
+                  </td>
+                </tr>
+                <tr>
+                  <td  >
+                    学习地点
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  placeholder="" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                  </td>
+                  <td  >
+                    在学状态
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  placeholder="" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                    在学
+                  </td>
+                </tr>
+                <tr>
+                  <td >
+                    所在班级
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  placeholder="" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                  </td>
+                  <td  >
+                    所属校区
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  placeholder="" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                  </td>
+                </tr>
+                <tr>
+                  <td >
+                    学制
+                  </td>
+                  <td v-if="isEdit2" >
+                    <input  >
+                  </td>
+                  <td v-else>
+                  </td>
+                  <td >
+                    研究方向
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  placeholder="" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                  </td>
+                </tr>
+                <tr>
+                  <td >
+                    二级培养单位
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  disabled placeholder="" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                  </td>
+                  <td  >
+                    三级培养单位
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-select v-model="value"  disabled placeholder="" size="mini" class="el-w">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      />
+                    </el-select>
+                  </td>
+                  <td v-else>
+                  </td>
+                </tr>
+                <tr>
+                  <td >
+                    是否有学籍
+                  </td>
+                  <td v-if="isEdit2">
+                    <el-radio v-model="radio2" label="1">是</el-radio>
+                    <el-radio v-model="radio2" label="2">否</el-radio>
+                  </td>
+                  <td v-else>
+                    是
+                  </td>
+                  <td >
+                    上课时间
+                  </td>
+                  <td >
+                    正常
+                  </td>
+                </tr>
+                <tr>
+                  <td  colspan="4">
+                    <div align="center">
+                      <el-button v-if="!isEdit2" type="primary" name="modifyIt" class="submitbutton " style="display:block;margin:0 auto" @click="edit2">{{ $t('route.modify') }}</el-button>
+                      <el-button v-else type="success" name="modifyIt" class="submitbutton" style="display:block;margin:0 auto" @click="save2">{{ $t('route.save') }}</el-button>
+                    </div>
+                  </td>
+                </tr>
+                </tbody></table>
+            </td>
+          </tr>
+          </tbody></table>
+      </el-tab-pane>
     </el-tabs>
-
   </div>
 </template>
 
 <script>
+  import { getStudentInfo , setStudentInfo } from '@/api/user'
 export default {
   data() {
     return {
@@ -487,39 +916,40 @@ export default {
       }
       ],
       form: {
-        name: '',
-        englishName: '',
-        studentNumber: '',
-        religion: '',
-        sex: '',
-        date: '',
-        ID: '',
-        nationality: '',
-        contactNumber: '',
-        phone: '',
-        qq: '',
-        wechat: '',
-        email: '',
-        remark: ''
+        perNum: '',
+        perName: '',
+        collegeName: '',
+        collegeName1: '',
+        collegeName2: '',
+        stuTypeCode: '',
+        majorName: '',
+        mobilePhone: '',
+        email: ''
       }
     }
   },
+  created() {
+    this.fetchData()
+  },
   methods: {
-    // fetchData() {
-    //   this.listLoading = true
-    //   getMessageTemplateList().then(response => {
-    //     this.list = response.data
-    //   })
-    //   this.listLoading = false
-    // },
+    fetchData() {
+      getStudentInfo().then(res => {
+        console.log(res)
+        this.form = res.data
+      })
+    },
     save() {
       this.isEdit = false
+      setStudentInfo(this.form).then(res=>{
+      }).catch(e=>{
+      })
     },
     startTimeStatus: function(value) {
       this.form.date = value
     },
     edit() {
       this.isEdit = true
+
     },
     save2() {
       this.isEdit2 = false
@@ -534,10 +964,11 @@ export default {
 
 <style scoped>
   td{
-    height: 2.5em;
+
+    height: 2.3em;
     padding:5px;
     text-align: center;
-    border:1px solid black;
+    border:1px solid #99a9bf;
   }
   td input{
     box-sizing: border-box;
@@ -589,6 +1020,6 @@ export default {
     display: flex;align-items: center;justify-content: center;
   }
   .el-w{
-    width: 100%;
+    width: 80%;
   }
 </style>
