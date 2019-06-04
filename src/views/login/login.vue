@@ -106,7 +106,7 @@ export default {
           this.loading = true
         }
       }).catch(error => {
-        this.loading = false
+         this.loading = false
       })
     }
   }
