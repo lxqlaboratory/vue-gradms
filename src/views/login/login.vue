@@ -175,7 +175,6 @@ export default {
         text-align: left;
       }
     }
-
     .login-bottom{
       color: white;
       font-size: 13px;
@@ -199,7 +198,6 @@ export default {
       padding: 2vh 0 2vh 15%;
       margin-bottom: 2px;
     }
-
     .main-content {
       position: relative;
        min-height: 30vw;
@@ -225,7 +223,6 @@ export default {
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.14);
         }
       }
-
     }
 
 </style>

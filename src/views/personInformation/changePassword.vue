@@ -17,7 +17,6 @@
     </el-form>
   </div>
 </template>
-
 <script>
   import { editPassword } from '@/api/user'
 const Base64 = require('js-base64').Base64
@@ -76,9 +75,6 @@ export default {
         ]
       }
     }
-  },
-  created() {
-    this.submitForm()
   },
   methods: {
     submitForm() {
