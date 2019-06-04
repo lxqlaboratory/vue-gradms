@@ -96,7 +96,7 @@ export default {
         } else {
           this.$message({
             type: 'sucess',
-            message: '用户不存在'
+            message: '修改成功'
           })
         }
       }).catch(e => {
