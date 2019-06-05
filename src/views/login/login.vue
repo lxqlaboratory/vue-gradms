@@ -95,18 +95,18 @@ export default {
         if (this.msg === 'userNoExist'){
           this.$message({
             type: 'error',
-            message: '用户不存在'
+            message: 'userNoExist'
           })
         } else if (this.msg === 'passwordError'){
           this.$message({
             type: 'error',
-            message: '密码不正确'
+            message: 'passwordError'
           })
           console.log('111111111111')
          } else if (this.msg === 'systemError') {
           this.$message({
             type: 'error',
-            message: '系统错误'
+            message: 'systemError'
           })
         } else {
           this.$router.push({ path: '/dashboard' })

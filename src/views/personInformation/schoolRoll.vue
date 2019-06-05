@@ -504,350 +504,194 @@
           </tbody></table>
       </el-tab-pane>
       <el-tab-pane :label="$t('route.beforeSchool')" name="third">
-        <table class="content" cellspacing="0" width="100%">
-          <tbody><tr>
-            <td height="300" colspan="8" align="center" valign="top">
-              <table class="content" cellspacing="0" width="100%">
-                <tbody><tr>
-                         <td class="head" colspan="4">
-                           <div align="center">
-                             学生培养信息
-                           </div>
-                         </td>
-                       </tr>
-                  <tr>
-                    <td align="right" width="25%">
-                      学生类型
-                    </td>
-                    <td v-if="isEdit2" width="25%">
-                      <el-select v-model="value" disabled placeholder="外籍博士" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else width="25%">
-                      外籍博士
-                    </td>
-                    <td align="right" width="25%">
-                      所属院系
-                    </td>
-                    <td v-if="isEdit2" width="25%">
-                      <el-select v-model="value" disabled placeholder="微生物技术国家重点实验室" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else width="25%">
-                      微生物技术国家重点实验室
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="right">
-                      培养方式
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" placeholder="非定向" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else>
-                      非定向
-                    </td>
-                    <td align="right">
-                      所属专业
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" disabled placeholder="071005-微生物学" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else>
-                      071005-微生物学
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="right">
-                      学习方式
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" disabled placeholder="半脱产" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else>
-                      半脱产
-                    </td>
-                    <td>
-                      委托培养或定向单位
-                    </td>
-                    <td v-if="isEdit2">
-                      <input>
-                    </td>
-                    <td v-else />
-                  </tr>
-                  <tr>
-                    <td>
-                      入学年月
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-date-picker v-model="form.date" type="date" value-format="yyyy-MM-dd" placeholder="选择日期" size="mini" style="width: 80%; " @change="startTimeStatus" />
-                    </td>
-                    <td v-else>
-                      2015-09-01
-                    </td>
-                    <td>
-                      预计离校时间
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-date-picker v-model="form.date" type="date" value-format="yyyy-MM-dd" placeholder="选择日期" size="mini" style="width: 80%; " @change="startTimeStatus" />
-                    </td>
-                    <td v-else>
-                      1997-09-01
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      外语水平
-                    </td>
-                    <td v-if="isEdit2">
-                      <input>
-                    </td>
-                    <td v-else />
-                    <td>
-                      准考证号
-                    </td>
-                    <td v-if="isEdit2">
-                      <input>
-                    </td>
-                    <td v-else />
-                  </tr>
-                  <tr>
-                    <td>
-                      健康状况
-                    </td>
-                    <td v-if="isEdit2">
-                      <input>
-                    </td>
-                    <td v-else />
-                    <td>
-                      有何特长
-                    </td>
-                    <td v-if="isEdit2">
-                      <input>
-                    </td>
-                    <td v-else />
-                  </tr>
-                  <tr>
-                    <td>
-                      经济状况
-                    </td>
-                    <td v-if="isEdit2">
-                      <input>
-                    </td>
-                    <td v-else />
-                    <td>
-                      本人经济来源
-                    </td>
-                    <td v-if="isEdit2">
-                      <input>
-                    </td>
-                    <td v-else />
-                  </tr>
-                  <tr>
-                    <td>
-                      年级
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" placeholder="半脱产" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else>
-                      2015
-                    </td>
-                    <td>
-                      导师
-                    </td>
-                    <td v-if="isEdit2">
-                      <input :disabled="true">
-                    </td>
-                    <td v-else>
-                      史玉龙
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      学习地点
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" placeholder="" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else />
-                    <td>
-                      在学状态
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" placeholder="" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else>
-                      在学
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      所在班级
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" placeholder="" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else />
-                    <td>
-                      所属校区
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" placeholder="" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else />
-                  </tr>
-                  <tr>
-                    <td>
-                      学制
-                    </td>
-                    <td v-if="isEdit2">
-                      <input>
-                    </td>
-                    <td v-else />
-                    <td>
-                      研究方向
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" placeholder="" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else />
-                  </tr>
-                  <tr>
-                    <td>
-                      二级培养单位
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" disabled placeholder="" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else />
-                    <td>
-                      三级培养单位
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" disabled placeholder="" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else />
-                  </tr>
-                  <tr>
-                    <td>
-                      是否有学籍
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-radio v-model="radio2" label="1">是</el-radio>
-                      <el-radio v-model="radio2" label="2">否</el-radio>
-                    </td>
-                    <td v-else>
-                      是
-                    </td>
-                    <td>
-                      上课时间
-                    </td>
-                    <td>
-                      正常
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="4">
-                      <div align="center">
-                        <el-button v-if="!isEdit2" type="primary" name="modifyIt" class="submitbutton " style="display:block;margin:0 auto" @click="edit2">{{ $t('route.modify') }}</el-button>
-                        <el-button v-else type="success" name="modifyIt" class="submitbutton" style="display:block;margin:0 auto" @click="save2">{{ $t('route.save') }}</el-button>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody></table>
-            </td>
-          </tr>
-          </tbody></table>
+        <tbody><tr>
+          <td  height="30" colspan="4">
+            <div align="center">
+              入学前信息显示
+            </div>
+          </td>
+        </tr>
+        <tr >
+          <td height="25" colspan="4" >
+            本科阶段
+          </td>
+        </tr>
+        <tr>
+          <td width="20%" height="25" >
+            本科毕业类别
+          </td>
+          <td width="20%">
+            本科毕业
+          </td>
+          <td width="23%" height="25" >
+            本科毕业专业
+          </td>
+          <td width="20%">
+            生物化学
+          </td>
+        </tr>
+        <tr>
+          <td >
+            本科毕业学校
+          </td>
+          <td >
+            境外教育机构
+          </td>
+          <td  >
+            本科毕业年月
+          </td>
+          <td >
+            1998-05-25
+          </td>
+        </tr>
+        <tr>
+          <td width="20%" height="25" align="left">
+            本科毕业院系
+          </td>
+          <td width="30%">
+            college of education
+          </td>
+          <td width="20%" height="25" align="left">
+            本科论文题目
+          </td>
+          <td width="30%">
+            none
+          </td>
+        </tr>
+        <tr>
+          <td width="20%" height="25" align="left">
+            学士学位
+          </td>
+          <td width="30%">
+            理学
+          </td>
+          <td width="20%" height="25" align="left">
+            学士学位专业
+          </td>
+          <td colspan="3">
+            生物化学
+          </td>
+        </tr>
+        <tr>
+          <td width="20%" height="25" align="left">
+            学士学科门类
+          </td>
+          <td width="30%">
+            理学
+          </td>
+          <td width="20%" height="25" align="left">
+            学士学位授予单位
+          </td>
+          <td width="30%">
+            境外教育机构
+          </td>
+        </tr>
+        <tr>
+          <td width="20%" height="25" align="left">
+            获取学士学位年月
+          </td>
+          <td width="30%">
+            1998-05-25
+          </td>
+        </tr>
+        <tr class="white">
+          <td height="25" colspan="4">
+            硕士阶段
+          </td>
+        </tr>
+        <tr>
+          <td width="20%" height="25" align="left">
+            硕士毕业类别
+          </td>
+          <td width="30%">
+            硕士毕业
+          </td>
+          <td width="20%" height="25" align="left">
+            硕士毕业专业
+          </td>
+          <td width="30%">
+            微生物学
+          </td>
+        </tr>
+        <tr>
+          <td width="20%" height="25" align="left">
+            硕士毕业学校
+          </td>
+          <td width="30%">
+            境外教育机构
+          </td>
+          <td width="20%" height="25" align="left">
+            硕士毕业年月
+          </td>
+          <td width="30%">
+            2007-06-11
+          </td>
+        </tr>
+        <tr>
+          <td width="20%" height="25" align="left">
+            硕士毕业院系
+          </td>
+          <td width="30%">
+            veterinary medicine
+          </td>
+          <td width="20%" height="25" align="left">
+            硕士论文题目
+          </td>
+          <td width="30%">
+            Isolation of pathogenic dermatophytes
+          </td>
+        </tr>
+        <tr>
+          <td width="20%" height="25" align="left">
+            硕士学位
+          </td>
+          <td width="30%">
+            理学
+          </td>
+          <td width="20%" height="25" align="left">
+            获硕士学位专业
+          </td>
+          <td colspan="3">
+            微生物学
+          </td>
+        </tr>
+        <tr>
+          <td width="20%" height="25" align="left">
+            硕士学科门类
+          </td>
+          <td width="30%">
+            理学
+          </td>
+          <td width="20%" height="25" align="left">
+            硕士学位授予单位
+          </td>
+          <td width="30%">
+            境外教育机构
+          </td>
+        </tr>
+        <tr>
+          <td width="20%" height="25" align="left">
+            获取硕士学位年月
+          </td>
+          <td width="30%">
+            2007-06-11
+          </td>
+        </tr>
+        <tr>
+          <td height="25" align="right">
+            备注
+          </td>
+          <td colspan="3">
+          </td>
+        </tr>
+        <tr>
+          <td height="28" colspan="4">
+            <div align="center">
+              <input type="submit" name="submit" value="修改" class="button">
+            </div>
+          </td>
+        </tr>
+        </tbody>
       </el-tab-pane>
     </el-tabs>
   </div>
