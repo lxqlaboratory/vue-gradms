@@ -2,7 +2,7 @@
 
   <el-dropdown trigger="click" class="international" @command="handleSetLanguage">
     <div>
-      <svg-icon class-name="international-icon" icon-class="language" /><span style="margin-left: 8px;color: #409EFF">{{ $t('base.curLanguage') }}:{{ showLanguage }}</span>
+      <svg-icon class-name="international-icon" icon-class="language1" /><span style="font-size:18px;color:white;margin-left: 8px">{{ $t('base.curLanguage') }}:{{ showLanguage }}</span>
     </div>
     <el-dropdown-menu slot="dropdown">
       <el-dropdown-item :disabled="language==='zh'" command="zh">中文</el-dropdown-item>
