@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-tabs v-model="activeName">
-      <el-tab-pane name="first" :label="$t('route.baseInformation')">
+      <el-tab-pane name="first" :label="$t('baseInformationModal.baseInformation')">
         <el-form>
           <table class="content" cellspacing="10" width="100%">
             <tbody><tr>
@@ -10,13 +10,13 @@
                   <tbody><tr>
                            <td class="head" height="25" colspan="5">
                              <div align="center" class="form-label">
-                               {{ $t('route.personalInformation') }}
+                               {{ $t('baseInformationModal.personalInformation') }}
                              </div>
                            </td>
                          </tr>
                     <tr>
                       <td width="15%" height="25" align="right" class="form-label">
-                        {{ $t('route.name') }}
+                        {{ $t('baseInformationModal.name') }}
                       </td>
                       <td v-if="isEdit" width="25%">
                         <input  v-model="list.perName" :disabled="true">
@@ -25,7 +25,7 @@
                         {{ list.perName }}
                       </td>
                       <td width="20%" height="25" align="right" class="form-label">
-                        {{ $t('route.englishName') }}
+                        {{ $t('baseInformationModal.englishName') }}
                       </td>
                       <td v-if="isEdit" width="25%">
                         <input v-model="list.perEnglishName" >
@@ -39,7 +39,7 @@
                     </tr>
                     <tr>
                       <td height="25" width="15%" align="right" class="form-label">
-                        {{ $t('route.studentNumber') }}
+                        {{ $t('baseInformationModal.studentNumber') }}
                       </td>
                       <td v-if="isEdit">
                         <input v-model="list.perNum" :disabled="true">
@@ -48,7 +48,7 @@
                         {{ list.perNum }}
                       </td>
                       <td height="25" width="15%" align="right" class="form-label">
-                        {{ $t('route.sex') }}
+                        {{ $t('baseInformationModal.sex') }}
                       </td>
                       <td v-if="isEdit" width="25%">
                         <el-radio disabled v-model="list.genderCode" label="1">men</el-radio>
@@ -60,7 +60,7 @@
                     </tr>
                     <tr>
                       <td height="25" width="15%" align="right" class="form-label">
-                        {{ $t('route.date') }}
+                        {{ $t('baseInformationModal.date') }}
                       </td>
                       <td v-if="isEdit" width="20%">
                         <input v-model="list.perBirthday" :disabled="true">
@@ -69,7 +69,7 @@
                         {{list.perBirthday}}
                       </td>
                       <td height="25" width="15%" align="right" class="form-label">
-                        {{ $t('route.nationality') }}
+                        {{ $t('baseInformationModal.nationality') }}
                       </td>
                       <td v-if="isEdit" width="25%">
                         <input v-model="list.nationName" >
@@ -80,7 +80,7 @@
                     </tr>
                     <tr>
                       <td height="25" width="15%" class="form-label">
-                        {{ $t('route.ID') }}
+                        {{ $t('baseInformationModal.ID') }}
                       </td>
                       <td v-if="isEdit" width="25%" >
                         <input v-model="list.perIdCard" >
@@ -89,10 +89,17 @@
                         {{list.perIdCard}}
                       </td>
                       <td width="15%" height="25" align="right" class="form-label">
-                        {{ $t('route.religion') }}
+                        {{ $t('baseInformationModal.religion') }}
                       </td>
                       <td v-if="isEdit" width="25%">
-                        <input v-model="list.religion">
+                        <el-select v-model="list.religion"  placeholder="please choose" size="mini" class="el-w">
+                          <el-option
+                            v-for="item in list.zjxy"
+                            :key="item.filterKey"
+                            :label="item.label"
+                            :value="item.label"
+                          />
+                        </el-select>
                       </td>
                       <td v-else width="25%" >
                       {{list.religion}}
@@ -103,12 +110,12 @@
                   <tbody>
                     <tr>
                       <td height="25" colspan="4" class="form-label">
-                        {{ $t('route.person') }}
+                        {{ $t('baseInformationModal.person') }}
                       </td>
                     </tr>
                     <tr>
                       <td height="25" align="right" width="20%" class="form-label">
-                        {{ $t('route.contact') }}
+                        {{ $t('baseInformationModal.contact') }}
                       </td>
                       <td v-if="isEdit">
                         <input v-model="list.perTelephone">
@@ -117,7 +124,7 @@
                       {{list.perTelephone}}
                       </td>
                       <td height="25" align="right" width="20%" class="form-label">
-                        {{ $t('route.phone') }}
+                        {{ $t('baseInformationModal.phone') }}
                       </td>
                       <td v-if="isEdit">
                         <input v-model="list.mobilePhone">
@@ -128,7 +135,7 @@
                     </tr>
                     <tr>
                       <td height="25" align="right" class="form-label">
-                        {{ $t('route.qq') }}
+                        {{ $t('baseInformationModal.qq') }}
                       </td>
                       <td v-if="isEdit">
                         <input v-model="list.qq">
@@ -137,7 +144,7 @@
                       {{list.qq}}
                       </td>
                       <td height="25" align="right" class="form-label">
-                        {{ $t('route.wechat') }}
+                        {{ $t('baseInformationModal.wechat') }}
                       </td>
                       <td v-if="isEdit">
                         <input v-model="list.wechat">
@@ -148,7 +155,7 @@
                     </tr>
                     <tr>
                       <td height="25" class="form-label" align="right">
-                        {{ $t('route.email') }}
+                        {{ $t('baseInformationModal.email') }}
                       </td>
                       <td v-if="isEdit" height="25" colspan="3">
                         <input v-model="list.email" style="width: 30%">
@@ -159,7 +166,7 @@
                     </tr>
                     <tr>
                       <td height="25" align="right" class="form-label">
-                        {{ $t('route.remark') }}
+                        {{ $t('baseInformationModal.remark') }}
                       </td>
                       <td v-if="isEdit" height="40" colspan="3">
                         <input style="width: 50%" v-model="list.remark"  >
@@ -181,7 +188,6 @@
             </tr>
             </tbody></table>
           <a href="/gradms/api/student/printStudyProve"  download="k.pdf" >download PDF</a>
-
           <el-upload
             name="file"
             drag
@@ -195,7 +201,7 @@
 
         </el-form>
       </el-tab-pane>
-      <el-tab-pane :label="$t('route.cultivationInformation')" name="second">
+      <el-tab-pane :label="$t('baseInformationModal.cultivationInformation')" name="second">
         <table class="content" cellspacing="0" width="100%">
           <tbody><tr>
             <td height="300" colspan="8" align="center" valign="top">
@@ -203,13 +209,13 @@
                 <tbody><tr>
                          <td class="head" colspan="4">
                            <div align="center">
-                             学生培养信息
+                             {{$t('cultivationInformationModal.studentCultivationInfo')}}
                            </div>
                          </td>
                        </tr>
                   <tr>
                     <td align="right" width="25%">
-                      学生类型
+                      {{$t('cultivationInformationModal.studentType')}}
                     </td>
                     <td v-if="isEdit2" width="25%">
                       <el-select v-model="value" disabled placeholder="外籍博士" size="mini" class="el-w">
@@ -225,7 +231,7 @@
                       外籍博士
                     </td>
                     <td align="right" width="25%">
-                      所属院系
+                      {{$t('cultivationInformationModal.department')}}
                     </td>
                     <td v-if="isEdit2" width="25%">
                       <el-select v-model="value" disabled placeholder="微生物技术国家重点实验室" size="mini" class="el-w">
@@ -243,7 +249,7 @@
                   </tr>
                   <tr>
                     <td align="right">
-                      培养方式
+                      {{$t('cultivationInformationModal.trainingWay')}}
                     </td>
                     <td v-if="isEdit2">
                       <el-select v-model="value" placeholder="非定向" size="mini" class="el-w">
@@ -259,7 +265,7 @@
                       非定向
                     </td>
                     <td align="right">
-                      所属专业
+                      {{$t('cultivationInformationModal.major')}}
                     </td>
                     <td v-if="isEdit2">
                       <el-select v-model="value" disabled placeholder="071005-微生物学" size="mini" class="el-w">
@@ -276,33 +282,8 @@
                     </td>
                   </tr>
                   <tr>
-                    <td align="right">
-                      学习方式
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" disabled placeholder="半脱产" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else>
-                      半脱产
-                    </td>
                     <td>
-                      委托培养或定向单位
-                    </td>
-                    <td v-if="isEdit2">
-                      <input>
-                    </td>
-                    <td v-else />
-                  </tr>
-                  <tr>
-                    <td>
-                      入学年月
+                      {{$t('cultivationInformationModal.entranceDate')}}
                     </td>
                     <td v-if="isEdit2">
                       <el-date-picker  type="date" value-format="yyyy-MM-dd" placeholder="选择日期" size="mini" style="width: 80%; " @change="startTimeStatus" />
@@ -311,7 +292,7 @@
                       2015-09-01
                     </td>
                     <td>
-                      预计离校时间
+                      {{$t('cultivationInformationModal.dapartTime')}}
                     </td>
                     <td v-if="isEdit2">
                       <el-date-picker  type="date" value-format="yyyy-MM-dd" placeholder="选择日期" size="mini" style="width: 80%; " @change="startTimeStatus" />
@@ -322,30 +303,14 @@
                   </tr>
                   <tr>
                     <td>
-                      外语水平
+                      {{$t('cultivationInformationModal.languageLevel')}}
                     </td>
                     <td v-if="isEdit2">
                       <input>
                     </td>
                     <td v-else />
                     <td>
-                      准考证号
-                    </td>
-                    <td v-if="isEdit2">
-                      <input>
-                    </td>
-                    <td v-else />
-                  </tr>
-                  <tr>
-                    <td>
-                      健康状况
-                    </td>
-                    <td v-if="isEdit2">
-                      <input>
-                    </td>
-                    <td v-else />
-                    <td>
-                      有何特长
+                      {{$t('cultivationInformationModal.examNo')}}
                     </td>
                     <td v-if="isEdit2">
                       <input>
@@ -354,23 +319,7 @@
                   </tr>
                   <tr>
                     <td>
-                      经济状况
-                    </td>
-                    <td v-if="isEdit2">
-                      <input>
-                    </td>
-                    <td v-else />
-                    <td>
-                      本人经济来源
-                    </td>
-                    <td v-if="isEdit2">
-                      <input>
-                    </td>
-                    <td v-else />
-                  </tr>
-                  <tr>
-                    <td>
-                      年级
+                      {{$t('cultivationInformationModal.grade')}}
                     </td>
                     <td v-if="isEdit2">
                       <el-select v-model="value" placeholder="半脱产" size="mini" class="el-w">
@@ -386,7 +335,7 @@
                       2015
                     </td>
                     <td>
-                      导师
+                      {{$t('cultivationInformationModal.tutor')}}
                     </td>
                     <td v-if="isEdit2">
                       <input :disabled="true">
@@ -397,21 +346,7 @@
                   </tr>
                   <tr>
                     <td>
-                      学习地点
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" placeholder="" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else />
-                    <td>
-                      在学状态
+                      {{$t('cultivationInformationModal.studyStatus')}}
                     </td>
                     <td v-if="isEdit2">
                       <el-select v-model="value" placeholder="" size="mini" class="el-w">
@@ -429,7 +364,7 @@
                   </tr>
                   <tr>
                     <td>
-                      所在班级
+                      {{$t('cultivationInformationModal.class')}}
                     </td>
                     <td v-if="isEdit2">
                       <el-select v-model="value" placeholder="" size="mini" class="el-w">
@@ -541,7 +476,7 @@
           </tr>
           </tbody></table>
       </el-tab-pane>
-      <el-tab-pane :label="$t('route.beforeSchool')" name="third">
+      <el-tab-pane :label="$t('baseInformationModal.beforeSchool')" name="third">
         <tbody><tr>
           <td  height="30" colspan="4">
             <div align="center">

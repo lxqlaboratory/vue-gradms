@@ -1,18 +1,18 @@
 <template>
   <div class="app-container">
-    <el-form ref="ruleForm" :model="ruleForm" status-icon :rules="rules" label-width="100px" class="demo-ruleForm">
-      <el-form-item label="旧密码" prop="oldPass">
+    <el-form ref="ruleForm" :model="ruleForm" status-icon :rules="rules" class="demo-ruleForm">
+      <el-form-item :label="$t('modifyPasswordModal.oldPassword')" prop="oldPass">
         <el-input v-model="ruleForm.oldPass" type="password" autocomplete="off" />
       </el-form-item>
-      <el-form-item label="输入新密码" prop="newPass">
+      <el-form-item :label="$t('modifyPasswordModal.inputNewPassword')" prop="newPass">
         <el-input v-model="ruleForm.newPass" type="password" autocomplete="off" />
       </el-form-item>
-      <el-form-item label="重复输入密码" prop="checkPass">
+      <el-form-item :label="$t('modifyPasswordModal.retypePassword')" prop="checkPass">
         <el-input v-model="ruleForm.checkPass" type="password" autocomplete="off" />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm()">提交</el-button>
-        <el-button @click="resetForm('ruleForm')">重置</el-button>
+        <el-button type="primary" @click="submitForm()">{{ $t('route.submit')}}</el-button>
+        <el-button @click="resetForm('ruleForm')">{{ $t('modifyPasswordModal.reset')}}</el-button>
       </el-form-item>
     </el-form>
   </div>
