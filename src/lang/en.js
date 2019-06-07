@@ -11,8 +11,8 @@ export default {
     placeholdUsername: 'please input your username',
     placeholdPassword: 'please input your password',
     loginTitle: 'Login',
-    authenticationLogin: 'Authentication platform login ',
-    manaegerTitle: 'Information Management System for Overseas Graduate Students',
+    authenticationLogin: 'Unified authentication login ',
+    manaegerTitle: 'Information Management System',
     noticeTitle: 'Friendship tips',
     notice1: 'The default password is prefix D (Doctor)/Master (M)+7 digits after the ID number. The letters in the ID number are capital letters.',
     notice2: 'It is recommended to use IE browser or Google browser above 9.0, and 360 browser should choose extreme speed mode'

@@ -1,11 +1,11 @@
 <template>
   <div class="prologin-container">
     <div class="header">
-      <img style="width: 150px;height: 45px;" src="@/assets/login/schoollogo.png">
-      <span style="margin-left:15px;font-size: 16px;font-weight: bold;color: dimgray">{{ $t('login.manaegerTitle') }}</span>
+      <img style="width: 263px;height: 82px;" src="@/assets/login/logo.png">
+      <span style="margin-left:15px;font-size: 36px;font-weight: bold;color: white"></span>
       <span
-        style="margin-left:15px;padding-left:15px;border-left: 1px solid gainsboro;font-size: 16px;font-weight: bold;color: dimgray"
-      >{{ $t('login.loginTitle') }}</span>
+        style="margin-left:15px;padding-left:15px;border-left: 1px solid gainsboro;font-size: 16px;font-weight: bold;color: white"
+      ></span>
       <lang-select style="position: absolute;right: 15%;" />
     </div>
     <div class="main-content">
@@ -19,7 +19,7 @@
               <input v-model="loginForm.password" maxlength="12" :placeholder="$t('login.placeholdPassword')" :type="showPassword?'':'password'" class="login-form-input">
               <el-button
                 type="text"
-                style="position: absolute;top:0;right: 0px;padding-top: 5px;"
+                style="position: absolute;top:0;right: 0px;padding-top: 5px;color: #9b0d14"
                 @click="showPassword=!showPassword"
               >{{ !showPassword?$t('login.showPassword'):$t('login.hidePassword') }}
               </el-button>
@@ -28,19 +28,17 @@
           <div style="width: 100%;">
             <el-row>
               <el-col>
-                <el-button type="primary" style="width: 100%;margin-bottom: 5%" :loading="loading" @click="login">{{ $t('login.loginTitle') }}</el-button>
+                <el-button type="danger" style="width: 100%;margin-bottom: 5%;background: #9b0d14" :loading="loading" @click="login">{{ $t('login.loginTitle') }}</el-button>
               </el-col>
               <el-col>
-                <el-button type="primary" style="width: 100%" :loading="loading" @click="reDirect">{{ $t('login.authenticationLogin') }}</el-button>
+                <el-button type="danger" style="width: 100%;background: #9b0d14" :loading="loading" @click="reDirect">{{ $t('login.authenticationLogin') }}</el-button>
               </el-col>
             </el-row>
-            <div
-              style="display: flex;flex-direction: row;justify-content: space-between;align-items: center;width: 100%;margin-top: 25px;"
-            >
+            <div style="display: flex;flex-direction: row;justify-content: space-between;align-items: center;width: 100%;margin-top: 25px;color:#9b0d14">
               <el-checkbox v-model="ydxy"><span
-                style="font-size: 13px;"
+                style="font-size: 13px;color: #9b0d14"
               >{{ $t('login.rememberPassword') }}</span></el-checkbox>
-              <el-button type="text" style="padding: 0;" @click="toRegister">{{ $t('login.forgetPassword') }}？</el-button>
+              <el-button type="text" style="padding: 0;color: #9b0d14" @click="toRegister">{{ $t('login.forgetPassword') }}？</el-button>
             </div>
           </div>
         </div>
@@ -112,8 +110,9 @@ export default {
           this.$router.push({ path: '/dashboard' })
           this.loading = true
         }
-      }).catch(error => {
+      }).catch(err => {
          this.loading = false
+        console.log(err)
       })
     },
     reDirect() {
@@ -126,6 +125,15 @@ export default {
 
 <style lang="scss" scoped>
   $topicColor:#930E14;
+
+  .el-checkbox__input.is-checked.el-checkbox__inner{
+    background-color: #9b0d14;
+    border-color: #9b0d14;
+  }
+  .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+    background-color: #9b0d14;
+    border-color: #9b0d14;
+  }
 
   .input-form {
     min-height: 100%;
@@ -146,11 +154,11 @@ export default {
 
     &:focus {
       outline: none;
-      border-bottom: 2px solid #409EFF;
+      border-bottom: 2px solid #9b0d14;
     }
   }
 
-  $topcicolor: #059E1F;
+  $topcicolor: #9b0d14;
   .prologin-container {
     width: 100%;
     height: 100%;
@@ -170,7 +178,7 @@ export default {
       .notice-title{
         margin-top: 1vh;
         padding: 5px 15px 5px 15px;
-        border-left: 6px solid #409EFF;
+        border-left: 6px solid #9b0d14;
         font-weight: bold;
         width: 60%;
         text-align: left;
@@ -184,7 +192,7 @@ export default {
       left: 0;
       width: 100%;
       height: 6vh;
-      background-color: #0066b3;
+      background-color: #9b0d14;
       text-align: center;
       line-height: 6vh;
     }
@@ -198,6 +206,7 @@ export default {
       box-shadow:  0px 0px 4px gainsboro;
       padding: 2vh 0 2vh 15%;
       margin-bottom: 2px;
+      background: #9b0d14;
     }
     .main-content {
       position: relative;

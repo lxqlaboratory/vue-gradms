@@ -11,6 +11,7 @@ export default {
     placeholdUsername: '您的学生账户',
     placeholdPassword: '请输入密码',
     loginTitle: '登录',
+    authenticationLogin: '统一认证平台登录',
     manaegerTitle: '留学生研究生信息管理系统',
     noticeTitle: '友情提示',
     notice1: '（1）学生登陆为学生学号，缺省密码为前缀D（博士）/ 硕士（M）+证件号码后7位，证件号码中的字母为大写字母',
