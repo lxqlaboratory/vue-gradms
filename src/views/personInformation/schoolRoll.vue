@@ -218,13 +218,13 @@
                       {{$t('cultivationInformationModal.studentType')}}
                     </td>
                     <td width="25%">
-                      外籍博士
+
                     </td>
                     <td align="right" width="25%" class="form-label">
                       {{$t('cultivationInformationModal.department')}}
                     </td>
                     <td  width="25%">
-                      微生物技术国家重点实验室
+
                     </td>
                   </tr>
                   <tr>
@@ -232,13 +232,13 @@
                       {{$t('cultivationInformationModal.studyStatus')}}
                     </td>
                     <td >
-                      在学
+
                     </td>
                     <td align="right" class="form-label">
                       {{$t('cultivationInformationModal.major')}}
                     </td>
                     <td >
-                      071005-微生物学
+
                     </td>
                   </tr>
                   <tr>
@@ -246,13 +246,13 @@
                       {{$t('cultivationInformationModal.entranceDate')}}
                     </td>
                     <td >
-                      2015-09-01
+
                     </td>
                     <td class="form-label">
                       {{$t('cultivationInformationModal.dapartTime')}}
                     </td>
                     <td >
-                      1997-09-01
+
                     </td>
                   </tr>
                   <tr>
@@ -260,13 +260,13 @@
                       {{$t('cultivationInformationModal.grade')}}
                     </td>
                     <td >
-                      2015
+
                     </td>
                     <td class="form-label">
                       {{$t('cultivationInformationModal.tutor')}}
                     </td>
                     <td >
-                      史玉龙
+
                     </td>
                   </tr>
                   <tr>
@@ -297,7 +297,6 @@
                     <td class="form-label">
                       {{$t('cultivationInformationModal.sedCultivation')}}
                     </td>
-
                     <td ></td>
                     <td class="form-label">
                       {{$t('cultivationInformationModal.thirdCultivation')}}
@@ -494,9 +493,6 @@ export default {
       updateStudentBaseicInfo(this.list).then(res => {
       }).catch(e => {
       })
-    },
-    startTimeStatus: function(value) {
-      this.list.perBirthday = value
     },
     edit() {
       this.isEdit = true
