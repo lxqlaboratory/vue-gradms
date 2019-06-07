@@ -39,6 +39,15 @@ export function getStudentBaseicInfo() {
   })
 }
 
+export function getStudentTrainInfo() {
+  return request({
+    url: '/api/student/getStudentTrainInfoData',
+    method: 'POST',
+    data: {}
+  })
+}
+
+
 export function updateStudentBaseicInfo(data) {
   return request({
     url: '/api/student/updateStudentBaseicInfo',

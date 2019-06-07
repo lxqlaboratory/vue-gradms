@@ -72,7 +72,7 @@
                         {{ $t('baseInformationModal.nationality') }}
                       </td>
                       <td v-if="isEdit" width="25%">
-                        <input v-model="list.nationName" >
+                        <input  v-model="list.nationName" :disabled="true">
                       </td>
                       <td v-else width="25%" >
                         {{list.nationName}}
@@ -83,7 +83,7 @@
                         {{ $t('baseInformationModal.ID') }}
                       </td>
                       <td v-if="isEdit" width="25%" >
-                        <input v-model="list.perIdCard" >
+                        <input v-model="list.perIdCard" :disabled="true">
                       </td>
                       <td v-else width="25%" >
                         {{list.perIdCard}}
@@ -207,269 +207,102 @@
             <td height="300" colspan="8" align="center" valign="top">
               <table class="content" cellspacing="0" width="100%">
                 <tbody><tr>
-                         <td class="head" colspan="4">
+                         <td class="form-label" colspan="4">
                            <div align="center">
                              {{$t('cultivationInformationModal.studentCultivationInfo')}}
                            </div>
                          </td>
                        </tr>
                   <tr>
-                    <td align="right" width="25%">
+                    <td align="right" width="25%" class="form-label">
                       {{$t('cultivationInformationModal.studentType')}}
                     </td>
-                    <td v-if="isEdit2" width="25%">
-                      <el-select v-model="value" disabled placeholder="外籍博士" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else width="25%">
+                    <td width="25%">
                       外籍博士
                     </td>
-                    <td align="right" width="25%">
+                    <td align="right" width="25%" class="form-label">
                       {{$t('cultivationInformationModal.department')}}
                     </td>
-                    <td v-if="isEdit2" width="25%">
-                      <el-select v-model="value" disabled placeholder="微生物技术国家重点实验室" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else width="25%">
+                    <td  width="25%">
                       微生物技术国家重点实验室
                     </td>
                   </tr>
                   <tr>
-                    <td align="right">
-                      {{$t('cultivationInformationModal.trainingWay')}}
+                    <td class="form-label">
+                      {{$t('cultivationInformationModal.studyStatus')}}
                     </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" placeholder="非定向" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
+                    <td >
+                      在学
                     </td>
-                    <td v-else>
-                      非定向
-                    </td>
-                    <td align="right">
+                    <td align="right" class="form-label">
                       {{$t('cultivationInformationModal.major')}}
                     </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" disabled placeholder="071005-微生物学" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else>
+                    <td >
                       071005-微生物学
                     </td>
                   </tr>
                   <tr>
-                    <td>
+                    <td class="form-label">
                       {{$t('cultivationInformationModal.entranceDate')}}
                     </td>
-                    <td v-if="isEdit2">
-                      <el-date-picker  type="date" value-format="yyyy-MM-dd" placeholder="选择日期" size="mini" style="width: 80%; " @change="startTimeStatus" />
-                    </td>
-                    <td v-else>
+                    <td >
                       2015-09-01
                     </td>
-                    <td>
+                    <td class="form-label">
                       {{$t('cultivationInformationModal.dapartTime')}}
                     </td>
-                    <td v-if="isEdit2">
-                      <el-date-picker  type="date" value-format="yyyy-MM-dd" placeholder="选择日期" size="mini" style="width: 80%; " @change="startTimeStatus" />
-                    </td>
-                    <td v-else>
+                    <td >
                       1997-09-01
                     </td>
                   </tr>
                   <tr>
-                    <td>
-                      {{$t('cultivationInformationModal.languageLevel')}}
-                    </td>
-                    <td v-if="isEdit2">
-                      <input>
-                    </td>
-                    <td v-else />
-                    <td>
-                      {{$t('cultivationInformationModal.examNo')}}
-                    </td>
-                    <td v-if="isEdit2">
-                      <input>
-                    </td>
-                    <td v-else />
-                  </tr>
-                  <tr>
-                    <td>
+                    <td class="form-label">
                       {{$t('cultivationInformationModal.grade')}}
                     </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" placeholder="半脱产" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else>
+                    <td >
                       2015
                     </td>
-                    <td>
+                    <td class="form-label">
                       {{$t('cultivationInformationModal.tutor')}}
                     </td>
-                    <td v-if="isEdit2">
-                      <input :disabled="true">
-                    </td>
-                    <td v-else>
+                    <td >
                       史玉龙
                     </td>
                   </tr>
                   <tr>
-                    <td>
-                      {{$t('cultivationInformationModal.studyStatus')}}
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" placeholder="" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else>
-                      在学
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
+                    <td class="form-label">
                       {{$t('cultivationInformationModal.class')}}
                     </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" placeholder="" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
+                    <td  >
                     </td>
-                    <td v-else />
-                    <td>
-                      所属校区
+                    <td class="form-label">
+                      {{$t('cultivationInformationModal.campus')}}
                     </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" placeholder="" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else />
-                  </tr>
-                  <tr>
-                    <td>
-                      学制
-                    </td>
-                    <td v-if="isEdit2">
-                      <input>
-                    </td>
-                    <td v-else />
-                    <td>
-                      研究方向
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" placeholder="" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else />
-                  </tr>
-                  <tr>
-                    <td>
-                      二级培养单位
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" disabled placeholder="" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else />
-                    <td>
-                      三级培养单位
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-select v-model="value" disabled placeholder="" size="mini" class="el-w">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        />
-                      </el-select>
-                    </td>
-                    <td v-else />
-                  </tr>
-                  <tr>
-                    <td>
-                      是否有学籍
-                    </td>
-                    <td v-if="isEdit2">
-                      <el-radio v-model="radio2" label="1">是</el-radio>
-                      <el-radio v-model="radio2" label="2">否</el-radio>
-                    </td>
-                    <td v-else>
-                      是
-                    </td>
-                    <td>
-                      上课时间
-                    </td>
-                    <td>
-                      正常
+                    <td >
                     </td>
                   </tr>
                   <tr>
-                    <td colspan="4">
-                      <div align="center">
-                        <el-button v-if="!isEdit2" type="primary" name="modifyIt" class="submitbutton " style="display:block;margin:0 auto" @click="edit2">{{ $t('route.modify') }}</el-button>
-                        <el-button v-else type="success" name="modifyIt" class="submitbutton" style="display:block;margin:0 auto" @click="save2">{{ $t('route.save') }}</el-button>
-                      </div>
+                    <td class="form-label">
+                      {{$t('cultivationInformationModal.system')}}
                     </td>
+                    <td >
+                    </td>
+                    <td class="form-label">
+                      {{$t('cultivationInformationModal.direction')}}
+                    </td>
+                    <td >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="form-label">
+                      {{$t('cultivationInformationModal.sedCultivation')}}
+                    </td>
+
+                    <td ></td>
+                    <td class="form-label">
+                      {{$t('cultivationInformationModal.thirdCultivation')}}
+                    </td>
+                    <td ></td>
                   </tr>
                 </tbody></table>
             </td>
@@ -477,206 +310,156 @@
           </tbody></table>
       </el-tab-pane>
       <el-tab-pane :label="$t('baseInformationModal.beforeSchool')" name="third">
-        <tbody><tr>
-          <td  height="30" colspan="4">
-            <div align="center">
-              入学前信息显示
-            </div>
-          </td>
-        </tr>
-        <tr >
-          <td height="25" colspan="4" >
-            本科阶段
-          </td>
-        </tr>
-        <tr>
-          <td width="20%" height="25" >
-            本科毕业类别
-          </td>
-          <td width="20%">
-            本科毕业
-          </td>
-          <td width="23%" height="25" >
-            本科毕业专业
-          </td>
-          <td width="20%">
-            生物化学
-          </td>
-        </tr>
-        <tr>
-          <td >
-            本科毕业学校
-          </td>
-          <td >
-            境外教育机构
-          </td>
-          <td  >
-            本科毕业年月
-          </td>
-          <td >
-            1998-05-25
-          </td>
-        </tr>
-        <tr>
-          <td width="20%" height="25" align="left">
-            本科毕业院系
-          </td>
-          <td width="30%">
-            college of education
-          </td>
-          <td width="20%" height="25" align="left">
-            本科论文题目
-          </td>
-          <td width="30%">
-            none
-          </td>
-        </tr>
-        <tr>
-          <td width="20%" height="25" align="left">
-            学士学位
-          </td>
-          <td width="30%">
-            理学
-          </td>
-          <td width="20%" height="25" align="left">
-            学士学位专业
-          </td>
-          <td colspan="3">
-            生物化学
-          </td>
-        </tr>
-        <tr>
-          <td width="20%" height="25" align="left">
-            学士学科门类
-          </td>
-          <td width="30%">
-            理学
-          </td>
-          <td width="20%" height="25" align="left">
-            学士学位授予单位
-          </td>
-          <td width="30%">
-            境外教育机构
-          </td>
-        </tr>
-        <tr>
-          <td width="20%" height="25" align="left">
-            获取学士学位年月
-          </td>
-          <td width="30%">
-            1998-05-25
-          </td>
-        </tr>
-        <tr class="white">
-          <td height="25" colspan="4">
-            硕士阶段
-          </td>
-        </tr>
-        <tr>
-          <td width="20%" height="25" align="left">
-            硕士毕业类别
-          </td>
-          <td width="30%">
-            硕士毕业
-          </td>
-          <td width="20%" height="25" align="left">
-            硕士毕业专业
-          </td>
-          <td width="30%">
-            微生物学
-          </td>
-        </tr>
-        <tr>
-          <td width="20%" height="25" align="left">
-            硕士毕业学校
-          </td>
-          <td width="30%">
-            境外教育机构
-          </td>
-          <td width="20%" height="25" align="left">
-            硕士毕业年月
-          </td>
-          <td width="30%">
-            2007-06-11
-          </td>
-        </tr>
-        <tr>
-          <td width="20%" height="25" align="left">
-            硕士毕业院系
-          </td>
-          <td width="30%">
-            veterinary medicine
-          </td>
-          <td width="20%" height="25" align="left">
-            硕士论文题目
-          </td>
-          <td width="30%">
-            Isolation of pathogenic dermatophytes
-          </td>
-        </tr>
-        <tr>
-          <td width="20%" height="25" align="left">
-            硕士学位
-          </td>
-          <td width="30%">
-            理学
-          </td>
-          <td width="20%" height="25" align="left">
-            获硕士学位专业
-          </td>
-          <td colspan="3">
-            微生物学
-          </td>
-        </tr>
-        <tr>
-          <td width="20%" height="25" align="left">
-            硕士学科门类
-          </td>
-          <td width="30%">
-            理学
-          </td>
-          <td width="20%" height="25" align="left">
-            硕士学位授予单位
-          </td>
-          <td width="30%">
-            境外教育机构
-          </td>
-        </tr>
-        <tr>
-          <td width="20%" height="25" align="left">
-            获取硕士学位年月
-          </td>
-          <td width="30%">
-            2007-06-11
-          </td>
-        </tr>
-        <tr>
-          <td height="25" align="right">
-            备注
-          </td>
-          <td colspan="3">
-          </td>
-        </tr>
-        <tr>
-          <td height="28" colspan="4">
-            <div align="center">
-              <input type="submit" name="submit" value="修改" class="button">
-            </div>
-          </td>
-        </tr>
-        </tbody>
+        <table class="content" cellspacing="0" width="100%">
+          <tbody><tr>
+            <td height="300" colspan="8" align="center" valign="top">
+              <table class="content" cellspacing="0" width="100%">
+                <tbody><tr>
+                  <td class="form-label" colspan="4">
+                    <div align="center">
+                      {{$t('preSchoolInfoModal.preSchoolInfoDisplay')}}
+                    </div>
+                  </td>
+                </tr>
+                <tr >
+                  <td  colspan="4" class="form-label">
+                    {{$t('preSchoolInfoModal.undergraduate')}}
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right" width="25%" class="form-label">
+                    {{$t('preSchoolInfoModal.undergraduateType')}}
+                  </td>
+                  <td width="25%">
+                  </td>
+                  <td align="right" width="25%" class="form-label">
+                    {{$t('preSchoolInfoModal.undergraduateMajor')}}
+                  </td>
+                  <td  width="25%">
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="form-label">
+                    {{$t('preSchoolInfoModal.undergraduateDate')}}
+                  </td>
+                  <td >
+
+                  </td>
+                  <td align="right" class="form-label">
+                    {{$t('preSchoolInfoModal.undergraduateThesisTitle')}}
+                  </td>
+                  <td >
+                  </td>
+                </tr>
+                <tr>
+                  <td class="form-label">
+                    {{$t('preSchoolInfoModal.bachelarDegree')}}
+                  </td>
+                  <td >
+                  </td>
+                  <td class="form-label">
+                    {{$t('preSchoolInfoModal.bachelarDegreeMajor')}}
+                  </td>
+                  <td >
+                  </td>
+                </tr>
+                <tr>
+                  <td class="form-label">
+                    {{$t('preSchoolInfoModal.bachelarDegreeType')}}
+                  </td>
+                  <td >
+
+                  </td>
+                  <td class="form-label">
+                    {{$t('preSchoolInfoModal.bachelarDegreeGrantedDate')}}
+                  </td>
+                  <td >
+
+                  </td>
+                </tr>
+
+                <tr >
+                  <td  colspan="4" class="form-label">
+                    {{$t('preSchoolInfoModal.postgraduate')}}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="form-label">
+                    {{$t('preSchoolInfoModal.postgraduateType')}}
+                  </td>
+                  <td  >
+                  </td>
+                  <td class="form-label">
+                    {{$t('preSchoolInfoModal.postgraduateMajor')}}
+                  </td>
+                  <td >
+                  </td>
+                </tr>
+                <tr>
+                  <td class="form-label">
+                    {{$t('preSchoolInfoModal.postgraduateDate')}}
+                  </td>
+                  <td >
+                  </td>
+                  <td class="form-label">
+                    {{$t('preSchoolInfoModal.postgraduateThesisTitle')}}
+                  </td>
+                  <td >
+                  </td>
+                </tr>
+                <tr>
+                  <td class="form-label">
+                    {{$t('preSchoolInfoModal.MasterDegree')}}
+                  </td>
+                  <td >
+
+                  </td>
+                  <td class="form-label">
+                    {{$t('preSchoolInfoModal.MasterDegreeMajor')}}
+                  </td>
+                  <td >
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="form-label">
+                    {{$t('preSchoolInfoModal.MasterSubjectType')}}
+                  </td>
+                  <td >
+
+                  </td>
+                  <td class="form-label">
+                    {{$t('preSchoolInfoModal.MasterDegreeDate')}}
+                  </td>
+                  <td >
+                  </td>
+                </tr>
+                <tr>
+                  <td height="25" align="right" class="form-label">
+                    {{ $t('preSchoolInfoModal.remark') }}
+                  </td>
+                  <td colspan="3">
+                  </td>
+                </tr>
+                </tbody></table>
+            </td>
+          </tr>
+          </tbody></table>
       </el-tab-pane>
     </el-tabs>
   </div>
 </template>
 
 <script>
-import { getStudentBaseicInfo, updateStudentBaseicInfo } from '@/api/user'
+import { getStudentBaseicInfo, updateStudentBaseicInfo , getStudentTrainInfo } from '@/api/user'
 export default {
   data() {
     return {
       radio: '1',
       list: [],
+      list2: [],
       radio1: '1',
       radio2: '1',
       activeName: 'first',
@@ -700,6 +483,10 @@ export default {
       getStudentBaseicInfo().then(res => {
         console.log(res)
         this.list = res.data
+      })
+      getStudentTrainInfo().then(res =>{
+        console.log(res)
+        this.list2 = res.data
       })
     },
     save() {
