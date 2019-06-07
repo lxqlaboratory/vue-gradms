@@ -31,7 +31,7 @@ export function editPassword(data) {
   })
 }
 
-export function getStudentInfo() {
+export function getStudentBaseicInfo() {
   return request({
     url: '/api/student/getStudentBaseicInfoData',
     method: 'POST',
@@ -39,7 +39,7 @@ export function getStudentInfo() {
   })
 }
 
-export function setStudentInfo(data) {
+export function updateStudentBaseicInfo(data) {
   return request({
     url: '/api/student/updateStudentBaseicInfo',
     method: 'POST',

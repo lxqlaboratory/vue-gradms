@@ -19,18 +19,20 @@
                         {{ $t('route.name') }}
                       </td>
                       <td v-if="isEdit" width="25%">
-                        <input v-model="form.perName">
+                        <input  v-model="list.perName" :disabled="true">
                       </td>
                       <td v-else width="25%">
-                        {{ form.perName }}
+                        {{ list.perName }}
                       </td>
                       <td width="20%" height="25" align="right" class="form-label">
                         {{ $t('route.englishName') }}
                       </td>
                       <td v-if="isEdit" width="25%">
-                        <input>
+                        <input v-model="list.perEnglishName" >
                       </td>
-                      <td v-else width="25%" />
+                      <td v-else width="25%" >
+                      {{list.perEnglishName}}
+                      </td>
                       <td width="20%" rowspan="4">
                         <img src="/cultivate/stuinfo/stuinfo_downloadPhoto_info.do?personId=1030214&amp;photoType=02" height="120" align="middle" border="0" alt="photo">
                       </td>
@@ -40,48 +42,61 @@
                         {{ $t('route.studentNumber') }}
                       </td>
                       <td v-if="isEdit">
-                        <input v-model="form.perNum">
+                        <input v-model="list.perNum" :disabled="true">
                       </td>
                       <td v-else width="20%">
-                        {{ form.perNum }}
+                        {{ list.perNum }}
                       </td>
                       <td height="25" width="15%" align="right" class="form-label">
                         {{ $t('route.sex') }}
                       </td>
                       <td v-if="isEdit" width="25%">
-                        <input>
+                        <el-radio disabled v-model="list.genderCode" label="1">men</el-radio>
+                        <el-radio disabled v-model="list.genderCode" label="2">women</el-radio>
                       </td>
-                      <td v-else width="25%" />
+                      <td v-else width="25%" >
+                      {{list.genderCode===1? 'men': 'women'}}
+                      </td>
                     </tr>
                     <tr>
                       <td height="25" width="15%" align="right" class="form-label">
                         {{ $t('route.date') }}
                       </td>
                       <td v-if="isEdit" width="20%">
-                        <el-date-picker type="date" value-format="yyyy-MM-dd" placeholder="chooseBirthDate" style="margin-right: 10px; " @change="startTimeStatus" />
+                        <input v-model="list.perBirthday" :disabled="true">
                       </td>
-                      <td v-else width="20%" />
+                      <td v-else width="20%" >
+                        {{list.perBirthday}}
+                      </td>
                       <td height="25" width="15%" align="right" class="form-label">
                         {{ $t('route.nationality') }}
                       </td>
                       <td v-if="isEdit" width="25%">
-                        <input>
+                        <input v-model="list.nationName" >
                       </td>
-                      <td v-else width="25%" />
+                      <td v-else width="25%" >
+                        {{list.nationName}}
+                      </td>
                     </tr>
                     <tr>
                       <td height="25" width="15%" class="form-label">
                         {{ $t('route.ID') }}
                       </td>
-                      <td v-if="isEdit" width="25%" />
-                      <td v-else width="25%" />
+                      <td v-if="isEdit" width="25%" >
+                        <input v-model="list.perIdCard" >
+                      </td>
+                      <td v-else width="25%" >
+                        {{list.perIdCard}}
+                      </td>
                       <td width="15%" height="25" align="right" class="form-label">
                         {{ $t('route.religion') }}
                       </td>
                       <td v-if="isEdit" width="25%">
-                        <input>
+                        <input v-model="list.religion">
                       </td>
-                      <td v-else width="25%" />
+                      <td v-else width="25%" >
+                      {{list.religion}}
+                      </td>
                     </tr>
                   </tbody></table>
                 <table class="content" cellspacing="0" width="100%">
@@ -96,42 +111,50 @@
                         {{ $t('route.contact') }}
                       </td>
                       <td v-if="isEdit">
-                        <input>
+                        <input v-model="list.perTelephone">
                       </td>
-                      <td v-else />
+                      <td v-else >
+                      {{list.perTelephone}}
+                      </td>
                       <td height="25" align="right" width="20%" class="form-label">
                         {{ $t('route.phone') }}
                       </td>
                       <td v-if="isEdit">
-                        <input>
+                        <input v-model="list.mobilePhone">
                       </td>
-                      <td v-else />
+                      <td v-else >
+                      {{list.mobilePhone}}
+                      </td>
                     </tr>
                     <tr>
                       <td height="25" align="right" class="form-label">
                         {{ $t('route.qq') }}
                       </td>
                       <td v-if="isEdit">
-                        <input>
+                        <input v-model="list.qq">
                       </td>
-                      <td v-else />
+                      <td v-else >
+                      {{list.qq}}
+                      </td>
                       <td height="25" align="right" class="form-label">
                         {{ $t('route.wechat') }}
                       </td>
                       <td v-if="isEdit">
-                        <input>
+                        <input v-model="list.wechat">
                       </td>
-                      <td v-else />
+                      <td v-else >
+                      {{list.wechat}}
+                      </td>
                     </tr>
                     <tr>
                       <td height="25" class="form-label" align="right">
                         {{ $t('route.email') }}
                       </td>
                       <td v-if="isEdit" height="25" colspan="3">
-                        <input v-model="form.email" style="width: 30%">
+                        <input v-model="list.email" style="width: 30%">
                       </td>
                       <td v-else height="25" colspan="3">
-                        {{ form.email }}
+                        {{ list.email }}
                       </td>
                     </tr>
                     <tr>
@@ -139,9 +162,11 @@
                         {{ $t('route.remark') }}
                       </td>
                       <td v-if="isEdit" height="40" colspan="3">
-                        <input style="width: 50%">
+                        <input style="width: 50%" v-model="list.remark"  >
                       </td>
-                      <td v-else height="25" colspan="3" />
+                      <td v-else height="25" colspan="3" >
+                      {{list.remark}}
+                      </td>
                     </tr>
                     <tr>
                       <td height="28" colspan="4">
@@ -267,7 +292,7 @@
                       入学年月
                     </td>
                     <td v-if="isEdit2">
-                      <el-date-picker v-model="form.date" type="date" value-format="yyyy-MM-dd" placeholder="选择日期" size="mini" style="width: 80%; " @change="startTimeStatus" />
+                      <el-date-picker  type="date" value-format="yyyy-MM-dd" placeholder="选择日期" size="mini" style="width: 80%; " @change="startTimeStatus" />
                     </td>
                     <td v-else>
                       2015-09-01
@@ -276,7 +301,7 @@
                       预计离校时间
                     </td>
                     <td v-if="isEdit2">
-                      <el-date-picker v-model="form.date" type="date" value-format="yyyy-MM-dd" placeholder="选择日期" size="mini" style="width: 80%; " @change="startTimeStatus" />
+                      <el-date-picker  type="date" value-format="yyyy-MM-dd" placeholder="选择日期" size="mini" style="width: 80%; " @change="startTimeStatus" />
                     </td>
                     <td v-else>
                       1997-09-01
@@ -698,7 +723,7 @@
 </template>
 
 <script>
-import { getStudentInfo, setStudentInfo } from '@/api/user'
+import { getStudentBaseicInfo, updateStudentBaseicInfo } from '@/api/user'
 export default {
   data() {
     return {
@@ -713,18 +738,7 @@ export default {
         value: '选项1',
         label: '外籍博士'
       }
-      ],
-      form: {
-        perNum: '',
-        perName: '',
-        collegeName: '',
-        collegeName1: '',
-        collegeName2: '',
-        stuTypeCode: '',
-        majorName: '',
-        mobilePhone: '',
-        email: ''
-      }
+      ]
     }
   },
   created() {
@@ -732,19 +746,19 @@ export default {
   },
   methods: {
     fetchData() {
-      getStudentInfo().then(res => {
+      getStudentBaseicInfo().then(res => {
         console.log(res)
-        this.form = res.data
+        this.list = res.data
       })
     },
     save() {
       this.isEdit = false
-      setStudentInfo(this.form).then(res => {
+      updateStudentBaseicInfo(this.list).then(res => {
       }).catch(e => {
       })
     },
     startTimeStatus: function(value) {
-      this.form.date = value
+      this.list.perBirthday = value
     },
     edit() {
       this.isEdit = true
