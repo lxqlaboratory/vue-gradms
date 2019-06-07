@@ -125,6 +125,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  $topicColor:#930E14;
 
   .input-form {
     min-height: 100%;

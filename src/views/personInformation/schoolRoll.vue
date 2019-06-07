@@ -34,7 +34,7 @@
                       {{list.perEnglishName}}
                       </td>
                       <td width="20%" rowspan="4">
-                        <img src="/cultivate/stuinfo/stuinfo_downloadPhoto_info.do?personId=1030214&amp;photoType=02" height="120" align="middle" border="0" alt="photo">
+                        <img src="/gradms/api/student/getStudentPhotoData" height="120" align="middle" border="0" alt="photo">
                       </td>
                     </tr>
                     <tr>
@@ -180,6 +180,19 @@
               </td>
             </tr>
             </tbody></table>
+          <a href="/gradms/api/student/printStudyProve"  download="k.pdf" >download PDF</a>
+
+          <el-upload
+            name="file"
+            drag
+            action="/gradms/api/student/uploadFile"
+            :limit="1"
+            >
+            <i class="el-icon-upload"></i>
+            <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+            <div class="el-upload__tip" slot="tip">拖动上传文件</div>
+          </el-upload>
+
         </el-form>
       </el-tab-pane>
       <el-tab-pane :label="$t('route.cultivationInformation')" name="second">
@@ -745,6 +758,9 @@ export default {
     this.fetchData()
   },
   methods: {
+    downLoadPDF(){
+      window.location.href = '/gradms/api/student/printStudyProve'
+    },
     fetchData() {
       getStudentBaseicInfo().then(res => {
         console.log(res)
