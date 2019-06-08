@@ -18,20 +18,17 @@
                       <td width="15%" height="25" align="right" class="form-label">
                         {{ $t('baseInformationModal.name') }}
                       </td>
-                      <td v-if="isEdit" width="25%">
-                        <input  v-model="list.perName" :disabled="true">
-                      </td>
-                      <td v-else width="25%">
+                      <td>
                         {{ list.perName }}
                       </td>
                       <td width="20%" height="25" align="right" class="form-label">
                         {{ $t('baseInformationModal.englishName') }}
                       </td>
                       <td v-if="isEdit" width="25%">
-                        <input v-model="list.perEnglishName" >
+                        <input v-model="list.perEnglishName">
                       </td>
-                      <td v-else width="25%" >
-                      {{list.perEnglishName}}
+                      <td v-else width="25%">
+                        {{ list.perEnglishName }}
                       </td>
                       <td width="20%" rowspan="4">
                         <img src="/gradms/api/student/getStudentPhotoData" height="120" align="middle" border="0" alt="photo">
@@ -41,68 +38,52 @@
                       <td height="25" width="15%" align="right" class="form-label">
                         {{ $t('baseInformationModal.studentNumber') }}
                       </td>
-                      <td v-if="isEdit">
-                        <input v-model="list.perNum" :disabled="true">
-                      </td>
-                      <td v-else width="20%">
+                      <td>
                         {{ list.perNum }}
                       </td>
                       <td height="25" width="15%" align="right" class="form-label">
                         {{ $t('baseInformationModal.sex') }}
                       </td>
-                      <td v-if="isEdit" width="25%">
-                        <el-radio disabled v-model="list.genderCode" label="1">men</el-radio>
-                        <el-radio disabled v-model="list.genderCode" label="2">women</el-radio>
-                      </td>
-                      <td v-else width="25%" >
-                      {{list.genderCode===1? 'men': 'women'}}
+                      <td>
+                        {{ $t(list.genderCode) }}
                       </td>
                     </tr>
                     <tr>
                       <td height="25" width="15%" align="right" class="form-label">
                         {{ $t('baseInformationModal.date') }}
                       </td>
-                      <td v-if="isEdit" width="20%">
-                        <input v-model="list.perBirthday" :disabled="true">
-                      </td>
-                      <td v-else width="20%" >
-                        {{list.perBirthday}}
+                      <td>
+                        {{ list.perBirthday }}
                       </td>
                       <td height="25" width="15%" align="right" class="form-label">
                         {{ $t('baseInformationModal.nationality') }}
                       </td>
-                      <td v-if="isEdit" width="25%">
-                        <input  v-model="list.nationName" :disabled="true">
-                      </td>
-                      <td v-else width="25%" >
-                        {{list.nationName}}
+                      <td width="25%">
+                        {{ $t(list.nationName) }}
                       </td>
                     </tr>
                     <tr>
                       <td height="25" width="15%" class="form-label">
                         {{ $t('baseInformationModal.ID') }}
                       </td>
-                      <td v-if="isEdit" width="25%" >
-                        <input v-model="list.perIdCard" :disabled="true">
-                      </td>
-                      <td v-else width="25%" >
-                        {{list.perIdCard}}
+                      <td>
+                        {{ list.perIdCard }}
                       </td>
                       <td width="15%" height="25" align="right" class="form-label">
                         {{ $t('baseInformationModal.religion') }}
                       </td>
                       <td v-if="isEdit" width="25%">
-                        <el-select v-model="list.religion"  placeholder="please choose" size="mini" class="el-w">
+                        <el-select v-model="list.religion" placeholder="please choose" size="mini" class="el-w">
                           <el-option
                             v-for="item in list.zjxy"
-                            :key="item.filterKey"
-                            :label="item.label"
-                            :value="item.label"
+                            :key="item.value"
+                            :label="$t(item.name)"
+                            :value="$t(item.value)"
                           />
                         </el-select>
                       </td>
-                      <td v-else width="25%" >
-                      {{list.religion}}
+                      <td v-else width="25%">
+                        {{ $t(list.religion) }}
                       </td>
                     </tr>
                   </tbody></table>
@@ -120,8 +101,8 @@
                       <td v-if="isEdit">
                         <input v-model="list.perTelephone">
                       </td>
-                      <td v-else >
-                      {{list.perTelephone}}
+                      <td v-else>
+                        {{ list.perTelephone }}
                       </td>
                       <td height="25" align="right" width="20%" class="form-label">
                         {{ $t('baseInformationModal.phone') }}
@@ -129,8 +110,8 @@
                       <td v-if="isEdit">
                         <input v-model="list.mobilePhone">
                       </td>
-                      <td v-else >
-                      {{list.mobilePhone}}
+                      <td v-else>
+                        {{ list.mobilePhone }}
                       </td>
                     </tr>
                     <tr>
@@ -140,8 +121,8 @@
                       <td v-if="isEdit">
                         <input v-model="list.qq">
                       </td>
-                      <td v-else >
-                      {{list.qq}}
+                      <td v-else>
+                        {{ list.qq }}
                       </td>
                       <td height="25" align="right" class="form-label">
                         {{ $t('baseInformationModal.wechat') }}
@@ -149,8 +130,8 @@
                       <td v-if="isEdit">
                         <input v-model="list.wechat">
                       </td>
-                      <td v-else >
-                      {{list.wechat}}
+                      <td v-else>
+                        {{ list.wechat }}
                       </td>
                     </tr>
                     <tr>
@@ -169,10 +150,10 @@
                         {{ $t('baseInformationModal.remark') }}
                       </td>
                       <td v-if="isEdit" height="40" colspan="3">
-                        <input style="width: 50%" v-model="list.remark"  >
+                        <input v-model="list.remark" style="width: 50%">
                       </td>
-                      <td v-else height="25" colspan="3" >
-                      {{list.remark}}
+                      <td v-else height="25" colspan="3">
+                        {{ list.remark }}
                       </td>
                     </tr>
                     <tr>
@@ -187,18 +168,17 @@
               </td>
             </tr>
             </tbody></table>
-          <a href="/gradms/api/student/printStudyProve"  download="k.pdf" >download PDF</a>
+          <a href="/gradms/api/student/printStudyProve" download="k.pdf">download PDF</a>
           <el-upload
             name="file"
             drag
             action="/gradms/api/student/uploadFile"
             :limit="1"
-            >
-            <i class="el-icon-upload"></i>
+          >
+            <i class="el-icon-upload" />
             <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-            <div class="el-upload__tip" slot="tip">拖动上传文件</div>
+            <div slot="tip" class="el-upload__tip">拖动上传文件</div>
           </el-upload>
-
         </el-form>
       </el-tab-pane>
       <el-tab-pane :label="$t('baseInformationModal.cultivationInformation')" name="second">
@@ -209,100 +189,102 @@
                 <tbody><tr>
                          <td class="form-label" colspan="4">
                            <div align="center">
-                             {{$t('cultivationInformationModal.studentCultivationInfo')}}
+                             {{ $t('cultivationInformationModal.studentCultivationInfo') }}
                            </div>
                          </td>
                        </tr>
                   <tr>
                     <td align="right" width="25%" class="form-label">
-                      {{$t('cultivationInformationModal.studentType')}}
+                      {{ $t('cultivationInformationModal.studentType') }}
                     </td>
-                    <td width="25%">
-
+                    <td width="25%" >
+                      {{$t(list2.stuTypeCode)}}
                     </td>
                     <td align="right" width="25%" class="form-label">
-                      {{$t('cultivationInformationModal.department')}}
+                      {{ $t('cultivationInformationModal.department') }}
                     </td>
-                    <td  width="25%">
-
+                    <td width="25%" >
+                      {{$t(list2.collegeName)}}
                     </td>
                   </tr>
+                <tr>
+                  <td class="form-label">
+                    {{ $t('cultivationInformationModal.sedCultivation') }}
+                  </td>
+                  <td>
+                    {{list2.collegeName1?$t(list2.collegeName1):''}}
+                  </td>
+                  <td class="form-label">
+                    {{ $t('cultivationInformationModal.thirdCultivation') }}
+                  </td>
+                  <td >
+                    {{list2.collegeName2?$t(list2.collegeName2):''}}
+                  </td>
+                </tr>
                   <tr>
-                    <td class="form-label">
-                      {{$t('cultivationInformationModal.studyStatus')}}
-                    </td>
-                    <td >
-
-                    </td>
                     <td align="right" class="form-label">
-                      {{$t('cultivationInformationModal.major')}}
+                      {{ $t('cultivationInformationModal.major') }}
                     </td>
                     <td >
-
+                      {{$t(list2.majorName)}}
+                    </td>
+                    <td class="form-label">
+                      {{ $t('cultivationInformationModal.direction') }}
+                    </td>
+                    <td >
+                      {{list2.researchName}}
                     </td>
                   </tr>
                   <tr>
                     <td class="form-label">
-                      {{$t('cultivationInformationModal.entranceDate')}}
+                      {{ $t('cultivationInformationModal.tutor') }}
                     </td>
                     <td >
-
+                      {{$t(list2.tutor)}}
+                    </td>
+                  <td class="form-label">
+                    {{ $t('cultivationInformationModal.grade') }}
+                  </td>
+                  <td >
+                    {{list2.grade}}
+                  </td>
+                  </tr>
+                  <tr>
+                    <td class="form-label">
+                      {{ $t('cultivationInformationModal.entranceDate') }}
+                    </td>
+                    <td >
+                      {{list2.entrYearMon}}
                     </td>
                     <td class="form-label">
-                      {{$t('cultivationInformationModal.dapartTime')}}
+                      {{ $t('cultivationInformationModal.dapartTime') }}
                     </td>
                     <td >
-
+                      {{list2.leaveYearMon}}
                     </td>
                   </tr>
                   <tr>
                     <td class="form-label">
-                      {{$t('cultivationInformationModal.grade')}}
+                      {{ $t('cultivationInformationModal.system') }}
                     </td>
                     <td >
-
+                      {{list2.classYear}}
                     </td>
                     <td class="form-label">
-                      {{$t('cultivationInformationModal.tutor')}}
+                      {{ $t('cultivationInformationModal.studyStatus') }}
                     </td>
                     <td >
-
+                      {{$t(list2.studyStateName)}}
                     </td>
                   </tr>
-                  <tr>
-                    <td class="form-label">
-                      {{$t('cultivationInformationModal.class')}}
-                    </td>
-                    <td  >
-                    </td>
-                    <td class="form-label">
-                      {{$t('cultivationInformationModal.campus')}}
-                    </td>
-                    <td >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="form-label">
-                      {{$t('cultivationInformationModal.system')}}
-                    </td>
-                    <td >
-                    </td>
-                    <td class="form-label">
-                      {{$t('cultivationInformationModal.direction')}}
-                    </td>
-                    <td >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="form-label">
-                      {{$t('cultivationInformationModal.sedCultivation')}}
-                    </td>
-                    <td ></td>
-                    <td class="form-label">
-                      {{$t('cultivationInformationModal.thirdCultivation')}}
-                    </td>
-                    <td ></td>
-                  </tr>
+                 <tr>
+                  <td class="form-label" >
+                    {{ $t('cultivationInformationModal.campus') }}
+                  </td>
+                  <td colspan="3" >
+                    {{$t(list2.campusName)}}
+                  </td>
+                </tr>
                 </tbody></table>
             </td>
           </tr>
@@ -314,135 +296,120 @@
             <td height="300" colspan="8" align="center" valign="top">
               <table class="content" cellspacing="0" width="100%">
                 <tbody><tr>
-                  <td class="form-label" colspan="4">
+                         <td class="form-label" colspan="4">
+                           <div align="center">
+                             {{ $t('preSchoolInfoModal.preSchoolInfoDisplay') }}
+                           </div>
+                         </td>
+                       </tr>
+                  <tr>
+                    <td colspan="4" class="form-label">
+                      {{ $t('preSchoolInfoModal.undergraduate') }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="right" width="25%" class="form-label">
+                      {{ $t('preSchoolInfoModal.undergraduateType') }}
+                    </td>
+                    <td width="25%" />
+                    <td align="right" width="25%" class="form-label">
+                      {{ $t('preSchoolInfoModal.undergraduateMajor') }}
+                    </td>
+                    <td width="25%" />
+                  </tr>
+                  <tr>
+                    <td class="form-label">
+                      {{ $t('preSchoolInfoModal.undergraduateDate') }}
+                    </td>
+                    <td />
+                    <td align="right" class="form-label">
+                      {{ $t('preSchoolInfoModal.undergraduateThesisTitle') }}
+                    </td>
+                    <td />
+                  </tr>
+                  <tr>
+                    <td class="form-label">
+                      {{ $t('preSchoolInfoModal.bachelarDegree') }}
+                    </td>
+                    <td />
+                    <td class="form-label">
+                      {{ $t('preSchoolInfoModal.bachelarDegreeMajor') }}
+                    </td>
+                    <td />
+                  </tr>
+                  <tr>
+                    <td class="form-label">
+                      {{ $t('preSchoolInfoModal.bachelarDegreeType') }}
+                    </td>
+                    <td />
+                    <td class="form-label">
+                      {{ $t('preSchoolInfoModal.bachelarDegreeGrantedDate') }}
+                    </td>
+                    <td />
+                  </tr>
+
+                  <tr>
+                    <td colspan="4" class="form-label">
+                      {{ $t('preSchoolInfoModal.postgraduate') }}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="form-label">
+                      {{ $t('preSchoolInfoModal.postgraduateType') }}
+                    </td>
+                    <td />
+                    <td class="form-label">
+                      {{ $t('preSchoolInfoModal.postgraduateMajor') }}
+                    </td>
+                    <td />
+                  </tr>
+                  <tr>
+                    <td class="form-label">
+                      {{ $t('preSchoolInfoModal.postgraduateDate') }}
+                    </td>
+                    <td />
+                    <td class="form-label">
+                      {{ $t('preSchoolInfoModal.postgraduateThesisTitle') }}
+                    </td>
+                    <td />
+                  </tr>
+                  <tr>
+                    <td class="form-label">
+                      {{ $t('preSchoolInfoModal.MasterDegree') }}
+                    </td>
+                    <td />
+                    <td class="form-label">
+                      {{ $t('preSchoolInfoModal.MasterDegreeMajor') }}
+                    </td>
+                    <td />
+                  </tr>
+                  <tr>
+                    <td class="form-label">
+                      {{ $t('preSchoolInfoModal.MasterSubjectType') }}
+                    </td>
+                    <td />
+                    <td class="form-label">
+                      {{ $t('preSchoolInfoModal.MasterDegreeDate') }}
+                    </td>
+                    <td />
+                  </tr>
+                  <tr>
+                    <td height="25" align="right" class="form-label">
+                      {{ $t('preSchoolInfoModal.remark') }}
+                    </td>
+                    <td colspan="3" />
+                  </tr>
+                </tbody>
+                <tr>
+                  <td height="28" colspan="4">
                     <div align="center">
-                      {{$t('preSchoolInfoModal.preSchoolInfoDisplay')}}
+                      <el-button v-if="!isEdit2" type="primary" name="modifyIt" class="submitbutton" @click="edit2">{{ $t('route.modify') }}</el-button>
+                      <el-button v-else type="success" name="modifyIt" class="submitbutton" @click="save2">{{ $t('route.save') }}</el-button>
                     </div>
                   </td>
                 </tr>
-                <tr >
-                  <td  colspan="4" class="form-label">
-                    {{$t('preSchoolInfoModal.undergraduate')}}
-                  </td>
-                </tr>
-                <tr>
-                  <td align="right" width="25%" class="form-label">
-                    {{$t('preSchoolInfoModal.undergraduateType')}}
-                  </td>
-                  <td width="25%">
-                  </td>
-                  <td align="right" width="25%" class="form-label">
-                    {{$t('preSchoolInfoModal.undergraduateMajor')}}
-                  </td>
-                  <td  width="25%">
-
-                  </td>
-                </tr>
-                <tr>
-                  <td class="form-label">
-                    {{$t('preSchoolInfoModal.undergraduateDate')}}
-                  </td>
-                  <td >
-
-                  </td>
-                  <td align="right" class="form-label">
-                    {{$t('preSchoolInfoModal.undergraduateThesisTitle')}}
-                  </td>
-                  <td >
-                  </td>
-                </tr>
-                <tr>
-                  <td class="form-label">
-                    {{$t('preSchoolInfoModal.bachelarDegree')}}
-                  </td>
-                  <td >
-                  </td>
-                  <td class="form-label">
-                    {{$t('preSchoolInfoModal.bachelarDegreeMajor')}}
-                  </td>
-                  <td >
-                  </td>
-                </tr>
-                <tr>
-                  <td class="form-label">
-                    {{$t('preSchoolInfoModal.bachelarDegreeType')}}
-                  </td>
-                  <td >
-
-                  </td>
-                  <td class="form-label">
-                    {{$t('preSchoolInfoModal.bachelarDegreeGrantedDate')}}
-                  </td>
-                  <td >
-
-                  </td>
-                </tr>
-
-                <tr >
-                  <td  colspan="4" class="form-label">
-                    {{$t('preSchoolInfoModal.postgraduate')}}
-                  </td>
-                </tr>
-
-                <tr>
-                  <td class="form-label">
-                    {{$t('preSchoolInfoModal.postgraduateType')}}
-                  </td>
-                  <td  >
-                  </td>
-                  <td class="form-label">
-                    {{$t('preSchoolInfoModal.postgraduateMajor')}}
-                  </td>
-                  <td >
-                  </td>
-                </tr>
-                <tr>
-                  <td class="form-label">
-                    {{$t('preSchoolInfoModal.postgraduateDate')}}
-                  </td>
-                  <td >
-                  </td>
-                  <td class="form-label">
-                    {{$t('preSchoolInfoModal.postgraduateThesisTitle')}}
-                  </td>
-                  <td >
-                  </td>
-                </tr>
-                <tr>
-                  <td class="form-label">
-                    {{$t('preSchoolInfoModal.MasterDegree')}}
-                  </td>
-                  <td >
-
-                  </td>
-                  <td class="form-label">
-                    {{$t('preSchoolInfoModal.MasterDegreeMajor')}}
-                  </td>
-                  <td >
-
-                  </td>
-                </tr>
-                <tr>
-                  <td class="form-label">
-                    {{$t('preSchoolInfoModal.MasterSubjectType')}}
-                  </td>
-                  <td >
-
-                  </td>
-                  <td class="form-label">
-                    {{$t('preSchoolInfoModal.MasterDegreeDate')}}
-                  </td>
-                  <td >
-                  </td>
-                </tr>
-                <tr>
-                  <td height="25" align="right" class="form-label">
-                    {{ $t('preSchoolInfoModal.remark') }}
-                  </td>
-                  <td colspan="3">
-                  </td>
-                </tr>
-                </tbody></table>
+              </table>
             </td>
           </tr>
           </tbody></table>
@@ -452,30 +419,23 @@
 </template>
 
 <script>
-import { getStudentBaseicInfo, updateStudentBaseicInfo , getStudentTrainInfo } from '@/api/user'
+import { getStudentBaseicInfo, updateStudentBaseicInfo, getStudentTrainInfo, getStudentPreSchoolInfo } from '@/api/user'
 export default {
   data() {
     return {
-      radio: '1',
       list: [],
       list2: [],
-      radio1: '1',
-      radio2: '1',
+      list3: [],
       activeName: 'first',
       isEdit: false,
-      isEdit2: false,
-      options: [{
-        value: '选项1',
-        label: '外籍博士'
-      }
-      ]
+      isEdit2: false
     }
   },
   created() {
     this.fetchData()
   },
   methods: {
-    downLoadPDF(){
+    downLoadPDF() {
       window.location.href = '/gradms/api/student/printStudyProve'
     },
     fetchData() {
@@ -483,9 +443,13 @@ export default {
         console.log(res)
         this.list = res.data
       })
-      getStudentTrainInfo().then(res =>{
+      getStudentTrainInfo().then(res => {
         console.log(res)
         this.list2 = res.data
+      })
+      getStudentPreSchoolInfo().then(res => {
+        console.log(res)
+        this.list3 = res.data
       })
     },
     save() {

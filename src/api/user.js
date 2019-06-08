@@ -55,3 +55,11 @@ export function updateStudentBaseicInfo(data) {
     data
   })
 }
+
+export function getStudentPreSchoolInfo() {
+  return request({
+    url: '/api/student/getStudentPreSchoolInfoData',
+    method: 'POST',
+    data: {}
+  })
+}
