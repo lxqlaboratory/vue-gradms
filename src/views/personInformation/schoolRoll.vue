@@ -311,11 +311,28 @@
                     <td align="right" width="25%" class="form-label">
                       {{ $t('preSchoolInfoModal.undergraduateType') }}
                     </td>
-                    <td width="25%" />
+                    <td width="25%" >
+                    </td>
                     <td align="right" width="25%" class="form-label">
                       {{ $t('preSchoolInfoModal.undergraduateMajor') }}
                     </td>
-                    <td width="25%" />
+                    <td v-if="isEdit2" width="25%" >
+                          <el-autocomplete
+                            v-model="state"
+                            size="mini"
+                            style="width: 200px"
+                            :fetch-suggestions="querySearch"
+                            placeholder="请输入内容"
+                            @select="handleSelect">
+                            <template slot-scope="{ item }">
+                              <div class="show-autocomplete" ><div style="color: #409EFF">
+                                {{ item.value }}
+                              </div> <div>-</div><div >{{ item.address }}</div></div>
+                            </template>
+                          </el-autocomplete>
+                    </td>
+                    <td v-else width="25%">
+                    </td>
                   </tr>
                   <tr>
                     <td class="form-label">
@@ -347,13 +364,11 @@
                     </td>
                     <td />
                   </tr>
-
                   <tr>
                     <td colspan="4" class="form-label">
                       {{ $t('preSchoolInfoModal.postgraduate') }}
                     </td>
                   </tr>
-
                   <tr>
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.postgraduateType') }}
@@ -423,6 +438,8 @@ import { getStudentBaseicInfo, updateStudentBaseicInfo, getStudentTrainInfo, get
 export default {
   data() {
     return {
+      state: '',
+      restaurants: [],
       list: [],
       list2: [],
       list3: [],
@@ -466,15 +483,41 @@ export default {
     },
     edit2() {
       this.isEdit2 = true
+    },
+
+
+
+    querySearch(queryString, cb) {
+      var restaurants = this.restaurants;
+      var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
+      // 调用 callback 返回建议列表的数据
+      cb(results);
+    },
+    createFilter(queryString) {
+      return (restaurant) => {
+        return ((restaurant.address.toLowerCase().indexOf(queryString.toLowerCase()) === 0)||(restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0));
+      };
+    },
+    loadAll() {
+      return [
+        { "value": "三全鲜食（北新泾店）", "address": "长宁区新渔路144号" },
+        { "value": "Hot honey 首尔炸鸡（仙霞路）", "address": "上海市长宁区淞虹路661号" },
+        { "value": "鲜果榨汁（金沙江路和美广店）", "address": "普陀区金沙江路2239号金沙和美广场B1-10-6" }
+      ];
+    },
+    handleSelect(item) {
+      console.log(item);
     }
+  },
+  mounted() {
+    this.restaurants = this.loadAll();
   }
 }
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   td{
-
     height: 2.3em;
     padding:5px;
     text-align: center;
@@ -500,36 +543,8 @@ export default {
   .form-label{
     color: #20a0ff;
   }
-  .el-row {
-    margin-bottom: 2px;
-    &:last-child {
-     margin-bottom: 0;
-   }
-  }
-  .el-col {
-    border-radius: 4px;
-  }
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-  .bg-purple {
-    background: #d3dce6;
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
-  }
-  .row-bg {
-    padding: 10px 0;
-    background-color: #f9fafc;
-  }
-  .row-jz{
-    display: flex;align-items: center;justify-content: center;
-  }
-  .el-w{
-    width: 80%;
+  .show-autocomplete{
+    display: flex;
+    flex-direction: row;
   }
 </style>
