@@ -63,3 +63,12 @@ export function getStudentPreSchoolInfo() {
     data: {}
   })
 }
+
+
+export function updateStudentPreSchoolInfo(data) {
+  return request({
+    url: '/api/student/updateStudentPreSchoolInfo',
+    method: 'POST',
+    data
+  })
+}

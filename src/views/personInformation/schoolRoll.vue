@@ -83,7 +83,7 @@
                         </el-select>
                       </td>
                       <td v-else width="25%">
-                        {{ $t(list.religion) }}
+                        {{ $t(list.religion)}}
                       </td>
                     </tr>
                   </tbody></table>
@@ -311,7 +311,18 @@
                     <td align="right" width="25%" class="form-label">
                       {{ $t('preSchoolInfoModal.undergraduateType') }}
                     </td>
-                    <td width="25%" >
+                    <td v-if="isEdit2" width="25%" >
+                      <el-select v-model="list3.universityTypeCode"  size="mini" class="el-w">
+                        <el-option
+                          v-for="item in list3.bkbylb"
+                          :key="item.value"
+                          :label="$t(item.name)"
+                          :value="$t(item.value)"
+                        />
+                      </el-select>
+                    </td>
+                    <td v-else width="25%" >
+                      {{ $t(list3.universityTypeCode) }}
                     </td>
                     <td align="right" width="25%" class="form-label">
                       {{ $t('preSchoolInfoModal.undergraduateMajor') }}
@@ -338,17 +349,39 @@
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.undergraduateDate') }}
                     </td>
-                    <td />
+                    <td v-if="isEdit2" >
+                      <input v-model="list3.universityDate">
+                    </td>
+                    <td v-else >
+                      {{list3.universityDate}}
+                    </td>
                     <td align="right" class="form-label">
                       {{ $t('preSchoolInfoModal.undergraduateThesisTitle') }}
                     </td>
-                    <td />
+                    <td v-if="isEdit2" >
+                      <input v-model="list3.universityThesis">
+                    </td>
+                    <td v-else >
+                      {{list3.universityThesis}}
+                    </td>
                   </tr>
                   <tr>
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.bachelarDegree') }}
                     </td>
-                    <td />
+                    <td v-if="isEdit2" width="25%" >
+                      <el-select v-model="list3.bachelorDegreeCode" placeholder="please choose" size="mini" class="el-w">
+                        <el-option
+                          v-for="item in list3.xsxw"
+                          :key="item.value"
+                          :label="$t(item.name)"
+                          :value="$t(item.value)"
+                        />
+                      </el-select>
+                    </td>
+                    <td v-else width="25%" >
+                      {{ $t(list3.bachelorDegreeCode) }}
+                    </td>
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.bachelarDegreeMajor') }}
                     </td>
@@ -358,11 +391,28 @@
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.bachelarDegreeType') }}
                     </td>
-                    <td />
+                    <td v-if="isEdit2" width="25%" >
+                      <el-select v-model="list3.bachelorSubjectTypeCode" placeholder="please choose" size="mini" class="el-w">
+                        <el-option
+                          v-for="item in list3.xsxkml"
+                          :key="item.value"
+                          :label="$t(item.name)"
+                          :value="$t(item.value)"
+                        />
+                      </el-select>
+                    </td>
+                    <td v-else width="25%" >
+                      {{ $t(list3.bachelorSubjectTypeCode) }}
+                    </td>
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.bachelarDegreeGrantedDate') }}
                     </td>
-                    <td />
+                    <td v-if="isEdit2" >
+                      <input v-model="list3.bachelorDegreeDate">
+                    </td>
+                    <td v-else >
+                      {{list3.bachelorDegreeDate}}
+                    </td>
                   </tr>
                   <tr>
                     <td colspan="4" class="form-label">
@@ -373,7 +423,19 @@
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.postgraduateType') }}
                     </td>
-                    <td />
+                    <td v-if="isEdit2" width="25%" >
+                      <el-select v-model="list3.masterTypeCode" placeholder="please choose" size="mini" class="el-w">
+                        <el-option
+                          v-for="item in list3.ssbylb"
+                          :key="item.value"
+                          :label="$t(item.name)"
+                          :value="$t(item.value)"
+                        />
+                      </el-select>
+                    </td>
+                    <td v-else width="25%" >
+                      {{ $t(list3.masterTypeCode) }}
+                    </td>
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.postgraduateMajor') }}
                     </td>
@@ -383,17 +445,39 @@
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.postgraduateDate') }}
                     </td>
-                    <td />
+                    <td v-if="isEdit2" >
+                      <input v-model="list3.masterDate">
+                    </td>
+                    <td v-else >
+                      {{list3.masterDate}}
+                    </td>
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.postgraduateThesisTitle') }}
                     </td>
-                    <td />
+                    <td v-if="isEdit2" >
+                      <input v-model="list3.masterThesis">
+                    </td>
+                    <td v-else >
+                      {{list3.masterThesis}}
+                    </td>
                   </tr>
                   <tr>
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.MasterDegree') }}
                     </td>
-                    <td />
+                    <td v-if="isEdit2" width="25%" >
+                      <el-select v-model="list3.masterDegreeCode" placeholder="please choose" size="mini" class="el-w">
+                        <el-option
+                          v-for="item in list3.ssxw"
+                          :key="item.value"
+                          :label="$t(item.name)"
+                          :value="$t(item.value)"
+                        />
+                      </el-select>
+                    </td>
+                    <td v-else width="25%" >
+                      {{ $t(list3.masterDegreeCode) }}
+                    </td>
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.MasterDegreeMajor') }}
                     </td>
@@ -403,17 +487,39 @@
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.MasterSubjectType') }}
                     </td>
-                    <td />
+                    <td v-if="isEdit2" width="25%" >
+                      <el-select v-model="list3.masterSubjectTypeCode" placeholder="please choose" size="mini" class="el-w">
+                        <el-option
+                          v-for="item in list3.ssxkml"
+                          :key="item.value"
+                          :label="$t(item.name)"
+                          :value="$t(item.value)"
+                        />
+                      </el-select>
+                    </td>
+                    <td v-else width="25%" >
+                      {{ $t(list3.masterSubjectTypeCode) }}
+                    </td>
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.MasterDegreeDate') }}
                     </td>
-                    <td />
+                    <td v-if="isEdit2" >
+                      <input v-model="list3.masterDegreeDate">
+                    </td>
+                    <td v-else >
+                      {{list3.masterDegreeDate}}
+                    </td>
                   </tr>
                   <tr>
                     <td height="25" align="right" class="form-label">
                       {{ $t('preSchoolInfoModal.remark') }}
                     </td>
-                    <td colspan="3" />
+                    <td colspan="3" v-if="isEdit2" >
+                      <input v-model="list3.remark">
+                    </td>
+                    <td  v-else colspan="3" >
+                    {{list3.remark}}
+                    </td>
                   </tr>
                 </tbody>
                 <tr>
@@ -434,7 +540,7 @@
 </template>
 
 <script>
-import { getStudentBaseicInfo, updateStudentBaseicInfo, getStudentTrainInfo, getStudentPreSchoolInfo } from '@/api/user'
+import { getStudentBaseicInfo, updateStudentBaseicInfo, getStudentTrainInfo, getStudentPreSchoolInfo , updateStudentPreSchoolInfo } from '@/api/user'
 export default {
   data() {
     return {
@@ -443,7 +549,6 @@ export default {
       list: [],
       list2: [],
       list3: [],
-      list4: [],
       activeName: 'first',
       isEdit: false,
       isEdit2: false
@@ -451,6 +556,22 @@ export default {
   },
   created() {
     this.fetchData()
+  },
+  computed:{
+    religionshow : {
+      get: function() {
+        let zjxy = this.list.zjxy
+        let religion = this.list.religion
+        for (let i = 0; i < zjxy.length; i++) {
+          console.log(zjxy[i])
+          let item = zjxy[i]
+          if (item.value === religion) {
+            return this.$t(item.name)
+          }
+        }
+      },
+
+    }
   },
   methods: {
     downLoadPDF() {
@@ -481,13 +602,13 @@ export default {
     },
     save2() {
       this.isEdit2 = false
+      updateStudentPreSchoolInfo(this.list3).then(res => {
+      }).catch(e => {
+      })
     },
     edit2() {
       this.isEdit2 = true
     },
-
-
-
     querySearch(queryString, cb) {
       var restaurants = this.restaurants;
       var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
