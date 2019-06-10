@@ -443,6 +443,7 @@ export default {
       list: [],
       list2: [],
       list3: [],
+      list4: [],
       activeName: 'first',
       isEdit: false,
       isEdit2: false
