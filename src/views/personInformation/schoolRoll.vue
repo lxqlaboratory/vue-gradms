@@ -73,7 +73,7 @@
                         {{ $t('baseInformationModal.religion') }}
                       </td>
                       <td v-if="isEdit" width="25%">
-                        <el-select v-model="list.religion" placeholder="please choose" size="mini" class="el-w">
+                        <el-select v-model="religionshow" placeholder="please choose" size="mini" class="el-w">
                           <el-option
                             v-for="item in list.zjxy"
                             :key="item.value"
@@ -83,7 +83,7 @@
                         </el-select>
                       </td>
                       <td v-else width="25%">
-                        {{ $t(list.religion)}}
+                        {{religionshow}}
                       </td>
                     </tr>
                   </tbody></table>
@@ -329,7 +329,7 @@
                     </td>
                     <td v-if="isEdit2" width="25%" >
                           <el-autocomplete
-                            v-model="state"
+                            v-model="list3.gradMajorName"
                             size="mini"
                             style="width: 200px"
                             :fetch-suggestions="querySearch"
@@ -337,8 +337,8 @@
                             @select="handleSelect">
                             <template slot-scope="{ item }">
                               <div class="show-autocomplete" ><div style="color: #409EFF">
-                                {{ item.value }}
-                              </div> <div>-</div><div >{{ item.address }}</div></div>
+                                {{ $t(item.name) }}
+                              </div> <div>-</div><div >{{ item.value}}</div></div>
                             </template>
                           </el-autocomplete>
                     </td>
@@ -515,7 +515,7 @@
                       {{ $t('preSchoolInfoModal.remark') }}
                     </td>
                     <td colspan="3" v-if="isEdit2" >
-                      <input v-model="list3.remark">
+                      <input v-model="list3.remark" style="width: 75%">
                     </td>
                     <td  v-else colspan="3" >
                     {{list3.remark}}
@@ -545,11 +545,12 @@ export default {
   data() {
     return {
       state: '',
-      restaurants: [],
       list: [],
       list2: [],
       list3: [],
+      length1: [],
       activeName: 'first',
+      bkbyzym: [],
       isEdit: false,
       isEdit2: false
     }
@@ -562,15 +563,19 @@ export default {
       get: function() {
         let zjxy = this.list.zjxy
         let religion = this.list.religion
-        for (let i = 0; i < zjxy.length; i++) {
-          console.log(zjxy[i])
-          let item = zjxy[i]
-          if (item.value === religion) {
-            return this.$t(item.name)
-          }
+        if(zjxy){
+          this.length1 = zjxy.length
         }
+        for (let i = 0; i <  this.length1; i++) {
+              let item = zjxy[i]
+              if (item.value === religion) {
+                return this.$t(item.name)
+              }
+            }
       },
-
+      set: function (newVlue) {
+         this.list.religion = newVlue
+      }
     }
   },
   methods: {
@@ -610,30 +615,21 @@ export default {
       this.isEdit2 = true
     },
     querySearch(queryString, cb) {
-      var restaurants = this.restaurants;
-      var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
-      // 调用 callback 返回建议列表的数据
-      cb(results);
+      var bkbyzy = this.list3.bkbyzy
+      var results = queryString ? bkbyzy.filter(item=>{
+        let isEn=item.name.en&&(item.name.en.indexOf(queryString)>=0)
+        let isCh=item.name.zh&&(item.name.zh.indexOf(queryString)>=0)
+        let isValue=item.value&&(item.value.indexOf(queryString)>=0)
+        return (isEn||isCh||isValue)
+      }) : bkbyzy
+      cb(results)
     },
-    createFilter(queryString) {
-      return (restaurant) => {
-        return ((restaurant.address.toLowerCase().indexOf(queryString.toLowerCase()) === 0)||(restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0));
-      };
-    },
-    loadAll() {
-      return [
-        { "value": "三全鲜食（北新泾店）", "address": "长宁区新渔路144号" },
-        { "value": "Hot honey 首尔炸鸡（仙霞路）", "address": "上海市长宁区淞虹路661号" },
-        { "value": "鲜果榨汁（金沙江路和美广店）", "address": "普陀区金沙江路2239号金沙和美广场B1-10-6" }
-      ];
-    },
+
     handleSelect(item) {
-      console.log(item);
+      this.list3.gradMajorName=this.$t(item.name)
     }
-  },
-  mounted() {
-    this.restaurants = this.loadAll();
   }
+
 }
 
 </script>
