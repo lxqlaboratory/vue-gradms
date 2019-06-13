@@ -317,7 +317,7 @@
                           v-for="item in list3.bkbylb"
                           :key="item.value"
                           :label="$t(item.name)"
-                          :value="$t(item.value)"
+                          :value="$t(item.name)"
                         />
                       </el-select>
                     </td>
@@ -343,6 +343,7 @@
                           </el-autocomplete>
                     </td>
                     <td v-else width="25%">
+                      {{$t(list3.gradMajorName)}}
                     </td>
                   </tr>
                   <tr>
@@ -375,7 +376,7 @@
                           v-for="item in list3.xsxw"
                           :key="item.value"
                           :label="$t(item.name)"
-                          :value="$t(item.value)"
+                          :value="$t(item.name)"
                         />
                       </el-select>
                     </td>
@@ -385,7 +386,24 @@
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.bachelarDegreeMajor') }}
                     </td>
-                    <td />
+                    <td v-if="isEdit2" width="25%" >
+                      <el-autocomplete
+                        v-model="list3.gradMajorNameByBachelorDegree"
+                        size="mini"
+                        style="width: 200px"
+                        :fetch-suggestions="BachelorDegreeSearch"
+                        placeholder="请输入内容"
+                        @select="BachelorDegreeSelect">
+                        <template slot-scope="{ item }">
+                          <div class="show-autocomplete" ><div style="color: #409EFF">
+                            {{ $t(item.name) }}
+                          </div> <div>-</div><div >{{ item.value}}</div></div>
+                        </template>
+                      </el-autocomplete>
+                    </td>
+                    <td v-else>
+                      {{$t(list3.gradMajorNameByBachelorDegree)}}
+                    </td>
                   </tr>
                   <tr>
                     <td class="form-label">
@@ -397,7 +415,7 @@
                           v-for="item in list3.xsxkml"
                           :key="item.value"
                           :label="$t(item.name)"
-                          :value="$t(item.value)"
+                          :value="$t(item.name)"
                         />
                       </el-select>
                     </td>
@@ -429,7 +447,7 @@
                           v-for="item in list3.ssbylb"
                           :key="item.value"
                           :label="$t(item.name)"
-                          :value="$t(item.value)"
+                          :value="$t(item.name)"
                         />
                       </el-select>
                     </td>
@@ -439,7 +457,24 @@
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.postgraduateMajor') }}
                     </td>
-                    <td />
+                    <td v-if="isEdit2" width="25%" >
+                    <el-autocomplete
+                      v-model="list3.postGradMajorName"
+                      size="mini"
+                      style="width: 200px"
+                      :fetch-suggestions="postGradMajorSearch"
+                      placeholder="请输入内容"
+                      @select="postGradMajorSelect">
+                      <template slot-scope="{ item }">
+                        <div class="show-autocomplete" ><div style="color: #409EFF">
+                          {{ $t(item.name) }}
+                        </div> <div>-</div><div >{{ item.value}}</div></div>
+                      </template>
+                    </el-autocomplete>
+                  </td>
+                    <td v-else>
+                      {{ $t(list3.postGradMajorName) }}
+                    </td>
                   </tr>
                   <tr>
                     <td class="form-label">
@@ -471,7 +506,7 @@
                           v-for="item in list3.ssxw"
                           :key="item.value"
                           :label="$t(item.name)"
-                          :value="$t(item.value)"
+                          :value="$t(item.name)"
                         />
                       </el-select>
                     </td>
@@ -481,7 +516,24 @@
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.MasterDegreeMajor') }}
                     </td>
-                    <td />
+                    <td v-if="isEdit2" width="25%" >
+                      <el-autocomplete
+                        v-model="list3.postGradMajorNameByMasterDegree"
+                        size="mini"
+                        style="width: 200px"
+                        :fetch-suggestions="MasterDegreeSearch"
+                        placeholder="请输入内容"
+                        @select="BachelorDegreeSelect">
+                        <template slot-scope="{ item }">
+                          <div class="show-autocomplete" ><div style="color: #409EFF">
+                            {{ $t(item.name) }}
+                          </div> <div>-</div><div >{{ item.value}}</div></div>
+                        </template>
+                      </el-autocomplete>
+                    </td>
+                    <td v-else>
+                      {{ $t(list3.postGradMajorNameByMasterDegree) }}
+                    </td>
                   </tr>
                   <tr>
                     <td class="form-label">
@@ -493,7 +545,7 @@
                           v-for="item in list3.ssxkml"
                           :key="item.value"
                           :label="$t(item.name)"
-                          :value="$t(item.value)"
+                          :value="$t(item.name)"
                         />
                       </el-select>
                     </td>
@@ -544,7 +596,6 @@ import { getStudentBaseicInfo, updateStudentBaseicInfo, getStudentTrainInfo, get
 export default {
   data() {
     return {
-      state: '',
       list: [],
       list2: [],
       list3: [],
@@ -573,8 +624,8 @@ export default {
               }
             }
       },
-      set: function (newVlue) {
-         this.list.religion = newVlue
+      set: function (newValue) {
+         this.list.religion = newValue
       }
     }
   },
@@ -594,9 +645,20 @@ export default {
       getStudentPreSchoolInfo().then(res => {
         console.log(res)
         this.list3 = res.data
+        this.list3.gradMajorName = this.$t(this.list3.gradMajorName)
+        this.list3.gradMajorNameByBachelorDegree = this.$t(this.list3.gradMajorNameByBachelorDegree)
+        this.list3.postGradMajorName = this.$t(this.list3.postGradMajorName)
+        this.list3.postGradMajorNameByMasterDegree = this.$t(this.list3.postGradMajorNameByMasterDegree)
       })
     },
+    queryList(val,list){
+      for(let i=0;i<list.length;i++)
+        if(this.$t(list[i])==val)
+          return list[i]
+    },
     save() {
+      // this.list3.gradMajorName=this.queryList( this.list3.gradMajorName,this.list3)
+
       this.isEdit = false
       updateStudentBaseicInfo(this.list).then(res => {
       }).catch(e => {
@@ -624,9 +686,47 @@ export default {
       }) : bkbyzy
       cb(results)
     },
-
+    BachelorDegreeSearch(queryString, cb){
+      var bkbyzy = this.list3.bkbyzy
+      var results = queryString ? bkbyzy.filter(item=>{
+        let isEn=item.name.en&&(item.name.en.indexOf(queryString)>=0)
+        let isCh=item.name.zh&&(item.name.zh.indexOf(queryString)>=0)
+        let isValue=item.value&&(item.value.indexOf(queryString)>=0)
+        return (isEn||isCh||isValue)
+      }) : bkbyzy
+      cb(results)
+    },
+    postGradMajorSearch(queryString, cb){
+      var ssxkml = this.list3.ssxkml
+      var results = queryString ? ssxkml.filter(item=>{
+        let isEn=item.name.en&&(item.name.en.indexOf(queryString)>=0)
+        let isCh=item.name.zh&&(item.name.zh.indexOf(queryString)>=0)
+        let isValue=item.value&&(item.value.indexOf(queryString)>=0)
+        return (isEn||isCh||isValue)
+      }) : ssxkml
+      cb(results)
+    },
+    MasterDegreeSearch(queryString, cb){
+      var ssxkml = this.list3.ssxkml
+      var results = queryString ? ssxkml.filter(item=>{
+        let isEn=item.name.en&&(item.name.en.indexOf(queryString)>=0)
+        let isCh=item.name.zh&&(item.name.zh.indexOf(queryString)>=0)
+        let isValue=item.value&&(item.value.indexOf(queryString)>=0)
+        return (isEn||isCh||isValue)
+      }) : ssxkml
+      cb(results)
+    },
     handleSelect(item) {
-      this.list3.gradMajorName=this.$t(item.name)
+      this.list3.gradMajorName  = this.$t(item.name)
+    },
+    postGradMajorSelect(item) {
+      this.list3.postGradMajorName  = this.$t(item.name)
+    },
+    MasterDegreeSelect(item) {
+      this.list3.postGradMajorNameByMasterDegree  = this.$t(item.name)
+    },
+    BachelorDegreeSelect(item){
+       this.list3.gradMajorNameByBachelorDegree = this.$t(item.name)
     }
   }
 
