@@ -78,7 +78,7 @@
                             v-for="item in list.zjxy"
                             :key="item.value"
                             :label="$t(item.name)"
-                            :value="$t(item.value)"
+                            :value="item.value"
                           />
                         </el-select>
                       </td>
@@ -317,19 +317,19 @@
                           v-for="item in list3.bkbylb"
                           :key="item.value"
                           :label="$t(item.name)"
-                          :value="$t(item.name)"
+                          :value="item.value"
                         />
                       </el-select>
                     </td>
                     <td v-else width="25%" >
-                      {{ $t(list3.universityTypeCode) }}
+                      {{ $t(list3.universityTypeCode,list3.bkbylb) }}
                     </td>
                     <td align="right" width="25%" class="form-label">
                       {{ $t('preSchoolInfoModal.undergraduateMajor') }}
                     </td>
                     <td v-if="isEdit2" width="25%" >
                           <el-autocomplete
-                            v-model="list3.gradMajorName"
+                            v-model="baseMajor"
                             size="mini"
                             style="width: 200px"
                             :fetch-suggestions="querySearch"
@@ -343,7 +343,7 @@
                           </el-autocomplete>
                     </td>
                     <td v-else width="25%">
-                      {{$t(list3.gradMajorName)}}
+                      {{baseMajor}}
                     </td>
                   </tr>
                   <tr>
@@ -376,19 +376,19 @@
                           v-for="item in list3.xsxw"
                           :key="item.value"
                           :label="$t(item.name)"
-                          :value="$t(item.name)"
+                          :value="item.value"
                         />
                       </el-select>
                     </td>
                     <td v-else width="25%" >
-                      {{ $t(list3.bachelorDegreeCode) }}
+                      {{ $t(list3.bachelorDegreeCode,list3.xsxw) }}
                     </td>
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.bachelarDegreeMajor') }}
                     </td>
                     <td v-if="isEdit2" width="25%" >
                       <el-autocomplete
-                        v-model="list3.gradMajorNameByBachelorDegree"
+                        v-model="DegreeBaseGradMajor"
                         size="mini"
                         style="width: 200px"
                         :fetch-suggestions="BachelorDegreeSearch"
@@ -402,7 +402,7 @@
                       </el-autocomplete>
                     </td>
                     <td v-else>
-                      {{$t(list3.gradMajorNameByBachelorDegree)}}
+                      {{DegreeBaseGradMajor}}
                     </td>
                   </tr>
                   <tr>
@@ -415,12 +415,12 @@
                           v-for="item in list3.xsxkml"
                           :key="item.value"
                           :label="$t(item.name)"
-                          :value="$t(item.name)"
+                          :value="item.value"
                         />
                       </el-select>
                     </td>
                     <td v-else width="25%" >
-                      {{ $t(list3.bachelorSubjectTypeCode) }}
+                      {{ $t(list3.bachelorSubjectTypeCode,list3.xsxkml) }}
                     </td>
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.bachelarDegreeGrantedDate') }}
@@ -447,19 +447,19 @@
                           v-for="item in list3.ssbylb"
                           :key="item.value"
                           :label="$t(item.name)"
-                          :value="$t(item.name)"
+                          :value="item.value"
                         />
                       </el-select>
                     </td>
                     <td v-else width="25%" >
-                      {{ $t(list3.masterTypeCode) }}
+                      {{ $t(list3.masterTypeCode,list3.ssbylb) }}
                     </td>
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.postgraduateMajor') }}
                     </td>
                     <td v-if="isEdit2" width="25%" >
                     <el-autocomplete
-                      v-model="list3.postGradMajorName"
+                      v-model="BasePostGradMajor"
                       size="mini"
                       style="width: 200px"
                       :fetch-suggestions="postGradMajorSearch"
@@ -473,7 +473,7 @@
                     </el-autocomplete>
                   </td>
                     <td v-else>
-                      {{ $t(list3.postGradMajorName) }}
+                      {{ BasePostGradMajor }}
                     </td>
                   </tr>
                   <tr>
@@ -506,24 +506,24 @@
                           v-for="item in list3.ssxw"
                           :key="item.value"
                           :label="$t(item.name)"
-                          :value="$t(item.name)"
+                          :value="item.value"
                         />
                       </el-select>
                     </td>
                     <td v-else width="25%" >
-                      {{ $t(list3.masterDegreeCode) }}
+                      {{ $t(list3.masterDegreeCode,list3.ssxw) }}
                     </td>
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.MasterDegreeMajor') }}
                     </td>
                     <td v-if="isEdit2" width="25%" >
                       <el-autocomplete
-                        v-model="list3.postGradMajorNameByMasterDegree"
+                        v-model="DegreeBasePostGradMajor"
                         size="mini"
                         style="width: 200px"
                         :fetch-suggestions="MasterDegreeSearch"
                         placeholder="请输入内容"
-                        @select="BachelorDegreeSelect">
+                        @select="MasterDegreeSelect">
                         <template slot-scope="{ item }">
                           <div class="show-autocomplete" ><div style="color: #409EFF">
                             {{ $t(item.name) }}
@@ -532,7 +532,7 @@
                       </el-autocomplete>
                     </td>
                     <td v-else>
-                      {{ $t(list3.postGradMajorNameByMasterDegree) }}
+                      {{ DegreeBasePostGradMajor }}
                     </td>
                   </tr>
                   <tr>
@@ -545,12 +545,12 @@
                           v-for="item in list3.ssxkml"
                           :key="item.value"
                           :label="$t(item.name)"
-                          :value="$t(item.name)"
+                          :value="item.value"
                         />
                       </el-select>
                     </td>
                     <td v-else width="25%" >
-                      {{ $t(list3.masterSubjectTypeCode) }}
+                      {{ $t(list3.masterSubjectTypeCode,list3.ssxkml) }}
                     </td>
                     <td class="form-label">
                       {{ $t('preSchoolInfoModal.MasterDegreeDate') }}
@@ -599,11 +599,77 @@ export default {
       list: [],
       list2: [],
       list3: [],
+      baseMajor: '',
+      BasePostGradMajor: '',
+      DegreeBaseGradMajor: '',
+      DegreeBasePostGradMajor: '',
       length1: [],
       activeName: 'first',
       bkbyzym: [],
       isEdit: false,
       isEdit2: false
+    }
+  },
+  watch: {
+      'list3.BaseGradMajorCode':function(val,old){
+        for(let item of this.list3.bkbyzy)
+          if(item.value==(this.list3.BaseGradMajorCode+'')){
+            this.baseMajor=this.$t(item.name)
+            return
+          }
+      },
+    'list3.DegreeBaseGradMajorCode':function(val,old){
+      for(let item of this.list3.bkbyzy)
+        if(item.value==(this.list3.DegreeBaseGradMajorCode+'')){
+          this.DegreeBaseGradMajor=this.$t(item.name)
+          return
+        }
+    },
+     'list3.BasePostGradMajorCode':function(val,old){
+      for(let item of this.list3.shbyzy)
+        if(item.value==(this.list3.BasePostGradMajorCode+'')){
+          this.BasePostGradMajor=this.$t(item.name)
+          return
+        }
+    },
+    'list3.DegreeBasePostGradMajorCode':function(val,old){
+      for(let item of this.list3.shbyzy)
+        if(item.value==(this.list3.DegreeBasePostGradMajorCode+'')){
+          this.DegreeBasePostGradMajor=this.$t(item.name)
+          return
+        }
+    },
+    '$store.getters.language':function(val) {
+      for(let item of this.list3.shbyzy){
+
+        if(item.value==(this.list3.BasePostGradMajorCode+'')){
+          this.BasePostGradMajor=this.$t(item.name)
+          break
+        }
+      }
+      for(let item of this.list3.shbyzy){
+
+        if(item.value==(this.list3.DegreeBasePostGradMajorCode+'')){
+          this.DegreeBasePostGradMajor=this.$t(item.name)
+          break
+        }
+      }
+
+      for(let item of this.list3.bkbyzy){
+
+        if(item.value==(this.list3.BaseGradMajorCode+'')){
+          this.baseMajor=this.$t(item.name)
+          break
+        }
+      }
+
+      for(let item of this.list3.bkbyzy){
+
+        if(item.value==(this.list3.DegreeBaseGradMajorCode+'')){
+          this.DegreeBaseGradMajor=this.$t(item.name)
+          break
+        }
+      }
     }
   },
   created() {
@@ -645,20 +711,9 @@ export default {
       getStudentPreSchoolInfo().then(res => {
         console.log(res)
         this.list3 = res.data
-        this.list3.gradMajorName = this.$t(this.list3.gradMajorName)
-        this.list3.gradMajorNameByBachelorDegree = this.$t(this.list3.gradMajorNameByBachelorDegree)
-        this.list3.postGradMajorName = this.$t(this.list3.postGradMajorName)
-        this.list3.postGradMajorNameByMasterDegree = this.$t(this.list3.postGradMajorNameByMasterDegree)
       })
     },
-    queryList(val,list){
-      for(let i=0;i<list.length;i++)
-        if(this.$t(list[i])==val)
-          return list[i]
-    },
     save() {
-      // this.list3.gradMajorName=this.queryList( this.list3.gradMajorName,this.list3)
-
       this.isEdit = false
       updateStudentBaseicInfo(this.list).then(res => {
       }).catch(e => {
@@ -697,36 +752,36 @@ export default {
       cb(results)
     },
     postGradMajorSearch(queryString, cb){
-      var ssxkml = this.list3.ssxkml
-      var results = queryString ? ssxkml.filter(item=>{
+      var shbyzy = this.list3.shbyzy
+      var results = queryString ? shbyzy.filter(item=>{
         let isEn=item.name.en&&(item.name.en.indexOf(queryString)>=0)
         let isCh=item.name.zh&&(item.name.zh.indexOf(queryString)>=0)
         let isValue=item.value&&(item.value.indexOf(queryString)>=0)
         return (isEn||isCh||isValue)
-      }) : ssxkml
+      }) : shbyzy
       cb(results)
     },
     MasterDegreeSearch(queryString, cb){
-      var ssxkml = this.list3.ssxkml
-      var results = queryString ? ssxkml.filter(item=>{
+      var shbyzy = this.list3.shbyzy
+      var results = queryString ? shbyzy.filter(item=>{
         let isEn=item.name.en&&(item.name.en.indexOf(queryString)>=0)
         let isCh=item.name.zh&&(item.name.zh.indexOf(queryString)>=0)
         let isValue=item.value&&(item.value.indexOf(queryString)>=0)
         return (isEn||isCh||isValue)
-      }) : ssxkml
+      }) : shbyzy
       cb(results)
     },
     handleSelect(item) {
-      this.list3.gradMajorName  = this.$t(item.name)
+      this.list3.BaseGradMajorCode= item.value
     },
     postGradMajorSelect(item) {
-      this.list3.postGradMajorName  = this.$t(item.name)
+      this.list3.BasePostGradMajorCode  = item.value
     },
     MasterDegreeSelect(item) {
-      this.list3.postGradMajorNameByMasterDegree  = this.$t(item.name)
+      this.list3.DegreeBasePostGradMajorCode  = item.value
     },
     BachelorDegreeSelect(item){
-       this.list3.gradMajorNameByBachelorDegree = this.$t(item.name)
+       this.list3.DegreeBaseGradMajorCode = item.value
     }
   }
 
