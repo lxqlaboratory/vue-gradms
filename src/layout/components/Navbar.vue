@@ -11,7 +11,7 @@
           <img src="http://service.sdu.edu.cn/tp_up/resource/image/common/user2.jpg" class="user-avatar" style="vertical-align: middle;">
           <span style="font-size: 16px;color: white">徐鹏涛</span>
         </div>
-        <el-dropdown-menu slot="dropdown" class="user-dropdown">
+        <el-dropdown-menu slot="dropdown" class="user-dropdown" style="margin-top: 0px">
           <router-link to="/">
             <el-dropdown-item>
               Home
@@ -58,7 +58,7 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
-  height: 50px;
+  height: 56px;
   overflow: hidden;
   position: relative;
   background: #9b0d14;
@@ -84,10 +84,14 @@ export default {
   .right-menu {
     float: right;
     height: 100%;
-    line-height: 50px;
-
+    line-height: 56px;
+    cursor: pointer;
+    color: #fff;
     &:focus {
       outline: none;
+    }
+    &:hover{
+      background: #66010a;
     }
 
     .right-menu-item {
@@ -109,15 +113,13 @@ export default {
     }
 
     .avatar-container {
-      margin-right: 30px;
+      margin-right: 20px;
 
       .avatar-wrapper {
         margin-top: 0px;
+        margin-left: 10px;
         position: relative;
 
-        .name:hover{
-          color: #20a0ff;
-        }
         .user-avatar {
           cursor: pointer;
           width: 40px;
@@ -133,16 +135,8 @@ export default {
           font-size: 12px;
         }
       }
-      .avatar-wrapper.el-dropdown-menu:hover{
-        color: #9b504c
-      }
-    }
-    .avatar-container:hover{
-      color: #2b2f3a;
     }
   }
-  .right-menu:hover{
-    color: #9b504c !important;
-  }
+
 }
 </style>
