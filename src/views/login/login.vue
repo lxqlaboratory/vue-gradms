@@ -36,7 +36,7 @@
             </el-row>
             <div style="display: flex;flex-direction: row;justify-content: space-between;align-items: center;width: 100%;margin-top: 25px;color:#9b0d14">
               <el-checkbox v-model="ydxy"><span
-                style="font-size: 13px;color: #9b0d14"
+                style="font-size: 13px"
               >{{ $t('login.rememberPassword') }}</span></el-checkbox>
               <el-button type="text" style="padding: 0;color: #9b0d14" @click="toRegister">{{ $t('login.forgetPassword') }}？</el-button>
             </div>

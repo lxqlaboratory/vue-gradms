@@ -13,7 +13,7 @@
     background-color: $menuBg;
     height: 100%;
     position: fixed;
-    font-size: 0px;
+    font-size: 16px;
     top: 0;
     bottom: 0;
     left: 0;
@@ -55,17 +55,24 @@
 
     .svg-icon {
       margin-right: 16px;
+      color: #ffffff;
     }
 
     .el-menu {
       border: none;
       height: 100%;
       width: 100% !important;
+      background: $menuBg;
+    }
+    .el-menu-item{
+      color: $menuText !important;
     }
 
     // menu hover
     .submenu-title-noDropdown,
     .el-submenu__title {
+      color: $menuText;
+      font-size: 16px;
       &:hover {
         background-color: $menuHover !important;
       }
@@ -79,6 +86,8 @@
     & .el-submenu .el-menu-item {
       min-width: $sideBarWidth !important;
       background-color: $subMenuBg !important;
+      color: $menuText !important;
+      font-size: 14px;
 
       &:hover {
         background-color: $subMenuHover !important;
