@@ -37,31 +37,42 @@
     <!--</div>-->
     <!--</el-col>-->
     <!--</el-row>-->
-    <!--<el-table-->
-    <!--:data="tablelist"-->
-    <!--border-->
-    <!--style="width: 100%">-->
-    <!--<el-table-column-->
-    <!--:label="$t('projectParticipation.number')"-->
-    <!--width="80">-->
-    <!--</el-table-column>-->
-    <!--<el-table-column-->
-    <!--:label="$t('cultivatingSchemeQuery.cultivatingSchemeName')"-->
-    <!--width="550">-->
-    <!--</el-table-column>-->
-    <!--<el-table-column-->
-    <!--:label="$t('cultivatingSchemeQuery.major1')"-->
-    <!--width="230">-->
-    <!--</el-table-column>-->
-    <!--<el-table-column-->
-    <!--:label="$t('cultivatingSchemeQuery.startTime')"-->
-    <!--width="180">-->
-    <!--</el-table-column>-->
-    <!--<el-table-column-->
-    <!--:label="$t('cultivatingSchemeQuery.detail')"-->
-    <!--&gt;-->
-    <!--</el-table-column>-->
-    <!--</el-table>-->
+    <el-table
+      :data="list"
+      element-loading-text="Loading"
+      border
+      fit
+      highlight-current-row>
+    <el-table-column
+    :label="$t('projectParticipation.number')"
+    width="80">
+      <template slot-scope="scope">
+        {{ scope.$index+1 }}
+      </template>
+    </el-table-column>
+    <el-table-column
+    :label="$t('cultivatingSchemeQuery.cultivatingSchemeName')"
+    width="550">
+      <template slot-scope="scope">
+        {{ scope.row.schemeName }}
+      </template>
+    </el-table-column>
+    <el-table-column
+    :label="$t('cultivatingSchemeQuery.major1')"
+    width="230">
+      <template slot-scope="scope">
+        {{ scope.row.majorId }}
+      </template>
+    </el-table-column>
+    <el-table-column
+    :label="$t('cultivatingSchemeQuery.startTime')"
+    width="180">
+    </el-table-column>
+    <el-table-column
+    :label="$t('cultivatingSchemeQuery.detail')"
+    >
+    </el-table-column>
+    </el-table>
   </div>
 </template>
 <script>
@@ -69,9 +80,16 @@ import { cultivateSchemeShow } from '@/api/user'
 export default {
   data() {
     return {
-      tablelist: []
+      tablelist: [],
+      list: null
     }
   },
+  // computed: {
+  //   'tableData': function() {
+  //     return this.tablelist.list.filter(item => {
+  //     })
+  //   }
+  // },
   created() {
     this.fetchData()
   },
@@ -80,6 +98,7 @@ export default {
       cultivateSchemeShow().then(res => {
         console.log(res)
         this.tablelist = res.data
+        this.list = res.data.list
       })
     }
   }
