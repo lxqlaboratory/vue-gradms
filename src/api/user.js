@@ -72,3 +72,11 @@ export function updateStudentPreSchoolInfo(data) {
     data
   })
 }
+
+export function cultivateSchemeShow() {
+  return request({
+    url: '/api/cultivate/personBasicInfoUpdateInit',
+    method: 'POST',
+    data: {}
+  })
+}

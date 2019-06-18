@@ -654,7 +654,6 @@ export default {
           break
         }
       }
-
       for(let item of this.list3.bkbyzy){
 
         if(item.value==(this.list3.BaseGradMajorCode+'')){
@@ -662,7 +661,6 @@ export default {
           break
         }
       }
-
       for(let item of this.list3.bkbyzy){
 
         if(item.value==(this.list3.DegreeBaseGradMajorCode+'')){
