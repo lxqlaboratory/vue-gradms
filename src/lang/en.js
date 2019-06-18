@@ -11,8 +11,8 @@ export default {
     placeholdUsername: 'please input your username',
     placeholdPassword: 'please input your password',
     loginTitle: 'Login',
-    authenticationLogin: 'Authentication platform login ',
-    manaegerTitle: 'Information Management System for Overseas Graduate Students',
+    authenticationLogin: 'Unified authentication login ',
+    manaegerTitle: 'International Student Information Management System',
     noticeTitle: 'Friendship tips',
     notice1: 'The default password is prefix D (Doctor)/Master (M)+7 digits after the ID number. The letters in the ID number are capital letters.',
     notice2: 'It is recommended to use IE browser or Google browser above 9.0, and 360 browser should choose extreme speed mode'
@@ -51,42 +51,34 @@ export default {
     xwxxhd: 'degree information check',
     dagl: 'archive management',
     txqnml: '填写圈内目录',
-    submit:"submit",
+    submit: 'submit',
     modify: 'modify',
     save: 'save',
-    curPage:'current page',
-
-
-
-
-
-
+    curPage: 'current page'
 
   },
 
-  //个人信息修改密码模块
-  modifyPasswordModal:{
-    oldPassword:'Previous password',
+  // 个人信息修改密码模块
+  modifyPasswordModal: {
+    oldPassword: 'Previous password',
     inputNewPassword: 'Input new password',
-    retypePassword:'Retype password',
-    passwordLength:"The maximum length of the password is 20",
-    passwordWrong:"Inconsistent password entered twice",
-    reset:'reset',
+    retypePassword: 'Retype password',
+    passwordLength: 'The maximum length of the password is 20',
+    passwordWrong: 'Inconsistent password entered twice',
+    reset: 'reset'
   },
 
-  //个人信息联系方式维护模块
+  // 个人信息联系方式维护模块
   updateContactModal: {
-    updateContact:"Update personal contact",
-    Msn:'MSN',
-    mainPageAddress:'home page address',
-    SdEmail:'Email of ShanDong university',
-    ContactAddress:'Contact address',
+    updateContact: 'Update personal contact',
+    Msn: 'MSN',
+    mainPageAddress: 'home page address',
+    SdEmail: 'Email of ShanDong university',
+    ContactAddress: 'Contact address'
   },
 
-
-
-  //学籍信息中个人基本信息
-  baseInformationModal:{
+  // 学籍信息中个人基本信息
+  baseInformationModal: {
     baseInformation: 'base information',
     cultivationInformation: 'cultivation information',
     beforeSchool: 'before school information',
@@ -106,254 +98,95 @@ export default {
     qq: 'qq number',
     wechat: 'wechat',
     email: 'E-mail',
-    remark: 'remark',
+    remark: 'remark'
   },
 
-  cultivationInformationModal:{
-    studentCultivationInfo:'Student cultivating information',
-    studentType:'Student type',
-    department:'School',
-    trainingWay:'Cultivating mode',
-    major:'Major',
-    entranceDate:'Date of entrance',
-    dapartTime:'Expected date of departure',
-    languageLevel:'Language level',
-    examNo:'Candidate number',
-    healthStatus:'Health status',
-    speciaties:'Specialties',
-    financeStatus:'Financial status',
-    financeSource:'Financial source',
-    grade:'Grade',
-    tutor:'Tutor',
-    studyStatus:"Status of study",
-    class:"Class",
-    campus:'Campus',
-    system:'System',
-    direction:'Research direction',
-    sedCultivation:'Secondary cultivating unit',
-    thirdCultivation:'Tertiary cultivating unit',
-    StudentStatusOrNot:'With or withour status',
-    CourseName:'Course time',
-    Note:'Blanks with * are required information',
-    Note1:'The format is 20070101'
+  cultivationInformationModal: {
+    studentCultivationInfo: 'Student cultivating information',
+    studentType: 'Student type',
+    department: 'School',
+    trainingWay: 'Cultivating mode',
+    major: 'Major',
+    entranceDate: 'Date of entrance',
+    dapartTime: 'Expected date of departure',
+    languageLevel: 'Language level',
+    examNo: 'Candidate number',
+    healthStatus: 'Health status',
+    speciaties: 'Specialties',
+    financeStatus: 'Financial status',
+    financeSource: 'Financial source',
+    grade: 'Grade',
+    tutor: 'Tutor',
+    studyStatus: 'Status of study',
+    class: 'Class',
+    campus: 'Campus',
+    system: 'System',
+    direction: 'Research direction',
+    sedCultivation: 'Secondary cultivating unit',
+    thirdCultivation: 'Tertiary cultivating unit',
+    StudentStatusOrNot: 'With or withour status',
+    CourseName: 'Course time',
+    Note: 'Blanks with * are required information',
+    Note1: 'The format is 20070101'
   },
 
-  //入学前信息模块
-  preSchoolInfoModal:{
-    preSchoolInfoDisplay:"Pre-School Information",
-    undergraduate:"Undergraduate ",
-    undergraduateType:"Graduation type",
-    undergraduateMajor:"Major",
-    undergraduateUniversity:"University",
-    undergraduateDate:"Date of Graduation.(eg.20070101)",
-    undergraduateSchool: "School",
-    undergraduateThesisTitle:"Thesis title",
-    bachelarDegree:"Bachelar's degree",
-    bachelarDegreeMajor:"Major of bachelor’s degree",
-    bachelarDegreeType:"Type of bachelor’s degree",
-    bachelarDegreeUnit:"Bachelor's degree granting institution",
-    bachelarDegreeGrantedDate :"Date of bachelor's degree granting",
-    postgraduate:"Postgraduate",
-    postgraduateType:'Graduation type',
-    postgraduateMajor:"Major",
-    postgraduateUniversity:'University',
-    postgraduateDate:'Date of graduation.(eg.20070101)',
-    postgraduateSchool:'School',
-    postgraduateThesisTitle:'Thesis title',
-    MasterDegree:"Master's degree",
-    MasterDegreeMajor:'Major of master’s degree',
-    MasterSubjectType:"Type of master’s degree",
-    MasterDegreeGrantUnit:"Master's degree granting institution",
-    MasterDegreeDate:"Date of bachelor's degree granting",
-    remark:'remark'
+  // 入学前信息模块
+  preSchoolInfoModal: {
+    preSchoolInfoDisplay: 'Pre-School Information',
+    undergraduate: 'Undergraduate ',
+    undergraduateType: 'Graduation type',
+    undergraduateMajor: 'Major',
+    undergraduateUniversity: 'University',
+    undergraduateDate: 'Date of Graduation.(eg.20070101)',
+    undergraduateSchool: 'School',
+    undergraduateThesisTitle: 'Thesis title',
+    bachelarDegree: "Bachelar's degree",
+    bachelarDegreeMajor: 'Major of bachelor’s degree',
+    bachelarDegreeType: 'Type of bachelor’s degree',
+    bachelarDegreeUnit: "Bachelor's degree granting institution",
+    bachelarDegreeGrantedDate: "Date of bachelor's degree granting",
+    postgraduate: 'Postgraduate',
+    postgraduateType: 'Graduation type',
+    postgraduateMajor: 'Major',
+    postgraduateUniversity: 'University',
+    postgraduateDate: 'Date of graduation.(eg.20070101)',
+    postgraduateSchool: 'School',
+    postgraduateThesisTitle: 'Thesis title',
+    MasterDegree: "Master's degree",
+    MasterDegreeMajor: 'Major of master’s degree',
+    MasterSubjectType: 'Type of master’s degree',
+    MasterDegreeGrantUnit: "Master's degree granting institution",
+    MasterDegreeDate: "Date of bachelor's degree granting",
+    remark: 'remark'
   },
 
-
-
-  //发表论文
-  publishThesis:{
-    publishThesis:'publish thesis',
-    thesisInfo:'thesis information',
-    note:'1. The information related to the dissertation is an important part of the dissertation published in the doctoral dissertation self-assessment form. Please be sure to fill it out carefully before the doctor\'s anonymous review.\n' +
+  // 发表论文
+  publishThesis: {
+    publishThesis: 'publish thesis',
+    thesisInfo: 'thesis information',
+    note: '1. The information related to the dissertation is an important part of the dissertation published in the doctoral dissertation self-assessment form. Please be sure to fill it out carefully before the doctor\'s anonymous review.\n' +
       '2. After the college secretary/secretary approves the paper, the paper information cannot be modified. To modify the paper information, please contact the corresponding college secretary/secretary approved by the review and set the status of the paper to be revised after the review is not passed.\n' +
       '3. The college secretary audit mainly uses postgraduate excellent results evaluation and graduation and degree review. The secretary review is mainly used for scholarship review.',
-    publicationYear:'Thesis publication year',
-    publicationTime:'Thesis publication date',
-    to:'to',
-    authorRanking:'author rank',
-    query:'query',
-    export:'export',
-    number:'number',
-    choice:'choice',
-    thesisName:'thesis name',
-    publicationTime1:'Thesis publication date',
-    conferenceTitle:'Journal conference name',
-    level:'level',
-    inclusion:'inclusion situdation',
-    selfRank:'My ranking',
-    openOrNot:'Open or not',
-    status:'status',
-    operation:'Operation',
-    setOpen:'Set it open',
-    setNotOpen:'Set it private ',
-    add:'add',
-  },
-
-  //发表专著
-  publishMonograph:{
-    publishMonograph:'Publish monograph',
-    note:'After approved by the administrator,the monograph/textbook informaton can not be modified \n' +
-      'student->If modifying monograph/textbook information，please contact 请联系审核通过的相应的学院秘书/书记将该专著/教材状态置为审核不通过后进行修改! \n' +
-      '教师->若要修改专著/教材信息，请联系相应的学院秘书将该专著/教材状态置为审核不通过后进行修改!',
-    monographInfo:"专著/教材信息",
-    publishTime:'',
-    to:'to',
-    autherRank:'作者位次',
-    number:'serial number',
-    choice:"choice",
-    name:"name",
-    type:"type",
-    publishHouse:"publishing house",
-    publishDate:'publishing date',
-    pageNumber:"page number",
-    version:'version',
-    price:'price(yuan)',
-    selfRank: 'self ranking',
-    isOpen:'Open or not',
-    status:'status',
-    operation:'operation',
-    note2:'No qualified data！',
-    setOpen:'set it open',
-    setNotOpen:'set it not open',
-    add:'add',
-  },
-
-//专利
-  patent:{
-    note:'patent/copyright information',
-    note1:'After the administrator has passed the patent/copyright, the patent/copyright information cannot be modified. \n' +
-      'Student->If you want to modify the patent/copyright information, please contact the ' +
-      'corresponding college secretary/secretator who passed the review and set the patent/copyright status to be revised after the review is not passed!\n' +
-      'Teacher->If you want to modify the patent/copyright information, ' +
-      'please contact the corresponding college secretary to set the patent/copyright status to be revised after the review is not passed!',
-    registerDate:'Date of granting certificate/registeration:',
-    to:'to',
-    authorRanking:'auther ranking:',
-    query:'query',
-    number:'number',
-    choice:'chocie',
-    patentInfo:"patent/copyright name",
-    type:'type',
-    patentNo:'patent/book registration number',
-    typeNo:'type number',
-    /*grantingDate:'date of /登记日期',*/
-    selfRank:'self ranking',
-    openOrNot: 'open or not',
-    status:'status',
-    operation:'operation',
-    note2:'SORRY:No approprrate data!!',
-    setOpen:'set open',
-    setNotOpen:'set not open',
-    add:'add',
-  },
-
-  //成果奖励信息查看
-  achievement:{
-    note:'The awards for scientific research achievements used for ' +
-      'graduation examination and awards for scholarship review shall be restricted, excluding awards for teaching achievements',
-    note1:'After the completion of filling, please submit the relevant materials to the school for review and approval, ' +
-      'and they cannot be modified. If you need to modify the relevant information, please contact the school to set the status as "fail"',
-    certificateTime:'certificate time',
-    to:'to',
-    authorRanking:'author ranking',
-    awardYear:'reward year',
-    note3:'e.g.2012',
-    query:'query',
-    export:'export',
-    number:'number',
-    choice:'choice',
-    awardName:'reward name',
-    type:'type',
-    awardType:'reward type',
-    awardRating:'reward rating',
-    awardLevel:'reward level',
-    awardCertificateTime:'certificate time',
-    selfRanking:'self ranking',
-    dataSource:'data source',
-    status:'status',
-    operation:'operation',
-    note4:'SORRY:No appropriate data!',
-    note5:'add',
-  },
-
-  //参与项目
-  projectParticipation:{
-    title:'projectInfomation',
-    note:'After completing the report, please submit the relevant materials to the college for review. ' +
-      'It cannot be modified after the approval. If you need to modify the relevant information, please contact the college to set the status to not pass.',
-    note1:'Student->If you want to modify the project information, please contact the corresponding college secretary/secretator ' +
-      'who passed the review and set the status of the project to be revised after the review is not passed',
-    note2:'Teacher->If you want to modify the project information, ' +
-      'please contact the corresponding college secretary to set the status of the project to be revised after the review is not passed!',
-    projectTime:'Project time',
-    to:'to',
-    projectType:'project type',
-    autherRank: 'author ranking',
-    query:'query',
-    number:'number',
-    choice:'choice',
-    porjectName:'project name',
-    type:'type',
-    projectRating:'project rating',
-    selfRank:'self level',
-    openOrNot:'openOrNot',
-    status:'status',
-    operation:'operation',
-    note3:'SORRY:No appropriate data!',
-    setOpen:'set it open',
-    setNotOpen:'set it not open',
-    add:'add',
-  },
-
-  //查看本人培养方案
-  cultivatingScheme:{
-    cultivatingSchemeDetail:'Cultivating Scheme Detail',
-    basicInfomation:'Basic information',
-    studentType:'Student type',
-    major:'Major',
-    schemeName:'Scheme',
-    startTime:'Starting Time',
-    compulsoryCredit:'Compulsory Credits',
-    totalCredit:'Total Credits',
-    cultivatingObj:'Cultivating Objective',
-    researchDirection:'Research Direction',
-    cultivatingMeans:'Cultivating Means',
-    studyYear:'Period of Schooling',
-    totalCreditAndCourse:'Total credits required and course setup',
-    cultivatingStep:'Cultivating Step',
-    researchandDissertation:'Scientific Research and Academic Dissertation',
-    graduationAndDegree:'Graduation and Degree Awarding',
-    comment:'Comment',
-  },
-
-//培养方案查询
-  cultivatingSchemeQuery:{
-    studentType:'Student Type',
-    school:'School',
-    major:'Major',
-    year:'Year',
-    query:'Query',
-    ListOfCultivation:'Cultivating Scheme List',
-    cultivatingSchemeName:'Cultivating Scheme Name',
-    major1:'Major',
-    startTime:'Starting Time',
-    detail:'Detail',
+    publicationYear: 'Thesis publication year',
+    publicationTime: 'Thesis publication date',
+    to: 'to',
+    authorRanking: 'author rank',
+    query: 'query',
+    export: 'export',
+    number: 'number',
+    choice: 'choice',
+    thesisName: 'thesis name',
+    publicationTime1: 'Thesis publication date',
+    conferenceTitle: 'Journal conference name',
+    level: 'level',
+    inclusion: 'inclusion situdation',
+    selfRank: 'My ranking',
+    openOrNot: 'Open or not',
+    status: 'status',
+    operation: 'Operation',
+    setOpen: 'Set it opem',
+    setNotOpen: 'Set it private ',
+    add: 'add'
   }
-
-
-
-
-
-
 
 }

@@ -1,14 +1,20 @@
 <template>
   <section class="app-main">
+    <breadcrumb class="breadcrumb-container" />
     <transition name="fade-transform" mode="out-in">
+<!--      <breadcrumb class="breadcrumb-container" />-->
       <router-view :key="key" />
     </transition>
   </section>
 </template>
 
 <script>
+import Breadcrumb from '@/components/Breadcrumb'
 export default {
   name: 'AppMain',
+  components: {
+    Breadcrumb
+  },
   computed: {
     key() {
       return this.$route.fullPath
@@ -26,7 +32,7 @@ export default {
   overflow: hidden;
 }
 .fixed-header+.app-main {
-  padding-top: 50px;
+  padding-top: 64px;
 }
 </style>
 

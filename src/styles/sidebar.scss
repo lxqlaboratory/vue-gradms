@@ -8,17 +8,19 @@
   }
 
   .sidebar-container {
+    //margin-top: 64px;
     transition: width 0.28s;
-    width: $sideBarWidth !important;
+    width: 260px !important;
     background-color: $menuBg;
     height: 100%;
     position: fixed;
     font-size: 16px;
-    top: 0;
+    top: 64px;
     bottom: 0;
     left: 0;
     z-index: 1001;
     overflow: hidden;
+    line-height: 1.0em;
 
     // reset element-ui css
     .horizontal-collapse-transition {
@@ -60,9 +62,8 @@
 
     .el-menu {
       border: none;
-      height: 100%;
       width: 100% !important;
-      background: $menuBg;
+      background: #6d0305;
     }
     .el-menu-item{
       color: $menuText !important;
@@ -72,9 +73,15 @@
     .submenu-title-noDropdown,
     .el-submenu__title {
       color: $menuText;
-      font-size: 16px;
+      font-size: 14px;
+      height: 49px;
+      line-height: 49px;
       &:hover {
         background-color: $menuHover !important;
+        border-left: 3px solid #ebfd70;
+        .svg-icon{
+          color: #ebfd70;
+        }
       }
     }
 
@@ -87,21 +94,33 @@
       min-width: $sideBarWidth !important;
       background-color: $subMenuBg !important;
       color: $menuText !important;
-      font-size: 14px;
-
+      font-size: 13px;
+      height: 40px;
+      line-height: 40px;
+      border: 0;
       &:hover {
         background-color: $subMenuHover !important;
+        .svg-icon{
+          color: #ebfd70;
+        }
+      }
+      &:focus{
+        background-color: $subMenuHover !important;
+        border-left: 3px solid #ebfd70;
+        .svg-icon{
+          color: #ebfd70;
+        }
       }
     }
   }
 
   .hideSidebar {
     .sidebar-container {
-      width: 54px !important;
+      width: 49px !important;
     }
 
     .main-container {
-      margin-left: 54px;
+      margin-left: 49px;
     }
 
     .submenu-title-noDropdown {
@@ -124,7 +143,7 @@
         padding: 0 !important;
 
         .svg-icon {
-          margin-left: 20px;
+          margin-left: 16px;
         }
 
         .el-submenu__icon-arrow {
@@ -166,7 +185,7 @@
     &.hideSidebar {
       .sidebar-container {
         pointer-events: none;
-        transition-duration: 0.3s;
+        transition-duration: 0.1s;
         transform: translate3d(-$sideBarWidth, 0, 0);
       }
     }
@@ -203,7 +222,7 @@
     overflow-y: auto;
 
     &::-webkit-scrollbar-track-piece {
-      background: #d3dce6;
+      background: #58e61d;
     }
 
     &::-webkit-scrollbar {

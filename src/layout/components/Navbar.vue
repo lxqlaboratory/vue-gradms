@@ -1,10 +1,12 @@
 <template>
   <div class="navbar">
-    <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
 
-    <breadcrumb class="breadcrumb-container" />
+
+<!--    <breadcrumb class="breadcrumb-container" />-->
 
     <div class="right-menu">
+      <img style="position:absolute;left:2%;height: 48px;top: 13%" src="@/assets/login/logo.png">
+      <span style="position: absolute;left:12%;font-size: 20px;">{{ $t('login.manaegerTitle') }}</span>
       <lang-select style="position: absolute;right: 15%;" />
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper" >
@@ -12,7 +14,7 @@
           <span style="font-size: 16px;color: white">徐鹏涛</span>
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown" style="margin-top: 0px">
-          <router-link to="/">
+          <router-link to="/dashboard">
             <el-dropdown-item>
               Home
             </el-dropdown-item>
@@ -45,9 +47,7 @@ export default {
     ])
   },
   methods: {
-    toggleSideBar() {
-      this.$store.dispatch('app/toggleSideBar')
-    },
+
     async logout() {
       await this.$store.dispatch('user/logout')
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
@@ -58,24 +58,13 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
-  height: 56px;
+  height: 64px;
   overflow: hidden;
   position: relative;
-  background: #9b0d14;
+  background: #a50001;
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
 
-  .hamburger-container {
-    line-height: 46px;
-    height: 100%;
-    float: left;
-    cursor: pointer;
-    transition: background .3s;
-    -webkit-tap-highlight-color:transparent;
 
-    &:hover {
-      background: rgba(0, 0, 0, .025)
-    }
-  }
 
   .breadcrumb-container {
     float: left;
@@ -84,15 +73,13 @@ export default {
   .right-menu {
     float: right;
     height: 100%;
-    line-height: 56px;
-    cursor: pointer;
+    line-height: 64px;
     color: #fff;
-    &:focus {
-      outline: none;
+
+    .setting-icon{
+      height: 48px;
     }
-    &:hover{
-      background: #66010a;
-    }
+
 
     .right-menu-item {
       display: inline-block;
@@ -103,7 +90,7 @@ export default {
       vertical-align: center;
 
       &.hover-effect {
-        cursor: pointer;
+        /*cursor: pointer;*/
         transition: background .3s;
 
         &:hover {
@@ -113,26 +100,25 @@ export default {
     }
 
     .avatar-container {
-      margin-right: 20px;
-
+      margin-right: 0px;
+      &:hover{
+        background: #590305;
+      }
       .avatar-wrapper {
+        cursor: pointer;
         margin-top: 0px;
         margin-left: 10px;
+        margin-right: 10px;
         position: relative;
 
+        &:hover{
+          background: #590305;
+        }
         .user-avatar {
-          cursor: pointer;
+          /*cursor: pointer;*/
           width: 40px;
           height: 40px;
           border-radius: 50%;
-        }
-
-        .el-icon-caret-bottom {
-          cursor: pointer;
-          position: absolute;
-          right: -20px;
-          top: 5px;
-          font-size: 12px;
         }
       }
     }

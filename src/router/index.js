@@ -51,11 +51,12 @@ export const constantRoutes = [
   {
     path: '/dashboard',
     component: Layout,
+    hidden : true,
     children: [{
       path: 'index',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: 'dashboard', icon: 'dashboard' }
     }]
   },
 
@@ -92,63 +93,63 @@ export const constantRoutes = [
     name: 'pygl',
     meta: {
       title: ('route.pygl'),
-      icon: 'nested'
+      icon: 'form'
     },
     children: [
       {
         path: 'dyzxzm',
         component: () => import('@/views/pygl/xjhpygl/dyzxzm'),
         name: 'dyzxzm',
-        meta: { title: ('route.dyzxzm'), icon: 'nested' }
+        meta: { title: ('route.dyzxzm'), icon: 'form' }
       },
       {
         path: 'pyfacx',
         component: () => import('@/views/pygl/pyfayxsgrjh/pyfacx'),
         name: 'pyfacx',
-        meta: { title: ('route.pyfacx'), icon: 'nested' }
+        meta: { title: ('route.pyfacx'), icon: 'form' }
       },
       {
         path: 'ckbrpyfa',
         component: () => import('@/views/pygl/pyfayxsgrjh/ckbrpyfa'),
         name: 'ckbrpyfa',
-        meta: { title: ('route.ckbrpyfa'), icon: 'nested' }
+        meta: { title: ('route.ckbrpyfa'), icon: 'form' }
       },
       {
         path: 'zdckpyjh',
         component: () => import('@/views/pygl/pyfayxsgrjh/zdckpyjh'),
         name: 'ckbrpyfa',
-        meta: { title: ('route.zdckpyjh'), icon: 'nested' }
+        meta: { title: ('route.zdckpyjh'), icon: 'form' }
       },
       {
         path: 'kccx',
         component: () => import('@/views/pygl/kcyxk/kccx'),
         name: 'kccx',
-        meta: { title: ('route.kccx'), icon: 'nested' }
+        meta: { title: ('route.kccx'), icon: 'form' }
       },
       {
         path: 'jxapdc',
         component: () => import('@/views/pygl/kcyxk/jxapdc'),
         name: 'jxapdc',
-        meta: { title: ('route.jxapdc'), icon: 'nested' }
+        meta: { title: ('route.jxapdc'), icon: 'form' }
       },
       {
         path: 'xsxk',
         component: () => import('@/views/pygl/kcyxk/xsxk'),
         name: 'xsxk',
-        meta: { title: ('route.xsxk'), icon: 'nested' }
+        meta: { title: ('route.xsxk'), icon: 'form' }
 
       },
       {
         path: 'cjcx',
         component: () => import('@/views/pygl/cjgl/cjcx'),
         name: 'cjcx',
-        meta: { title: ('route.cjcx'), icon: 'nested' }
+        meta: { title: ('route.cjcx'), icon: 'form' }
       },
       {
         path: 'tjktbg',
         component: () => import('@/views/pygl/zqkh/tjktbg'),
         name: 'cjcx',
-        meta: { title: ('route.tjktbg'), icon: 'nested' }
+        meta: { title: ('route.tjktbg'), icon: 'form' }
       }
     ]
   },

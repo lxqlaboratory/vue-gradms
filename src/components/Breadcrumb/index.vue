@@ -3,7 +3,7 @@
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path">
         <span v-if="item.redirect==='noRedirect'||index==levelList.length-1" class="no-redirect">{{ $t(item.meta.title) }}</span>
-        <a v-else @click.prevent="handleLink(item)">{{ $t(item.meta.title) }}</a>
+        <a v-else @click.prevent="handleLink(item)" style="color: white">{{ $t(item.meta.title) }}</a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -29,6 +29,7 @@ export default {
   methods: {
     getBreadcrumb() {
       // only show routes with meta.title
+
       let matched = this.$route.matched.filter(item => item.meta && item.meta.title)
       const first = matched[0]
 
@@ -66,12 +67,12 @@ export default {
 <style lang="scss" scoped>
 .app-breadcrumb.el-breadcrumb {
   display: inline-block;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 50px;
   margin-left: 8px;
 
   .no-redirect {
-    color: #97a8be;
+    color: #9b0d14;
     cursor: text;
   }
 }
