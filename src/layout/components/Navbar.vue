@@ -5,10 +5,10 @@
 <!--    <breadcrumb class="breadcrumb-container" />-->
 
     <div class="right-menu">
-      <img style="position:absolute;left:2%;height: 48px;top: 13%" src="@/assets/login/logo.png">
-      <span style="position: absolute;left:12%;font-size: 20px;">{{ $t('login.manaegerTitle') }}</span>
-      <lang-select style="position: absolute;right: 15%;" />
-      <el-dropdown class="avatar-container" trigger="click">
+      <img style="margin:-8px 3% 0 3%;height: 48px;vertical-align: middle" src="@/assets/login/logo.png">
+      <span style="font-size: 20px;">{{ $t('login.manaegerTitle') }}</span>
+      <lang-select style="position: absolute;right: 15%;top:-2px" />
+      <el-dropdown class="avatar-container" style="position: absolute;right: 1%;top:-2px" trigger="click">
         <div class="avatar-wrapper" >
           <img src="http://service.sdu.edu.cn/tp_up/resource/image/common/user2.jpg" class="user-avatar" style="vertical-align: middle;">
           <span style="font-size: 16px;color: white">徐鹏涛</span>
@@ -71,7 +71,7 @@ export default {
   }
 
   .right-menu {
-    float: right;
+    float: left;
     height: 100%;
     line-height: 64px;
     color: #fff;
