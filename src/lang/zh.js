@@ -16,9 +16,6 @@ export default {
     notice1: '（1）学生登陆为学生学号，缺省密码为前缀D（博士）/ 硕士（M）+证件号码后7位，证件号码中的字母为大写字母',
     notice2: '（2）建议使用9.0以上的IE浏览器或google浏览器,360浏览器请选用极速模式'
   },
-  menu: {
-    application_menu: '应用菜单'
-  },
   route: {
     loginTitle: '标题',
     personInformation: '个人信息',
