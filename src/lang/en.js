@@ -190,6 +190,156 @@ export default {
     setOpen: 'Set it opem',
     setNotOpen: 'Set it private ',
     add: 'add'
+  },
+  //发表专著
+  publishMonograph:{
+    publishMonograph:'Publish monograph',
+    note:'After approved by the administrator,the monograph/textbook informaton can not be modified \n' +
+      'student->If modifying monograph/textbook information，please contact 请联系审核通过的相应的学院秘书/书记将该专著/教材状态置为审核不通过后进行修改! \n' +
+      '教师->若要修改专著/教材信息，请联系相应的学院秘书将该专著/教材状态置为审核不通过后进行修改!',
+    monographInfo:"专著/教材信息",
+    publishTime:'',
+    to:'to',
+    autherRank:'作者位次',
+    number:'serial number',
+    choice:"choice",
+    name:"name",
+    type:"type",
+    publishHouse:"publishing house",
+    publishDate:'publishing date',
+    pageNumber:"page number",
+    version:'version',
+    price:'price(yuan)',
+    selfRank: 'self ranking',
+    isOpen:'Open or not',
+    status:'status',
+    operation:'operation',
+    note2:'No qualified data！',
+    setOpen:'set it open',
+    setNotOpen:'set it not open',
+    add:'add',
+  },
+
+//专利
+  patent:{
+    note:'patent/copyright information',
+    note1:'After the administrator has passed the patent/copyright, the patent/copyright information cannot be modified. \n' +
+      'Student->If you want to modify the patent/copyright information, please contact the ' +
+      'corresponding college secretary/secretator who passed the review and set the patent/copyright status to be revised after the review is not passed!\n' +
+      'Teacher->If you want to modify the patent/copyright information, ' +
+      'please contact the corresponding college secretary to set the patent/copyright status to be revised after the review is not passed!',
+    registerDate:'Date of granting certificate/registeration:',
+    to:'to',
+    authorRanking:'auther ranking:',
+    query:'query',
+    number:'number',
+    choice:'chocie',
+    patentInfo:"patent/copyright name",
+    type:'type',
+    patentNo:'patent/book registration number',
+    typeNo:'type number',
+    /*grantingDate:'date of /登记日期',*/
+    selfRank:'self ranking',
+    openOrNot: 'open or not',
+    status:'status',
+    operation:'operation',
+    note2:'SORRY:No approprrate data!!',
+    setOpen:'set open',
+    setNotOpen:'set not open',
+    add:'add',
+  },
+
+  //成果奖励信息查看
+  achievement:{
+    note:'The awards for scientific research achievements used for ' +
+      'graduation examination and awards for scholarship review shall be restricted, excluding awards for teaching achievements',
+    note1:'After the completion of filling, please submit the relevant materials to the school for review and approval, ' +
+      'and they cannot be modified. If you need to modify the relevant information, please contact the school to set the status as "fail"',
+    certificateTime:'certificate time',
+    to:'to',
+    authorRanking:'author ranking',
+    awardYear:'reward year',
+    note3:'e.g.2012',
+    query:'query',
+    export:'export',
+    number:'number',
+    choice:'choice',
+    awardName:'reward name',
+    type:'type',
+    awardType:'reward type',
+    awardRating:'reward rating',
+    awardLevel:'reward level',
+    awardCertificateTime:'certificate time',
+    selfRanking:'self ranking',
+    dataSource:'data source',
+    status:'status',
+    operation:'operation',
+    note4:'SORRY:No appropriate data!',
+    note5:'add',
+  },
+
+  //参与项目
+  projectParticipation:{
+    title:'projectInfomation',
+    note:'After completing the report, please submit the relevant materials to the college for review. ' +
+      'It cannot be modified after the approval. If you need to modify the relevant information, please contact the college to set the status to not pass.',
+    note1:'Student->If you want to modify the project information, please contact the corresponding college secretary/secretator ' +
+      'who passed the review and set the status of the project to be revised after the review is not passed',
+    note2:'Teacher->If you want to modify the project information, ' +
+      'please contact the corresponding college secretary to set the status of the project to be revised after the review is not passed!',
+    projectTime:'Project time',
+    to:'to',
+    projectType:'project type',
+    autherRank: 'author ranking',
+    query:'query',
+    number:'number',
+    choice:'choice',
+    porjectName:'project name',
+    type:'type',
+    projectRating:'project rating',
+    selfRank:'self level',
+    openOrNot:'openOrNot',
+    status:'status',
+    operation:'operation',
+    note3:'SORRY:No appropriate data!',
+    setOpen:'set it open',
+    setNotOpen:'set it not open',
+    add:'add',
+  },
+
+  //查看本人培养方案
+  cultivatingScheme:{
+    cultivatingSchemeDetail:'Cultivating Scheme Detail',
+    basicInfomation:'Basic information',
+    studentType:'Student type',
+    major:'Major',
+    schemeName:'Scheme',
+    startTime:'Starting Time',
+    compulsoryCredit:'Compulsory Credits',
+    totalCredit:'Total Credits',
+    cultivatingObj:'Cultivating Objective',
+    researchDirection:'Research Direction',
+    cultivatingMeans:'Cultivating Means',
+    studyYear:'Period of Schooling',
+    totalCreditAndCourse:'Total credits required and course setup',
+    cultivatingStep:'Cultivating Step',
+    researchandDissertation:'Scientific Research and Academic Dissertation',
+    graduationAndDegree:'Graduation and Degree Awarding',
+    comment:'Comment',
+  },
+
+//培养方案查询
+  cultivatingSchemeQuery:{
+    studentType:'Student Type',
+    school:'School',
+    major:'Major',
+    year:'Year',
+    query:'Query',
+    ListOfCultivation:'Cultivating Scheme List',
+    cultivatingSchemeName:'Cultivating Scheme Name',
+    major1:'Major',
+    startTime:'Starting Time',
+    detail:'Detail',
   }
 
 }

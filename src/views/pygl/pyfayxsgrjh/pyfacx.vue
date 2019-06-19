@@ -75,7 +75,7 @@
     :label="$t('cultivatingSchemeQuery.detail')"
     >
       <template slot-scope="scope">
-        <el-button @click="pushInfo(scope.row.schemeId )" type="text">文字按钮</el-button>
+        <el-button @click="pushInfo(scope.row.schemeId )" type="text">详细</el-button>
       </template>
     </el-table-column>
     </el-table>
