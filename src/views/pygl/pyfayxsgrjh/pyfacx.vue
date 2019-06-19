@@ -74,6 +74,7 @@
     <el-table-column
     :label="$t('cultivatingSchemeQuery.detail')"
     >
+      <el-link  type="primary">详细</el-link>
     </el-table-column>
     </el-table>
   </div>
