@@ -61,12 +61,15 @@
     :label="$t('cultivatingSchemeQuery.major1')"
     width="230">
       <template slot-scope="scope">
-        {{ scope.row.majorId }}
+        {{ scope.row.majorName }}
       </template>
     </el-table-column>
     <el-table-column
     :label="$t('cultivatingSchemeQuery.startTime')"
     width="180">
+      <template slot-scope="scope">
+        {{ scope.row.startTimeStr }}
+      </template>
     </el-table-column>
     <el-table-column
     :label="$t('cultivatingSchemeQuery.detail')"
@@ -98,7 +101,7 @@ export default {
       cultivateSchemeShow().then(res => {
         console.log(res)
         this.tablelist = res.data
-        this.list = res.data.list
+        this.list = res.data.cultivateFormList
       })
     }
   }
