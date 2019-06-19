@@ -2,7 +2,7 @@
   <div class="has-logo">
     <el-scrollbar wrap-class="scrollbar-wrapper" style="position: relative">
       <div style="padding: 18px 0px;display: flex;justify-content: flex-end">
-      <span style="margin-right: 36%;color:rgba(255, 255, 255, 0.75);font-size: 15px;word-wrap: break-word;white-space: nowrap;overflow: hidden">application menu</span>
+      <span style="flex: 1 1 calc(100% - 50px);margin-left: 20px;color:rgba(255, 255, 255, 0.75);font-size: 15px;white-space:nowrap;">{{ $t('menu.application_menu') }}</span>
       <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
     </div>
       <el-menu
@@ -15,7 +15,7 @@
         :collapse-transition="false"
         mode="vertical"
       >
-        <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" v-if="" />
+        <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path"/>
       </el-menu>
     </el-scrollbar>
   </div>
@@ -54,7 +54,7 @@ export default {
       return !this.sidebar.opened
     }
   },
-  methods:{
+  methods: {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     }
