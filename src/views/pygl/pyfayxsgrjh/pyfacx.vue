@@ -74,7 +74,9 @@
     <el-table-column
     :label="$t('cultivatingSchemeQuery.detail')"
     >
-      <el-link  type="primary">详细</el-link>
+      <template slot-scope="scope">
+        <el-button @click="pushInfo(scope.row.schemeId )" type="text">文字按钮</el-button>
+      </template>
     </el-table-column>
     </el-table>
   </div>
@@ -104,6 +106,9 @@ export default {
         this.tablelist = res.data
         this.list = res.data.cultivateFormList
       })
+    },
+    pushInfo(id){
+      this.$router.push({ name: 'showCultivate', params: { id }})
     }
   }
 }

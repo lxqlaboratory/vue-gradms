@@ -109,6 +109,13 @@ export const constantRoutes = [
         meta: { title: ('route.pyfacx'), icon: 'form' }
       },
       {
+        path: 'showCultivate',
+        hidden: true,
+        component: () => import('@/views/pygl/pyfayxsgrjh/showCultivate'),
+        name: 'showCultivate',
+        meta: { title: ('route.pyfacx'), icon: 'form' }
+      },
+      {
         path: 'ckbrpyfa',
         component: () => import('@/views/pygl/pyfayxsgrjh/ckbrpyfa'),
         name: 'ckbrpyfa',
