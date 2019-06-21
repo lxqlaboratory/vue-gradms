@@ -75,8 +75,23 @@ export function updateStudentPreSchoolInfo(data) {
 
 export function cultivateSchemeShow() {
   return request({
-    url: '/api/cultivate/personBasicInfoUpdateInit',
+    url: '/api/cultivate/cultivateSchemeShow',
     method: 'POST',
     data: {}
+  })
+}
+export function getMajorList(data) {
+  return request({
+    url: '/api/cultivate/getMajorList',
+    method: 'POST',
+    data
+  })
+}
+
+export function showCultivate(data) {
+  return request({
+    url: '/api/cultivate/showCultivate',
+    method: 'POST',
+    data
   })
 }
