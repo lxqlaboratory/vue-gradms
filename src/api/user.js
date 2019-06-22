@@ -88,6 +88,14 @@ export function getMajorList(data) {
   })
 }
 
+export function getCultivateTableList(data) {
+  return request({
+    url: '/api/cultivate/getCultivateTableList',
+    method: 'POST',
+    data
+  })
+}
+
 export function showCultivate(data) {
   return request({
     url: '/api/cultivate/showCultivate',

@@ -2,7 +2,7 @@
   <div class="app-container">
     <!--<div>-->
     {{ $t('cultivatingSchemeQuery.studentType')}}:
-    <el-select v-model="stuTypecode"   style="width: 15%" filterable placeholder="请选择">
+    <el-select v-model="stuTypecode"  @change="getMajor" style="width: 15%" filterable placeholder="请选择">
     <el-option
     v-for="item in stuTypeList"
     :key="item.value"
@@ -11,7 +11,7 @@
     />
     </el-select>
     {{ $t('cultivatingSchemeQuery.school') }}:
-    <el-select  v-model="collegeType" style="width: 15%" filterable placeholder="请选择">
+    <el-select  v-model="collegeType" @change="getMajor" style="width: 15%" filterable placeholder="请选择">
     <el-option
     v-for="item in collegeNameList"
     :key="item.value"
@@ -19,26 +19,21 @@
     :value="item.value"
     />
     </el-select>
-    <!--{{ $t('cultivatingSchemeQuery.major') }}:-->
-    <!--<el-select  style="width: 15%" filterable placeholder="请选择">-->
-    <!--<el-option-->
-    <!--&lt;!&ndash;v-for="item in list"&ndash;&gt;-->
-    <!--&lt;!&ndash;:key="item.companyName"&ndash;&gt;-->
-    <!--&lt;!&ndash;:label="item.companyName"&ndash;&gt;-->
-    <!--&lt;!&ndash;:value="item.companyName"&ndash;&gt;-->
-    <!--/>-->
-    <!--</el-select>-->
+    {{ $t('cultivatingSchemeQuery.major') }}:
+    <el-select v-model="majorTypeCode"  style="width: 15%" filterable placeholder="请选择">
+    <el-option
+    v-for="item in majorList"
+    :key="item.value"
+    :label="$t(item.name)"
+    :value="item.value"
+    />
+    </el-select>
     {{ $t('cultivatingSchemeQuery.year') }}:
     <el-input v-model="year" placeholder="请输入年份" style="width: 15%"></el-input>
-    <!--</div>-->
-    <!--<el-row>-->
-    <!--<el-col :span="24"><div class="grid-content bg-purple-light" style="text-align: center;">-->
-    <!--{{ $t('cultivatingSchemeQuery.ListOfCultivation') }}-->
-    <!--</div>-->
-    <!--</el-col>-->
-    <!--</el-row>-->
+    <el-button size="mini" @click="getTableList" type="primary">查询</el-button>
+
     <el-table
-      :data="tableData"
+      :data="cultivateFormList"
       element-loading-text="Loading"
       border
       fit
@@ -82,29 +77,19 @@
   </div>
 </template>
 <script>
-import { cultivateSchemeShow , getMajorList } from '@/api/user'
+import { cultivateSchemeShow , getMajorList ,getCultivateTableList } from '@/api/user'
 export default {
   data() {
     return {
       tablelist: [],
       cultivateFormList: '',
       collegeNameList: [],
+      majorList: [],
       stuTypeList: [],
       stuTypecode: '',
       year: '',
-      collegeType: ''
-    }
-  },
-  computed: {
-    'tableData': function() {
-      return this.cultivateFormList.filter(item => {
-        if (!this.year || (item.startTimeStr.indexOf(this.year)>= 0)){
-          return true
-        }
-        else {
-          return false
-        }
-      })
+      collegeType: '',
+      majorTypeCode: ''
     }
   },
   created() {
@@ -113,8 +98,6 @@ export default {
   methods: {
     fetchData() {
       cultivateSchemeShow().then(res => {
-        console.log(res)
-        this.tablelist = res.data
         this.cultivateFormList = res.data.cultivateFormList
         this.stuTypeList = res.data.stuTypeList
         this.collegeNameList = res.data.collegeNameList
@@ -122,6 +105,23 @@ export default {
     },
     pushInfo(id){
       this.$router.push({ name: 'showCultivate', params: { id }})
+    },
+    getMajor(){
+      if(this.stuTypecode&&this.collegeType)
+      getMajorList({'stuTypecode': this.stuTypecode , 'collegeType': this.collegeType}).then(res => {
+          this.majorList = res.data.majorList
+         console.log(res)
+      }).catch(e => {
+
+      })
+    },
+    getTableList(){
+      getCultivateTableList({'stuTypecode': this.stuTypecode , 'collegeType': this.collegeType ,'majorTypeCode': this.majorTypeCode ,'year': this.year }).then(res =>{
+        this.cultivateFormList = res.data.cultivateFormList
+        console.log(res)
+      }).catch(e => {
+
+      })
     }
   }
 }
