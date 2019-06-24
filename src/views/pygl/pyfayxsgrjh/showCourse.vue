@@ -5,6 +5,13 @@
       border
       style="width: 100%">
       <el-table-column
+        :label="$t('projectParticipation.number')"
+        width="80">
+        <template slot-scope="scope">
+          {{ scope.$index+1 }}
+        </template>
+      </el-table-column>
+      <el-table-column
         prop="date"
         label="课程号"
         width="180">
@@ -14,14 +21,209 @@
       </el-table-column>
       <el-table-column
         prop="name"
-        label="姓名"
-        width="180">
+        label="课程名"
+        width="280">
+        <template slot-scope="scope">
+          {{  $t(scope.row.courseName) }}
+        </template>
       </el-table-column>
       <el-table-column
         prop="address"
-        label="地址">
+        label="开课学期"
+        width="120"
+      >
+        <template slot-scope="scope">
+          {{  $t(scope.row.term) }}
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="总学时"
+        width="120"
+      >
+        <template slot-scope="scope">
+          {{ (scope.row.classHour) }}
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="学分"
+        width="120"
+      >
+        <template slot-scope="scope">
+          {{ (scope.row.credit) }}
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="任课教师"
+        width="200"
+      >
+        <template slot-scope="scope">
+          {{ (scope.row.teacherGroup) }}
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="考核方式"
+      >
+        <template slot-scope="scope">
+          {{  $t(scope.row.examStyle) }}
+        </template>
       </el-table-column>
     </el-table>
+
+
+    <div>
+      <el-table
+      :data="optionalList"
+      border
+      style="width: 100%">
+      <el-table-column
+        :label="$t('projectParticipation.number')"
+        width="80">
+        <template slot-scope="scope">
+          {{ scope.$index+1 }}
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="date"
+        label="课程号"
+        width="180">
+        <template slot-scope="scope">
+          {{ (scope.row.courseNum) }}
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="name"
+        label="课程名"
+        width="280">
+        <template slot-scope="scope">
+          {{ $t(scope.row.courseName) }}
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="开课学期"
+        width="120"
+      >
+        <template slot-scope="scope">
+          {{ $t(scope.row.term) }}
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="总学时"
+        width="120"
+      >
+        <template slot-scope="scope">
+          {{ (scope.row.classHour) }}
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="学分"
+        width="120"
+      >
+        <template slot-scope="scope">
+          {{ $t(scope.row.credit) }}
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="任课教师"
+        width="200"
+      >
+        <template slot-scope="scope">
+          {{ (scope.row.teacherGroup) }}
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="考核方式"
+      >
+        <template slot-scope="scope">
+          {{ $t(scope.row.examStyle) }}
+        </template>
+      </el-table-column>
+    </el-table>
+    </div>
+
+
+    <div>
+      <el-table
+        :data="buxiuList"
+        border
+        style="width: 100%">
+        <el-table-column
+          :label="$t('projectParticipation.number')"
+          width="80">
+          <template slot-scope="scope">
+            {{ scope.$index+1 }}
+          </template>
+        </el-table-column>
+        <el-table-column
+          prop="date"
+          label="课程号"
+          width="180">
+          <template slot-scope="scope">
+            {{ (scope.row.courseNum) }}
+          </template>
+        </el-table-column>
+        <el-table-column
+          prop="name"
+          label="课程名"
+          width="280">
+          <template slot-scope="scope">
+            {{ $t(scope.row.courseName) }}
+          </template>
+        </el-table-column>
+        <el-table-column
+          prop="address"
+          label="开课学期"
+          width="120"
+        >
+          <template slot-scope="scope">
+            {{ $t(scope.row.term) }}
+          </template>
+        </el-table-column>
+        <el-table-column
+          prop="address"
+          label="总学时"
+          width="120"
+        >
+          <template slot-scope="scope">
+            {{ (scope.row.classHour) }}
+          </template>
+        </el-table-column>
+        <el-table-column
+          prop="address"
+          label="学分"
+          width="120"
+        >
+          <template slot-scope="scope">
+            {{ (scope.row.credit) }}
+          </template>
+        </el-table-column>
+        <el-table-column
+          prop="address"
+          label="任课教师"
+          width="200"
+        >
+          <template slot-scope="scope">
+            {{ (scope.row.teacherGroup) }}
+          </template>
+        </el-table-column>
+        <el-table-column
+          prop="address"
+          label="考核方式"
+        >
+          <template slot-scope="scope">
+            {{ $t(scope.row.examStyle) }}
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
   </div>
 
 </template>
@@ -59,7 +261,9 @@ export default {
           this.post = post
         }
       }).then(res => {
-         this.requiredList = res.data.list1
+         this.requiredList = res.data.requiredList
+          this.optionalList = res.data.optionalList
+          this.buxiuList = res.data.buxiuList
       }
       )
     }
