@@ -103,3 +103,11 @@ export function showCultivate(data) {
     data
   })
 }
+
+export function showCourse(data) {
+  return request({
+    url: '/api/cultivate/showCourse',
+    method: 'POST',
+    data
+  })
+}
