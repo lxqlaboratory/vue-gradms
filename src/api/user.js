@@ -111,3 +111,12 @@ export function showCourse(data) {
     data
   })
 }
+
+
+export function showCultivatePlan() {
+  return request({
+    url: '/api/cultivate/newPlanSelectCourse',
+    method: 'POST',
+    data: {}
+  })
+}
