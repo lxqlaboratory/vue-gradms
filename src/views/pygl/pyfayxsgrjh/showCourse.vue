@@ -4,10 +4,24 @@
       :data="requiredList"
       border
       style="width: 100%"
+      :span-method="rowSpanMethod"
+      width="100%"
     >
+      <el-table-column
+        label="类别"
+        width="70"
+        align="center"
+        fixed="left"
+      >
+        <template slot-scope="scope">
+          {{ (scope.row.type) }}
+        </template>
+      </el-table-column>
       <el-table-column
         :label="$t('projectParticipation.number')"
         width="80"
+        align="center"
+        fixed="left"
       >
         <template slot-scope="scope">
           {{ scope.$index+1 }}
@@ -16,7 +30,9 @@
       <el-table-column
         prop="date"
         label="课程号"
-        width="180"
+        width="110"
+        align="center"
+        fixed="left"
       >
         <template slot-scope="scope">
           {{ (scope.row.courseNum) }}
@@ -25,7 +41,7 @@
       <el-table-column
         prop="name"
         label="课程名"
-        width="280"
+        align="center"
       >
         <template slot-scope="scope">
           {{ $t(scope.row.courseName) }}
@@ -34,7 +50,7 @@
       <el-table-column
         prop="address"
         label="开课学期"
-        width="120"
+        align="center"
       >
         <template slot-scope="scope">
           {{ $t(scope.row.term) }}
@@ -43,7 +59,8 @@
       <el-table-column
         prop="address"
         label="总学时"
-        width="120"
+        width="110"
+        align="center"
       >
         <template slot-scope="scope">
           {{ (scope.row.classHour) }}
@@ -52,7 +69,8 @@
       <el-table-column
         prop="address"
         label="学分"
-        width="120"
+        width="110"
+        align="center"
       >
         <template slot-scope="scope">
           {{ (scope.row.credit) }}
@@ -61,7 +79,7 @@
       <el-table-column
         prop="address"
         label="任课教师"
-        width="200"
+        align="center"
       >
         <template slot-scope="scope">
           {{ $t(scope.row.teacherGroup) }}
@@ -70,6 +88,9 @@
       <el-table-column
         prop="address"
         label="考核方式"
+        align="center"
+        width="100"
+        fixed="right"
       >
         <template slot-scope="scope">
           {{ $t(scope.row.examStyle) }}
@@ -82,10 +103,22 @@
         :data="optionalList"
         border
         style="width: 100%"
+        :span-method="rowSpanMethod"
+        :show-header="false"
       >
+        <el-table-column
+          label="类别"
+          width="70"
+          align="center"
+        >
+          <template slot-scope="scope">
+            {{ (scope.row.type) }}
+          </template>
+        </el-table-column>
         <el-table-column
           :label="$t('projectParticipation.number')"
           width="80"
+          align="center"
         >
           <template slot-scope="scope">
             {{ scope.$index+1 }}
@@ -94,7 +127,8 @@
         <el-table-column
           prop="date"
           label="课程号"
-          width="180"
+          width="110"
+          align="center"
         >
           <template slot-scope="scope">
             {{ (scope.row.courseNum) }}
@@ -103,7 +137,7 @@
         <el-table-column
           prop="name"
           label="课程名"
-          width="280"
+          align="center"
         >
           <template slot-scope="scope">
             {{ $t(scope.row.courseName) }}
@@ -112,7 +146,7 @@
         <el-table-column
           prop="address"
           label="开课学期"
-          width="120"
+          align="center"
         >
           <template slot-scope="scope">
             {{ $t(scope.row.term) }}
@@ -121,7 +155,8 @@
         <el-table-column
           prop="address"
           label="总学时"
-          width="120"
+          width="110"
+          align="center"
         >
           <template slot-scope="scope">
             {{ (scope.row.classHour) }}
@@ -130,7 +165,8 @@
         <el-table-column
           prop="address"
           label="学分"
-          width="120"
+          width="110"
+          align="center"
         >
           <template slot-scope="scope">
             {{ (scope.row.credit) }}
@@ -139,7 +175,7 @@
         <el-table-column
           prop="address"
           label="任课教师"
-          width="200"
+          align="center"
         >
           <template slot-scope="scope">
             {{ $t(scope.row.teacherGroup) }}
@@ -148,6 +184,8 @@
         <el-table-column
           prop="address"
           label="考核方式"
+          align="center"
+          width="100"
         >
           <template slot-scope="scope">
             {{ $t(scope.row.examStyle) }}
@@ -161,10 +199,22 @@
         :data="buxiuList"
         border
         style="width: 100%"
+        :span-method="rowSpanMethod"
+        :show-header="false"
       >
+        <el-table-column
+          label="类别"
+          width="70"
+          align="center"
+        >
+          <template slot-scope="scope" >
+            {{ (scope.row.type) }}
+          </template>
+        </el-table-column>
         <el-table-column
           :label="$t('projectParticipation.number')"
           width="80"
+          align="center"
         >
           <template slot-scope="scope">
             {{ scope.$index+1 }}
@@ -173,7 +223,8 @@
         <el-table-column
           prop="date"
           label="课程号"
-          width="180"
+          width="110"
+          align="center"
         >
           <template slot-scope="scope">
             {{ (scope.row.courseNum) }}
@@ -182,7 +233,7 @@
         <el-table-column
           prop="name"
           label="课程名"
-          width="280"
+          align="center"
         >
           <template slot-scope="scope">
             {{ $t(scope.row.courseName) }}
@@ -191,7 +242,7 @@
         <el-table-column
           prop="address"
           label="开课学期"
-          width="120"
+          align="center"
         >
           <template slot-scope="scope">
             {{ $t(scope.row.term) }}
@@ -200,7 +251,8 @@
         <el-table-column
           prop="address"
           label="总学时"
-          width="120"
+          width="110"
+          align="center"
         >
           <template slot-scope="scope">
             {{ (scope.row.classHour) }}
@@ -209,7 +261,8 @@
         <el-table-column
           prop="address"
           label="学分"
-          width="120"
+          width="110"
+          align="center"
         >
           <template slot-scope="scope">
             {{ scope.row.credit }}
@@ -218,7 +271,7 @@
         <el-table-column
           prop="address"
           label="任课教师"
-          width="200"
+          align="center"
         >
           <template slot-scope="scope">
             {{ $t(scope.row.teacherGroup) }}
@@ -227,6 +280,8 @@
         <el-table-column
           prop="address"
           label="考核方式"
+          align="center"
+          width="100"
         >
           <template slot-scope="scope">
             {{ $t(scope.row.examStyle) }}
@@ -240,6 +295,7 @@
 <script>
 import { showCourse } from '@/api/user'
 export default {
+
   data() {
     return {
       loading: false,
@@ -249,21 +305,30 @@ export default {
       schemeId: '',
       requiredList: [],
       optionalList: [],
-      buxiuList: []
+      buxiuList: [],
+      requiredListLength:'',
+      rowspan:'',
+      colspan:'',
+      row:'',
+      column:''
+
     }
   },
   watch: {
     '$route': 'fetchData'
   },
   created() {
-    this.fetchData()
+    this.fetchData(),
+    this.rowSpanMethod()
   },
+
   methods: {
+
     fetchData() {
       this.error = this.post = null
       this.loading = true
       console.log(this.$route.params.schemeId)
-      showCourse({ 'schemeId': this.$route.params.schemeId }, (err, post) => {
+      showCourse({'schemeId': this.$route.params.schemeId}, (err, post) => {
         this.loading = false
         if (err) {
           this.error = err.toString()
@@ -271,14 +336,64 @@ export default {
           this.post = post
         }
       }).then(res => {
-        this.requiredList = res.data.requiredList
-        this.optionalList = res.data.optionalList
-        this.buxiuList = res.data.buxiuList
-      }
+          res.data.requiredList[0].type = "必修课"
+          this.requiredList = res.data.requiredList
+          this.requiredListLength= this.requiredList.length
+          res.data.optionalList[0].type = "选修课"
+          this.optionalList = res.data.optionalList
+          this.optionalListLength = this.optionalList.length
+          res.data.buxiuList[0].type = "补修课"
+          this.buxiuList = res.data.buxiuList
+          this.buxiuListLength = this.buxiuList.length
+        }
       )
+    },
+    //合并行
+    rowSpanMethod({ row, column, rowIndex, columnIndex }) {
+      if (columnIndex === 0) {
+        if (rowIndex % this.requiredListLength === 0) {
+          return {
+            rowspan: this.requiredListLength,
+            colspan: 1
+          };
+        } else {
+          return {
+            rowspan: 0,
+            colspan: 0
+          };
+        }
+        if (rowIndex % this.optionalListLength === 0) {
+          return {
+            rowspan: this.optionalListLength,
+            colspan: 1
+          };
+        } else {
+          return {
+            rowspan: 0,
+            colspan: 0
+          };
+        }
+        if (rowIndex % this.buxiuListLength === 0) {
+          return {
+            rowspan: this.buxiuListLength,
+            colspan: 1
+          };
+        } else {
+          return {
+            rowspan: 0,
+            colspan: 0
+          };
+        }
+      }
     }
+
+
+
+
+
   }
 }
+
 </script>
 
 <style scoped>

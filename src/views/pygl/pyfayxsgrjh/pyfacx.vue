@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <!--<div>-->
-    {{ $t('cultivatingSchemeQuery.studentType') }}:
+    <span class="searchSpan">{{ $t('cultivatingSchemeQuery.studentType') }}:</span>
     <el-select v-model="stuTypecode" style="width: 15%" filterable placeholder="请选择" @change="getMajor">
       <el-option
         v-for="item in stuTypeList"
@@ -10,7 +10,7 @@
         :value="item.value"
       />
     </el-select>
-    {{ $t('cultivatingSchemeQuery.school') }}:
+    <span class="searchSpan">{{ $t('cultivatingSchemeQuery.school') }}:</span>
     <el-select v-model="collegeType" style="width: 15%" filterable placeholder="请选择" @change="getMajor">
       <el-option
         v-for="item in collegeNameList"
@@ -19,7 +19,7 @@
         :value="item.value"
       />
     </el-select>
-    {{ $t('cultivatingSchemeQuery.major') }}:
+    <span class="searchSpan">{{ $t('cultivatingSchemeQuery.major') }}:</span>
     <el-select v-model="majorTypeCode" style="width: 15%" filterable placeholder="请选择">
       <el-option
         v-for="item in majorList"
@@ -28,20 +28,25 @@
         :value="item.value"
       />
     </el-select>
-    {{ $t('cultivatingSchemeQuery.year') }}:
+    <span class="searchSpan">{{ $t('cultivatingSchemeQuery.year') }}:</span>
     <el-input v-model="year" placeholder="请输入年份" style="width: 15%" />
-    <el-button size="mini" type="primary" @click="getTableList">查询</el-button>
+    <el-button size="small" type="primary" class="queryBtn" @click="getTableList">查询</el-button>
 
     <el-table
       :data="cultivateFormList"
       element-loading-text="Loading"
       border
-      fit
+      fit="true"
+      style="width: 100%"
+      max-height="700"
       highlight-current-row
+      class="eltable"
     >
       <el-table-column
         :label="$t('projectParticipation.number')"
-        width="80"
+        fixed = "left"
+        width="100"
+        align="center"
       >
         <template slot-scope="scope">
           {{ scope.$index+1 }}
@@ -49,7 +54,7 @@
       </el-table-column>
       <el-table-column
         :label="$t('cultivatingSchemeQuery.cultivatingSchemeName')"
-        width="550"
+        align="center"
       >
         <template slot-scope="scope">
           {{ $t(scope.row.schemeName) }}
@@ -57,7 +62,7 @@
       </el-table-column>
       <el-table-column
         :label="$t('cultivatingSchemeQuery.major1')"
-        width="230"
+        align="center"
       >
         <template slot-scope="scope">
           {{ $t(scope.row.majorName) }}
@@ -65,14 +70,18 @@
       </el-table-column>
       <el-table-column
         :label="$t('cultivatingSchemeQuery.startTime')"
-        width="180"
+        width="160"
+        align="center"
       >
         <template slot-scope="scope">
           {{ scope.row.startTimeStr }}
         </template>
       </el-table-column>
       <el-table-column
-        :label="$t('cultivatingSchemeQuery.detail')"
+         fixed = "right"
+         width="100"
+         align="center"
+        :label = "$t('cultivatingSchemeQuery.detail')"
       >
         <template slot-scope="scope">
           <el-button type="text" @click="pushInfo(scope.row.schemeId , scope.row.majorName, scope.row.studentType )">详细</el-button>
@@ -140,5 +149,15 @@ export default {
   .grid-content {
     border-radius: 4px;
     min-height: 36px;
+  }
+  .eltable{
+    margin-top: 20px;
+  }
+  .searchSpan{
+    font-size: 16px;
+    margin-left: 10px;
+  }
+  .queryBtn{
+    margin-left: 40px; ;
   }
 </style>
