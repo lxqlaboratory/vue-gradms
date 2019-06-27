@@ -120,3 +120,11 @@ export function showCultivatePlan() {
     data: {}
   })
 }
+
+export function pyfadkcsz(data) {
+  return request({
+    url: '/api/cultivate/pyfadkcsz',
+    method: 'POST',
+    data
+  })
+}
