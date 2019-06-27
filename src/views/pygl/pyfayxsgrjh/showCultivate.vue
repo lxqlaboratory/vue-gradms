@@ -149,8 +149,8 @@ export default {
         }
       }).then(res => {
         this.detail = res.data
-        console.log(this.detail.schemeName)
-        this.detail.majorName = this.$route.params.majorName
+          console.log(this.detail.schemeName)
+          this.detail.majorName = this.$route.params.majorName
       }, function (err) {
 
       }

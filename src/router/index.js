@@ -123,13 +123,6 @@ export const constantRoutes = [
         meta: { title: ('route.pyfacx'), icon: 'form' }
       },
       {
-        path: 'showPubEleCourse',
-        hidden: true,
-        component: () => import('@/views/pygl/pyfayxsgrjh/showPubEleCourse'),
-        name: 'showPubEleCourse',
-        meta: { title: ('route.pyfacx'), icon: 'form' }
-      },
-      {
         path: 'pyfadkcsz',
         hidden: true,
         component: () => import('@/views/pygl/pyfayxsgrjh/pyfadkcsz'),
