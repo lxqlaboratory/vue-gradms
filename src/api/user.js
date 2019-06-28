@@ -103,6 +103,14 @@ export function showCultivate(data) {
     data
   })
 }
+// 查看本人培养计划
+export function showPersonCultivate() {
+  return request({
+    url: '/api/cultivate/showCultivate',
+    method: 'POST',
+    data: {}
+  })
+}
 
 export function showCourse(data) {
   return request({

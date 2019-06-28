@@ -4,7 +4,7 @@
       :data="requiredList"
       border
       style="width: 100%"
-      :span-method="rowSpanMethod"
+      :span-method="rowSpanMethod1"
       width="100%"
     >
       <el-table-column
@@ -103,7 +103,7 @@
         :data="optionalList"
         border
         style="width: 100%"
-        :span-method="rowSpanMethod"
+        :span-method="rowSpanMethod2"
         :show-header="false"
       >
         <el-table-column
@@ -199,7 +199,7 @@
         :data="buxiuList"
         border
         style="width: 100%"
-        :span-method="rowSpanMethod"
+        :span-method="rowSpanMethod3"
         :show-header="false"
       >
         <el-table-column
@@ -319,7 +319,9 @@ export default {
   },
   created() {
     this.fetchData(),
-    this.rowSpanMethod()
+    this.rowSpanMethod1()
+    this.rowSpanMethod2()
+    this.rowSpanMethod3()
   },
 
   methods: {
@@ -349,7 +351,7 @@ export default {
       )
     },
     //合并行
-    rowSpanMethod({ row, column, rowIndex, columnIndex }) {
+    rowSpanMethod1({ row, column, rowIndex, columnIndex }) {
       if (columnIndex === 0) {
         if (rowIndex % this.requiredListLength === 0) {
           return {
@@ -362,6 +364,10 @@ export default {
             colspan: 0
           };
         }
+      }
+    },
+    rowSpanMethod2({ row, column, rowIndex, columnIndex }) {
+      if (columnIndex === 0) {
         if (rowIndex % this.optionalListLength === 0) {
           return {
             rowspan: this.optionalListLength,
@@ -373,6 +379,10 @@ export default {
             colspan: 0
           };
         }
+      }
+    },
+    rowSpanMethod3({ row, column, rowIndex, columnIndex }) {
+      if (columnIndex === 0) {
         if (rowIndex % this.buxiuListLength === 0) {
           return {
             rowspan: this.buxiuListLength,
@@ -385,8 +395,7 @@ export default {
           };
         }
       }
-    }
-
+    },
 
 
 
