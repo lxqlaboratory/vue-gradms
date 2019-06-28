@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div class="container">
     <!--第一部分-->
     <div>
@@ -110,7 +109,7 @@
     </div>
     <!--第三部分-->
     <div class="part3">
-      <el-button type="text" @click="showCourse">附：本培养方案的课程设置 </el-button><br>
+      <el-button type="text" @click="showCourseSetting">附：本培养方案的课程设置 </el-button><br>
       <el-button type="text">附：公共选修课模块（科学学位硕士、硕博连读、直博研究生要求至少选修1门，或以1门跨培养单位课程替代） </el-button>
     </div>
   </div>
@@ -155,48 +154,13 @@
           }
         )
       },
-
-      showCourse(schemeId) {
+      showCourseSetting(schemeId) {
         schemeId = this.schemeId
-        this.$router.push({ name: 'showCourse', params: { schemeId }})
+        this.$router.push({ name: 'pyfadkcsz', params: { schemeId }})
       }
     }
   }
 
-=======
-  <div>
-    <el-button type="text" @click="showCourseSetting">附：本培养方案的课程设置 </el-button><br>
-  </div>
-</template>
-
-<script>
-export default {
-  data() {
-    return {
-      loading: false,
-      post: null,
-      courseTablelist: '',
-      error: null,
-      schemeId: '',
-      requiredList: [],
-      optionalList: [],
-      buxiuList: []
-    }
-  },
-  watch: {
-    '$route': 'fetchData'
-  },
-  created() {
-    this.fetchData()
-  },
-  methods: {
-    showCourseSetting(schemeId) {
-      schemeId = this.schemeId
-      this.$router.push({ name: 'pyfadkcsz', params: { schemeId }})
-    }
-  }
-}
->>>>>>> 52c826cccd66bbd5d29933bc03e9cb914f99a5f7
 </script>
 
 <style scoped>
