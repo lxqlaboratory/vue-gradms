@@ -11,8 +11,7 @@
         label="类别"
         width="70"
         align="center"
-        fixed="left"
-      >
+        fixed="left">
         <template slot-scope="scope">
           {{ (scope.row.type) }}
         </template>
