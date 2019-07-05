@@ -539,11 +539,11 @@
           label="本人位次"
           width="100">
         </el-table-column>
-        <el-table-column
+        <el-table-columns
           prop="address"
           label="是否公开"
           width="100">
-        </el-table-column>
+        </el-table-columns>
         <el-table-column
           prop="address"
           label="状态"

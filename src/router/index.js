@@ -74,16 +74,28 @@ export const constantRoutes = [
         meta: { title: 'route.changePassword', icon: 'form' }
       },
       {
-        path: 'schoolRoll',
-        name: 'schoolRoll',
-        component: () => import('@/views/personInformation/schoolRoll'),
-        meta: { title: ('route.schoolRoll'), icon: 'form' }
-      },
-      {
         path: 'studentInformance',
         name: 'studentInformance',
         component: () => import('@/views/personInformation/studentInformance'),
         meta: { title: ('route.studentInformance'), icon: 'form' }
+      },
+      {
+        path: 'stuBaseInfo',
+        name: 'stuBaseInfo',
+        component: () => import('@/views/personInformation/stuBaseInfo'),
+        meta: { title: ('baseInformationModal.baseInformation'), icon: 'form' }
+      },
+      {
+        path: 'cultiveInfo',
+        name: 'cultiveInfo',
+        component: () => import('@/views/personInformation/cultiveInfo'),
+        meta: { title: ('baseInformationModal.cultivationInformation'), icon: 'form' }
+      },
+      {
+        path: 'preSchoolInfo',
+        name: 'preSchoolInfo',
+        component: () => import('@/views/personInformation/preSchoolInfo'),
+        meta: { title: ('baseInformationModal.beforeSchool'), icon: 'form' }
       }
     ]
   },
