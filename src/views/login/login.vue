@@ -66,7 +66,7 @@
 import { login } from '@/api/user'
 import LangSelect from '@/components/LangSelect'
 
-export default {
+module.exports = {
   name: 'Prelogin',
   components: { LangSelect },
   data() {
@@ -89,6 +89,7 @@ export default {
     login: function() {
       const jsonForm = JSON.stringify({ username: this.loginForm.userName, password: this.loginForm.password })
       login(jsonForm).then(response => {
+        console.log(response);
         this.msg = response.msg
         if (this.msg === 'userNoExist'){
           this.$message({

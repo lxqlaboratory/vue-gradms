@@ -47,14 +47,14 @@
       <el-col :span="4" class="colstyle3" style="padding-top: 10px;">
         <label class="title">课程属性	</label>
       </el-col>
-      <el-col :span="8"class="colstyle4">
+      <el-col :span="8" class="colstyle4">
         <el-select  style="width: 70%" size="mini" placeholder="请选择" >
-          <!--<el-option
+          <el-option
             v-for="item in statusArr"
             :key="item.code"
             :label="item.name"
             :value="item.code">
-          </el-option>-->
+          </el-option>
         </el-select>
       </el-col>
     </el-row>
@@ -75,7 +75,7 @@
     </el-row>
     <!--第四行-->
     <el-row style="padding-top:50px;border: 0px">
-      <el-button type="primary" style="width: 250px" plain  @click="">查询 </el-button>
+      <el-button type="primary" style="width: 250px">查询 </el-button>
     </el-row>
   </div>
 </template>
