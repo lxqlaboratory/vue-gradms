@@ -74,12 +74,6 @@ export const constantRoutes = [
         meta: { title: 'route.changePassword', icon: 'form' }
       },
       {
-        path: 'studentInformance',
-        name: 'studentInformance',
-        component: () => import('@/views/personInformation/studentInformance'),
-        meta: { title: ('route.studentInformance'), icon: 'form' }
-      },
-      {
         path: 'stuBaseInfo',
         name: 'stuBaseInfo',
         component: () => import('@/views/personInformation/stuBaseInfo'),

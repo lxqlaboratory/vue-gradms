@@ -108,6 +108,16 @@
     >
     </el-table-column>
   </el-table>
+  <table  cellspacing="0" width="100%">
+    <tbody><tr>
+    <td style="text-align:center">
+      <el-button type="primary" size="mini" >{{$t('patent.setOpen')}}</el-button>
+      <el-button type="primary"  size="mini" >{{$t('patent.setNotOpen')}}</el-button>
+      <el-button type="primary"  size="mini" >{{$t('patent.add')}}</el-button>
+    </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 </template>
 
