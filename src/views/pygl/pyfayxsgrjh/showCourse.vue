@@ -292,7 +292,7 @@
 
 </template>
 <script>
-import { showCourse } from '@/api/user'
+import { showCourse } from '@/api/cultivationInquiry'
 export default {
 
   data() {

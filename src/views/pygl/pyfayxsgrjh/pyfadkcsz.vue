@@ -91,7 +91,7 @@
 </template>
 
 <script>
-import { pyfadkcsz } from '@/api/user'
+import { pyfadkcsz } from '@/api/showPersonCultivate'
 export default {
   data() {
     return {

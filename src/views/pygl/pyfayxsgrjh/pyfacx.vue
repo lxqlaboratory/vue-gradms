@@ -91,7 +91,7 @@
   </div>
 </template>
 <script>
-import { cultivateSchemeShow, getMajorList, getCultivateTableList } from '@/api/user'
+import { cultivateSchemeShow, getMajorList, getCultivateTableList } from '@/api/cultivationInquiry'
 export default {
   data() {
     return {

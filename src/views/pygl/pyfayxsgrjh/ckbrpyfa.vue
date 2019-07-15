@@ -110,14 +110,13 @@
     <!--第三部分-->
     <div class="part3">
       <el-button type="text" @click="showCourseSetting">附：本培养方案的课程设置 </el-button><br>
-      <el-button type="text">附：公共选修课模块（科学学位硕士、硕博连读、直博研究生要求至少选修1门，或以1门跨培养单位课程替代） </el-button>
     </div>
   </div>
 
 </template>
 
 <script>
-  import { showPersonCultivate } from '@/api/user'
+  import { showPersonCultivate } from '@/api/showPersonCultivate'
   export default {
     data() {
       return {

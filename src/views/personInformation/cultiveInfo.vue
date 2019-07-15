@@ -111,7 +111,7 @@
 </template>
 
 <script>
-import { getStudentTrainInfo } from '@/api/user'
+import { getStudentTrainInfo } from '@/api/studentTrainInfo'
 export default {
   data() {
     return {

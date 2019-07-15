@@ -182,7 +182,7 @@
 </template>
 
 <script>
-  import { getStudentBaseicInfo, updateStudentBaseicInfo} from '@/api/user'
+  import { getStudentBaseicInfo, updateStudentBaseicInfo} from '@/api/studentBaseicInfo'
 export default {
   data() {
     return {

@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-  import { editPassword } from '@/api/user'
+  import { editPassword } from '@/api/editPassword'
 const Base64 = require('js-base64').Base64
 
 export default {

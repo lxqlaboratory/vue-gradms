@@ -303,7 +303,7 @@
 </template>
 
 <script>
-import { getStudentPreSchoolInfo, updateStudentPreSchoolInfo } from '@/api/user'
+import { getStudentPreSchoolInfo, updateStudentPreSchoolInfo } from '@/api/studentPreSchoolInfo'
 export default {
   data() {
     return {

@@ -201,7 +201,7 @@
   </div>
 </template>
 <script>
-import { showCultivatePlan } from '@/api/user'
+import { showCultivatePlan } from '@/api/checkCultivationScheme'
 export default {
   data() {
     return {
