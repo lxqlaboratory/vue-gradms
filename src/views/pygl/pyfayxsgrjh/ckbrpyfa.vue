@@ -164,7 +164,7 @@
 
 <style scoped>
   .el-row{
-    border: 1px solid black;
+    border: 1px solid #EBEEF5;
     border-bottom:1px solid #FFF;
     height: 40px;
     text-align: center;
@@ -176,17 +176,21 @@
   }
   .el-row p{
     font-weight:bold;
+    color: #909399;
   }
   .colstyle1,.colstyle2,.colstyle3,.colstyle4{
     height: 100%;
     font-size: 14px;
     padding-top: 10px;
   }
-  .colstyle1,.colstyle2,.colstyle3{
-    border-right: 1px solid black;
+  .colstyle1,.colstyle2,.colstyle3,.colstyle4 span{
+    color: #909399;
   }
-  .colstyle2,.colstyle4{
-    color: #9b0d14;
+  .colstyle1,.colstyle2,.colstyle3{
+    border-right: 1px solid #EBEEF5;
+  }
+  .colstyle2,.colstyle4 span{
+    color: #606266;
   }
   .colstyle1,.colstyle3{
     font-weight:bold;
@@ -196,7 +200,7 @@
   }
   .part2 .el-row{
     text-align: left;
-    color: black;
+    color: #606266;
     height: auto;
   }
   .part2 .el-row span{

@@ -36,12 +36,12 @@
         <el-col :span="4" class="colstyle3">
           <span>{{ $t('cultivatingScheme.startTime') }}</span>
         </el-col>
-        <el-col :span="8"class="colstyle4">
+        <el-col :span="8" class="colstyle4">
           <span>{{ detail.startTime }}</span>
         </el-col>
       </el-row>
       <!--第五行-->
-      <el-row style="border-bottom: 1px solid black">
+      <el-row style="border-bottom: 1px solid #EBEEF5">
         <el-col :span="4" class="colstyle1">
           <span>{{ $t('cultivatingScheme.compulsoryCredit') }}</span>
         </el-col>
@@ -51,7 +51,7 @@
         <el-col :span="4" class="colstyle3">
           <span>{{ $t('cultivatingScheme.totalCredit') }}</span>
         </el-col>
-        <el-col :span="8"class="colstyle4">
+        <el-col :span="8" class="colstyle4">
           <span>{{ detail.totalCredit }}</span>
         </el-col>
       </el-row>
@@ -167,7 +167,7 @@ export default {
 
 <style scoped>
   .el-row{
-    border: 1px solid black;
+    border: 1px solid #EBEEF5;
     border-bottom:1px solid #FFF;
     height: 40px;
     text-align: center;
@@ -179,6 +179,7 @@ export default {
   }
   .el-row p{
     font-weight:bold;
+    color: #909399;
   }
   .colstyle1,.colstyle2,.colstyle3,.colstyle4{
     height: 100%;
@@ -186,20 +187,21 @@ export default {
     padding-top: 10px;
   }
   .colstyle1,.colstyle2,.colstyle3{
-    border-right: 1px solid black;
+    border-right: 1px solid #EBEEF5;
   }
-  .colstyle2,.colstyle4{
-    color: #9b0d14;
+  .colstyle2,.colstyle4 span{
+    color: #606266;
   }
   .colstyle1,.colstyle3{
     font-weight:bold;
+    color: #909399;
   }
   .part2{
     margin-top: 20px;
   }
   .part2 .el-row{
     text-align: left;
-    color: black;
+    color: #606266;
     height: auto;
   }
   .part2 .el-row span{
