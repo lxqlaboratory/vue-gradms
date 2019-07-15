@@ -96,6 +96,18 @@ export const constantRoutes = [
         name: 'preSchoolInfo',
         component: () => import('@/views/personInformation/preSchoolInfo'),
         meta: { title: ('baseInformationModal.beforeSchool'), icon: 'form' }
+      },
+      {
+        path: 'publishThesis',
+        name: 'publishThesis',
+        component: () => import('@/views/personInformation/publishThesis'),
+        meta: { title: ('publishThesis.publishThesis'), icon: 'form' }
+      },
+      {
+        path: 'patent',
+        name: 'patent',
+        component: () => import('@/views/personInformation/patent'),
+        meta: { title: ('patent.note'), icon: 'form' }
       }
     ]
   },
