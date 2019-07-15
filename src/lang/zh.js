@@ -17,6 +17,9 @@ export default {
     notice1: '（1）学生登陆为学生学号，缺省密码为前缀D（博士）/ 硕士（M）+证件号码后7位，证件号码中的字母为大写字母',
     notice2: '（2）建议使用9.0以上的IE浏览器或google浏览器,360浏览器请选用极速模式'
   },
+  menu: {
+    application_menu: '应用菜单'
+  },
   route: {
     loginTitle: '标题',
     personInformation: '个人信息',
@@ -50,12 +53,10 @@ export default {
     xwxxhd: '学位信息核对',
     dagl: '档案管理',
     txqnml: '填写圈内目录',
-
-
     submit:"提交",
     modify: '修改',
     save: '保存',
-    curPage: '现在位置',
+    curPage: '现在位置'
   },
 
   //个人信息修改密码模块
@@ -74,7 +75,7 @@ export default {
     Msn:'MSN',
     MainPageAddree:'主页地址',
     SdEmail:'山大邮件',
-    ContactAddress:"通讯地址",
+    ContactAddress:"通讯地址"
   },
 
   //学籍信息中个人基本信息
@@ -98,7 +99,7 @@ export default {
     qq: 'QQ号',
     wechat: '微信号',
     email: '电子邮件',
-    remark: '备注',
+    remark: '备注'
   },
 
   cultivationInformationModal:{
@@ -127,7 +128,7 @@ export default {
     StudentStatusOrNot:'是否有学籍',
     courseTime:'上课时间',
     Note:'加 * 的为必填信息',
-    Note1:'格式为"20070101" '
+    Note1:'格式为"20070101"'
   },
 
   //入学前信息模块
@@ -173,8 +174,7 @@ export default {
       punishDepartment:'惩处部门',
       violationTime:'违纪时间',
       punishTime:'处罚时间',
-      noPunishRecord:'无惩处记录',
-
+      noPunishRecord:'无惩处记录'
     },
 
   //发表论文
@@ -203,7 +203,7 @@ export default {
     operation:'操作',
     setOpen:'设置公开',
     setNotOpen:'设置不公开',
-    add:'添加',
+    add:'添加'
   },
 
   //发表专著
@@ -232,7 +232,7 @@ export default {
     note2:'没有符合的数据！',
     setOpen:'设置公开',
     setNotOpen:'设置不公开',
-    add:'添加',
+    add:'添加'
   },
 
 
@@ -260,7 +260,7 @@ export default {
     note2:'SORRY:没有符合的数据!',
     setOpen:'设置公开',
     setNotOpen:'设置不公开',
-    add:'添加',
+    add:'添加'
   },
 
   //成果奖励信息查看
@@ -287,7 +287,7 @@ export default {
     status:'状态',
     operation:'操作',
     note4:'SORRY:没有符合的数据!',
-    note5:'添加',
+    note5:'添加'
   },
 
   //参与项目
@@ -313,7 +313,7 @@ export default {
     note3:'SORRY:没有符合的数据!',
     setOpen:'设置公开',
     setNotOpen:'设置不公开',
-    add:'添加',
+    add:'添加'
   },
 
   //查看本人培养方案
@@ -334,11 +334,8 @@ export default {
     cultivatingStep:'培养环节',
     researchandDissertation:'科学研究与学位论文',
     graduationAndDegree:'毕业及学位授予',
-    comment:'备注',
+    comment:'备注'
   },
-
-
-
 
 //培养方案查询
   cultivatingSchemeQuery:{
@@ -351,24 +348,7 @@ export default {
     cultivatingSchemeName:'培养方案名称',
     major1:'所属专业',
     startTime:'起始时间',
-    detail:'详细',
+    detail:'详细'
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

@@ -19,9 +19,9 @@
               <input v-model="loginForm.password" maxlength="12" :placeholder="$t('login.placeholdPassword')" :type="showPassword?'':'password'" class="login-form-input">
               <el-button
                 type="text"
-                style="position: absolute;top:0;right: 0px;padding-top: 5px;color: #9b0d14"
-                @click="showPassword=!showPassword"
-              >{{ !showPassword?$t('login.showPassword'):$t('login.hidePassword') }}
+                style="position: absolute;top:0;right: 0px;padding-top: 5px;color: #9b0d14">
+<!--                @click="showPassword=!showPassword"-->
+<!--              >{{ !showPassword?$t('login.showPassword'):$t('login.hidePassword') }}-->
               </el-button>
             </div>
           </div>

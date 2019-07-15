@@ -21,7 +21,6 @@ export default {
     application_menu: 'application menu'
   },
   route: {
-
     loginTitle: 'title',
     personInformation: 'personal information',
     changePassword: 'change password',
