@@ -1,89 +1,151 @@
-<template >
-
+<template>
+ <div class="app-container">
+   <el-select v-model="value"  size="mini">
+     <el-option
+       v-for="item in termList"
+       :key="item.value"
+       :label="item.label"
+       :value="item.value">
+     </el-option>
+   </el-select>
+   <el-button type="primary" size="mini">{{$t('achievement.export')}}</el-button>
   <el-table
-    :data="tableData"
+    :data="courseExportList"
     border
-    style="width: 100%;">
+    size="mini"
+    style="width: 100%;"
+  >
     <el-table-column
       prop="category"
-      label="类别"
-      width="52"
-      align="center">
+      :label = "$t('courseExport.courseNumber')"
+      width="150"
+      align="center"
+    >
+      <template slot-scope="scope">
+        {{ scope.row.courseIndex }}
+      </template>
     </el-table-column>
     <el-table-column
       prop="xuhao"
-      label="序号"
-      width="52"
-      align="center">
+      :label = "$t('courseExport.courseName')"
+      width="300"
+      align="center"
+    >
+      <template slot-scope="scope">
+        {{ scope.row.courseName }}
+      </template>
     </el-table-column>
     <el-table-column
       prop="kechenghao"
-      label="课程号"
+      :label = "$t('courseExport.courseNo')"
       width="102"
-      align="center">
+      align="center"
+    >
+      <template slot-scope="scope">
+        {{ scope.row.courseNum }}
+      </template>
     </el-table-column>
     <el-table-column
       prop="kechengming"
-      label="课程名"
+      :label = "$t('courseExport.YearSemester')"
       width="204"
-      align="center">
+      align="center"
+    >
+    <template slot-scope="scope">
+      {{ scope.row.courseNum }}
+    </template>
     </el-table-column>
     <el-table-column
       prop="kaikexueqi"
-      label="开课学期"
-      width="102"
-      align="center">
+      :label = "$t('courseExport.coursePlace')"
+      width="300"
+      align="center"
+    >
+      <template slot-scope="scope">
+        {{ scope.row.roomName }}
+      </template>
     </el-table-column>
     <el-table-column
       prop="zongxueshi"
-      label="总学时"
-      width="102"
-      align="center">
+      :label = "$t('courseExport.OddOrEvenWeek')"
+      width="150"
+      align="center"
+    >
+      <template slot-scope="scope">
+        {{ scope.row.isOddEvenWeek }}
+      </template>
     </el-table-column>
     <el-table-column
       prop="xuefen"
-      label="学分"
+      :label = "$t('courseExport.courseDate')"
       width="102"
-      align="center">
+      align="center"
+    >
+      <template slot-scope="scope">
+        {{ scope.row.weekDay }}
+      </template>
     </el-table-column>
     <el-table-column
       prop="renkejiaoshi"
-      label="任课教师"
+      :label = "$t('courseExport.startWeek')"
       width="204"
-      align="center">
+      align="center"
+    >
+      <template slot-scope="scope">
+        {{ scope.row.startWeek }}
+      </template>
     </el-table-column>
     <el-table-column
       prop="kaohefangshi"
-      label="考核方式"
+      :label = "$t('courseExport.startWeekNumber')"
+      width="250"
+      align="center"
+    >
+      <template slot-scope="scope">
+        {{ scope.row.startWeek }}
+      </template>
+    </el-table-column>
+    <el-table-column
+    prop="kaohefangshi"
+    :label = "$t('courseExport.courseSection')"
+    width="150"
+    align="center"
+  />
+    <el-table-column
+      prop="kaohefangshi"
+      :label = "$t('courseExport.teacher')"
       width="102"
-      align="center">
+      align="center"
+    >
+      <template slot-scope="scope">
+        {{ scope.row.personName }}
+      </template>
     </el-table-column>
   </el-table>
+ </div>
 </template>
 <script>
-  export default {
-    data() {
-      return {
-        tableData: [{
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }, {
-          date: '2016-05-04',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄'
-        }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄'
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        }]
-      }
+  import { newCultivateCourseExportInit } from '@/api/exportTeachingArrangement'
+export default {
+  data() {
+    return {
+      courseExportList: [],
+      termList: [],
+      value: ''
+    }
+  },
+  created() {
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+      newCultivateCourseExportInit().then(res => {
+        this.termList = res.data.termList
+        this.courseExportList = res.data.courseExportList
+      })
     }
   }
+}
 </script>
 
 <style scoped>

@@ -340,6 +340,119 @@ export default {
     major1:'Major',
     startTime:'Starting Time',
     detail:'Detail',
-  }
+  },
 
+  //培养方案详细信息
+  cultivatingSchemeInfo:{
+    cultivatingSchemeDetail:'Cultivating Scheme Detail',
+    basicInfomation:'Basic information',
+    studentType:'Student type',
+    major:'Major',
+    schemeName:'Scheme',
+    startTime:'Starting Time',
+    compulsoryCredit:'Compulsory Credits',
+    totalCredit:'Total Credits',
+    cultivatingObj:'Cultivating Objective',
+    realmIntroduction:'Brief introduction of the realm',
+    cultivatingMeans:'Cultivating Means',
+    studyYear:'Period of Schooling',
+    totalCreditAndCourse:'Total credits required and course setup',
+    majorIntern:'Professional internship',
+    interimCheck:'Mid-term assessment',
+    researchandDissertation:'Scientific research and academic dissertation',
+    graduationAndDegree:'Graduation and Degree Awarding',
+    comment:'Comment',
+  },
+
+  //制定查看培养计划
+  cuiltivatingSchemeCheckAndDrawup:{
+    selectedCourses:'List of selected courses',
+    note1:'The selected courses (including training credits) ' +
+      'have met the requirements of required course credits and total credits!',
+    title1:'compulsory course',
+    type:'type',
+    number:'number',
+    courseNumber:'course number',
+    courseName:'course name',
+    courseTerm:'course semester',
+    totalClassHours:'total class period',
+    credit:'credit',
+    evaluationMode:'evaluation mode',
+    courseNum:'course number',
+    tutor:'teacher',
+    grade:'grade',
+    testTime:'testing time',
+    cultivationStepList:'List of cultivation steps',
+    form:'form',
+    statement:'statement',
+    print:'print',
+  },
+
+  //课程查询
+  courseQuery:{
+    school:'school',
+    courseStatus:'course status',
+    courseType:'course type',
+    courseProperty:'course property',
+    courseNumber:'course number',
+    courseName:'course name',
+    query:'query',
+  },
+
+
+//教学安排导出
+  courseExport:{
+    courseNumber:'course number',
+    courseName:'course name',
+    courseNo:'course no',
+    YearSemester:'school semester',
+    coursePlace:'class location',
+    OddOrEvenWeek:'odd or even week',
+    courseDate:'starting date',
+    startWeek:'starting week',
+    startWeekNumber:'the number of course weeks',
+    courseSection:'course section',
+    teacher:'teacher',
+  },
+
+  //学生选课
+  selectCourse:{
+    courseNum:'course number',
+    courseName:'course name',
+    courseSeq:'course serial number',
+    courseProperty:'course property',
+    exammeans:'evaluation mode',
+    teacher:'teacher',
+    semester:'semester',
+    restCourse:'remaining class hours',
+    examPlace:'exam place',
+    examTime:'exam time ',
+    remark:'remark',
+    courseArrangement:'course arrangement',
+    operation:'operation',
+  },
+
+  //成绩查询
+  gradeQuery:{
+    seqNum:'serial number',
+    courseNum:'course number',
+    courseName:'course name',
+    teacher:'teacher',
+    credit:'credit',
+    courseProperty:'course property',
+    examTime:'date of exam',
+  },
+
+  //提交开题报告
+  submitOpeningReport:{
+    note:'Description: 1. Since the opening report through to submit his application, the graduate should have plenty of time for dissertation research and writing, please timely submit opening report ' +
+      'information and focus on audit results 2. Not personal cultivation plan or plan mentor not audit, mid-term examination not through, please contact us in time to formulate and verifying of the instructor',
+    thesisTitle:'Thesis title',
+    thesisType:'Thesis type',
+    thesisTopic:'Source of thesis topic',
+    opentingReportTime:'Date of opening report reviewing',
+    opentingReportResult:'Result of opening report reviewing',
+    midtermResult:'Result of mid-term evaluation',
+    subjectReaserch:'Brief introduction of your reaserch topic',
+  }
 }
