@@ -460,6 +460,57 @@ export default {
     opentingReportResult: '开题报告审核结果',
     midtermResult: '中期考核结果',
     subjectReaserch: '课题研究设计选题简介(500-800字)'
+  },
+  // 填写学位信息
+  fillInTheDegreeInfo: {
+    note: '说明:\n' +
+      '1.如果要在当前学期申请学位，在填完学位信息和学籍信息之后，请点击菜单“毕业和学位管理--提交毕业申请”并选择“是”，提交以后才申请成功，否则申请学位不成功。\n' +
+      '2.论文主题词须以英文逗号（“,”）隔开，3-5个，不能少于3个，也不能多于5个。\n' +
+      '3.有工作单位的就业信息按照现在工作单位填写。',
+    degreeThesisInfo: '学位论文信息',
+    thesisKeyWords: '论文主题词',
+    thesisType: '论文类型',
+    thesisTopicSource: '论文选题来源',
+    thesisWords: '论文字数（万）',
+    thesisStartDate: '论文开始日期',
+    thesisEndDate: '论文结束日期',
+    format: '格式为20070101',
+    feesPaidByTutor: '完成本论文导师支付的费用',
+    employmentInfo: '就业信息',
+    employmentOfGrad: '毕业去向',
+    TypeOfWorkplace: '就业单位性质类别',
+    LocationOfWorkplace: '就业单位省市',
+    WorkProperty: '工作性质',
+    introduction: '论文介绍(包括 论文选题的来源 理论意义和应用价值; 论文的创新性及意义; 论文的不足之处) (500-800字)'
+  },
+
+  // 提交毕业申请
+  // 学生上传学位查重论文
+  uploadThesisPaper: {
+    note: '注意：',
+    note1: ' 1、论文基本信息主要用于论文评审，学位报盘、图书馆收录等，论文主题词须以英文逗号（“,”）隔开，3-5个，不能少于3个，也不能多于5个，信息完善后点击修改保存，并随时可以修改，以最后一次修改为准。',
+    note2: ' 2、学位论文终稿用于毕业后论文审核和学术不端检测，请在上传后及时联系导师进行审核，导师审核通过后，可以进行学术不端检测，导师审核通过后，不能再上传论文。',
+    studentNum: '学号',
+    name: '姓名',
+    language: '语种',
+    typeNum: '分类号',
+    theisTitle: '论文题目',
+    foreignTitle: '外文题名',
+    researchDirection: '研究方向',
+    ChineseKeyWords: '中文关键词',
+    EnglishKeyWords: '英文关键词',
+    ChineseAbstract: '中文摘要',
+    EnglilshAbstract: '英文摘要',
+    reference: '参考文献',
+    modifyAndSave: '修改保存',
+    note3: '请上传pdf格式的论文,再次提交将覆盖上次提交内容',
+    degreeTheisFinal: '学位论文终稿',
+    uploadingResult: '上传结果',
+    reviewingResult: '审核结果',
+    reviewingAdvice: '审核意见',
+    upload: '上传',
+    selectFiles: '选择文件',
+    submit: '提交'
   }
 
 }
