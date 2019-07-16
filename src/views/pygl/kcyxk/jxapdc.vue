@@ -125,6 +125,7 @@
  </div>
 </template>
 <script>
+  import { parseTime } from '@/utils'
   import { newCultivateCourseExportInit } from '@/api/exportTeachingArrangement'
 export default {
   data() {
@@ -144,6 +145,32 @@ export default {
         this.termList = res.data.termList
         this.courseExportList = res.data.courseExportList
       })
+    },
+    handleDownload() {
+      this.downloadLoading = true
+      import('@/vendor/Export2Excel').then(excel => {
+        const tHeader = ['Id', 'Title', 'Author', 'Readings', 'Date']
+        const filterVal = ['classTime', 'courseId', 'courseIndex', 'courseName', 'courseNum']
+        const courseExportList = this.courseExportList
+        const data = this.formatJson(filterVal, courseExportList)
+        excel.export_json_to_excel({
+          header: tHeader,
+          data,
+          filename: this.filename,
+          autoWidth: this.autoWidth,
+          bookType: this.bookType
+        })
+        this.downloadLoading = false
+      })
+    },
+    formatJson(filterVal, jsonData) {
+      return jsonData.map(v => filterVal.map(j => {
+        if (j === 'timestamp') {
+          return parseTime(v[j])
+        } else {
+          return v[j]
+        }
+      }))
     }
   }
 }
