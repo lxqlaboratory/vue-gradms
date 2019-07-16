@@ -190,155 +190,321 @@ export default {
     setNotOpen: 'Set it private ',
     add: 'add'
   },
-  //发表专著
-  publishMonograph:{
-    publishMonograph:'Publish monograph',
-    note:'After approved by the administrator,the monograph/textbook informaton can not be modified \n' +
+  // 发表专著
+  publishMonograph: {
+    publishMonograph: 'Publish monograph',
+    note: 'After approved by the administrator,the monograph/textbook informaton can not be modified \n' +
       'student->If modifying monograph/textbook information，please contact 请联系审核通过的相应的学院秘书/书记将该专著/教材状态置为审核不通过后进行修改! \n' +
       '教师->若要修改专著/教材信息，请联系相应的学院秘书将该专著/教材状态置为审核不通过后进行修改!',
-    monographInfo:"专著/教材信息",
-    publishTime:'',
-    to:'to',
-    autherRank:'作者位次',
-    number:'serial number',
-    choice:"choice",
-    name:"name",
-    type:"type",
-    publishHouse:"publishing house",
-    publishDate:'publishing date',
-    pageNumber:"page number",
-    version:'version',
-    price:'price(yuan)',
+    monographInfo: '专著/教材信息',
+    publishTime: '',
+    to: 'to',
+    autherRank: '作者位次',
+    number: 'serial number',
+    choice: 'choice',
+    name: 'name',
+    type: 'type',
+    publishHouse: 'publishing house',
+    publishDate: 'publishing date',
+    pageNumber: 'page number',
+    version: 'version',
+    price: 'price(yuan)',
     selfRank: 'self ranking',
-    isOpen:'Open or not',
-    status:'status',
-    operation:'operation',
-    note2:'No qualified data！',
-    setOpen:'set it open',
-    setNotOpen:'set it not open',
-    add:'add',
+    isOpen: 'Open or not',
+    status: 'status',
+    operation: 'operation',
+    note2: 'No qualified data！',
+    setOpen: 'set it open',
+    setNotOpen: 'set it not open',
+    add: 'add'
   },
 
-//专利
-  patent:{
-    note:'patent/copyright information',
-    note1:'After the administrator has passed the patent/copyright, the patent/copyright information cannot be modified. \n' +
+  // 专利
+  patent: {
+    note: 'patent/copyright information',
+    note1: 'After the administrator has passed the patent/copyright, the patent/copyright information cannot be modified. \n' +
       'Student->If you want to modify the patent/copyright information, please contact the ' +
       'corresponding college secretary/secretator who passed the review and set the patent/copyright status to be revised after the review is not passed!\n' +
       'Teacher->If you want to modify the patent/copyright information, ' +
       'please contact the corresponding college secretary to set the patent/copyright status to be revised after the review is not passed!',
-    registerDate:'Date of granting certificate/registeration:',
-    to:'to',
-    authorRanking:'auther ranking:',
-    query:'query',
-    number:'number',
-    choice:'chocie',
-    patentInfo:"patent/copyright name",
-    type:'type',
-    patentNo:'patent/book registration number',
-    typeNo:'type number',
-    /*grantingDate:'date of /登记日期',*/
-    selfRank:'self ranking',
+    registerDate: 'Date of granting certificate/registeration:',
+    to: 'to',
+    authorRanking: 'auther ranking:',
+    query: 'query',
+    number: 'number',
+    choice: 'chocie',
+    patentInfo: 'patent/copyright name',
+    type: 'type',
+    patentNo: 'patent/book registration number',
+    typeNo: 'type number',
+    /* grantingDate:'date of /登记日期',*/
+    selfRank: 'self ranking',
     openOrNot: 'open or not',
-    status:'status',
-    operation:'operation',
-    note2:'SORRY:No approprrate data!!',
-    setOpen:'set open',
-    setNotOpen:'set not open',
-    add:'add',
+    status: 'status',
+    operation: 'operation',
+    note2: 'SORRY:No approprrate data!!',
+    setOpen: 'set open',
+    setNotOpen: 'set not open',
+    add: 'add'
   },
 
-  //成果奖励信息查看
-  achievement:{
-    note:'The awards for scientific research achievements used for ' +
+  // 成果奖励信息查看
+  achievement: {
+    note: 'The awards for scientific research achievements used for ' +
       'graduation examination and awards for scholarship review shall be restricted, excluding awards for teaching achievements',
-    note1:'After the completion of filling, please submit the relevant materials to the school for review and approval, ' +
+    note1: 'After the completion of filling, please submit the relevant materials to the school for review and approval, ' +
       'and they cannot be modified. If you need to modify the relevant information, please contact the school to set the status as "fail"',
-    certificateTime:'certificate time',
-    to:'to',
-    authorRanking:'author ranking',
-    awardYear:'reward year',
-    note3:'e.g.2012',
-    query:'query',
-    export:'export',
-    number:'number',
-    choice:'choice',
-    awardName:'reward name',
-    type:'type',
-    awardType:'reward type',
-    awardRating:'reward rating',
-    awardLevel:'reward level',
-    awardCertificateTime:'certificate time',
-    selfRanking:'self ranking',
-    dataSource:'data source',
-    status:'status',
-    operation:'operation',
-    note4:'SORRY:No appropriate data!',
-    note5:'add',
+    certificateTime: 'certificate time',
+    to: 'to',
+    authorRanking: 'author ranking',
+    awardYear: 'reward year',
+    note3: 'e.g.2012',
+    query: 'query',
+    export: 'export',
+    number: 'number',
+    choice: 'choice',
+    awardName: 'reward name',
+    type: 'type',
+    awardType: 'reward type',
+    awardRating: 'reward rating',
+    awardLevel: 'reward level',
+    awardCertificateTime: 'certificate time',
+    selfRanking: 'self ranking',
+    dataSource: 'data source',
+    status: 'status',
+    operation: 'operation',
+    note4: 'SORRY:No appropriate data!',
+    note5: 'add'
   },
 
-  //参与项目
-  projectParticipation:{
-    title:'projectInfomation',
-    note:'After completing the report, please submit the relevant materials to the college for review. ' +
+  // 参与项目
+  projectParticipation: {
+    title: 'projectInfomation',
+    note: 'After completing the report, please submit the relevant materials to the college for review. ' +
       'It cannot be modified after the approval. If you need to modify the relevant information, please contact the college to set the status to not pass.',
-    note1:'Student->If you want to modify the project information, please contact the corresponding college secretary/secretator ' +
+    note1: 'Student->If you want to modify the project information, please contact the corresponding college secretary/secretator ' +
       'who passed the review and set the status of the project to be revised after the review is not passed',
-    note2:'Teacher->If you want to modify the project information, ' +
+    note2: 'Teacher->If you want to modify the project information, ' +
       'please contact the corresponding college secretary to set the status of the project to be revised after the review is not passed!',
-    projectTime:'Project time',
-    to:'to',
-    projectType:'project type',
+    projectTime: 'Project time',
+    to: 'to',
+    projectType: 'project type',
     autherRank: 'author ranking',
-    query:'query',
-    number:'number',
-    choice:'choice',
-    porjectName:'project name',
-    type:'type',
-    projectRating:'project rating',
-    selfRank:'self level',
-    openOrNot:'openOrNot',
-    status:'status',
-    operation:'operation',
-    note3:'SORRY:No appropriate data!',
-    setOpen:'set it open',
-    setNotOpen:'set it not open',
-    add:'add',
+    query: 'query',
+    number: 'number',
+    choice: 'choice',
+    porjectName: 'project name',
+    type: 'type',
+    projectRating: 'project rating',
+    selfRank: 'self level',
+    openOrNot: 'openOrNot',
+    status: 'status',
+    operation: 'operation',
+    note3: 'SORRY:No appropriate data!',
+    setOpen: 'set it open',
+    setNotOpen: 'set it not open',
+    add: 'add'
   },
 
-  //查看本人培养方案
-  cultivatingScheme:{
-    cultivatingSchemeDetail:'Cultivating Scheme Detail',
-    basicInfomation:'Basic information',
-    studentType:'Student type',
-    major:'Major',
-    schemeName:'Scheme',
-    startTime:'Starting Time',
-    compulsoryCredit:'Compulsory Credits',
-    totalCredit:'Total Credits',
-    cultivatingObj:'Cultivating Objective',
-    researchDirection:'Research Direction',
-    cultivatingMeans:'Cultivating Means',
-    studyYear:'Period of Schooling',
-    totalCreditAndCourse:'Total credits required and course setup',
-    cultivatingStep:'Cultivating Step',
-    researchandDissertation:'Scientific Research and Academic Dissertation',
-    graduationAndDegree:'Graduation and Degree Awarding',
-    comment:'Comment',
+  // 查看本人培养方案
+  cultivatingScheme: {
+    cultivatingSchemeDetail: 'Cultivating Scheme Detail',
+    basicInfomation: 'Basic information',
+    studentType: 'Student type',
+    major: 'Major',
+    schemeName: 'Scheme',
+    startTime: 'Starting Time',
+    compulsoryCredit: 'Compulsory Credits',
+    totalCredit: 'Total Credits',
+    cultivatingObj: 'Cultivating Objective',
+    researchDirection: 'Research Direction',
+    cultivatingMeans: 'Cultivating Means',
+    studyYear: 'Period of Schooling',
+    totalCreditAndCourse: 'Total credits required and course setup',
+    cultivatingStep: 'Cultivating Step',
+    researchandDissertation: 'Scientific Research and Academic Dissertation',
+    graduationAndDegree: 'Graduation and Degree Awarding',
+    comment: 'Comment'
   },
 
-//培养方案查询
-  cultivatingSchemeQuery:{
-    studentType:'Student Type',
-    school:'School',
-    major:'Major',
-    year:'Year',
-    query:'Query',
-    ListOfCultivation:'Cultivating Scheme List',
-    cultivatingSchemeName:'Cultivating Scheme Name',
-    major1:'Major',
-    startTime:'Starting Time',
-    detail:'Detail',
+  // 培养方案查询
+  cultivatingSchemeQuery: {
+    studentType: 'Student Type',
+    school: 'School',
+    major: 'Major',
+    year: 'Year',
+    query: 'Query',
+    ListOfCultivation: 'Cultivating Scheme List',
+    cultivatingSchemeName: 'Cultivating Scheme Name',
+    major1: 'Major',
+    startTime: 'Starting Time',
+    detail: 'Detail'
+  },
+
+  // 培养方案详细信息
+  cultivatingSchemeInfo: {
+    cultivatingSchemeDetail: 'Cultivating Scheme Detail',
+    basicInfomation: 'Basic information',
+    studentType: 'Student type',
+    major: 'Major',
+    schemeName: 'Scheme',
+    startTime: 'Starting Time',
+    compulsoryCredit: 'Compulsory Credits',
+    totalCredit: 'Total Credits',
+    cultivatingObj: 'Cultivating Objective',
+    realmIntroduction: 'Brief introduction of the realm',
+    cultivatingMeans: 'Cultivating Means',
+    studyYear: 'Period of Schooling',
+    totalCreditAndCourse: 'Total credits required and course setup',
+    majorIntern: 'Professional internship',
+    interimCheck: 'Mid-term assessment',
+    researchandDissertation: 'Scientific research and academic dissertation',
+    graduationAndDegree: 'Graduation and Degree Awarding',
+    comment: 'Comment'
+  },
+
+  // 制定查看培养计划
+  cuiltivatingSchemeCheckAndDrawup: {
+    selectedCourses: 'List of selected courses',
+    note1: 'The selected courses (including training credits) ' +
+      'have met the requirements of required course credits and total credits!',
+    title1: 'compulsory course',
+    type: 'type',
+    number: 'number',
+    courseNumber: 'course number',
+    courseName: 'course name',
+    courseTerm: 'course semester',
+    totalClassHours: 'total class period',
+    credit: 'credit',
+    evaluationMode: 'evaluation mode',
+    courseNum: 'course number',
+    tutor: 'teacher',
+    grade: 'grade',
+    testTime: 'testing time',
+    cultivationStepList: 'List of cultivation steps',
+    form: 'form',
+    statement: 'statement',
+    print: 'print'
+  },
+
+  // 课程查询
+  courseQuery: {
+    school: 'school',
+    courseStatus: 'course status',
+    courseType: 'course type',
+    courseProperty: 'course property',
+    courseNumber: 'course number',
+    courseName: 'course name',
+    query: 'query'
+  },
+
+  // 教学安排导出
+  courseExport: {
+    courseNumber: 'course number',
+    courseName: 'course name',
+    courseNo: 'course no',
+    YearSemester: 'school semester',
+    coursePlace: 'class location',
+    OddOrEvenWeek: 'odd or even week',
+    courseDate: 'starting date',
+    startWeek: 'starting week',
+    startWeekNumber: 'the number of course weeks',
+    courseSection: 'course section',
+    teacher: 'teacher'
+  },
+
+  // 学生选课
+  selectCourse: {
+    courseNum: 'course number',
+    courseName: 'course name',
+    courseSeq: 'course serial number',
+    courseProperty: 'course property',
+    exammeans: 'evaluation mode',
+    teacher: 'teacher',
+    semester: 'semester',
+    restCourse: 'remaining class hours',
+    examPlace: 'exam place',
+    examTime: 'exam time ',
+    remark: 'remark',
+    courseArrangement: 'course arrangement',
+    operation: 'operation'
+  },
+
+  // 成绩查询
+  gradeQuery: {
+    seqNum: 'serial number',
+    courseNum: 'course number',
+    courseName: 'course name',
+    teacher: 'teacher',
+    credit: 'credit',
+    courseProperty: 'course property',
+    examTime: 'date of exam'
+  },
+
+  // 提交开题报告
+  submitOpeningReport: {
+    note: 'Description: 1. Since the opening report through to submit his application, the graduate should have plenty of time for dissertation research and writing, please timely submit opening report ' +
+      'information and focus on audit results 2. Not personal cultivation plan or plan mentor not audit, mid-term examination not through, please contact us in time to formulate and verifying of the instructor',
+    thesisTitle: 'Thesis title',
+    thesisType: 'Thesis type',
+    thesisTopic: 'Source of thesis topic',
+    opentingReportTime: 'Date of opening report reviewing',
+    opentingReportResult: 'Result of opening report reviewing',
+    midtermResult: 'Result of mid-term evaluation',
+    subjectReaserch: 'Brief introduction of your reaserch topic'
+  },
+  // 填写学位信息
+  fillInTheDegreeInfo: {
+    note: 'description:',
+    note1: '1.If you want to apply for degree in the current semester, after completed the degree information and student information, ' +
+      'please click on the menu and graduation degree management, submit an application for graduation and select is submitted after the application is successful, otherwise the application degree is not successful',
+    note2: '2.Paper keywords must be separated by commas (,) in English, 3-5, it may not be less than',
+    note3: '3.also can\'t more than 5 (3) working unit of employment information in accordance with the now work unit to fill in',
+    degreeThesisInfo: 'Dissertation information',
+    thesisKeyWords: 'key words of thesis paper',
+    thesisType: 'type of thesis paper',
+    thesisTopicSource: 'source of thesis topic',
+    thesisWords: 'thesis words(ten thousand)',
+    thesisStartDate: 'start date of thesis',
+    thesisEndDate: 'end date of thesis',
+    format: 'the format is 20070101',
+    feesPaidByTutor: 'costs paid by tutor for completing the thesis',
+    employmentInfo: 'employment information',
+    employmentOfGrad: 'employment of graduation',
+    TypeOfWorkplace: 'property of workplace',
+    LocationOfWorkplace: 'location of workplace',
+    WorkProperty: 'job property',
+    introduction: 'Introduction of the thesis (including the theoretical significance and application ' +
+      'value of the topic selection; Innovation and significance of the paper; (500-800 words)'
+
+  },
+
+  // 提交毕业申请
+  uploadThesisPaper: {
+    note: 'Attention',
+    note1: '1. The basic information of the paper is mainly used for the evaluation of the paper, the offer of the degree, the collection of the library, etc. ' +
+      'The main words of the paper should be separated by English commas (", "), 3-5, no less than 3, no more than 5. After the information is complete, click modify and save, and it can be modified at any time.',
+    note2: '2. The final dissertation is used for the review and detection of academic misconduct after graduation. Please contact your tutor for review after uploading.',
+    studentNum: 'student number',
+    name: 'name',
+    language: 'language',
+    typeNum: 'type number',
+    theisTitle: 'thesis title',
+    foreignTitle: 'foreign title',
+    researchDirection: 'research direction ',
+    ChineseKeyWords: 'Chinese key words',
+    EnglishKeyWords: 'English key words',
+    ChineseAbstract: 'Chinese abstract',
+    EnglilshAbstract: 'English abstract',
+    reference: 'Refernces',
+    modifyAndSave: 'Modify and Save',
+    note3: 'Please upload your paper in PDF format. Resubmission will overwrite the previous submission',
+    degreeTheisFinal: 'Final dissertation',
+    uploadingResult: 'Uploading result',
+    reviewingResult: 'Audit result',
+    reviewingAdvice: 'Audit advice',
+    upload: 'upload',
+    selectFiles: 'select a file',
+    submit: 'submit'
   }
-
 }

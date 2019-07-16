@@ -157,7 +157,7 @@ export default {
     width: 12em;
   }
   .form-label{
-    color: #20a0ff;
+    color: #9b0d14;
   }
   .show-autocomplete{
     display: flex;

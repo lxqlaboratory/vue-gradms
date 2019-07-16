@@ -74,12 +74,6 @@ export const constantRoutes = [
         meta: { title: 'route.changePassword', icon: 'form' }
       },
       {
-        path: 'studentInformance',
-        name: 'studentInformance',
-        component: () => import('@/views/personInformation/studentInformance'),
-        meta: { title: ('route.studentInformance'), icon: 'form' }
-      },
-      {
         path: 'stuBaseInfo',
         name: 'stuBaseInfo',
         component: () => import('@/views/personInformation/stuBaseInfo'),
@@ -96,6 +90,18 @@ export const constantRoutes = [
         name: 'preSchoolInfo',
         component: () => import('@/views/personInformation/preSchoolInfo'),
         meta: { title: ('baseInformationModal.beforeSchool'), icon: 'form' }
+      },
+      {
+        path: 'publishThesis',
+        name: 'publishThesis',
+        component: () => import('@/views/personInformation/publishThesis'),
+        meta: { title: ('publishThesis.publishThesis'), icon: 'form' }
+      },
+      {
+        path: 'patent',
+        name: 'patent',
+        component: () => import('@/views/personInformation/patent'),
+        meta: { title: ('patent.note'), icon: 'form' }
       }
     ]
   },

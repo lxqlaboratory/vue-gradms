@@ -1,17 +1,17 @@
 <template>
-  <div class="app-container">
-    <el-form ref="ruleForm" :model="ruleForm" status-icon :rules="rules" class="demo-ruleForm">
-      <el-form-item :label="$t('modifyPasswordModal.oldPassword')" prop="oldPass">
-        <el-input v-model="ruleForm.oldPass" type="password" autocomplete="off" />
+  <div class="app-container" >
+    <el-form ref="ruleForm" :model="ruleForm" status-icon :rules="rules"  class="demo-ruleForm" label-width="150px" >
+      <el-form-item :label="$t('modifyPasswordModal.oldPassword')" prop="oldPass" style="color: #9b0d14">
+        <el-input v-model="ruleForm.oldPass" type="password" autocomplete="off" style="width: 25%;" />
       </el-form-item>
-      <el-form-item :label="$t('modifyPasswordModal.inputNewPassword')" prop="newPass">
-        <el-input v-model="ruleForm.newPass" type="password" autocomplete="off" />
+      <el-form-item :label="$t('modifyPasswordModal.inputNewPassword')" prop="newPass" >
+        <el-input v-model="ruleForm.newPass" type="password" autocomplete="off" style="width: 25%;" />
       </el-form-item>
-      <el-form-item :label="$t('modifyPasswordModal.retypePassword')" prop="checkPass">
-        <el-input v-model="ruleForm.checkPass" type="password" autocomplete="off" />
+      <el-form-item :label="$t('modifyPasswordModal.retypePassword')" prop="checkPass" style="color: #9b0d14">
+        <el-input v-model="ruleForm.checkPass" type="password" autocomplete="off" style="width: 25%;" />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm()">{{ $t('route.submit')}}</el-button>
+        <el-button type="danger"     @click="submitForm()">{{ $t('route.submit')}}</el-button>
         <el-button @click="resetForm('ruleForm')">{{ $t('modifyPasswordModal.reset')}}</el-button>
       </el-form-item>
     </el-form>
@@ -26,17 +26,17 @@ export default {
   data() {
     var validateOldPass = (rule, value, callback) => {
       if (!value) {
-        return callback(new Error('旧密码不能为空'))
+        return callback(new Error('Old passwords cannot be empty'))
       }
       callback()
     }
     var validateNewPass = (rule, value, callback) => {
       if (value === '') {
-        callback(new Error('请输入新密码'))
+        callback(new Error('Please enter a new password!'))
       }
       setTimeout(() => {
         if (value.length > 20) {
-          callback(new Error('密码长度最大为20'))
+          callback(new Error('The maximum password length is 20'))
         } else {
           callback()
         }
@@ -44,13 +44,13 @@ export default {
     }
     var validateNewPass2 = (rule, value, callback) => {
       if (value === '') {
-        callback(new Error('请再次输入密码'))
+        callback(new Error('Please enter your password again'))
       } else if (value !== this.ruleForm.newPass) {
-        callback(new Error('两次输入密码不一致!'))
+        callback(new Error('The two passwords you typed do not match!'))
       }
       setTimeout(() => {
         if (value.length > 20) {
-          callback(new Error('密码长度最大为20'))
+          callback(new Error('The maximum password length is 20'))
         } else {
           callback()
         }
@@ -86,17 +86,17 @@ export default {
         if (this.msg === 'passwordError') {
           this.$message({
             type: 'error',
-            message: '旧密码不正确'
+            message: 'The old password you entered is incorrect'
           })
       } else if (this.msg === 'userError'){
           this.$message({
             type: 'error',
-            message: '用户不存在'
+            message: 'The user does not exist.'
           })
         } else {
           this.$message({
             type: 'sucess',
-            message: '修改成功'
+            message: 'modify successfully'
           })
         }
       }).catch(e => {
