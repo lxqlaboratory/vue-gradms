@@ -149,8 +149,8 @@ export default {
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
-        const tHeader = ['Id', 'Title', 'Author', 'Readings', 'Date']
-        const filterVal = ['classTime', 'courseId', 'courseIndex', 'courseName', 'courseNum']
+        const tHeader = ['CourseNum', 'CourseName', 'CourseNo', 'ClassLocation']
+        const filterVal = ['courseNum', 'courseName', 'courseIndex', 'roomName']
         const courseExportList = this.courseExportList
         const data = this.formatJson(filterVal, courseExportList)
         excel.export_json_to_excel({
