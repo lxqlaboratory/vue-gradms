@@ -56,7 +56,8 @@ export default {
     submit:"提交",
     modify: '修改',
     save: '保存',
-    curPage: '现在位置'
+    curPage: '现在位置',
+    dashboard: '首页'
   },
 
   // 个人信息修改密码模块

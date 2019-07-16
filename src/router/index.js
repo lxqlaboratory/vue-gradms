@@ -27,8 +27,8 @@ import Layout from '@/layout'
 
 /**
  * constantRoutes
- * a base page that does not have permission requirements
- * all roles can be accessed
+ * 所有权限通用路由表
+ * 如首页和登录页和一些不用权限的公共页面
  */
 export const constantRoutes = [
   {
@@ -54,9 +54,9 @@ export const constantRoutes = [
     hidden : true,
     children: [{
       path: 'index',
-      name: 'Dashboard',
+      name: 'dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'dashboard', icon: 'dashboard' }
+      meta: { title: 'route.dashboard', icon: 'dashboard' }
     }]
   },
 
@@ -260,13 +260,21 @@ export const constantRoutes = [
     component: Layout,
     name: 'dagl',
     alwaysShow: true,
-    meta: { title: ('route.dagl'), icon: 'form' },
+    meta: {
+      title: ('route.dagl'),
+      icon: 'form',
+      roles:[99]
+    },
     children: [
       {
         path: 'txqnml',
         name: 'txqnml',
         component: () => import('@/views/dagl/txqnml'),
-        meta: { title: ('route.txqnml'), icon: 'form' }
+        meta: {
+          title: ('route.txqnml'),
+          icon: 'form',
+          roles: [98]
+        }
       }
     ]
   },
@@ -274,7 +282,41 @@ export const constantRoutes = [
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
+/**
+ * 异步挂载的路由
+ * 动态需要根据权限加载的路由表
+ */
+export const asyncRoutes = [
+  {
+    path: '/dagl',
+    component: Layout,
+    name: 'dagl',
+    alwaysShow: true,
+    meta: {
+      title: ('route.dagl'),
+      icon: 'form',
+      roles:['1']
+    },
+    children: [
+      {
+        path: 'txqnml',
+        name: 'txqnml',
+        component: () => import('@/views/dagl/txqnml'),
+        meta: {
+          title: ('route.txqnml'),
+          icon: 'form',
+          roles:['1']
+        }
+      }
+    ]
+  },
 
+  // 404 page must be placed at the end !!!
+  { path: '*', redirect: '/404', hidden: true }
+
+]
+
+//实例化vue的时候只挂载constantRouter
 const createRouter = () => new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),

@@ -8,11 +8,11 @@ export function login(jsonForm) {
   })
 }
 
-export function getInfo(token) {
+export function getInfo(data) {
   return request({
-    url: '/user/info',
-    method: 'get',
-    params: { token }
+    url: '/api/getInfo',
+    method: 'post',
+    data
   })
 }
 

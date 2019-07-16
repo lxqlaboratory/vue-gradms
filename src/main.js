@@ -1,5 +1,7 @@
 import Vue from 'vue'
 
+import Cookies from 'js-cookie'
+
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 
 import ElementUI from 'element-ui'
@@ -13,7 +15,7 @@ import store from './store'
 import router from './router'
 
 import '@/icons' // icon
-
+// import './permission' //权限控制
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
@@ -30,6 +32,7 @@ if (process.env.NODE_ENV === 'production') {
 Vue.use(ElementUI, {
   i18n: (key, value) => i18n.t(key, value)
 })
+
 
 Vue.config.productionTip = false
 

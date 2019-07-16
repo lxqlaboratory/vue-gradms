@@ -56,7 +56,8 @@ export default {
     submit: 'submit',
     modify: 'modify',
     save: 'save',
-    curPage: 'current page'
+    curPage: 'current page',
+    dashboard: 'Dashboard'
 
   },
 

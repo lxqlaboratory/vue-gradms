@@ -8,10 +8,16 @@
       <img style="margin:-8px 3% 0 3%;height: 48px;vertical-align: middle" src="@/assets/login/logo.png">
       <span style="font-size: 20px;">{{ $t('login.manaegerTitle') }}</span>
       <lang-select style="position: absolute;right: 15%;top:-2px" />
+      <div class="btn-fullscreen" style="position: absolute;right: 12%;top: 0px" @click="handleFullScreen">
+        <el-tooltip effect="dark" :content="fullscreen?`取消全屏`:`全屏`" placement="bottom">
+          <svg-icon v-if="fullscreen" icon-class="exit-fullscreen"></svg-icon>
+          <svg-icon v-else icon-class="fullscreen"></svg-icon>
+        </el-tooltip>
+      </div>
       <el-dropdown class="avatar-container" style="position: absolute;right: 1%;top:-2px" trigger="click">
         <div class="avatar-wrapper" >
           <img src="http://service.sdu.edu.cn/tp_up/resource/image/common/user2.jpg" class="user-avatar" style="vertical-align: middle;">
-          <span style="font-size: 16px;color: white">徐鹏涛</span>
+          <span style="font-size: 16px;color: white">{{this.name}}</span>
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown" style="margin-top: 0px">
           <router-link to="/dashboard">
@@ -33,6 +39,7 @@ import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 import LangSelect from '@/components/LangSelect'
+import { getInfo } from '@/store/modules/user'
 
 export default {
   components: {
@@ -40,16 +47,57 @@ export default {
     Hamburger,
     LangSelect
   },
+  data(){
+    return{
+      fullscreen : false
+    }
+  },
   computed: {
     ...mapGetters([
       'sidebar',
-      'avatar'
-    ])
+      'avatar',
+      'name'
+    ]),
+  },
+  mounted(){
+    var that = this;
+    window.onload = async function(e) {      //刷新时弹出提示
+      console.log("======");
+      await that.$store.dispatch('user/getInfo');
+    };
+
   },
   methods: {
+    // 全屏事件
+    handleFullScreen(){
+      let element = document.documentElement;
+      if (this.fullscreen) {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitCancelFullScreen) {
+          document.webkitCancelFullScreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      } else {
+        if (element.requestFullscreen) {
+          element.requestFullscreen();
+        } else if (element.webkitRequestFullScreen) {
+          element.webkitRequestFullScreen();
+        } else if (element.mozRequestFullScreen) {
+          element.mozRequestFullScreen();
+        } else if (element.msRequestFullscreen) {
+          // IE11
+          element.msRequestFullscreen();
+        }
+      }
+      this.fullscreen = !this.fullscreen;
+    },
 
     async logout() {
-      await this.$store.dispatch('user/logout')
+      // await this.$store.dispatch('user/logout')
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     }
   }
@@ -97,6 +145,17 @@ export default {
           background: rgba(214, 180, 78, 0.91)
         }
       }
+    }
+
+    .btn-fullscreen{
+      margin-right: 5px;
+      font-size: 20px;
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      text-align: center;
+      border-radius: 15px;
+      cursor: pointer;
     }
 
     .avatar-container {

@@ -14,6 +14,7 @@
       </template>
       <sidebar-item
         v-for="child in item.children"
+        v-if="validateRole(child)"
         :key="child.path"
         :is-nest="true"
         :item="child"
@@ -27,6 +28,7 @@
 <script>
 import path from 'path'
 import { isExternal } from '@/utils/validate'
+import { mapGetters } from 'vuex'
 import Item from './Item'
 import AppLink from './Link'
 import FixiOSBug from './FixiOSBug'
@@ -57,6 +59,17 @@ export default {
     return {}
   },
   methods: {
+    validateRole: function(routeItem) { //验证用户权限
+      if (routeItem.meta == null || routeItem.meta.roles == null) {
+        return true
+      }
+      if (routeItem.meta.roles === this.roles) {
+        return true
+      }
+      for (let role of routeItem.meta.roles) {
+        return role == this.roles
+      }
+    },
     hasOneShowingChild(children = [], parent) {
       const showingChildren = children.filter(item => {
         if (item.hidden) {
