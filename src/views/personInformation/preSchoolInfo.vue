@@ -290,7 +290,7 @@
             <tr>
               <td height="28" colspan="4">
                 <div align="center">
-                  <el-button v-if="!isEdit2" type="primary" name="modifyIt" class="submitbutton" @click="edit2">{{ $t('route.modify') }}</el-button>
+                  <el-button v-if="!isEdit2" type="danger" name="modifyIt" class="submitbutton" @click="edit2">{{ $t('route.modify') }}</el-button>
                   <el-button v-else type="success" name="modifyIt" class="submitbutton" @click="save2">{{ $t('route.save') }}</el-button>
                 </div>
               </td>
@@ -478,7 +478,7 @@ export default {
     width: 12em;
   }
   .form-label{
-    color: #20a0ff;
+    color:  #9b0d14;
   }
   .show-autocomplete{
     display: flex;
