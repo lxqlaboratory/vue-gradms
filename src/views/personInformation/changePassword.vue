@@ -11,7 +11,7 @@
         <el-input v-model="ruleForm.checkPass" type="password" autocomplete="off" style="width: 25%;" />
       </el-form-item>
       <el-form-item>
-        <el-button type="danger" @click="submitForm()">{{ $t('route.submit')}}</el-button>
+        <el-button type="danger"     @click="submitForm()">{{ $t('route.submit')}}</el-button>
         <el-button @click="resetForm('ruleForm')">{{ $t('modifyPasswordModal.reset')}}</el-button>
       </el-form-item>
     </el-form>
