@@ -8,7 +8,7 @@
        :value="item.value">
      </el-option>
    </el-select>
-   <el-button type="primary" size="mini">{{$t('achievement.export')}}</el-button>
+   <el-button :loading="downloadLoading"  @click="handleDownload" type="primary" size="mini">{{$t('achievement.export')}}</el-button>
   <el-table
     :data="courseExportList"
     border
@@ -131,6 +131,7 @@ export default {
     return {
       courseExportList: [],
       termList: [],
+      downloadLoading: false,
       value: ''
     }
   },
@@ -143,7 +144,24 @@ export default {
         this.termList = res.data.termList
         this.courseExportList = res.data.courseExportList
       })
-    }
+    },
+    // handleDownload() {
+    //   this.downloadLoading = true
+    //   import('@/vendor/Export2Excel').then(excel => {
+    //     const tHeader = ['Id', 'Title', 'Author', 'Readings', 'Date']
+    //     const filterVal = ['id', 'title', 'author', 'pageviews', 'display_time']
+    //     const list = this.list
+    //     const data = this.formatJson(filterVal, list)
+    //     excel.export_json_to_excel({
+    //       header: tHeader,
+    //       data,
+    //       filename: this.filename,
+    //       autoWidth: this.autoWidth,
+    //       bookType: this.bookType
+    //     })
+    //     this.downloadLoading = false
+    //   })
+    // }
   }
 }
 </script>
