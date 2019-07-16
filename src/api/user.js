@@ -136,3 +136,19 @@ export function pyfadkcsz(data) {
     data
   })
 }
+
+export function downloadzxzm(data) {
+  return request({
+    url: '/api/cultivate/pyfadkcsz',
+    method: 'POST',
+    data
+  })
+}
+
+export function stuGradeQuery() {
+  return request({
+    url: '/api/cultivate/stuGradeQuery',
+    method: 'POST',
+    data: {}
+  })
+}
