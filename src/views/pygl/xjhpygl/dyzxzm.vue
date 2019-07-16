@@ -1,36 +1,16 @@
 <template>
   <div class="container">
-    <a href="/gradms/api/student/printStudyProve" download="dyzxzm.pdf">{{$t('route.dyzxzm')}}</a>
+    <a href="/gradms/api/student/printStudyProve" download="educationCertificate.pdf">{{$t('route.dyzxzm')}}</a>
   </div>
 </template>
 
 <script>
-  import { uploadFile } from '@/api/uploadFile'
 export default {
   data() {
     return {
     }
-  },
-  created() {
-    this.fetchData()
-  },
-  methods:{
-    upload(){
-      let a = document.createElement('a');
-      uploadFile().then(res => {
-        console.log(file)
-        var elemIF = document.createElement('iframe')
-        elemIF.src =  file
-        var elemIF = document.createElement('iframe')
-        elemIF.src = 'user/downloadExcel?snapshotTime=' + formatDate(new Date(row.snapshotTime), 'yyyy-MM-dd hh:mm')
-        elemIF.style.display = 'none'
-        document.body.appendChild(elemIF)
-
-      })
-    },
-
-
   }
+
 
 }
 </script>
