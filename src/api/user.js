@@ -152,3 +152,11 @@ export function stuGradeQuery() {
     data: {}
   })
 }
+
+export function uploadFile() {
+  return request({
+    url: '/api/student/uploadFile',
+    method: 'POST',
+    data: {}
+  })
+}

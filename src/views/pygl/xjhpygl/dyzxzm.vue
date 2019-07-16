@@ -1,35 +1,41 @@
 <template>
-  <div>
-    <el-button type="primary"  class="filter-item" @click="download()">打印在学证明</el-button>
+  <div class="container">
+    <el-button type="primary" icon="el-icon-download" class="filter-item" @click="upload()">打印在学证明</el-button>
+    <div name="downloadfile" onclick="upload()">DownLoader</div>
   </div>
 </template>
 
 <script>
-  import ElButton from "../../../../node_modules/element-ui/packages/button/src/button";
-  import { downloadzxzm } from '@/api/showPersonCultivate'
+  import { uploadFile } from '@/api/uploadFile'
 export default {
+  data() {
+    return {
+
+    }
+  },
+  created() {
+    this.fetchData()
+  },
   methods:{
-      fetchData(){
-        downloadzxzm({ 'schemeId': this.$route.params.schemeId }, (err, post) => {
-          this.loading = false
-          if (err) {
-            this.error = err.toString()
-          } else {
-            this.post = post
-          }
-        }).then(res => {
-            res.data.requiredList[0].type = '必修课'
-            this.requiredList = res.data.requiredList
-            this.requiredListLength = this.requiredList.length
-            res.data.optionalList[0].type = '选修课'
-            this.optionalList = res.data.optionalList
-            this.optionalListLength = this.optionalList.length
-            res.data.buxiuList[0].type = '补修课'
-            this.buxiuList = res.data.buxiuList
-            this.buxiuListLength = this.buxiuList.length
-          }
-        )
-      }
+    upload(){
+      let a = document.createElement('a');
+      uploadFile().then(res => {
+        console.log(file)
+        var elemIF = document.createElement('iframe')
+        elemIF.src =  file
+
+        //window.location.href = urls;
+
+
+        var elemIF = document.createElement('iframe')
+        elemIF.src = 'user/downloadExcel?snapshotTime=' + formatDate(new Date(row.snapshotTime), 'yyyy-MM-dd hh:mm')
+        elemIF.style.display = 'none'
+        document.body.appendChild(elemIF)
+
+      })
+    },
+
+
   }
 
 }
