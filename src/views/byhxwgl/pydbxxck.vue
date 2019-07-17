@@ -1,8 +1,27 @@
-<template />
+<template >
+<div class="app-container">
+
+</div>
+</template>
 
 <script>
+  import { thesisReviewAndReplyInfoShow } from '@/api/thesisReviewAndReplyInfoShow'
 export default {
-  name: 'Pydbxxck'
+  data() {
+    return {
+      list: []
+    }
+  },
+  created() {
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+      thesisReviewAndReplyInfoShow().then(res => {
+        this.list = res.data
+      })
+    }
+  }
 }
 </script>
 
