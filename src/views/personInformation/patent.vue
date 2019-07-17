@@ -10,8 +10,10 @@
       </td>
     </tr>
     <tr><td colspan="11">
-      <font color="red">
-        {{$t('patent.note1')}}
+      <font color="#9b0d14">{{$t('patent.note11')}}
+        <br>{{$t('patent.note1')}}
+        <br>{{$t('patent.note2')}}
+        <br>{{$t('patent.note3')}}
       </font>
     </td>
     </tr>

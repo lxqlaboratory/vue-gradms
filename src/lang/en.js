@@ -167,9 +167,9 @@ export default {
   publishThesis: {
     publishThesis: 'publish thesis',
     thesisInfo: 'thesis information',
-    note: '1. The information related to the dissertation is an important part of the dissertation published in the doctoral dissertation self-assessment form. Please be sure to fill it out carefully before the doctor\'s anonymous review.\n' +
-      '2. After the college secretary/secretary approves the paper, the paper information cannot be modified. To modify the paper information, please contact the corresponding college secretary/secretary approved by the review and set the status of the paper to be revised after the review is not passed.\n' +
-      '3. The college secretary audit mainly uses postgraduate excellent results evaluation and graduation and degree review. The secretary review is mainly used for scholarship review.',
+    note1: '1. The information related to the dissertation is an important part of the dissertation published in the doctoral dissertation self-assessment form. Please be sure to fill it out carefully before the doctor\'s anonymous review.',
+    note2: '2. After the college secretary/secretary approves the paper, the paper information cannot be modified. To modify the paper information, please contact the corresponding college secretary/secretary approved by the review and set the status of the paper to be revised after the review is not passed.',
+    note3: '3. The college secretary audit mainly uses postgraduate excellent results evaluation and graduation and degree review. The secretary review is mainly used for scholarship review.',
     publicationYear: 'Thesis publication year',
     publicationTime: 'Thesis publication date',
     to: 'to',
@@ -223,11 +223,10 @@ export default {
   // 专利
   patent: {
     note: 'patent/copyright information',
-    note1: 'After the administrator has passed the patent/copyright, the patent/copyright information cannot be modified. \n' +
-      'Student->If you want to modify the patent/copyright information, please contact the ' +
-      'corresponding college secretary/secretator who passed the review and set the patent/copyright status to be revised after the review is not passed!\n' +
-      'Teacher->If you want to modify the patent/copyright information, ' +
-      'please contact the corresponding college secretary to set the patent/copyright status to be revised after the review is not passed!',
+    note11: '1.The information related to the dissertation is an important part of the dissertation published in the doctoral dissertation self-assessment form. Please be sure to fill it out carefully before the doctor\'s anonymous review.',
+    note1: '2.After the administrator has passed the patent/copyright, the patent/copyright information cannot be modified. ',
+    note2: '3.Student->If you want to modify the patent/copyright information, please contact the corresponding college secretary/secretator who passed the review and set the patent/copyright status to be revised after the review is not passed!',
+    note3: '4.Teacher->If you want to modify the patent/copyright information, please contact the corresponding college secretary to set the patent/copyright status to be revised after the review is not passed! ',
     registerDate: 'Date of granting certificate/registeration:',
     to: 'to',
     authorRanking: 'auther ranking:',
@@ -243,7 +242,7 @@ export default {
     openOrNot: 'open or not',
     status: 'status',
     operation: 'operation',
-    note2: 'SORRY:No approprrate data!!',
+    note12: 'SORRY:No approprrate data!!',
     setOpen: 'set open',
     setNotOpen: 'set not open',
     add: 'add'
