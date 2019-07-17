@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app-container">
     <el-table
       :data="requiredList"
       border
@@ -8,7 +8,7 @@
     >
       <el-table-column
         label="类别"
-        width="180"
+        width="100"
       >
         <template slot-scope="scope">
           {{ $t(scope.row.category) }}
@@ -56,7 +56,7 @@
       </el-table-column>
       <el-table-column
         label="是否公选课"
-        width="80"
+        width="180"
       >
         <template slot-scope="scope">
           {{ $t(scope.row.isPubSelectCourse) }}
@@ -70,11 +70,12 @@
     <el-table
       :data="optionalList"
       border
+      size="mini"
       style="width: 100%"
     >
       <el-table-column
         label="类别"
-        width="180"
+        width="100"
       >
         <template slot-scope="scope">
           {{ $t(scope.row.category) }}
@@ -122,7 +123,7 @@
       </el-table-column>
       <el-table-column
         label="是否公选课"
-        width="80"
+        width="180"
       >
         <template slot-scope="scope">
           {{ $t(scope.row.isPubSelectCourse) }}
@@ -137,11 +138,12 @@
     <el-table
       :data="buxiuList"
       border
+      size="mini"
       style="width: 100%"
     >
       <el-table-column
         label="类别"
-        width="180"
+        width="100"
       >
         <template slot-scope="scope">
           {{ $t(scope.row.category) }}
@@ -189,7 +191,7 @@
       </el-table-column>
       <el-table-column
         label="是否公选课"
-        width="80"
+        width="180"
       >
         <template slot-scope="scope">
           {{ $t(scope.row.isPubSelectCourse) }}
