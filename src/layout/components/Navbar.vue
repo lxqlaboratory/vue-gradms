@@ -7,8 +7,8 @@
     <div class="right-menu">
       <img style="margin:-8px 3% 0 3%;height: 48px;vertical-align: middle" src="@/assets/login/logo.png">
       <span style="font-size: 20px;">{{ $t('login.manaegerTitle') }}</span>
-      <lang-select style="position: absolute;right: 15%;top:-2px" />
-      <div class="btn-fullscreen" style="position: absolute;right: 12%;top: 0px" @click="handleFullScreen">
+      <lang-select style="position: absolute;right: 18%;top:-2px" />
+      <div class="btn-fullscreen" style="position: absolute;right: 15%;top: 0px" @click="handleFullScreen">
         <el-tooltip effect="dark" :content="fullscreen?`取消全屏`:`全屏`" placement="bottom">
           <svg-icon v-if="fullscreen" icon-class="exit-fullscreen"></svg-icon>
           <svg-icon v-else icon-class="fullscreen"></svg-icon>
@@ -149,7 +149,7 @@ export default {
 
     .btn-fullscreen{
       margin-right: 5px;
-      font-size: 20px;
+      font-size: 16px;
       position: absolute;
       width: 24px;
       height: 24px;

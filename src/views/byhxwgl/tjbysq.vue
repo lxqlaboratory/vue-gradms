@@ -77,11 +77,11 @@ export default {
     this.fetchData()
   },
   methods: {
-    fetchData() {
-      degreeGradApplyInit().then(res => {
-        this.list = res.data
-      })
-    }
+      fetchData() {
+        degreeGradApplyInit().then(res => {
+          this.list = res.data
+        })
+      }
   }
 }
 </script>
