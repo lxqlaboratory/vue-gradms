@@ -3,6 +3,7 @@
     <el-table
       :data="requiredList"
       border
+      size="mini"
       style="width: 100%"
     >
       <el-table-column

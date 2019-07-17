@@ -5,6 +5,7 @@
     <el-table
       :data="gradeList"
       border
+      size="mini"
       style="width: 100%">
       <el-table-column
         label="序号"

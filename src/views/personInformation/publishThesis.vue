@@ -59,6 +59,7 @@
     <el-table
       :data="tableData"
       border
+      size="mini"
       style="width: 100%">
       <el-table-column
         prop="date"

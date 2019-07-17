@@ -37,6 +37,7 @@
       element-loading-text="Loading"
       border
       fit="true"
+      size="mini"
       style="width: 100%"
       max-height="700"
       highlight-current-row

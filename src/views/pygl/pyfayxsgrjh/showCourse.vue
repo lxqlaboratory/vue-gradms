@@ -198,6 +198,7 @@
         :data="buxiuList"
         border
         style="width: 100%"
+        size="mini"
         :span-method="rowSpanMethod3"
         :show-header="false"
       >

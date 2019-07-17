@@ -3,6 +3,7 @@
     :data="requiredList"
     border
     style="width: 100%;"
+    size="mini"
     :span-method="rowSpanMethod"
     width="100%"
   >

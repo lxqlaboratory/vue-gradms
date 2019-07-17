@@ -16,8 +16,8 @@
       </div>
       <el-dropdown class="avatar-container" style="position: absolute;right: 1%;top:-2px" trigger="click">
         <div class="avatar-wrapper" >
-          <img src="http://service.sdu.edu.cn/tp_up/resource/image/common/user2.jpg" class="user-avatar" style="vertical-align: middle;">
-          <span style="font-size: 16px;color: white">{{this.name}}</span>
+          <img src="http://service.sdu.edu.cn/tp_up/resource/image/common/user2.jpg" class="user-avatar" style="vertical-align: middle; " >
+          <span style="font-size: 9px;color: white">{{this.name}}</span>
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown" style="margin-top: 0px">
           <router-link to="/dashboard">
