@@ -5,6 +5,8 @@
       border
       size="mini"
       style="width: 100%"
+      class="eltable"
+      :header-cell-style="getRowClass"
     >
       <el-table-column
         label="类别"
@@ -219,6 +221,7 @@ export default {
   },
   created() {
     this.fetchData()
+    this.getRowClass()
   },
   methods: {
     fetchData() {
@@ -227,11 +230,21 @@ export default {
         this.optionalList = res.data.optionalList
         this.buxiuList = res.data.buxiuList
       })
-     }
-   }
+     },
+    getRowClass ({ row, column, rowIndex, columnIndex }) {
+      if (rowIndex === 0) {
+        return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
+      } else {
+        return ''
+      }
+    }
+  }
 }
 </script>
 
 <style scoped>
+  el-select{
+    height: 30px;
+  }
 
 </style>

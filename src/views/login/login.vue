@@ -84,6 +84,7 @@ module.exports = {
   },
   mounted(){
     this.getCookie();
+    //alert(this.getCookie())
   },
   methods: {
     toRegister() {
@@ -103,7 +104,7 @@ module.exports = {
       }
       const jsonForm = JSON.stringify({ username: this.loginForm.userName, password: this.loginForm.password })
       login(jsonForm).then(response => {
-        console.log(response.msg);
+        //console.log(response.msg);
         _this.msg = response.msg
         if (this.msg === 'userNoExist'){
           _this.$message({

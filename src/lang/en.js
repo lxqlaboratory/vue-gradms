@@ -43,6 +43,8 @@ export default {
     tjktbg: 'submit opening report',
     byhxwgl: 'graduation and degree',
     txxwxx: 'degree information',
+    txlwgzybz : '填写论文工作与不足',
+    txbslwzpb : '填写博士论文自评表',
     tjbysq: 'graduation application',
     xxsclw: 'thesis uploading',
     cklwpyjg: 'thesis review',
@@ -432,7 +434,7 @@ export default {
 
   // 成绩查询
   gradeQuery: {
-    seqNum: 'serial number',
+    seqNum: 'number',
     courseNum: 'course number',
     courseName: 'course name',
     teacher: 'teacher',

@@ -2,7 +2,7 @@
   <div class="app-container">
     <!--<div>-->
     <span class="searchSpan">{{ $t('cultivatingSchemeQuery.studentType') }}:</span>
-    <el-select v-model="stuTypecode" style="width: 15%" filterable placeholder="请选择" @change="getMajor">
+    <el-select v-model="stuTypecode" style="width: 15%;" size="mini" filterable placeholder="请选择" @change="getMajor">
       <el-option
         v-for="item in stuTypeList"
         :key="item.value"
@@ -11,7 +11,7 @@
       />
     </el-select>
     <span class="searchSpan">{{ $t('cultivatingSchemeQuery.school') }}:</span>
-    <el-select v-model="collegeType" style="width: 15%" filterable placeholder="请选择" @change="getMajor">
+    <el-select v-model="collegeType" style="width: 15%" size="mini"  filterable placeholder="请选择" @change="getMajor">
       <el-option
         v-for="item in collegeNameList"
         :key="item.value"
@@ -20,7 +20,7 @@
       />
     </el-select>
     <span class="searchSpan">{{ $t('cultivatingSchemeQuery.major') }}:</span>
-    <el-select v-model="majorTypeCode" style="width: 15%" filterable placeholder="请选择">
+    <el-select v-model="majorTypeCode" style="width: 15%" size="mini" filterable placeholder="请选择">
       <el-option
         v-for="item in majorList"
         :key="item.value"
@@ -29,8 +29,8 @@
       />
     </el-select>
     <span class="searchSpan">{{ $t('cultivatingSchemeQuery.year') }}:</span>
-    <el-input v-model="year" placeholder="请输入年份" style="width: 15%" />
-    <el-button size="small" type="primary" class="queryBtn" @click="getTableList">查询</el-button>
+    <el-input v-model="year" placeholder="请输入年份" style="width: 15%" size="mini" />
+    <el-button size="mini" type="primary" class="queryBtn" @click="getTableList">查询</el-button>
 
     <el-table
       :data="cultivateFormList"
@@ -40,13 +40,13 @@
       size="mini"
       style="width: 100%"
       max-height="700"
-      highlight-current-row
       class="eltable"
+      :header-cell-style="getRowClass"
     >
       <el-table-column
         :label="$t('projectParticipation.number')"
         fixed = "left"
-        width="100"
+        width="73"
         align="center"
       >
         <template slot-scope="scope">
@@ -71,7 +71,7 @@
       </el-table-column>
       <el-table-column
         :label="$t('cultivatingSchemeQuery.startTime')"
-        width="160"
+        width="120"
         align="center"
       >
         <template slot-scope="scope">
@@ -80,12 +80,12 @@
       </el-table-column>
       <el-table-column
          fixed = "right"
-         width="100"
+         width="120"
          align="center"
         :label = "$t('cultivatingSchemeQuery.detail')"
       >
         <template slot-scope="scope">
-          <el-button type="text" @click="pushInfo(scope.row.schemeId , scope.row.majorName, scope.row.studentType )">详细</el-button>
+          <el-button class="infoBtn"   type="text" @click="pushInfo(scope.row.schemeId , scope.row.majorName, scope.row.studentType )">详细</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -108,7 +108,8 @@ export default {
     }
   },
   created() {
-    this.fetchData()
+    this.fetchData(),
+    this.getRowClass()
   },
   methods: {
     fetchData() {
@@ -138,27 +139,34 @@ export default {
       }).catch(e => {
 
       })
+    },
+    getRowClass ({ row, column, rowIndex, columnIndex }) {
+      if (rowIndex === 0) {
+        return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
+      } else {
+        return ''
+      }
     }
   }
 }
 </script>
 
 <style scoped>
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
-  }
   .eltable{
     margin-top: 20px;
   }
   .searchSpan{
-    font-size: 16px;
+    font-size: 14px;
     margin-left: 10px;
   }
   .queryBtn{
     margin-left: 40px; ;
   }
+  .infoBtn{
+    font-size: 12px;
+  }
+  el-select{
+    height: 30px;
+  }
+
 </style>

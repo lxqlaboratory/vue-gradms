@@ -43,6 +43,8 @@ export default {
     tjktbg: '提交开题报告',
     byhxwgl: '毕业和学位管理',
     txxwxx: '填写学位信息',
+    txlwgzybz : '填写论文工作与不足',
+    txbslwzpb : '填写博士论文自评表',
     tjbysq: '提交毕业申请',
     xxsclw: '学生上传论文',
     cklwpyjg: '查看论文评阅结果',

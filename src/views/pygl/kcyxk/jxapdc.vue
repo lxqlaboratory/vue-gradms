@@ -14,6 +14,7 @@
     border
     size="mini"
     style="width: 100%;"
+    :header-cell-style="getRowClass"
   >
     <el-table-column
       prop="category"

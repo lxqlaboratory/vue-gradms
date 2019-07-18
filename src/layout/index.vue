@@ -40,10 +40,18 @@ export default {
       }
     }
   },
+  created() {
+    //this.getLevel()
+  },
   methods: {
     handleClickOutside() {
       this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
-    }
+    },
+    /*getLevel(){
+      const level = sessionStorage.getItem('level');
+      alert(level)
+    }*/
+
   }
 }
 </script>

@@ -1,61 +1,65 @@
 <template>
 <div class="container">
-  <div ><span>姓名：</span><span></span></div>
+  <div style="font-size: 15px;margin-left: 10px;"><span>{{ $t('baseInformationModal.name') }}:</span><span></span></div>
   <div class="tableStyle">
     <el-table
       :data="gradeList"
       border
       size="mini"
-      style="width: 100%">
+      style="width: 100%;color: black"
+      :header-cell-style="getRowClass">
       <el-table-column
-        label="序号"
+        :label="$t('gradeQuery.seqNum')"
         fixed = "left"
-        width="80"
-        align="center">
+        width="73"
+        align="center"
+        color="black">
         <template slot-scope="scope">
           {{ scope.$index+1 }}
         </template>
       </el-table-column>
       <el-table-column
-        label="课程号"
+        :label="$t('gradeQuery.courseNum')"
+        width="150"
         align="center">
         <template slot-scope="scope">
           {{ $t(scope.row.courseNum) }}
         </template>
       </el-table-column>
       <el-table-column
-        label="课程名"
+        :label="$t('gradeQuery.courseName')"
         align="center">
         <template slot-scope="scope">
           {{ $t(scope.row.courseName) }}
         </template>
       </el-table-column>
       <el-table-column
-        label="任课教师"
+        :label="$t('gradeQuery.teacher')"
+        width="120"
         align="center">
         <template slot-scope="scope">
           {{ $t(scope.row.teaName) }}
         </template>
       </el-table-column>
       <el-table-column
-        label="学分"
-        width="100"
+        :label="$t('gradeQuery.credit')"
+        width="80"
         align="center">
         <template slot-scope="scope">
           {{ $t(scope.row.credit) }}
         </template>
       </el-table-column>
       <el-table-column
-        label="课程属性"
-        width="120"
+        :label="$t('gradeQuery.courseProperty')"
+        width="130"
         align="center">
         <template slot-scope="scope">
-          {{ $t(scope.row.dataName) }}
+          {{ $t(scope.row.courseSort) }}
         </template>
       </el-table-column>
       <el-table-column
         label="成绩"
-        width="100"
+        width="80"
         align="center">
         <template slot-scope="scope">
           {{ $t(scope.row.subItemScorePrint) }}
@@ -63,6 +67,7 @@
       </el-table-column>
       <el-table-column
         label="考试时间"
+        :label="$t('gradeQuery.examTime')"
         width="120"
         align="center">
         <template slot-scope="scope">
@@ -92,6 +97,7 @@ export default {
   },
   created() {
     this.fetchData()
+    this.getRowClass()
   },
   methods: {
     fetchData() {
@@ -100,6 +106,13 @@ export default {
         console.log(this.gradeList)
       })
     },
+    getRowClass ({ row, column, rowIndex, columnIndex }) {
+      if (rowIndex === 0) {
+        return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
+      } else {
+        return ''
+      }
+    }
   }
 }
 </script>
@@ -110,6 +123,9 @@ export default {
   }
   .tableStyle{
     margin-top: 20px;
+  }
+  .el-table{
+    color: black;
   }
 
 </style>

@@ -204,6 +204,22 @@ export const constantRoutes = [
         component: () => import('@/views/byhxwgl/txxwxx'),
         meta: { title: ('route.txxwxx'), icon: 'form' }
       },
+      {//填写论文工作与不足
+        path: 'txlwgzybz',
+        name: 'txlwgzybz',
+        component: () => import('@/views/byhxwgl/txlwgzybz'),
+        meta: { title: ('route.txlwgzybz'), icon: 'form' }
+      },
+      {//填写博士论文自评表
+        path: 'txbslwzpb',
+        name: 'txbslwzpb',
+        component: () => import('@/views/byhxwgl/txbslwzpb'),
+        meta: {
+          title: ('route.txbslwzpb'),
+          icon: 'form',
+          roles: [117]
+        }
+      },
       {
         path: 'tjbysq',
         name: 'tjbysq',
@@ -220,19 +236,31 @@ export const constantRoutes = [
         path: 'cklwpyjg',
         name: 'cklwpyjg',
         component: () => import('@/views/byhxwgl/cklwpyjg'),
-        meta: { title: ('route.cklwpyjg'), icon: 'form' }
+        meta: {
+          title: ('route.cklwpyjg'),
+          icon: 'form',
+          roles: [0]
+        }
       },
       {
         path: 'txbsdbgg',
         name: 'txbsdbgg',
         component: () => import('@/views/byhxwgl/txbsdbgg'),
-        meta: { title: ('route.txbsdbgg'), icon: 'form' }
+        meta: {
+          title: ('route.txbsdbgg'),
+          icon: 'form',
+          roles: [0]
+        }
       },
       {
         path: 'lrdbjv',
         name: 'lrdbjv',
         component: () => import('@/views/byhxwgl/lrdbjv'),
-        meta: { title: ('route.lrdbjv'), icon: 'form' }
+        meta: {
+          title: ('route.lrdbjv'),
+          icon: 'form',
+          roles: [0]
+        }
       },
       {
         path: 'pydbxxck',
@@ -244,13 +272,21 @@ export const constantRoutes = [
         path: 'byxxhd',
         name: 'byxxhd',
         component: () => import('@/views/byhxwgl/byxxhd'),
-        meta: { title: ('route.byxxhd'), icon: 'form' }
+        meta: {
+          title: ('route.byxxhd'),
+          icon: 'form',
+          roles: [0]
+        }
       },
       {
         path: 'xwxxhd',
         name: 'xwxxhd',
         component: () => import('@/views/byhxwgl/xwxxhd'),
-        meta: { title: ('route.xwxxhd'), icon: 'form' }
+        meta: {
+          title: ('route.xwxxhd'),
+          icon: 'form',
+          roles: [0]
+        }
       }
     ]
   },
