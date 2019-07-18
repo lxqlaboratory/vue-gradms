@@ -155,7 +155,7 @@ export const constantRoutes = [
       },
       {
         path: 'zdckpyjh',
-        component: () => import('@/views/pygl/pyfayxsgrjh/zdckpyjh'),
+        component: () => import('@/views/pygl/pyfayxsgrjh/index'),
         name: 'ckbrpyfa',
         meta: { title: ('route.zdckpyjh'), icon: 'form' }
       },
