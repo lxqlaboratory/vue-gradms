@@ -11,7 +11,7 @@
       />
     </el-select>
     <span class="searchSpan">{{ $t('cultivatingSchemeQuery.school') }}:</span>
-    <el-select v-model="collegeType" style="width: 15%" size="mini"  filterable placeholder="请选择" @change="getMajor">
+    <el-select v-model="collegeType" style="width: 15%" size="mini" filterable placeholder="请选择" @change="getMajor">
       <el-option
         v-for="item in collegeNameList"
         :key="item.value"
@@ -45,7 +45,7 @@
     >
       <el-table-column
         :label="$t('projectParticipation.number')"
-        fixed = "left"
+        fixed="left"
         width="73"
         align="center"
       >
@@ -79,76 +79,76 @@
         </template>
       </el-table-column>
       <el-table-column
-        fixed = "right"
+        fixed="right"
         width="100"
         align="center"
-        :label = "$t('cultivatingSchemeQuery.detail')"
+        :label="$t('cultivatingSchemeQuery.detail')"
       >
         <template slot-scope="scope">
-          <el-button class="infoBtn"   type="text" @click="pushInfo(scope.row.schemeId , scope.row.majorName, scope.row.studentType )">详细</el-button>
+          <el-button class="infoBtn" type="text" @click="pushInfo(scope.row.schemeId , scope.row.majorName, scope.row.studentType )">详细</el-button>
         </template>
       </el-table-column>
     </el-table>
   </div>
 </template>
 <script>
-  import { cultivateSchemeShow, getMajorList, getCultivateTableList } from '@/api/cultivationInquiry'
-  export default {
-    data() {
-      return {
-        tablelist: [],
-        cultivateFormList: '',
-        collegeNameList: [],
-        majorList: [],
-        stuTypeList: [],
-        stuTypecode: '',
-        year: '',
-        collegeType: '',
-        majorTypeCode: ''
-      }
+import { cultivateSchemeShow, getMajorList, getCultivateTableList } from '@/api/cultivationInquiry'
+export default {
+  data() {
+    return {
+      tablelist: [],
+      cultivateFormList: '',
+      collegeNameList: [],
+      majorList: [],
+      stuTypeList: [],
+      stuTypecode: '',
+      year: '',
+      collegeType: '',
+      majorTypeCode: ''
+    }
+  },
+  created() {
+    this.fetchData(),
+    this.getRowClass()
+  },
+  methods: {
+    fetchData() {
+      cultivateSchemeShow().then(res => {
+        this.cultivateFormList = res.data.cultivateFormList
+        this.stuTypeList = res.data.stuTypeList
+        this.collegeNameList = res.data.collegeNameList
+      })
     },
-    created() {
-      this.fetchData(),
-        this.getRowClass()
+    pushInfo(id, majorName, studentType) {
+      this.$router.push({ name: 'showCultivate', params: { id, majorName, studentType }})
     },
-    methods: {
-      fetchData() {
-        cultivateSchemeShow().then(res => {
-          this.cultivateFormList = res.data.cultivateFormList
-          this.stuTypeList = res.data.stuTypeList
-          this.collegeNameList = res.data.collegeNameList
-        })
-      },
-      pushInfo(id, majorName, studentType) {
-        this.$router.push({ name: 'showCultivate', params: { id, majorName, studentType }})
-      },
-      getMajor() {
-        if (this.stuTypecode && this.collegeType) {
-          getMajorList({ 'stuTypecode': this.stuTypecode, 'collegeType': this.collegeType }).then(res => {
-            this.majorList = res.data.majorList
-            console.log(res)
-          }).catch(e => {
-
-          })
-        }
-      },
-      getTableList() {
-        getCultivateTableList({ 'stuTypecode': this.stuTypecode, 'collegeType': this.collegeType, 'majorTypeCode': this.majorTypeCode, 'year': this.year }).then(res => {
-          this.cultivateFormList = res.data.cultivateFormList
+    getMajor() {
+      if (this.stuTypecode && this.collegeType) {
+        getMajorList({ 'stuTypecode': this.stuTypecode, 'collegeType': this.collegeType }).then(res => {
+          this.majorList = res.data.majorList
           console.log(res)
         }).catch(e => {
 
         })
-      },
-      getRowClass ({ row, column, rowIndex, columnIndex }) {
-        if (rowIndex === 0) {
-          return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
-        } else {
-          return ''
-        }
+      }
+    },
+    getTableList() {
+      getCultivateTableList({ 'stuTypecode': this.stuTypecode, 'collegeType': this.collegeType, 'majorTypeCode': this.majorTypeCode, 'year': this.year }).then(res => {
+        this.cultivateFormList = res.data.cultivateFormList
+        console.log(res)
+      }).catch(e => {
+
+      })
+    },
+    getRowClass({ row, column, rowIndex, columnIndex }) {
+      if (rowIndex === 0) {
+        return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
+      } else {
+        return ''
       }
     }
   }
+}
 </script>
 
 <style scoped>

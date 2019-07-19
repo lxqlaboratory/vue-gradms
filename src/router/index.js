@@ -160,6 +160,13 @@ export const constantRoutes = [
         meta: { title: ('route.zdckpyjh'), icon: 'form' }
       },
       {
+        path: 'insertPublicCourse',
+        component: () => import('@/views/pygl/pyfayxsgrjh/insertPublicCourse'),
+        name: 'insertPublicCourse',
+        hidden : true,
+        meta: { title: ('route.zdckpyjh'), icon: 'form' }
+      },
+      {
         path: 'kccx',
         component: () => import('@/views/pygl/kcyxk/kccx'),
         name: 'kccx',

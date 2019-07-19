@@ -131,7 +131,7 @@
         v-if="currentRole"
       >
         <template slot-scope="scope">
-          <el-button size="mini" round style="color: #9b0d14" @click="deleteCourse(scope.row.planCourseId)">{{$t('cuiltivatingSchemeCheckAndDrawup.delete')}}</el-button>
+          <el-button size="mini" round class="allBtn" @click="deleteCourse(scope.row.planCourseId)">{{$t('cuiltivatingSchemeCheckAndDrawup.delete')}}</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -258,7 +258,7 @@
         v-if="currentRole"
       >
         <template slot-scope="scope">
-          <el-button size="mini" round style="color: #9b0d14" @click="deleteCourse(scope.row.planCourseId)">{{$t('cuiltivatingSchemeCheckAndDrawup.delete')}}</el-button>
+          <el-button size="mini" round class="allBtn" @click="deleteCourse(scope.row.planCourseId)">{{$t('cuiltivatingSchemeCheckAndDrawup.delete')}}</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -385,7 +385,7 @@
         v-if="currentRole"
       >
         <template slot-scope="scope">
-          <el-button size="mini" round style="color: #9b0d14" @click="deleteCourse(scope.row.planCourseId)">{{$t('cuiltivatingSchemeCheckAndDrawup.delete')}}</el-button>
+          <el-button size="mini" round class="allBtn" @click="deleteCourse(scope.row.planCourseId)">{{$t('cuiltivatingSchemeCheckAndDrawup.delete')}}</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -471,7 +471,7 @@
       <tbody><tr>
         <td class="head" height="30" colspan="6">
           <div align="center" style="color: #9b0d14" >
-            <el-button size="mini" ><a href="/gradms/api/cultivate/newCultivatePlanPrint" download="course.pdf" style="color: #9b0d14">{{$t('cuiltivatingSchemeCheckAndDrawup.print')}}</a></el-button>
+            <el-button size="mini" class="allBtn" ><a href="/gradms/api/cultivate/newCultivatePlanPrint" download="course.pdf" style="color: #9b0d14">{{$t('cuiltivatingSchemeCheckAndDrawup.print')}}</a></el-button>
           </div>
         </td>
       </tr>
@@ -562,7 +562,7 @@
           align="center"
         >
           <template slot-scope="scope">
-            <el-button size="mini" round style="color: #9b0d14" @click="insertCourse(scope.row.courseNum)">{{$t('publishThesis.add')}}</el-button>
+            <el-button size="mini" round  class="allBtn" @click="insertCourse(scope.row.courseNum)">{{$t('publishThesis.add')}}</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -654,7 +654,7 @@
           align="center"
         >
           <template slot-scope="scope">
-            <el-button size="mini" round style="color: #9b0d14" @click="insertCourse(scope.row.courseNum)">{{$t('publishThesis.add')}}</el-button>
+            <el-button size="mini" round class="allBtn" @click="insertCourse(scope.row.courseNum)">{{$t('publishThesis.add')}}</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -746,7 +746,7 @@
           align="center"
         >
           <template slot-scope="scope">
-            <el-button size="mini" round style="color: #9b0d14" @click="insertCourse(scope.row.courseNum)">{{$t('publishThesis.add')}}</el-button>
+            <el-button size="mini" round class="allBtn" @click="insertCourse(scope.row.courseNum)">{{$t('publishThesis.add')}}</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -760,8 +760,8 @@
          <tbody><tr>
            <td class="head" height="30" colspan="6">
              <div align="center" style="color: #9b0d14" >
-               <el-button size="mini" >添加公共选修课</el-button>
-               <el-button size="mini" >跨学院选课</el-button>
+               <el-button size="mini" class="allBtn" @click="insertPublicCourse">添加公共选修课</el-button>
+               <el-button size="mini" class="allBtn" >跨学院选课</el-button>
              </div>
            </td>
          </tr>
@@ -818,8 +818,6 @@ export default {
           this.schemeRequiredListLength = res.data.schemeData.requiredList.length
           this.schemeOptionalListLength = res.data.schemeData.optionalList.length
           this.schemeBuxiuListLength = res.data.schemeData.buxiuList.length
-
-
         }
       })
     },
@@ -842,6 +840,10 @@ export default {
         this.fetchData()
       }).catch(e => {
       })
+    },
+
+    insertPublicCourse(){
+      this.$router.push({path: './insertPublicCourse'})
     },
     //合并行
     rowSpanMethodRequired({ row, column, rowIndex, columnIndex }) {
@@ -951,5 +953,10 @@ export default {
     margin: 0 !important;
     padding: 2px;
     border: none;
+  }
+  .allBtn{
+    background-color: #A50001;
+    color: #ffffff;
+    border: 0px;
   }
 </style>

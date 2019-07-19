@@ -22,3 +22,11 @@ export function selectCourseDelete(data) {
     data
   })
 }
+
+export function publicCourseQueryInit() {
+  return request({
+    url: '/api/course/publicCourseQueryInit',
+    method: 'POST',
+    data: {}
+  })
+}
