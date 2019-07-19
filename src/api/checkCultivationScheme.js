@@ -14,3 +14,11 @@ export function selectCourseInsert(data) {
     data
   })
 }
+
+export function selectCourseDelete(data) {
+  return request({
+    url: '/api/cultivate/selectCourseDelete',
+    method: 'POST',
+    data
+  })
+}
