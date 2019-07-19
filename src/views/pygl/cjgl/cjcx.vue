@@ -20,7 +20,7 @@
       </el-table-column>
       <el-table-column
         :label="$t('gradeQuery.courseNum')"
-        width="150"
+        width="125"
         align="center">
         <template slot-scope="scope">
           {{ $t(scope.row.courseNum) }}
@@ -43,7 +43,7 @@
       </el-table-column>
       <el-table-column
         :label="$t('gradeQuery.credit')"
-        width="80"
+        width="70"
         align="center">
         <template slot-scope="scope">
           {{ $t(scope.row.credit) }}
@@ -66,9 +66,8 @@
         </template>
       </el-table-column>
       <el-table-column
-        label="考试时间"
         :label="$t('gradeQuery.examTime')"
-        width="120"
+        width="110"
         align="center">
         <template slot-scope="scope">
           {{ $t(scope.row.examTime) }}
