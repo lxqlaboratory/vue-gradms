@@ -23,10 +23,18 @@ export function selectCourseDelete(data) {
   })
 }
 
-export function publicCourseQueryInit() {
+export function publicCourseQueryDoQuery() {
   return request({
-    url: '/api/course/publicCourseQueryInit',
+    url: '/api/course/publicCourseQueryDoQuery',
     method: 'POST',
     data: {}
+  })
+}
+
+export function newCultivateSelectPublicCourse(data) {
+  return request({
+    url: '/api/cultivate/newCultivateSelectPublicCourse',
+    method: 'POST',
+    data
   })
 }

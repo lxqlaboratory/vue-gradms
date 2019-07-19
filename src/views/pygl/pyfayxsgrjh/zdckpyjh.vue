@@ -761,7 +761,7 @@
            <td class="head" height="30" colspan="6">
              <div align="center" style="color: #9b0d14" >
                <el-button size="mini" class="allBtn" @click="insertPublicCourse">添加公共选修课</el-button>
-               <el-button size="mini" class="allBtn" >跨学院选课</el-button>
+               <el-button size="mini" class="allBtn" @click="insertAllCourse">跨学院选课</el-button>
              </div>
            </td>
          </tr>
@@ -844,6 +844,9 @@ export default {
 
     insertPublicCourse(){
       this.$router.push({path: './insertPublicCourse'})
+    },
+    insertAllCourse(){
+      this.$router.push({path: './allCourseQuery'})
     },
     //合并行
     rowSpanMethodRequired({ row, column, rowIndex, columnIndex }) {
