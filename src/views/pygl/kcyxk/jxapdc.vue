@@ -1,5 +1,5 @@
 <template>
- <div class="app-container">
+ <div class="container">
    <el-select v-model="value"  size="mini">
      <el-option
        v-for="item in termList"
@@ -8,18 +8,19 @@
        :value="item.value">
      </el-option>
    </el-select>
-   <el-button :loading="downloadLoading"  @click="handleDownload" type="primary" size="mini">{{$t('achievement.export')}}</el-button>
+   <el-button :loading="downloadLoading" class="exportBtn" @click="handleDownload" type="primary" size="mini">{{$t('achievement.export')}}</el-button>
   <el-table
     :data="courseExportList"
     border
     size="mini"
     style="width: 100%;"
+    class="eltable"
     :header-cell-style="getRowClass"
   >
     <el-table-column
       prop="category"
       :label = "$t('courseExport.courseNumber')"
-      width="150"
+      width="78"
       align="center"
     >
       <template slot-scope="scope">
@@ -27,19 +28,17 @@
       </template>
     </el-table-column>
     <el-table-column
-      prop="xuhao"
       :label = "$t('courseExport.courseName')"
-      width="300"
       align="center"
+      width="250"
     >
       <template slot-scope="scope">
-        {{ scope.row.courseName }}
+        {{ $t(scope.row.courseName) }}
       </template>
     </el-table-column>
     <el-table-column
-      prop="kechenghao"
       :label = "$t('courseExport.courseNo')"
-      width="102"
+      width="90"
       align="center"
     >
       <template slot-scope="scope">
@@ -47,59 +46,44 @@
       </template>
     </el-table-column>
     <el-table-column
-      prop="kechengming"
       :label = "$t('courseExport.YearSemester')"
       width="204"
       align="center"
     >
     <template slot-scope="scope">
-      {{ scope.row.courseNum }}
+      {{ $t(scope.row.termName) }}
     </template>
     </el-table-column>
     <el-table-column
-      prop="kaikexueqi"
       :label = "$t('courseExport.coursePlace')"
-      width="300"
       align="center"
-    >
-      <template slot-scope="scope">
-        {{ scope.row.roomName }}
-      </template>
-    </el-table-column>
-    <el-table-column
-      prop="zongxueshi"
-      :label = "$t('courseExport.OddOrEvenWeek')"
-      width="150"
-      align="center"
-    >
-      <template slot-scope="scope">
-        {{ scope.row.isOddEvenWeek }}
-      </template>
-    </el-table-column>
-    <el-table-column
-      prop="xuefen"
-      :label = "$t('courseExport.courseDate')"
-      width="102"
-      align="center"
-    >
-      <template slot-scope="scope">
-        {{ scope.row.weekDay }}
-      </template>
-    </el-table-column>
-    <el-table-column
-      prop="renkejiaoshi"
-      :label = "$t('courseExport.startWeek')"
-      width="204"
-      align="center"
-    >
-      <template slot-scope="scope">
-        {{ scope.row.startWeek }}
-      </template>
-    </el-table-column>
-    <el-table-column
-      prop="kaohefangshi"
-      :label = "$t('courseExport.startWeekNumber')"
       width="250"
+    >
+      <template slot-scope="scope">
+        {{ $t(scope.row.roomName) }}
+      </template>
+    </el-table-column>
+    <el-table-column
+      :label = "$t('courseExport.OddOrEvenWeek')"
+      width="110"
+      align="center"
+    >
+      <template slot-scope="scope">
+        {{ $t(scope.row.isOddEvenWeek) }}
+      </template>
+    </el-table-column>
+    <el-table-column
+      :label = "$t('courseExport.courseDate')"
+      width="110"
+      align="center"
+    >
+      <template slot-scope="scope">
+        {{ $t(scope.row.weekDay) }}
+      </template>
+    </el-table-column>
+    <el-table-column
+      :label = "$t('courseExport.startWeek')"
+      width="115"
       align="center"
     >
       <template slot-scope="scope">
@@ -107,19 +91,31 @@
       </template>
     </el-table-column>
     <el-table-column
-    prop="kaohefangshi"
-    :label = "$t('courseExport.courseSection')"
-    width="150"
-    align="center"
-  />
+      :label = "$t('courseExport.startWeekNumber')"
+      width="120"
+      align="center"
+    >
+      <template slot-scope="scope">
+        {{ scope.row.period }}
+      </template>
+    </el-table-column>
+    <el-table-column
+      :label = "$t('courseExport.courseSection')"
+      width="120"
+      align="center"
+  >
+      <template slot-scope="scope">
+        {{ scope.row.classTime }}
+      </template>
+    </el-table-column>
     <el-table-column
       prop="kaohefangshi"
       :label = "$t('courseExport.teacher')"
-      width="102"
       align="center"
+      width="200"
     >
       <template slot-scope="scope">
-        {{ scope.row.personName }}
+        {{ $t(scope.row.personName) }}
       </template>
     </el-table-column>
   </el-table>
@@ -139,6 +135,7 @@ export default {
   },
   created() {
     this.fetchData()
+    this.getRowClass()
   },
   methods: {
     fetchData() {
@@ -172,17 +169,34 @@ export default {
           return v[j]
         }
       }))
+    },
+    getRowClass ({ row, column, rowIndex, columnIndex }) {
+      if (rowIndex === 0) {
+        return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
+      } else {
+        return ''
+      }
     }
   }
 }
 </script>
 
 <style scoped>
+  .container{
+    margin: 15px;
+  }
+  .eltable{
+    margin-top: 20px;
+  }
   body .el-table th.gutter{
     display: table-cell!important;
   }
 
   body .el-table colgroup.gutter{
     display: table-cell!important;
+  }
+  .exportBtn{
+    background-color: #A50001;
+    border: 0px;
   }
 </style>

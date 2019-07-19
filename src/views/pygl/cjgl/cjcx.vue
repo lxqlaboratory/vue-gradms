@@ -1,12 +1,11 @@
 <template>
 <div class="container">
-  <div style="font-size: 15px;margin-left: 10px;"><span>{{ $t('baseInformationModal.name') }}:</span><span></span></div>
   <div class="tableStyle">
     <el-table
       :data="gradeList"
       border
       size="mini"
-      style="width: 100%;color: black"
+      style="width: 100%;"
       :header-cell-style="getRowClass">
       <el-table-column
         :label="$t('gradeQuery.seqNum')"
@@ -123,8 +122,6 @@ export default {
   .tableStyle{
     margin-top: 20px;
   }
-  .el-table{
-    color: black;
-  }
+
 
 </style>
