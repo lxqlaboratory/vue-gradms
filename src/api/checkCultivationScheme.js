@@ -7,3 +7,10 @@ export function showCultivatePlan() {
     data: {}
   })
 }
+export function selectCourseInsert(data) {
+  return request({
+    url: '/api/cultivate/selectCourseInsert',
+    method: 'POST',
+    data
+  })
+}

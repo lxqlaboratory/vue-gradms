@@ -398,7 +398,8 @@ export default {
     form: '形式',
     statement: '说明',
     print: '打印',
-    isPubSelectCourse: '是否公选课'
+    isPubSelectCourse: '是否公选课',
+    delete: '删除'
   },
 
   // 课程查询

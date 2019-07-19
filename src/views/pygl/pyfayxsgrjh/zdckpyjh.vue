@@ -17,13 +17,19 @@
       fit="true"
       size="mini"
       style="width: 100%"
-      max-height="700"
-      class="eltable"
       :header-cell-style="getRowClass"
     >
       <el-table-column
+        :label="$t('cuiltivatingSchemeCheckAndDrawup.type')"
+        width="70"
+        align="center"
+      >
+        <template slot-scope="scope">
+          {{ $t(scope.row.category) }}
+        </template>
+      </el-table-column>
+      <el-table-column
         :label="$t('cuiltivatingSchemeCheckAndDrawup.number')"
-        fixed="left"
         width="73"
         align="center"
       >
@@ -49,7 +55,7 @@
       </el-table-column>
       <el-table-column
         :label="$t('cuiltivatingSchemeCheckAndDrawup.courseTerm')"
-        width="120"
+        width="100"
         align="center"
       >
         <template slot-scope="scope">
@@ -57,18 +63,14 @@
         </template>
       </el-table-column>
       <el-table-column
-        fixed="right"
-        width="120"
+        width="100"
         align="center"
         :label="$t('cuiltivatingSchemeCheckAndDrawup.totalClassHours')"
       >
-        <!--<template slot-scope="scope">-->
-        <!--<el-button class="infoBtn"   type="text" @click="pushInfo(scope.row.schemeId , scope.row.majorName, scope.row.studentType )">详细</el-button>-->
-        <!--</template>-->
       </el-table-column>
       <el-table-column
         :label="$t('cuiltivatingSchemeCheckAndDrawup.credit')"
-        width="120"
+        width="50"
         align="center"
       >
         <template slot-scope="scope">
@@ -77,7 +79,7 @@
       </el-table-column>
       <el-table-column
         :label="$t('cuiltivatingSchemeCheckAndDrawup.evaluationMode')"
-        width="120"
+        width="100"
         align="center"
       >
         <template slot-scope="scope">
@@ -86,7 +88,7 @@
       </el-table-column>
       <el-table-column
         :label="$t('cuiltivatingSchemeCheckAndDrawup.courseNum')"
-        width="120"
+        width="100"
         align="center"
       >
         <template slot-scope="scope">
@@ -95,7 +97,7 @@
       </el-table-column>
       <el-table-column
         :label="$t('cuiltivatingSchemeCheckAndDrawup.tutor')"
-        width="120"
+        width="100"
         align="center"
       >
         <template slot-scope="scope">
@@ -104,6 +106,7 @@
       </el-table-column>
       <el-table-column
         :label="$t('cuiltivatingSchemeCheckAndDrawup.grade')"
+        width="50"
         align="center"
       >
         <template slot-scope="scope">
@@ -116,6 +119,14 @@
       >
         <template slot-scope="scope">
           {{ scope.row.startTimeStr }}
+        </template>
+      </el-table-column>
+      <el-table-column
+        :label="$t('publishThesis.operation')"
+        align="center"
+      >
+        <template slot-scope="scope">
+          <el-button size="mini" round style="color: #9b0d14">{{$t('cuiltivatingSchemeCheckAndDrawup.delete')}}</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -206,6 +217,7 @@
         style="width: 100%"
         :span-method="rowSpanMethod1"
         :header-cell-style="getRowClass"
+        v-if="currentRole"
       >
         <el-table-column
           :label="$t('cuiltivatingSchemeCheckAndDrawup.type')"
@@ -280,7 +292,7 @@
           align="center"
         >
           <template slot-scope="scope">
-            <el-button size="mini" round style="color: #9b0d14">添加</el-button>
+            <el-button size="mini" round style="color: #9b0d14" @click="insertCourse(scope.row.courseNum)">{{$t('publishThesis.add')}}</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -297,6 +309,7 @@
         :span-method="rowSpanMethod2"
         :header-cell-style="getRowClass"
         :show-header="false"
+        v-if="currentRole"
       >
         <el-table-column
           :label="$t('cuiltivatingSchemeCheckAndDrawup.type')"
@@ -371,7 +384,7 @@
           align="center"
         >
           <template slot-scope="scope">
-            <el-button size="mini" round style="color: #9b0d14">添加</el-button>
+            <el-button size="mini" round style="color: #9b0d14">{{$t('publishThesis.add')}}</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -388,6 +401,7 @@
         :span-method="rowSpanMethod3"
         :header-cell-style="getRowClass"
         :show-header="false"
+        v-if="currentRole"
       >
         <el-table-column
           :label="$t('cuiltivatingSchemeCheckAndDrawup.type')"
@@ -462,7 +476,7 @@
           align="center"
         >
           <template slot-scope="scope">
-            <el-button size="mini" round style="color: #9b0d14">添加</el-button>
+            <el-button size="mini" round style="color: #9b0d14">{{$t('publishThesis.add')}}</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -472,6 +486,7 @@
 </template>
 <script>
 import { showCultivatePlan } from '@/api/checkCultivationScheme'
+import { selectCourseInsert } from '@/api/checkCultivationScheme'
 export default {
   name: 'CheckTrainPlan',
   data() {
@@ -483,7 +498,7 @@ export default {
       schemeRequiredListLength: '',
       schemeOptionalListLength: '',
       schemeBuxiuListLength: '',
-      currentRole: ''
+      currentRole: false
     }
   },
   created() {
@@ -499,7 +514,12 @@ export default {
         this.schemeRequiredListLength = res.data.schemeData.requiredList.length
         this.schemeOptionalListLength = res.data.schemeData.optionalList.length
         this.schemeBuxiuListLength = res.data.schemeData.buxiuList.length
-        this.currentRole = res.data.planState === 1 ? 'check' : 'develop'
+        if(res.data.planState === 1){
+          this.currentRole = false
+        }
+        else{
+          this.currentRole = true
+        }
       })
     },
     getRowClass({ row, column, rowIndex, columnIndex }) {
@@ -508,6 +528,11 @@ export default {
       } else {
         return ''
       }
+    },
+    insertCourse(courseNum) {
+      selectCourseInsert({ 'courseNum': courseNum }).then(res => {
+      }).catch(e => {
+      })
     },
     //合并行
     rowSpanMethod1({ row, column, rowIndex, columnIndex }) {

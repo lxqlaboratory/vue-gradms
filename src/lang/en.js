@@ -387,7 +387,8 @@ export default {
     form: 'form',
     statement: 'statement',
     print: 'print',
-    isPubSelectCourse: 'isPubSelectCourse'
+    isPubSelectCourse: 'isPubSelectCourse',
+    delete: 'delete'
   },
 
   // 课程查询
