@@ -62,49 +62,49 @@
         <p style="margin: 12px;font-size: 14px">{{ $t('cultivatingScheme.cultivatingObj') }}</p>
       </el-row>
       <el-row>
-        <span style="margin: 12px;font-size: 12px">{{ detail.goal }}</span>
+        <span class="infoSpan" >{{ detail.goal }}</span>
       </el-row>
       <el-row>
         <p style="margin: 12px;font-size: 14px">{{ $t('cultivatingScheme.researchDirection') }}</p>
       </el-row>
       <el-row>
-        <span style="margin: 12px;font-size: 12px">{{ detail.direction }}</span>
+        <span class="infoSpan" >{{ detail.direction }}</span>
       </el-row>
       <el-row>
         <p style="margin: 12px;font-size: 14px">{{ $t('cultivatingScheme.cultivatingMeans') }}</p>
       </el-row>
       <el-row>
-        <span style="margin: 12px;font-size: 12px">{{ detail.culWay }}</span>
+        <span class="infoSpan" >{{ detail.culWay }}</span>
       </el-row>
       <el-row>
         <p style="margin: 12px;font-size: 14px">{{ $t('cultivatingScheme.studyYear') }}</p>
       </el-row>
       <el-row>
-        <span style="margin: 12px;font-size: 12px">{{ detail.studyYears }}</span>
+        <span class="infoSpan" >{{ detail.studyYears }}</span>
       </el-row>
       <el-row>
         <p style="margin: 12px;font-size: 14px">{{ $t('cultivatingScheme.totalCreditAndCourse') }}</p>
       </el-row>
       <el-row>
-        <span style="margin: 12px;font-size: 12px">{{ detail.creditReq }}+{{ detail.middleCheck }}</span>
+        <span class="infoSpan" >{{ detail.creditReq }}+{{ detail.middleCheck }}</span>
       </el-row>
       <el-row>
         <p style="margin: 12px;font-size: 14px">{{ $t('cultivatingScheme.cultivatingStep') }}</p>
       </el-row>
       <el-row>
-        <span style="margin: 12px;font-size: 12px">{{ detail.practice }}</span>
+        <span class="infoSpan" >{{ detail.practice }}</span>
       </el-row>
       <el-row>
         <p style="margin: 12px;font-size: 14px">{{ $t('cultivatingScheme.researchandDissertation') }}</p>
       </el-row>
       <el-row>
-        <span style="margin: 12px;font-size: 12px">{{ detail.thesis }}</span>
+        <span class="infoSpan" >{{ detail.thesis }}</span>
       </el-row>
       <el-row>
         <p style="margin: 12px;font-size: 14px">{{ $t('cultivatingScheme.graduationAndDegree') }}</p>
       </el-row>
       <el-row style="border-bottom: 1px solid #EBEEF5">
-        <span style="margin: 12px;font-size: 12px">{{ detail.gradDegree }}</span>
+        <span class="infoSpan" >{{ detail.gradDegree }}</span>
       </el-row>
     </div>
     <!--第三部分-->
@@ -217,5 +217,12 @@ export default {
     margin-top: 20px;
     margin-bottom: 40px;
     padding-left: 20px;
+  }
+  .infoSpan{
+    letter-spacing:1px;
+    text-indent:30px;
+    line-height: 18px;
+    margin: 12px;
+    font-size: 12px !important;
   }
 </style>
