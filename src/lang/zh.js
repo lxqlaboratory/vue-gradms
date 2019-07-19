@@ -397,7 +397,8 @@ export default {
     cultivationStepList: '培养环节列表',
     form: '形式',
     statement: '说明',
-    print: '打印'
+    print: '打印',
+    isPubSelectCourse: '是否公选课'
   },
 
   // 课程查询

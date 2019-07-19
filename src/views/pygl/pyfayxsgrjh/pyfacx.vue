@@ -79,9 +79,9 @@
         </template>
       </el-table-column>
       <el-table-column
-         fixed = "right"
-         width="120"
-         align="center"
+        fixed = "right"
+        width="100"
+        align="center"
         :label = "$t('cultivatingSchemeQuery.detail')"
       >
         <template slot-scope="scope">
@@ -92,63 +92,63 @@
   </div>
 </template>
 <script>
-import { cultivateSchemeShow, getMajorList, getCultivateTableList } from '@/api/cultivationInquiry'
-export default {
-  data() {
-    return {
-      tablelist: [],
-      cultivateFormList: '',
-      collegeNameList: [],
-      majorList: [],
-      stuTypeList: [],
-      stuTypecode: '',
-      year: '',
-      collegeType: '',
-      majorTypeCode: ''
-    }
-  },
-  created() {
-    this.fetchData(),
-    this.getRowClass()
-  },
-  methods: {
-    fetchData() {
-      cultivateSchemeShow().then(res => {
-        this.cultivateFormList = res.data.cultivateFormList
-        this.stuTypeList = res.data.stuTypeList
-        this.collegeNameList = res.data.collegeNameList
-      })
+  import { cultivateSchemeShow, getMajorList, getCultivateTableList } from '@/api/cultivationInquiry'
+  export default {
+    data() {
+      return {
+        tablelist: [],
+        cultivateFormList: '',
+        collegeNameList: [],
+        majorList: [],
+        stuTypeList: [],
+        stuTypecode: '',
+        year: '',
+        collegeType: '',
+        majorTypeCode: ''
+      }
     },
-    pushInfo(id, majorName, studentType) {
-      this.$router.push({ name: 'showCultivate', params: { id, majorName, studentType }})
+    created() {
+      this.fetchData(),
+        this.getRowClass()
     },
-    getMajor() {
-      if (this.stuTypecode && this.collegeType) {
-        getMajorList({ 'stuTypecode': this.stuTypecode, 'collegeType': this.collegeType }).then(res => {
-          this.majorList = res.data.majorList
+    methods: {
+      fetchData() {
+        cultivateSchemeShow().then(res => {
+          this.cultivateFormList = res.data.cultivateFormList
+          this.stuTypeList = res.data.stuTypeList
+          this.collegeNameList = res.data.collegeNameList
+        })
+      },
+      pushInfo(id, majorName, studentType) {
+        this.$router.push({ name: 'showCultivate', params: { id, majorName, studentType }})
+      },
+      getMajor() {
+        if (this.stuTypecode && this.collegeType) {
+          getMajorList({ 'stuTypecode': this.stuTypecode, 'collegeType': this.collegeType }).then(res => {
+            this.majorList = res.data.majorList
+            console.log(res)
+          }).catch(e => {
+
+          })
+        }
+      },
+      getTableList() {
+        getCultivateTableList({ 'stuTypecode': this.stuTypecode, 'collegeType': this.collegeType, 'majorTypeCode': this.majorTypeCode, 'year': this.year }).then(res => {
+          this.cultivateFormList = res.data.cultivateFormList
           console.log(res)
         }).catch(e => {
 
         })
-      }
-    },
-    getTableList() {
-      getCultivateTableList({ 'stuTypecode': this.stuTypecode, 'collegeType': this.collegeType, 'majorTypeCode': this.majorTypeCode, 'year': this.year }).then(res => {
-        this.cultivateFormList = res.data.cultivateFormList
-        console.log(res)
-      }).catch(e => {
-
-      })
-    },
-    getRowClass ({ row, column, rowIndex, columnIndex }) {
-      if (rowIndex === 0) {
-        return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
-      } else {
-        return ''
+      },
+      getRowClass ({ row, column, rowIndex, columnIndex }) {
+        if (rowIndex === 0) {
+          return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
+        } else {
+          return ''
+        }
       }
     }
   }
-}
 </script>
 
 <style scoped>
@@ -160,10 +160,13 @@ export default {
     margin-left: 10px;
   }
   .queryBtn{
-    margin-left: 40px; ;
+    margin-left: 40px;
+    background-color:#A50001;
+    border: 0px;
   }
   .infoBtn{
     font-size: 12px;
+    color: #A50001;
   }
   el-select{
     height: 30px;

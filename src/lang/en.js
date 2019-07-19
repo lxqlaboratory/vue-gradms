@@ -386,7 +386,8 @@ export default {
     cultivationStepList: 'List of cultivation steps',
     form: 'form',
     statement: 'statement',
-    print: 'print'
+    print: 'print',
+    isPubSelectCourse: 'isPubSelectCourse'
   },
 
   // 课程查询

@@ -230,10 +230,4 @@ export default {
     padding: 2px;
     border: none;
   }
-  .eltable{
-    margin-top: 20px;
-  }
-  .infoBtn{
-    font-size: 12px;
-  }
 </style>
