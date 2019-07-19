@@ -79,15 +79,9 @@
         </template>
       </el-table-column>
       <el-table-column
-<<<<<<< HEAD
         fixed = "right"
         width="100"
         align="center"
-=======
-         fixed = "right"
-         width="100"
-         align="center"
->>>>>>> cce7f38efae632779cae0f822397b6a9182ea976
         :label = "$t('cultivatingSchemeQuery.detail')"
       >
         <template slot-scope="scope">
