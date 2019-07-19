@@ -4,11 +4,11 @@
     <div>
       <!--第一行-->
       <el-row>
-        <p style="color: #9b0d14;margin: 12px">{{ $t('cultivatingScheme.cultivatingSchemeDetail') }}</p>
+        <p style="color: #A50001;margin: 12px;font-size: 16px">{{ $t('cultivatingSchemeInfo.cultivatingSchemeDetail') }}</p>
       </el-row>
       <!--第二行-->
       <el-row>
-        <p style="margin: 12px;text-align: left">{{ $t('cultivatingScheme.cultivatingSchemeDetail') }}</p>
+        <p style="margin: 12px;text-align:left;font-size: 14px">{{ $t('cultivatingSchemeInfo.basicInfomation') }}</p>
       </el-row>
       <!--第三行-->
       <el-row>
@@ -59,57 +59,57 @@
     <!--第二部分-->
     <div class="part2">
       <el-row>
-        <p style="margin: 12px">{{ $t('cultivatingScheme.cultivatingObj') }}</p>
+        <p style="margin: 12px;font-size: 14px">{{ $t('cultivatingScheme.cultivatingObj') }}</p>
       </el-row>
       <el-row>
-        <span style="margin: 12px">{{ detail.goal }}</span>
+        <span style="margin: 12px;font-size: 12px">{{ detail.goal }}</span>
       </el-row>
       <el-row>
-        <p style="margin: 12px">{{ $t('cultivatingScheme.researchDirection') }}</p>
+        <p style="margin: 12px;font-size: 14px">{{ $t('cultivatingScheme.researchDirection') }}</p>
       </el-row>
       <el-row>
-        <span style="margin: 12px">{{ detail.direction }}</span>
+        <span style="margin: 12px;font-size: 12px">{{ detail.direction }}</span>
       </el-row>
       <el-row>
-        <p style="margin: 12px">{{ $t('cultivatingScheme.cultivatingMeans') }}</p>
+        <p style="margin: 12px;font-size: 14px">{{ $t('cultivatingScheme.cultivatingMeans') }}</p>
       </el-row>
       <el-row>
-        <span style="margin: 12px">{{ detail.culWay }}</span>
+        <span style="margin: 12px;font-size: 12px">{{ detail.culWay }}</span>
       </el-row>
       <el-row>
-        <p style="margin: 12px">{{ $t('cultivatingScheme.studyYear') }}</p>
+        <p style="margin: 12px;font-size: 14px">{{ $t('cultivatingScheme.studyYear') }}</p>
       </el-row>
       <el-row>
-        <span style="margin: 12px">{{ detail.studyYears }}</span>
+        <span style="margin: 12px;font-size: 12px">{{ detail.studyYears }}</span>
       </el-row>
       <el-row>
-        <p style="margin: 12px">{{ $t('cultivatingScheme.totalCreditAndCourse') }}</p>
+        <p style="margin: 12px;font-size: 14px">{{ $t('cultivatingScheme.totalCreditAndCourse') }}</p>
       </el-row>
       <el-row>
-        <span style="margin: 12px">{{ detail.creditReq }}+{{ detail.middleCheck }}</span>
+        <span style="margin: 12px;font-size: 12px">{{ detail.creditReq }}+{{ detail.middleCheck }}</span>
       </el-row>
       <el-row>
-        <p style="margin: 12px">{{ $t('cultivatingScheme.cultivatingStep') }}</p>
+        <p style="margin: 12px;font-size: 14px">{{ $t('cultivatingScheme.cultivatingStep') }}</p>
       </el-row>
       <el-row>
-        <span style="margin: 12px">{{ detail.practice }}</span>
+        <span style="margin: 12px;font-size: 12px">{{ detail.practice }}</span>
       </el-row>
       <el-row>
-        <p style="margin: 12px">{{ $t('cultivatingScheme.researchandDissertation') }}</p>
+        <p style="margin: 12px;font-size: 14px">{{ $t('cultivatingScheme.researchandDissertation') }}</p>
       </el-row>
       <el-row>
-        <span style="margin: 12px">{{ detail.thesis }}</span>
+        <span style="margin: 12px;font-size: 12px">{{ detail.thesis }}</span>
       </el-row>
       <el-row>
-        <p style="margin: 12px">{{ $t('cultivatingScheme.graduationAndDegree') }}</p>
+        <p style="margin: 12px;font-size: 14px">{{ $t('cultivatingScheme.graduationAndDegree') }}</p>
       </el-row>
-      <el-row style="border-bottom: 1px solid black">
-        <span style="margin: 12px">{{ detail.gradDegree }}</span>
+      <el-row style="border-bottom: 1px solid #EBEEF5">
+        <span style="margin: 12px;font-size: 12px">{{ detail.gradDegree }}</span>
       </el-row>
     </div>
     <!--第三部分-->
     <div class="part3">
-      <el-button type="text" @click="showCourse">附：本培养方案的课程设置 </el-button><br>
+      <el-button type="text" style="color:#A50001;font-size: 12px " @click="showCourse">附：本培养方案的课程设置 </el-button><br>
     </div>
   </div>
 
@@ -166,6 +166,11 @@ export default {
 </script>
 
 <style scoped>
+  .container{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+  }
   .el-row{
     border: 1px solid #EBEEF5;
     border-bottom:1px solid #FFF;
@@ -173,24 +178,23 @@ export default {
     text-align: center;
     vertical-align: middle;
     padding: 0px;
-    margin-left: 5px;
-    margin-right: 5px;
-    font-size: 16px;
+    font-size: 12px;
   }
   .el-row p{
     font-weight:bold;
-    color: #909399;
+    color: #000000;
   }
   .colstyle1,.colstyle2,.colstyle3,.colstyle4{
     height: 100%;
-    font-size: 14px;
-    padding-top: 10px;
+    font-size: 12px;
+    padding-top: 14px;
   }
   .colstyle1,.colstyle2,.colstyle3{
     border-right: 1px solid #EBEEF5;
   }
   .colstyle2,.colstyle4 span{
     color: #606266;
+    font-size: 12px;
   }
   .colstyle1,.colstyle3{
     font-weight:bold;

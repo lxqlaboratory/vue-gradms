@@ -80,7 +80,7 @@
       </el-table-column>
       <el-table-column
          fixed = "right"
-         width="120"
+         width="100"
          align="center"
         :label = "$t('cultivatingSchemeQuery.detail')"
       >
@@ -160,10 +160,13 @@ export default {
     margin-left: 10px;
   }
   .queryBtn{
-    margin-left: 40px; ;
+    margin-left: 40px;
+    background-color:#A50001;
+    border: 0px;
   }
   .infoBtn{
     font-size: 12px;
+    color: #A50001;
   }
   el-select{
     height: 30px;

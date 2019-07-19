@@ -1,26 +1,28 @@
 <template>
-  <div>
+  <div class="container">
     <el-table
       :data="requiredList"
       border
       style="width: 100%"
+      size="mini"
       :span-method="rowSpanMethod1"
       width="100%"
+      :header-cell-style="getRowClass"
     >
       <el-table-column
         label="类别"
-        width="70"
+        :label="$t('cuiltivatingSchemeCheckAndDrawup.type')"
+        width="65"
         align="center"
-        fixed="left">
+        >
         <template slot-scope="scope">
           {{ (scope.row.type) }}
         </template>
       </el-table-column>
       <el-table-column
-        :label="$t('projectParticipation.number')"
-        width="80"
+        :label="$t('cuiltivatingSchemeCheckAndDrawup.number')"
+        width="73"
         align="center"
-        fixed="left"
       >
         <template slot-scope="scope">
           {{ scope.$index+1 }}
@@ -29,9 +31,9 @@
       <el-table-column
         prop="date"
         label="课程号"
-        width="110"
+        :label="$t('cuiltivatingSchemeCheckAndDrawup.courseNumber')"
+        width="78"
         align="center"
-        fixed="left"
       >
         <template slot-scope="scope">
           {{ (scope.row.courseNum) }}
@@ -40,6 +42,7 @@
       <el-table-column
         prop="name"
         label="课程名"
+        :label="$t('cuiltivatingSchemeCheckAndDrawup.courseName')"
         align="center"
       >
         <template slot-scope="scope">
@@ -49,7 +52,9 @@
       <el-table-column
         prop="address"
         label="开课学期"
+        :label="$t('cuiltivatingSchemeCheckAndDrawup.courseTerm')"
         align="center"
+        width="152"
       >
         <template slot-scope="scope">
           {{ $t(scope.row.term) }}
@@ -58,7 +63,8 @@
       <el-table-column
         prop="address"
         label="总学时"
-        width="110"
+        :label="$t('cuiltivatingSchemeCheckAndDrawup.totalClassHours')"
+        width="82"
         align="center"
       >
         <template slot-scope="scope">
@@ -68,7 +74,8 @@
       <el-table-column
         prop="address"
         label="学分"
-        width="110"
+        :label="$t('cuiltivatingSchemeCheckAndDrawup.credit')"
+        width="60"
         align="center"
       >
         <template slot-scope="scope">
@@ -78,6 +85,7 @@
       <el-table-column
         prop="address"
         label="任课教师"
+        :label="$t('cuiltivatingSchemeCheckAndDrawup.tutor')"
         align="center"
       >
         <template slot-scope="scope">
@@ -87,27 +95,28 @@
       <el-table-column
         prop="address"
         label="考核方式"
+        :label="$t('cuiltivatingSchemeCheckAndDrawup.evaluationMode')"
         align="center"
-        width="100"
-        fixed="right"
+        width="80"
       >
         <template slot-scope="scope">
           {{ $t(scope.row.examStyle) }}
         </template>
       </el-table-column>
     </el-table>
-
+    <!--选修课-->
     <div>
       <el-table
         :data="optionalList"
         border
+        size="mini"
         style="width: 100%"
         :span-method="rowSpanMethod2"
         :show-header="false"
       >
         <el-table-column
           label="类别"
-          width="70"
+          width="65"
           align="center"
         >
           <template slot-scope="scope">
@@ -116,7 +125,7 @@
         </el-table-column>
         <el-table-column
           :label="$t('projectParticipation.number')"
-          width="80"
+          width="73"
           align="center"
         >
           <template slot-scope="scope">
@@ -126,7 +135,7 @@
         <el-table-column
           prop="date"
           label="课程号"
-          width="110"
+          width="78"
           align="center"
         >
           <template slot-scope="scope">
@@ -146,6 +155,7 @@
           prop="address"
           label="开课学期"
           align="center"
+          width="152"
         >
           <template slot-scope="scope">
             {{ $t(scope.row.term) }}
@@ -154,7 +164,7 @@
         <el-table-column
           prop="address"
           label="总学时"
-          width="110"
+          width="82"
           align="center"
         >
           <template slot-scope="scope">
@@ -164,7 +174,7 @@
         <el-table-column
           prop="address"
           label="学分"
-          width="110"
+          width="60"
           align="center"
         >
           <template slot-scope="scope">
@@ -184,7 +194,7 @@
           prop="address"
           label="考核方式"
           align="center"
-          width="100"
+          width="80"
         >
           <template slot-scope="scope">
             {{ $t(scope.row.examStyle) }}
@@ -204,7 +214,7 @@
       >
         <el-table-column
           label="类别"
-          width="70"
+          width="65"
           align="center"
         >
           <template slot-scope="scope" >
@@ -213,7 +223,7 @@
         </el-table-column>
         <el-table-column
           :label="$t('projectParticipation.number')"
-          width="80"
+          width="73"
           align="center"
         >
           <template slot-scope="scope">
@@ -223,7 +233,7 @@
         <el-table-column
           prop="date"
           label="课程号"
-          width="110"
+          width="78"
           align="center"
         >
           <template slot-scope="scope">
@@ -243,6 +253,7 @@
           prop="address"
           label="开课学期"
           align="center"
+          width="152"
         >
           <template slot-scope="scope">
             {{ $t(scope.row.term) }}
@@ -251,7 +262,7 @@
         <el-table-column
           prop="address"
           label="总学时"
-          width="110"
+          width="82"
           align="center"
         >
           <template slot-scope="scope">
@@ -261,7 +272,7 @@
         <el-table-column
           prop="address"
           label="学分"
-          width="110"
+          width="60"
           align="center"
         >
           <template slot-scope="scope">
@@ -281,7 +292,7 @@
           prop="address"
           label="考核方式"
           align="center"
-          width="100"
+          width="80"
         >
           <template slot-scope="scope">
             {{ $t(scope.row.examStyle) }}
@@ -322,6 +333,7 @@ export default {
     this.rowSpanMethod1()
     this.rowSpanMethod2()
     this.rowSpanMethod3()
+    this.getRowClass()
   },
 
   methods: {
@@ -396,7 +408,13 @@ export default {
         }
       }
     },
-
+    getRowClass ({ row, column, rowIndex, columnIndex }) {
+      if (rowIndex === 0) {
+        return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
+      } else {
+        return ''
+      }
+    }
 
 
 
@@ -406,5 +424,8 @@ export default {
 </script>
 
 <style scoped>
+  .container{
+    margin: 15px;
+  }
 
 </style>
