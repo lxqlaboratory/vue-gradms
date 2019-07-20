@@ -6,20 +6,20 @@
         <label class="title">{{$t('courseQuery.school')}}</label>
       </el-col>
       <el-col :span="8" class="colstyle2">
-        <el-select style="width: 70%" size="mini" placeholder="please Choose">
-        <!--<el-option
-          v-for="item in statusArr"
-          :key="item.code"
-          :label="item.name"
-          :value="item.code">
-        </el-option>-->
+        <el-select style="width: 70%" size="mini" placeholder="please Choose" v-model="choseSchool">
+          <el-option
+            v-for="item in collegeList"
+            :key="item.value"
+            :label="$t(item.name)"
+            :value="item.value"
+          />
         </el-select>
       </el-col>
       <el-col :span="4" class="colstyle3" style="padding-top: 10px;">
         <label class="title">{{$t('courseQuery.courseNumber')}}</label>
       </el-col>
       <el-col :span="8" class="colstyle4">
-        <el-input style="width: 70%" size="mini" />
+        <el-input style="width: 70%" size="mini" v-model="courseNum" />
       </el-col>
     </el-row>
     <!--第二行-->
@@ -28,7 +28,7 @@
         <label class="title">{{$t('courseQuery.courseName')}}	</label>
       </el-col>
       <el-col :span="8" class="colstyle2">
-        <el-input style="width: 70%" size="mini" />
+        <el-input style="width: 70%" size="mini" v-model="courseName"/>
       </el-col>
     </el-row>
     <!--第三行-->
@@ -111,15 +111,6 @@
         </template>
       </el-table-column>
       <el-table-column
-        label="开课学院"
-        width="100"
-        align="center"
-      >
-        <template slot-scope="scope">
-          {{ scope.row.collegeName }}
-        </template>
-      </el-table-column>
-      <el-table-column
         :label="$t('cuiltivatingSchemeCheckAndDrawup.evaluationMode')"
         width="100"
         align="center"
@@ -141,7 +132,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          <el-button size="mini" round class="allBtn" @click="insertCourse(scope.row.courseId,scope.row.courseId)">{{ $t('publishThesis.add') }}</el-button>
+          <el-button size="mini" round class="allBtn" @click="insertCourse(scope.row.courseId)">{{ $t('publishThesis.add') }}</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -151,12 +142,18 @@
 
 <script>
   import { acrossCourseQueryInit } from '@/api/checkCultivationScheme'
+  import { acrossCourseQueryDoQuery } from '@/api/checkCultivationScheme'
+  import { newCultivateSelectAcrossCourse } from '@/api/checkCultivationScheme'
 export default {
   name: 'AllCourseQuery',
   data() {
     return {
       collegeList: [],
-      showTable: false
+      showTable: false,
+      choseSchool: '',
+      courseNum: '',
+      courseName: '',
+      publicCourseList: []
     }
   },
   created() {
@@ -169,18 +166,32 @@ export default {
       })
     },
     showAllCourse() {
-      this.showTable = true
-      // newCultivateSelectPublicCourse({ 'courseId': courseId , 'classTerm': classTerm  }).then(res => {
-      //   if(res.re==1){
-      //     this.$message({
-      //       message: '添加成功',
-      //       type: 'success'
-      //     });
-      //   }else{
-      //     this.$message.error('添加失败');
-      //   }
-      // }).catch(e => {
-      // })
+      acrossCourseQueryDoQuery({'collegeId': this.choseSchool ,'courseNum': this.courseNum ,'courseName': this.courseName  }).then(res => {
+        if(res.msg==='学院与（课程名或课程号）不能同时为空'){
+          this.$message({
+            message: '学院与（课程名或课程号）不能同时为空',
+            type: 'error'
+          });
+        }else{
+          this.showTable = true
+          this.publicCourseList = res.data
+        }
+      }).catch(e =>{
+
+      })
+    },
+    insertCourse(courseId){
+      newCultivateSelectAcrossCourse({ 'courseId': courseId }).then(res => {
+        if(res.msg==='操作成功！'){
+          this.$message({
+            message: '添加成功',
+            type: 'success'
+          });
+        }else{
+          this.$message.error('添加失败');
+        }
+      }).catch(e => {
+      })
     },
     getRowClass({ row, column, rowIndex, columnIndex }) {
       if (rowIndex === 0) {

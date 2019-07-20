@@ -46,3 +46,19 @@ export function acrossCourseQueryInit() {
     data: {}
   })
 }
+
+export function acrossCourseQueryDoQuery(data) {
+  return request({
+    url: '/api/course/acrossCourseQueryDoQuery',
+    method: 'POST',
+    data
+  })
+}
+
+export function newCultivateSelectAcrossCourse(data) {
+  return request({
+    url: '/api/cultivate/newCultivateSelectAcrossCourse',
+    method: 'POST',
+    data
+  })
+}
