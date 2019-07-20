@@ -132,7 +132,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          <el-button size="mini" round class="allBtn" @click="insertCourse(scope.row.courseId)">{{ $t('publishThesis.add') }}</el-button>
+          <el-button size="mini" round class="allBtn" type="text" @click="insertCourse(scope.row.courseId)">详细</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -179,17 +179,7 @@ export default {
       })
     },
     insertCourse(courseId){
-      newCultivateSelectAcrossCourse({ 'courseId': courseId }).then(res => {
-        if(res.msg==='操作成功！'){
-          this.$message({
-            message: '添加成功',
-            type: 'success'
-          });
-        }else{
-          this.$message.error('添加失败');
-        }
-      }).catch(e => {
-      })
+      this.$router.push({ name: 'showCultivate', params: { courseId}})
     },
     getRowClass({ row, column, rowIndex, columnIndex }) {
       if (rowIndex === 0) {
