@@ -43,8 +43,8 @@ export default {
     tjktbg: 'submit opening report',
     byhxwgl: 'graduation and degree',
     txxwxx: 'degree information',
-    txlwgzybz : '填写论文工作与不足',
-    txbslwzpb : '填写博士论文自评表',
+    txlwgzybz: '填写论文工作与不足',
+    txbslwzpb: '填写博士论文自评表',
     tjbysq: 'graduation application',
     xxsclw: 'thesis uploading',
     cklwpyjg: 'thesis review',
@@ -510,5 +510,55 @@ export default {
     upload: 'upload',
     selectFiles: 'select a file',
     submit: 'submit'
+  },
+  // 评阅答辩信息查看
+  reviewTheDefenseInformation: {
+    DuplicateRatioTest: 'Duplicate Test of Application Form',
+    ApplicationForDegree: 'Application for degree',
+    DegreeApproval: 'Degree aapproval',
+    DefenseRecord: 'Defense Record',
+    GraduationApprovalForm: 'Graduation Approval Form',
+    DoctorApplicationRegistrationForm: 'Doctor Application Registration Form',
+    TableOfResearcAndAwards: 'Table of Research And Awards',
+    DownloadDoctorSelfEvaluationForm: 'Download Doctor Self-evaluation Form',
+    FinalDissertation: 'Final Dissertation',
+    studentBasicInfomation: 'Student Basic Infomation',
+    name: 'Name',
+    studentNum: 'Student Number',
+    studentType: 'Student Type',
+    belongingCollege: 'School',
+    major: 'Major',
+    tutur: 'Tutor',
+    title: 'Title of Thesis',
+    defenceTime: 'Defence Time',
+    defencePlace: 'Defence Place',
+    DissertationEvaluationInformation: 'Dissertation evaluation information',
+    TitleofDissertation: 'Title of dissertation',
+    PaperTestResults: 'Paper Test Results',
+    process: 'Process',
+    name1: 'Name',
+    professionalposts: 'Professional and Technical Posts ',
+    mastersupervisor: 'Master/PhD Supervisor',
+    workUnit: 'Work Unit',
+    OverallRating: 'Overall Rating',
+    OverallConclusion: 'Overall Conclusion',
+    Operation: 'operation',
+    MemberofDefenseCommittee: 'Member of Defense Committee',
+    Membership: 'Membership',
+    MemberName: 'Member Name',
+    ProfessionalAndTechnicalPosts: 'professional and technical posts ',
+    unit: 'unit', // 所属单位
+    mastersupervisor2: 'Master/PhD Supervisor', // 博/硕导
+    ChairmanofTheDefenseCommittee: 'Chairman of the defense committee',
+    NOTE1: 'Resolution of dissertation defense committee (no less than 500 words and no more than 800 words)',
+    NOTE2: 'Record of dissertation defense',
+    NOTE3: 'Overall evaluation of the dissertation and the defense by the defense committee:',
+    NOTE4: 'Voting of the dissertation committee',
+    NumberOfMembers: 'Number of members present',
+    NumberOfAb: 'Number of absent members', // 缺席委员人数
+    DegreeVotes: 'Degree votes recommended', // 建议授予学位票数
+    DegreeVotesNot: 'Degree votes not recommended', // 建议不授予学位票数
+    ReviseAndRedefend: 'It is suggested to revise the thesis and re-defend it', // 建议修改论文重新答辩
+    BackUp: 'back'
   }
 }

@@ -3,10 +3,10 @@
     <!--第一行-->
     <el-row>
       <el-col :span="4" class="colstyle1" style="padding-top: 10px;">
-        <label class="title">学院</label>
+        <label class="title">{{$t('courseQuery.school')}}</label>
       </el-col>
       <el-col :span="8" class="colstyle2">
-        <el-select style="width: 70%" size="mini" placeholder="请选择">
+        <el-select style="width: 70%" size="mini" placeholder="please Choose">
         <!--<el-option
           v-for="item in statusArr"
           :key="item.code"
@@ -16,29 +16,16 @@
         </el-select>
       </el-col>
       <el-col :span="4" class="colstyle3" style="padding-top: 10px;">
-        <label class="title">选课学期</label>
+        <label class="title">{{$t('courseQuery.courseNumber')}}</label>
       </el-col>
       <el-col :span="8" class="colstyle4">
-        <el-select style="width: 70%" size="mini" placeholder="请选择">
-        <!--<el-option
-          v-for="item in statusArr"
-          :key="item.code"
-          :label="item.name"
-          :value="item.code">
-        </el-option>-->
-        </el-select>
+        <el-input style="width: 70%" size="mini" />
       </el-col>
     </el-row>
     <!--第二行-->
     <el-row style="border-bottom: 1px solid black">
       <el-col :span="4" class="colstyle1" style="padding-top: 10px;">
-        <label class="title">课程号	</label>
-      </el-col>
-      <el-col :span="8" class="colstyle2">
-        <el-input style="width: 70%" size="mini" />
-      </el-col>
-      <el-col :span="4" class="colstyle1" style="padding-top: 10px;">
-        <label class="title">课程名</label>
+        <label class="title">{{$t('courseQuery.courseName')}}	</label>
       </el-col>
       <el-col :span="8" class="colstyle2">
         <el-input style="width: 70%" size="mini" />
@@ -46,7 +33,7 @@
     </el-row>
     <!--第三行-->
     <el-row style="padding-top:10px;border: 0px">
-      <el-button type="primary" class="allBtn" style="width: 25%" @click="showAllCourse">查询 </el-button>
+      <el-button type="primary" class="allBtn" style="width: 25%" @click="showAllCourse">{{$t('courseQuery.query')}} </el-button>
     </el-row>
    <div>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -163,11 +150,12 @@
 </template>
 
 <script>
+  import { acrossCourseQueryInit } from '@/api/checkCultivationScheme'
 export default {
   name: 'AllCourseQuery',
   data() {
     return {
-      publicCourseList: [],
+      collegeList: [],
       showTable: false
     }
   },
@@ -176,8 +164,8 @@ export default {
   },
   methods: {
     fetchData() {
-      publicCourseQueryDoQuery().then(res => {
-        this.publicCourseList = res.data
+      acrossCourseQueryInit().then(res => {
+        this.collegeList = res.data.collegeList
       })
     },
     showAllCourse() {
