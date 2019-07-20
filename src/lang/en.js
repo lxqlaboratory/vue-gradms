@@ -560,5 +560,45 @@ export default {
     DegreeVotesNot: 'Degree votes not recommended', // 建议不授予学位票数
     ReviseAndRedefend: 'It is suggested to revise the thesis and re-defend it', // 建议修改论文重新答辩
     BackUp: 'back'
+  },
+  // 课程查询
+  CourseQuery: {
+    college: 'School',
+    courseNum: 'Course Number',
+    query: 'Query',
+    creator: 'Creator',
+    college1: 'School of the Course', // 所属学院
+    courseType: 'Course Type', // 课程类别
+    courseName: 'Course Name', // 课程名
+    courseEName: 'Course English Name', // 课程英文名
+    college3: 'School Offered the Course', // 开课学院
+    semester: 'Sememster of the Course',
+    total: 'Total Lesson', // 总学时
+    credit: 'Credit', // 学分
+    lectureLesson: 'Lesson Hours', // 讲课学时
+    experimentalLesson: 'Experimental Course Lesson Hours', // 实验课学时
+    computerLesson: 'Computer Lesson Hours', // 上机学时
+    courseProperty: 'Course Property',
+    teachingWays: 'Teaching Ways',
+    teachingLanguage: 'Teaching Language', // 授课语言
+    semesterNumber: 'Semester Numbers', // 学期持续数
+    examWays: 'Exam Ways', // 考试方式
+    gradeConfiguration: 'Grade Configuration', // 成绩配置
+    CoursePerson: 'Course manager', //
+    TypeForStu: 'Type Oriented for Students',
+    CourseApplyingType: 'Course Applying Type', // 申请课程类型
+    TeacherGroup: 'Teacher Group', // 教师组
+    Textbook: 'Textbook',
+    CourseHomePage: 'Course Home Page',
+    Reference: 'Reference',
+    PreClass: 'Pre-courses',
+    courseStatement: 'Course Statement',
+    teachingOutline: 'Teaching Outline', // 教学大纲
+    note: 'Note',
+    courseStatus: 'Course Status',
+    SchoolAdvise: 'Advice of School',
+    GraduateAdvise: 'Advice of Postgraduate School',
+    BackUp: 'go back'
+
   }
 }

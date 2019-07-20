@@ -569,6 +569,46 @@ export default {
     DegreeVotesNot: '建议不授予学位票数', // 建议不授予学位票数
     ReviseAndRedefend: '建议修改论文重新答辩', // 建议修改论文重新答辩
     BackUp: '后退'
+  },
+  // 课程查询
+  CourseQuery: {
+    college: '学院',
+    courseNum: '课程号',
+    query: '查询',
+    creator: '创建者',
+    college1: '所属学院', // 所属学院
+    courseType: '课程类别', // 课程类别
+    courseName: '课程名', // 课程名
+    courseEName: '课程英文名', // 课程英文名
+    college3: '开课学院', // 开课学院
+    semester: '开课学期',
+    total: '总学时', // 总学时
+    credit: '学分', // 学分
+    lectureLesson: '讲课学时', // 讲课学时
+    experimentalLesson: '实验课学时', // 实验课学时
+    computerLesson: '上机学时', // 上机学时
+    courseProperty: '课程属性',
+    teachingWays: '教学方式',
+    teachingLanguage: '授课语言', // 授课语言
+    semesterNumber: '学期持续数', // 学期持续数
+    examWays: '考试方式', // 考试方式
+    gradeConfiguration: '成绩配置', // 成绩配置
+    CoursePerson: '课程负责人', //
+    TypeForStu: '面向学生类型',
+    CourseApplyingType: '申请课程类型', // 申请课程类型
+    TeacherGroup: '教师组', // 教师组
+    Textbook: '教材',
+    CourseHomePage: '课程主页',
+    Reference: '参考书目',
+    PreClass: '预修需求',
+    courseStatement: '课程说明',
+    teachingOutline: '教学大纲', // 教学大纲
+    note: '备注',
+    courseStatus: '课程状态',
+    SchoolAdvise: '学院意见',
+    GraduateAdvise: '研究生院意见',
+    BackUp: '后退'
+
   }
 
 }
