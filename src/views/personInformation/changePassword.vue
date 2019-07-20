@@ -7,12 +7,12 @@
       <el-form-item :label="$t('modifyPasswordModal.inputNewPassword')" prop="newPass" >
         <el-input v-model="ruleForm.newPass" type="password" autocomplete="off" style="width: 25%;" />
       </el-form-item>
-      <el-form-item :label="$t('modifyPasswordModal.retypePassword')" prop="checkPass" style="color: #9b0d14">
+      <el-form-item :label="$t('modifyPasswordModal.retypePassword')" prop="checkPass" class="leftSpan" style="color: #9b0d14">
         <el-input v-model="ruleForm.checkPass" type="password" autocomplete="off" style="width: 25%;" />
       </el-form-item>
       <el-form-item>
-        <el-button type="danger"     @click="submitForm()">{{ $t('route.submit')}}</el-button>
-        <el-button @click="resetForm('ruleForm')">{{ $t('modifyPasswordModal.reset')}}</el-button>
+        <el-button type="primary"  class="submitBtn"    @click="submitForm()">{{ $t('route.submit')}}</el-button>
+        <el-button  class="resetBtn" @click="resetForm('ruleForm')">{{ $t('modifyPasswordModal.reset')}}</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -110,5 +110,13 @@ export default {
 </script>
 
 <style scoped>
+  .leftSpan{
+    font-size: 14px;
 
+  }
+  .submitBtn{
+    border:0px;
+    background-color: #A50001 ;
+
+  }
 </style>

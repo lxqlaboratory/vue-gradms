@@ -1,19 +1,19 @@
 <template>
   <div class="app-container">
     <el-form>
-      <table class="content" cellspacing="10" width="100%">
+      <table class="content"  width="100%">
         <tbody><tr>
           <td align="center" valign="top">
-            <table class="content" cellspacing="0" width="100%">
+            <table class="content"  width="100%">
               <tbody><tr>
-                       <td class="head" height="25" colspan="5">
+                       <td class="head"  colspan="5">
                          <div align="center" class="form-label">
                            {{ $t('baseInformationModal.personalInformation') }}
                          </div>
                        </td>
                      </tr>
                 <tr>
-                  <td width="15%" height="25" align="right" class="form-label">
+                  <td width="15%"  class="form-label">
                     {{ $t('baseInformationModal.name') }}
                   </td>
                   <td>

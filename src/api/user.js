@@ -160,3 +160,11 @@ export function uploadFile() {
     data: {}
   })
 }
+
+export function courseQueryInfo() {
+  return request({
+    url: '/api/course/courseQueryInfo',
+    method: 'POST',
+    data: {}
+  })
+}
