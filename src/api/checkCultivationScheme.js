@@ -38,3 +38,11 @@ export function newCultivateSelectPublicCourse(data) {
     data
   })
 }
+
+export function acrossCourseQueryInit() {
+  return request({
+    url: '/api/course/acrossCourseQueryInit',
+    method: 'POST',
+    data: {}
+  })
+}

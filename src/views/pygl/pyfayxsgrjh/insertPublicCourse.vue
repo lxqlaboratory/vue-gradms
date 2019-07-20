@@ -102,7 +102,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          <el-button size="mini" round class="allBtn" @click="insertCourse(scope.row.courseId,scope.row.courseId)">{{$t('publishThesis.add')}}</el-button>
+          <el-button size="mini" round class="allBtn" @click="insertCourse(scope.row.courseId)">{{$t('publishThesis.add')}}</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -128,9 +128,9 @@ export default {
         this.publicCourseList = res.data
       })
     },
-    insertCourse(courseId,classTerm){
-      newCultivateSelectPublicCourse({ 'courseId': courseId , 'classTerm': classTerm  }).then(res => {
-        if(res.re==1){
+    insertCourse(courseId){
+      newCultivateSelectPublicCourse({ 'courseId': courseId }).then(res => {
+        if(res.msg==='操作成功！'){
           this.$message({
             message: '添加成功',
             type: 'success'

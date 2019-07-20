@@ -43,8 +43,8 @@ export default {
     tjktbg: '提交开题报告',
     byhxwgl: '毕业和学位管理',
     txxwxx: '填写学位信息',
-    txlwgzybz : '填写论文工作与不足',
-    txbslwzpb : '填写博士论文自评表',
+    txlwgzybz: '填写论文工作与不足',
+    txbslwzpb: '填写博士论文自评表',
     tjbysq: '提交毕业申请',
     xxsclw: '学生上传论文',
     cklwpyjg: '查看论文评阅结果',
@@ -55,7 +55,7 @@ export default {
     xwxxhd: '学位信息核对',
     dagl: '档案管理',
     txqnml: '填写圈内目录',
-    submit:"提交",
+    submit: '提交',
     modify: '修改',
     save: '保存',
     curPage: '现在位置',
@@ -72,13 +72,13 @@ export default {
     reset: '重置'
   },
 
-  //个人信息联系方式维护模块
-  updateContactModal:{
-    updateContact:"个人联系方式更新",
-    Msn:'MSN',
-    MainPageAddree:'主页地址',
-    SdEmail:'山大邮件',
-    ContactAddress:"通讯地址"
+  // 个人信息联系方式维护模块
+  updateContactModal: {
+    updateContact: '个人联系方式更新',
+    Msn: 'MSN',
+    MainPageAddree: '主页地址',
+    SdEmail: '山大邮件',
+    ContactAddress: '通讯地址'
   },
 
   // 学籍信息中个人基本信息
@@ -519,6 +519,56 @@ export default {
     upload: '上传',
     selectFiles: '选择文件',
     submit: '提交'
+  },
+  // 评阅答辩信息查看
+  reviewTheDefenseInformation: {
+    DuplicateRatioTest: '重复比检测申请表',
+    ApplicationForDegree: '学位申请书',
+    DegreeApproval: '学位审批书',
+    DefenseRecord: '答辩记录纸',
+    GraduationApprovalForm: '毕业审批表',
+    DoctorApplicationRegistrationForm: '博士申请登记表',
+    TableOfResearcAndAwards: '科研和奖励情况表',
+    DownloadDoctorSelfEvaluationForm: '博士自评表下载',
+    FinalDissertation: '学位论文终稿',
+    studentBasicInfomation: '学生基本信息',
+    name: '姓名',
+    studentNum: '学号',
+    studentType: '学生类型',
+    belongingCollege: '所属学院',
+    major: '所属专业',
+    tutur: '导师',
+    title: '论文题目',
+    defenceTime: '答辩时间',
+    defencePlace: '答辩地点',
+    DissertationEvaluationInformation: '学位论文评阅信息',
+    TitleofDissertation: '学位论文题目',
+    PaperTestResults: '论文检测结果',
+    process: '进程',
+    name1: '姓名',
+    professionalposts: '专业技术职务',
+    mastersupervisor: '博/硕导',
+    workUnit: '工作单位',
+    OverallRating: '总体评价等级',
+    OverallConclusion: '总体评价结论',
+    Operation: '操作',
+    MemberofDefenseCommittee: '答辩委员会成员',
+    Membership: '成员身份',
+    MemberName: '成员姓名',
+    ProfessionalAndTechnicalPosts: '专业技术职务',
+    unit: '所属单位', // 所属单位
+    mastersupervisor2: '博/硕导', // 博/硕导
+    ChairmanofTheDefenseCommittee: 'Chairman of the defense committee',
+    NOTE1: '学位论文答辩委员会决议',
+    NOTE2: '学位论文答辩记录',
+    NOTE3: '答辩委员会对学位论文及答辩情况的总体评价: ',
+    NOTE4: '学位论文答辩委员会表决情况',
+    NumberOfMembers: '出席委员人数',
+    NumberOfAb: '缺席委员人数', // 缺席委员人数
+    DegreeVotes: '建议授予学位票数', // 建议授予学位票数
+    DegreeVotesNot: '建议不授予学位票数', // 建议不授予学位票数
+    ReviseAndRedefend: '建议修改论文重新答辩', // 建议修改论文重新答辩
+    BackUp: '后退'
   }
 
 }
