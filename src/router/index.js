@@ -174,6 +174,13 @@ export const constantRoutes = [
         meta: { title: ('route.zdckpyjh'), icon: 'form' }
       },
       {
+        path: 'allCourseQueryDetail',
+        component: () => import('@/views/pygl/pyfayxsgrjh/allCourseQueryDetail'),
+        name: 'allCourseQueryDetail',
+        hidden : true,
+        meta: { title: ('route.zdckpyjh'), icon: 'form' }
+      },
+      {
         path: 'kccx',
         component: () => import('@/views/pygl/kcyxk/kccx'),
         name: 'kccx',

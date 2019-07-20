@@ -179,7 +179,7 @@ export default {
       })
     },
     insertCourse(courseId){
-      this.$router.push({ name: 'showCultivate', params: { courseId}})
+      this.$router.push({ name: 'allCourseQueryDetail', params: { courseId}})
     },
     getRowClass({ row, column, rowIndex, columnIndex }) {
       if (rowIndex === 0) {
