@@ -1,15 +1,45 @@
 <template >
   <div class="app-container">
     <table class="content"  width="100%" >
-      <tbody><tr>
+      <tbody>
+      <tr>
         <td class="head" height="25" colspan="6">
           <div class="titlable">学生论文信息</div>
         </td>
       </tr>
       <tr>
-        <td width="20%" class="colstyle1">学位论文题目</td>
-        <td width="80%" class="colstyle2">   </td>
-
+        <td colspan="2" class="colstyle1">学位论文题目</td>
+        <td colspan="4" class="colstyle2"> <el-input v-model="thesisEngName"  size="mini"></el-input>  </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="colstyle1">论文主题词</td>
+        <td colspan="4" class="colstyle2"> <el-input v-model="englishTheme"  size="mini"></el-input>  </td>
+      </tr>
+      <tr>
+        <td colspan="1" class="colstyle1">论文类型</td>
+        <td width="20%" class="colstyle2">
+          <el-select v-model="gradThesisTypeCode" placeholder="pleaseChoose" size="mini">
+            <el-option
+              v-for="item in gradThesisTypeCodeList"
+              :key="item.value"
+              :label="$t(item.name)"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </td>
+        <td colspan="1" class="colstyle1">论文选题来源</td>
+        <td width="30%" class="colstyle2">
+          <el-select v-model="gradThesisTopicSourceCode" placeholder="pleaseChoose" size="mini">
+            <el-option
+              v-for="item in gradThesisTopicSourceCodeList"
+              :key="item.value"
+              :label="$t(item.name)"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </td>
+        <td colspan="1" class="colstyle1">论文字数(万) </td>
+        <td  width="10%" class="colstyle2"> <el-input v-model="englishTheme"  size="mini"></el-input>  </td>
       </tr>
       </tbody></table>
   </div>
@@ -25,7 +55,9 @@ export default {
       gradThesisTopicSourceCode: '',
       gradThesisTopicSourceCodeList: [],
       gradThesisTypeCode: '',
-      gradThesisTypeCodeList: []
+      gradThesisTypeCodeList: [],
+      thesisEngName: '',
+      englishTheme: ''
     }
   },
   created() {

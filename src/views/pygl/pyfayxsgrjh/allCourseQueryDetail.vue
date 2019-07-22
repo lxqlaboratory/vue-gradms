@@ -5,51 +5,51 @@
       <tbody>
         <tr>
           <td width="15%" class="colstyle1">{{ $t('CourseQuery.creator') }}</td>
-          <td width="20%" class="colstyle2" />
+          <td width="20%" class="colstyle2" >{{$t(list.managerName)}}</td>
           <td width="20%" class="colstyle1">{{ $t('CourseQuery.college1') }}</td>
-          <td width="20%" class="colstyle2" />
+          <td width="20%" class="colstyle2" >{{list.collegeName}}</td>
           <td width="10%" class="colstyle1">{{ $t('CourseQuery.courseType') }}</td>
-          <td width="25%" class="colstyle2" />
+          <td width="25%" class="colstyle2" >{{$t(list.courseAttribute)}}</td>
         </tr>
         <tr>
           <td class="colstyle1">{{ $t('CourseQuery.courseName') }}</td>
-          <td class="colstyle2" />
+          <td class="colstyle2" ></td>
           <td class="colstyle1">{{ $t('CourseQuery.courseEName') }}</td>
-          <td class="colstyle2" />
+          <td class="colstyle2"></td>
           <td class="colstyle1">{{ $t('CourseQuery.college3') }}</td>
-          <td class="colstyle2" />
+          <td class="colstyle2" >{{list.collegeName}}</td>
         </tr>
         <tr>
           <td class="colstyle1">{{ $t('CourseQuery.semester') }}</td>
-          <td class="colstyle2" />
+          <td class="colstyle2" >{{$t(list.termCode)}}</td>
           <td class="colstyle1">{{ $t('CourseQuery.total') }}</td>
-          <td class="colstyle2" />
+          <td class="colstyle2" ></td>
           <td class="colstyle1"> {{ $t('CourseQuery.credit') }}</td>
-          <td class="colstyle2" />
+          <td class="colstyle2" ></td>
         </tr>
         <tr>
           <td class="colstyle1">{{ $t('CourseQuery.lectureLesson') }}</td>
-          <td class="colstyle2" />
+          <td class="colstyle2" ></td>
           <td class="colstyle1">{{ $t('CourseQuery.experimentalLesson') }}</td>
-          <td class="colstyle2" />
+          <td class="colstyle2" ></td>
           <td class="colstyle1"> {{ $t('CourseQuery.computerLesson') }}</td>
-          <td class="colstyle2" />
+          <td class="colstyle2" ></td>
         </tr>
         <tr>
           <td class="colstyle1">{{ $t('CourseQuery.courseProperty') }}</td>
-          <td class="colstyle2" />
+          <td class="colstyle2" >{{$t(list.courseAttribute)}}</td>
           <td class="colstyle1">{{ $t('CourseQuery.teachingWays') }}</td>
-          <td class="colstyle2" />
+          <td class="colstyle2" ></td>
           <td class="colstyle1"> {{ $t('CourseQuery.teachingLanguage') }}</td>
-          <td class="colstyle2" />
+          <td class="colstyle2" ></td>
         </tr>
         <tr>
           <td class="colstyle1">{{ $t('CourseQuery.semesterNumber') }}</td>
-          <td class="colstyle2" />
+          <td class="colstyle2" ></td>
           <td class="colstyle1">{{ $t('CourseQuery.examWays') }}</td>
-          <td class="colstyle2" />
+          <td class="colstyle2" >{{$t(list.examType)}}</td>
           <td class="colstyle1"> {{ $t('CourseQuery.gradeConfiguration') }}</td>
-          <td class="colstyle2" />
+          <td class="colstyle2" ></td>
         </tr>
         <tr>
           <td class="colstyle1">{{ $t('CourseQuery.CoursePerson') }}</td>
