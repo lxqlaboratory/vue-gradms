@@ -6,12 +6,12 @@
         <td style="text-align:center" >
           <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeThesisApplyDownload" download="xwsqs.pdf"  >学位申请书</a></el-button>
           <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeThesisApprovalDownload" download="xwsps.pdf" >学位审批书</a></el-button>
-          <el-button size="mini" class="allBtn"><a href="/gradms/api/student/printStudyProve" download="educationCertificate.pdf">答辩记录纸</a></el-button>
-          <el-button size="mini" class="allBtn"><a href="/gradms/api/student/printStudyProve" download="educationCertificate.pdf">毕业审批表</a></el-button>
-          <el-button size="mini" class="allBtn"><a href="/gradms/api/student/printStudyProve" download="educationCertificate.pdf" >博士申请登记表</a></el-button>
-          <el-button size="mini" class="allBtn"><a href="/gradms/api/student/printStudyProve" download="educationCertificate.pdf" >科研和奖励情况表</a></el-button>
-          <el-button size="mini" class="allBtn"><a href="/gradms/api/student/printStudyProve" download="educationCertificate.pdf">博士自评表下载</a></el-button>
-          <el-button size="mini" class="allBtn"><a href="/gradms/api/student/printStudyProve" download="educationCertificate.pdf" >学位论文终稿</a></el-button>
+          <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreethesisAnswerRecordDownload" download="dbjlz.pdf">答辩记录纸</a></el-button>
+          <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeGraduationAuditFormDownload" download="byspb.pdf">毕业审批表</a></el-button>
+          <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreePrintApplyTable" download="bsdjb.pdf" >博士申请登记表</a></el-button>
+          <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeResearchRewardFormDownload" download="kyjlb.pdf" >科研和奖励情况表</a></el-button>
+          <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/downLoadZiPingBiao" download="bszpb.pdf">博士自评表下载</a></el-button>
+          <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeThesisAttachmentDownload" download="xwlwzzg.pdf" >学位论文终稿</a></el-button>
         </td>
       </tr>
     </tbody>
