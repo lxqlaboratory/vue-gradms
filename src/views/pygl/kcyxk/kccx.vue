@@ -71,7 +71,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ (scope.row.courseName) }}
+          {{ $t(scope.row.courseName) }}
         </template>
       </el-table-column>
       <el-table-column
