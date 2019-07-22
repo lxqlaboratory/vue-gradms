@@ -1,26 +1,26 @@
 <template>
   <div class="container">
     <el-form>
-      <table class="content"  width="100%">
+      <table class="content" width="100%">
         <tbody><tr>
-          <td align="center" valign="top" >
-            <table class="content"  width="100%">
+          <td align="center" valign="top">
+            <table class="content" width="100%">
               <tbody>
                 <tr>
-                       <td  colspan="5" style="font-size:16px;color:#A50001">
-                         <div >
-                           {{ $t('baseInformationModal.personalInformation') }}
-                         </div>
-                       </td>
-                    </tr>
+                  <td colspan="5" style="font-size:16px;color:#A50001">
+                    <div>
+                      {{ $t('baseInformationModal.personalInformation') }}
+                    </div>
+                  </td>
+                </tr>
                 <tr>
-                  <td width="15%"   class="colstyle1">
+                  <td width="15%" class="colstyle1">
                     {{ $t('baseInformationModal.name') }}
                   </td>
                   <td class="colstyle2">
                     {{ list.perName }}
                   </td>
-                  <td width="20%"  class="colstyle1">
+                  <td width="20%" class="colstyle1">
                     {{ $t('baseInformationModal.englishName') }}
                   </td>
                   <td v-if="isEdit" width="25%" class="colstyle2">
@@ -40,7 +40,7 @@
                   <td class="colstyle2">
                     {{ list.perNum }}
                   </td>
-                  <td  width="15%" class="colstyle1">
+                  <td width="15%" class="colstyle1">
                     {{ $t('baseInformationModal.sex') }}
                   </td>
                   <td class="colstyle2">
@@ -48,7 +48,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td  width="15%" class="colstyle1">
+                  <td width="15%" class="colstyle1">
                     {{ $t('baseInformationModal.date') }}
                   </td>
                   <td class="colstyle2">
@@ -78,23 +78,23 @@
                         :key="item.value"
                         :label="$t(item.name)"
                         :value="item.value"
-                      ></el-option>
+                      />
                     </el-select>
-                  </td >
+                  </td>
                   <td v-else width="25%" class="colstyle2">
                     {{ religionshow }}
                   </td>
                 </tr>
               </tbody></table>
-            <table class="content"  width="100%">
+            <table class="content" width="100%">
               <tbody>
                 <tr>
-                  <td  colspan="4"  style="font-size:16px;color:#A50001">
+                  <td colspan="4" style="font-size:16px;color:#A50001">
                     {{ $t('baseInformationModal.person') }}
                   </td>
                 </tr>
                 <tr>
-                  <td  width="20%" class="colstyle1">
+                  <td width="20%" class="colstyle1">
                     {{ $t('baseInformationModal.contact') }}
                   </td>
                   <td v-if="isEdit" class="colstyle2">
@@ -103,7 +103,7 @@
                   <td v-else class="colstyle2">
                     {{ list.perTelephone }}
                   </td>
-                  <td  width="20%" class="colstyle1">
+                  <td width="20%" class="colstyle1">
                     {{ $t('baseInformationModal.phone') }}
                   </td>
                   <td v-if="isEdit" class="colstyle2">
@@ -151,7 +151,7 @@
                   <td v-if="isEdit" height="40" colspan="3" class="colstyle2">
                     <input v-model="list.remark" style="width: 50%">
                   </td>
-                  <td v-else  colspan="3" class="colstyle2">
+                  <td v-else colspan="3" class="colstyle2">
                     {{ list.remark }}
                   </td>
                 </tr>
@@ -159,7 +159,7 @@
                   <td height="28" colspan="4">
                     <div align="center">
                       <el-button v-if="!isEdit" name="modifyIt" class="submitbutton" @click="edit">{{ $t('route.modify') }}</el-button>
-                      <el-button v-else  name="modifyIt" class="submitbutton" @click="save">{{ $t('route.save') }}</el-button>
+                      <el-button v-else name="modifyIt" class="submitbutton" @click="save">{{ $t('route.save') }}</el-button>
                     </div>
                   </td>
                 </tr>
@@ -181,7 +181,7 @@
 </template>
 
 <script>
-  import { getStudentBaseicInfo, updateStudentBaseicInfo} from '@/api/studentBaseicInfo'
+import { getStudentBaseicInfo, updateStudentBaseicInfo } from '@/api/studentBaseicInfo'
 export default {
   data() {
     return {
@@ -191,28 +191,28 @@ export default {
       isEdit: false
     }
   },
-  created() {
-    this.fetchData()
-  },
-  computed:{
-    religionshow : {
+  computed: {
+    religionshow: {
       get: function() {
-        let zjxy = this.list.zjxy
-        let religion = this.list.religion
-        if(zjxy){
+        const zjxy = this.list.zjxy
+        const religion = this.list.religion
+        if (zjxy) {
           this.length1 = zjxy.length
         }
-        for (let i = 0; i <  this.length1; i++) {
-          let item = zjxy[i]
+        for (let i = 0; i < this.length1; i++) {
+          const item = zjxy[i]
           if (item.value === religion) {
             return this.$t(item.name)
           }
         }
       },
-      set: function (newValue) {
+      set: function(newValue) {
         this.list.religion = newValue
       }
     }
+  },
+  created() {
+    this.fetchData()
   },
   methods: {
     downLoadPDF() {
@@ -295,7 +295,6 @@ export default {
   .el-upload-dragger:hover {
     border-color: #A50001;
   }
-
 
 </style>
 

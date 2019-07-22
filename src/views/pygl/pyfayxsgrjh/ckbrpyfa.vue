@@ -36,7 +36,7 @@
         <el-col :span="4" class="colstyle3">
           <span>{{ $t('cultivatingScheme.startTime') }}</span>
         </el-col>
-        <el-col :span="8"class="colstyle4">
+        <el-col :span="8" class="colstyle4">
           <span>{{ detail.startTime }}</span>
         </el-col>
       </el-row>
@@ -51,7 +51,7 @@
         <el-col :span="4" class="colstyle3">
           <span>{{ $t('cultivatingScheme.totalCredit') }}</span>
         </el-col>
-        <el-col :span="8"class="colstyle4">
+        <el-col :span="8" class="colstyle4">
           <span>{{ detail.totalCredit }}</span>
         </el-col>
       </el-row>
@@ -116,49 +116,49 @@
 </template>
 
 <script>
-  import { showPersonCultivate } from '@/api/showPersonCultivate'
-  export default {
-    data() {
-      return {
-        loading: false,
-        post: null,
-        error: null,
-        schemeId: '',
-        detail: []
-      }
-    },
-    watch: {
-      '$route': 'fetchData'
-    },
-    created() {
-      this.fetchData()
-    },
-    methods: {
-      fetchData() {
-        this.error = this.post = null
-        this.loading = true
-        //this.schemeId = this.$route.params.id
-        //this.studentType = this.$route.params.studentType
-        showPersonCultivate((err, post) => {
-          this.loading = false
-          if (err) {
-            this.error = err.toString()
-          } else {
-            this.post = posts
-          }
-        }).then(res => {
-            this.detail = res.data
-          }, function (err) {
+import { showPersonCultivate } from '@/api/showPersonCultivate'
+export default {
+  data() {
+    return {
+      loading: false,
+      post: null,
+      error: null,
+      schemeId: '',
+      detail: []
+    }
+  },
+  watch: {
+    '$route': 'fetchData'
+  },
+  created() {
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+      this.error = this.post = null
+      this.loading = true
+      // this.schemeId = this.$route.params.id
+      // this.studentType = this.$route.params.studentType
+      showPersonCultivate((err, post) => {
+        this.loading = false
+        if (err) {
+          this.error = err.toString()
+        } else {
+          this.post = posts
+        }
+      }).then(res => {
+        this.detail = res.data
+      }, function(err) {
 
-          }
-        )
-      },
-      showCourseSetting(schemeId) {
-        schemeId = this.schemeId
-        this.$router.push({ name: 'pyfadkcsz', params: { schemeId }})
       }
+      )
+    },
+    showCourseSetting(schemeId) {
+      schemeId = this.schemeId
+      this.$router.push({ name: 'pyfadkcsz', params: { schemeId }})
     }
   }
+}
 
 </script>
 
@@ -221,5 +221,4 @@
     font-size: 12px !important;
   }
 </style>
-
 

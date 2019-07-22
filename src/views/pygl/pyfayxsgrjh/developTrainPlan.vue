@@ -204,9 +204,9 @@
 </template>
 
 <script>
-  import { showCultivatePlan } from '@/api/checkCultivationScheme'
+import { showCultivatePlan } from '@/api/checkCultivationScheme'
 export default {
-  name: 'developTrainPlan',
+  name: 'DevelopTrainPlan',
   data() {
     return {
       cultiveList: [],
@@ -219,7 +219,6 @@ export default {
     }
   },
   created() {
-
     this.fetchData()
   },
   methods: {

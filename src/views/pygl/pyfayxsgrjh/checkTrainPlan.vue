@@ -4,7 +4,7 @@
       <tbody><tr>
         <td class="head" height="30" colspan="6">
           <div align="center" style="color: #9b0d14">
-            {{$t('cuiltivatingSchemeCheckAndDrawup.selectedCourses')}}    --  {{$t('cuiltivatingSchemeCheckAndDrawup.note1')}}
+            {{ $t('cuiltivatingSchemeCheckAndDrawup.selectedCourses') }}    --  {{ $t('cuiltivatingSchemeCheckAndDrawup.note1') }}
           </div>
         </td>
       </tr>
@@ -23,7 +23,7 @@
     >
       <el-table-column
         :label="$t('cuiltivatingSchemeCheckAndDrawup.number')"
-        fixed = "left"
+        fixed="left"
         width="73"
         align="center"
       >
@@ -57,13 +57,13 @@
         </template>
       </el-table-column>
       <el-table-column
-        fixed = "right"
+        fixed="right"
         width="120"
         align="center"
-        :label = "$t('cuiltivatingSchemeCheckAndDrawup.totalClassHours')"
+        :label="$t('cuiltivatingSchemeCheckAndDrawup.totalClassHours')"
       >
         <!--<template slot-scope="scope">-->
-          <!--<el-button class="infoBtn"   type="text" @click="pushInfo(scope.row.schemeId , scope.row.majorName, scope.row.studentType )">详细</el-button>-->
+        <!--<el-button class="infoBtn"   type="text" @click="pushInfo(scope.row.schemeId , scope.row.majorName, scope.row.studentType )">详细</el-button>-->
         <!--</template>-->
       </el-table-column>
       <el-table-column
@@ -119,14 +119,14 @@
         </template>
       </el-table-column>
     </el-table>
-   <div>
+    <div>
      &nbsp;&nbsp;
-   </div>
+    </div>
     <table class="content" cellspacing="0" width="100%">
       <tbody><tr>
         <td class="head" height="30" colspan="6">
           <div align="center" style="color: #9b0d14">
-            {{$t('cuiltivatingSchemeCheckAndDrawup.cultivationStepList')}}
+            {{ $t('cuiltivatingSchemeCheckAndDrawup.cultivationStepList') }}
           </div>
         </td>
       </tr>
@@ -145,7 +145,7 @@
     >
       <el-table-column
         :label="$t('projectParticipation.number')"
-        fixed = "left"
+        fixed="left"
         width="73"
         align="center"
       >
@@ -175,14 +175,12 @@
         :label="$t('cuiltivatingSchemeCheckAndDrawup.grade')"
         width="120"
         align="center"
-      >
-      </el-table-column>
+      />
       <el-table-column
-        fixed = "right"
+        fixed="right"
         align="center"
-        :label = "$t('cuiltivatingSchemeCheckAndDrawup.statement')"
-      >
-      </el-table-column>
+        :label="$t('cuiltivatingSchemeCheckAndDrawup.statement')"
+      />
     </el-table>
   </div>
 </template>
@@ -206,7 +204,7 @@ export default {
         console.log(this.cultSessisonList)
       })
     },
-    getRowClass ({ row, column, rowIndex, columnIndex }) {
+    getRowClass({ row, column, rowIndex, columnIndex }) {
       if (rowIndex === 0) {
         return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
       } else {

@@ -3,7 +3,7 @@
     <table class="content" width="100%">
       <tbody><tr>
         <td height="300" colspan="8" align="center" valign="top">
-          <table class="content"  width="100%">
+          <table class="content" width="100%">
             <tbody><tr>
                      <td style="font-size:16px;color:#A50001" colspan="4">
                        <div align="center">
@@ -17,10 +17,10 @@
                 </td>
               </tr>
               <tr>
-                <td  width="25%"  class="colstyle1">
+                <td width="25%" class="colstyle1">
                   {{ $t('preSchoolInfoModal.undergraduateType') }}
                 </td>
-                <td v-if="isEdit2" width="25%"  class="colstyle2">
+                <td v-if="isEdit2" width="25%" class="colstyle2">
                   <el-select v-model="list3.universityTypeCode" size="mini" class="el-w">
                     <el-option
                       v-for="item in list3.bkbylb"
@@ -33,7 +33,7 @@
                 <td v-else width="25%" class="colstyle2">
                   {{ $t(list3.universityTypeCode,list3.bkbylb) }}
                 </td>
-                <td width="25%"  class="colstyle1">
+                <td width="25%" class="colstyle1">
                   {{ $t('preSchoolInfoModal.undergraduateMajor') }}
                 </td>
                 <td v-if="isEdit2" width="25%" class="colstyle2">
@@ -57,7 +57,7 @@
                 </td>
               </tr>
               <tr>
-                <td  class="colstyle1">
+                <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.undergraduateDate') }}
                 </td>
                 <td v-if="isEdit2" class="colstyle2">
@@ -66,7 +66,7 @@
                 <td v-else class="colstyle2">
                   {{ list3.universityDate }}
                 </td>
-                <td  class="colstyle1">
+                <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.undergraduateThesisTitle') }}
                 </td>
                 <td v-if="isEdit2" class="colstyle2">
@@ -77,7 +77,7 @@
                 </td>
               </tr>
               <tr>
-                <td  class="colstyle1">
+                <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.bachelarDegree') }}
                 </td>
                 <td v-if="isEdit2" width="25%" class="colstyle2">
@@ -93,7 +93,7 @@
                 <td v-else width="25%" class="colstyle2">
                   {{ $t(list3.bachelorDegreeCode,list3.xsxw) }}
                 </td>
-                <td  class="colstyle1">
+                <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.bachelarDegreeMajor') }}
                 </td>
                 <td v-if="isEdit2" width="25%" class="colstyle2">
@@ -117,7 +117,7 @@
                 </td>
               </tr>
               <tr>
-                <td  class="colstyle1">
+                <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.bachelarDegreeType') }}
                 </td>
                 <td v-if="isEdit2" width="25%" class="colstyle2">
@@ -133,7 +133,7 @@
                 <td v-else width="25%" class="colstyle2">
                   {{ $t(list3.bachelorSubjectTypeCode,list3.xsxkml) }}
                 </td>
-                <td  class="colstyle1">
+                <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.bachelarDegreeGrantedDate') }}
                 </td>
                 <td v-if="isEdit2" class="colstyle2">
@@ -149,7 +149,7 @@
                 </td>
               </tr>
               <tr>
-                <td  class="colstyle1">
+                <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.postgraduateType') }}
                 </td>
                 <td v-if="isEdit2" width="25%" class="colstyle2">
@@ -165,7 +165,7 @@
                 <td v-else width="25%" class="colstyle2">
                   {{ $t(list3.masterTypeCode,list3.ssbylb) }}
                 </td>
-                <td  class="colstyle1">
+                <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.postgraduateMajor') }}
                 </td>
                 <td v-if="isEdit2" width="25%" class="colstyle2">
@@ -178,7 +178,7 @@
                     @select="postGradMajorSelect"
                   >
                     <template slot-scope="{ item }">
-                      <div class="show-autocomplete"><div  style="color: #409EFF">
+                      <div class="show-autocomplete"><div style="color: #409EFF">
                         {{ $t(item.name) }}
                       </div> <div>-</div><div>{{ item.value }}</div></div>
                     </template>
@@ -189,7 +189,7 @@
                 </td>
               </tr>
               <tr>
-                <td  class="colstyle1">
+                <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.postgraduateDate') }}
                 </td>
                 <td v-if="isEdit2" class="colstyle2">
@@ -198,7 +198,7 @@
                 <td v-else class="colstyle2">
                   {{ list3.masterDate }}
                 </td>
-                <td  class="colstyle1">
+                <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.postgraduateThesisTitle') }}
                 </td>
                 <td v-if="isEdit2" class="colstyle2">
@@ -209,7 +209,7 @@
                 </td>
               </tr>
               <tr>
-                <td  class="colstyle1">
+                <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.MasterDegree') }}
                 </td>
                 <td v-if="isEdit2" width="25%" class="colstyle2">
@@ -225,7 +225,7 @@
                 <td v-else width="25%" class="colstyle2">
                   {{ $t(list3.masterDegreeCode,list3.ssxw) }}
                 </td>
-                <td  class="colstyle1">
+                <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.MasterDegreeMajor') }}
                 </td>
                 <td v-if="isEdit2" width="25%" class="colstyle2">
@@ -249,7 +249,7 @@
                 </td>
               </tr>
               <tr>
-                <td  class="colstyle1">
+                <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.MasterSubjectType') }}
                 </td>
                 <td v-if="isEdit2" width="25%" class="colstyle2">
@@ -265,7 +265,7 @@
                 <td v-else width="25%" class="colstyle2">
                   {{ $t(list3.masterSubjectTypeCode,list3.ssxkml) }}
                 </td>
-                <td  class="colstyle1">
+                <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.MasterDegreeDate') }}
                 </td>
                 <td v-if="isEdit2" class="colstyle2">
@@ -276,7 +276,7 @@
                 </td>
               </tr>
               <tr>
-                <td height="25"  class="colstyle1">
+                <td height="25" class="colstyle1">
                   {{ $t('preSchoolInfoModal.remark') }}
                 </td>
                 <td v-if="isEdit2" colspan="3" class="colstyle2">
@@ -290,8 +290,8 @@
             <tr>
               <td height="28" colspan="4">
                 <div align="center">
-                  <el-button v-if="!isEdit2"  name="modifyIt" class="submitbutton" @click="edit2">{{ $t('route.modify') }}</el-button>
-                  <el-button v-else  name="modifyIt" class="submitbutton" @click="save2">{{ $t('route.save') }}</el-button>
+                  <el-button v-if="!isEdit2" name="modifyIt" class="submitbutton" @click="edit2">{{ $t('route.modify') }}</el-button>
+                  <el-button v-else name="modifyIt" class="submitbutton" @click="save2">{{ $t('route.save') }}</el-button>
                 </div>
               </td>
             </tr>
@@ -319,60 +319,60 @@ export default {
     }
   },
   watch: {
-    'list3.BaseGradMajorCode':function(val,old){
-      for(let item of this.list3.bkbyzy)
-        if(item.value==(this.list3.BaseGradMajorCode+'')){
-          this.baseMajor=this.$t(item.name)
+    'list3.BaseGradMajorCode': function(val, old) {
+      for (const item of this.list3.bkbyzy) {
+        if (item.value == (this.list3.BaseGradMajorCode + '')) {
+          this.baseMajor = this.$t(item.name)
           return
         }
+      }
     },
-    'list3.DegreeBaseGradMajorCode':function(val,old){
-      for(let item of this.list3.bkbyzy)
-        if(item.value==(this.list3.DegreeBaseGradMajorCode+'')){
-          this.DegreeBaseGradMajor=this.$t(item.name)
+    'list3.DegreeBaseGradMajorCode': function(val, old) {
+      for (const item of this.list3.bkbyzy) {
+        if (item.value == (this.list3.DegreeBaseGradMajorCode + '')) {
+          this.DegreeBaseGradMajor = this.$t(item.name)
           return
         }
+      }
     },
-    'list3.BasePostGradMajorCode':function(val,old){
-      for(let item of this.list3.shbyzy)
-        if(item.value==(this.list3.BasePostGradMajorCode+'')){
-          this.BasePostGradMajor=this.$t(item.name)
+    'list3.BasePostGradMajorCode': function(val, old) {
+      for (const item of this.list3.shbyzy) {
+        if (item.value == (this.list3.BasePostGradMajorCode + '')) {
+          this.BasePostGradMajor = this.$t(item.name)
           return
         }
+      }
     },
-    'list3.DegreeBasePostGradMajorCode':function(val,old){
-      for(let item of this.list3.shbyzy)
-        if(item.value==(this.list3.DegreeBasePostGradMajorCode+'')){
-          this.DegreeBasePostGradMajor=this.$t(item.name)
+    'list3.DegreeBasePostGradMajorCode': function(val, old) {
+      for (const item of this.list3.shbyzy) {
+        if (item.value == (this.list3.DegreeBasePostGradMajorCode + '')) {
+          this.DegreeBasePostGradMajor = this.$t(item.name)
           return
         }
+      }
     },
-    '$store.getters.language':function(val) {
-      for(let item of this.list3.shbyzy){
-
-        if(item.value==(this.list3.BasePostGradMajorCode+'')){
-          this.BasePostGradMajor=this.$t(item.name)
+    '$store.getters.language': function(val) {
+      for (const item of this.list3.shbyzy) {
+        if (item.value == (this.list3.BasePostGradMajorCode + '')) {
+          this.BasePostGradMajor = this.$t(item.name)
           break
         }
       }
-      for(let item of this.list3.shbyzy){
-
-        if(item.value==(this.list3.DegreeBasePostGradMajorCode+'')){
-          this.DegreeBasePostGradMajor=this.$t(item.name)
+      for (const item of this.list3.shbyzy) {
+        if (item.value == (this.list3.DegreeBasePostGradMajorCode + '')) {
+          this.DegreeBasePostGradMajor = this.$t(item.name)
           break
         }
       }
-      for(let item of this.list3.bkbyzy){
-
-        if(item.value==(this.list3.BaseGradMajorCode+'')){
-          this.baseMajor=this.$t(item.name)
+      for (const item of this.list3.bkbyzy) {
+        if (item.value == (this.list3.BaseGradMajorCode + '')) {
+          this.baseMajor = this.$t(item.name)
           break
         }
       }
-      for(let item of this.list3.bkbyzy){
-
-        if(item.value==(this.list3.DegreeBaseGradMajorCode+'')){
-          this.DegreeBaseGradMajor=this.$t(item.name)
+      for (const item of this.list3.bkbyzy) {
+        if (item.value == (this.list3.DegreeBaseGradMajorCode + '')) {
+          this.DegreeBaseGradMajor = this.$t(item.name)
           break
         }
       }
@@ -399,54 +399,54 @@ export default {
     },
     querySearch(queryString, cb) {
       var bkbyzy = this.list3.bkbyzy
-      var results = queryString ? bkbyzy.filter(item=>{
-        let isEn=item.name.en&&(item.name.en.indexOf(queryString)>=0)
-        let isCh=item.name.zh&&(item.name.zh.indexOf(queryString)>=0)
-        let isValue=item.value&&(item.value.indexOf(queryString)>=0)
-        return (isEn||isCh||isValue)
+      var results = queryString ? bkbyzy.filter(item => {
+        const isEn = item.name.en && (item.name.en.indexOf(queryString) >= 0)
+        const isCh = item.name.zh && (item.name.zh.indexOf(queryString) >= 0)
+        const isValue = item.value && (item.value.indexOf(queryString) >= 0)
+        return (isEn || isCh || isValue)
       }) : bkbyzy
       cb(results)
     },
-    BachelorDegreeSearch(queryString, cb){
+    BachelorDegreeSearch(queryString, cb) {
       var bkbyzy = this.list3.bkbyzy
-      var results = queryString ? bkbyzy.filter(item=>{
-        let isEn=item.name.en&&(item.name.en.indexOf(queryString)>=0)
-        let isCh=item.name.zh&&(item.name.zh.indexOf(queryString)>=0)
-        let isValue=item.value&&(item.value.indexOf(queryString)>=0)
-        return (isEn||isCh||isValue)
+      var results = queryString ? bkbyzy.filter(item => {
+        const isEn = item.name.en && (item.name.en.indexOf(queryString) >= 0)
+        const isCh = item.name.zh && (item.name.zh.indexOf(queryString) >= 0)
+        const isValue = item.value && (item.value.indexOf(queryString) >= 0)
+        return (isEn || isCh || isValue)
       }) : bkbyzy
       cb(results)
     },
-    postGradMajorSearch(queryString, cb){
+    postGradMajorSearch(queryString, cb) {
       var shbyzy = this.list3.shbyzy
-      var results = queryString ? shbyzy.filter(item=>{
-        let isEn=item.name.en&&(item.name.en.indexOf(queryString)>=0)
-        let isCh=item.name.zh&&(item.name.zh.indexOf(queryString)>=0)
-        let isValue=item.value&&(item.value.indexOf(queryString)>=0)
-        return (isEn||isCh||isValue)
+      var results = queryString ? shbyzy.filter(item => {
+        const isEn = item.name.en && (item.name.en.indexOf(queryString) >= 0)
+        const isCh = item.name.zh && (item.name.zh.indexOf(queryString) >= 0)
+        const isValue = item.value && (item.value.indexOf(queryString) >= 0)
+        return (isEn || isCh || isValue)
       }) : shbyzy
       cb(results)
     },
-    MasterDegreeSearch(queryString, cb){
+    MasterDegreeSearch(queryString, cb) {
       var shbyzy = this.list3.shbyzy
-      var results = queryString ? shbyzy.filter(item=>{
-        let isEn=item.name.en&&(item.name.en.indexOf(queryString)>=0)
-        let isCh=item.name.zh&&(item.name.zh.indexOf(queryString)>=0)
-        let isValue=item.value&&(item.value.indexOf(queryString)>=0)
-        return (isEn||isCh||isValue)
+      var results = queryString ? shbyzy.filter(item => {
+        const isEn = item.name.en && (item.name.en.indexOf(queryString) >= 0)
+        const isCh = item.name.zh && (item.name.zh.indexOf(queryString) >= 0)
+        const isValue = item.value && (item.value.indexOf(queryString) >= 0)
+        return (isEn || isCh || isValue)
       }) : shbyzy
       cb(results)
     },
     handleSelect(item) {
-      this.list3.BaseGradMajorCode= item.value
+      this.list3.BaseGradMajorCode = item.value
     },
     postGradMajorSelect(item) {
-      this.list3.BasePostGradMajorCode  = item.value
+      this.list3.BasePostGradMajorCode = item.value
     },
     MasterDegreeSelect(item) {
-      this.list3.DegreeBasePostGradMajorCode  = item.value
+      this.list3.DegreeBasePostGradMajorCode = item.value
     },
-    BachelorDegreeSelect(item){
+    BachelorDegreeSelect(item) {
       this.list3.DegreeBaseGradMajorCode = item.value
     }
   }
@@ -506,6 +506,5 @@ export default {
     height: 25px;
     color: #606266;
   }
-
 
 </style>

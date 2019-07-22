@@ -2,10 +2,10 @@
   <div class="prologin-container">
     <div class="header">
       <img style="width: 263px;height: 82px;" src="@/assets/login/logo.png">
-      <span style="margin-left:15px;font-size: 36px;font-weight: bold;color: white"></span>
+      <span style="margin-left:15px;font-size: 36px;font-weight: bold;color: white" />
       <span
         style="margin-left:15px;padding-left:15px;border-left: 1px solid gainsboro;font-size: 16px;font-weight: bold;color: white"
-      ></span>
+      />
       <lang-select style="position: absolute;right: 15%;" />
     </div>
     <div class="main-content">
@@ -19,9 +19,10 @@
               <input v-model="loginForm.password" maxlength="12" :placeholder="$t('login.placeholdPassword')" :type="showPassword?'':'password'" class="login-form-input">
               <el-button
                 type="text"
-                style="position: absolute;top:0;right: 0px;padding-top: 5px;color: #9b0d14">
-<!--                @click="showPassword=!showPassword"-->
-<!--              >{{ !showPassword?$t('login.showPassword'):$t('login.hidePassword') }}-->
+                style="position: absolute;top:0;right: 0px;padding-top: 5px;color: #9b0d14"
+              >
+                <!--                @click="showPassword=!showPassword"-->
+                <!--              >{{ !showPassword?$t('login.showPassword'):$t('login.hidePassword') }}-->
               </el-button>
             </div>
           </div>
@@ -82,81 +83,81 @@ module.exports = {
       swiperList: ['https://gradms.sdu.edu.cn/applogin/images/back1.png', 'https://gradms.sdu.edu.cn/applogin/images/back2.png', 'https://gradms.sdu.edu.cn/applogin/images/back3.png']
     }
   },
-  mounted(){
-    this.getCookie();
-    //alert(this.getCookie())
+  mounted() {
+    this.getCookie()
+    // alert(this.getCookie())
   },
   methods: {
     toRegister() {
       this.$router.push({ path: '/preregister' })
     },
     login: function() {
-      const  _this = this;
-      //判断复选框是否被勾选 勾选则调用配置cookie方法
+      const _this = this
+      // 判断复选框是否被勾选 勾选则调用配置cookie方法
       if (_this.ydxy == true) {
-        console.log("checked == true");
-        //传入账号名，密码，和保存天数3个参数
-        _this.setCookie(_this.loginForm.userName, _this.loginForm.password, 7);
-      }else {
-        console.log("清空Cookie");
-        //清空Cookie
-        _this.clearCookie();
+        console.log('checked == true')
+        // 传入账号名，密码，和保存天数3个参数
+        _this.setCookie(_this.loginForm.userName, _this.loginForm.password, 7)
+      } else {
+        console.log('清空Cookie')
+        // 清空Cookie
+        _this.clearCookie()
       }
       const jsonForm = JSON.stringify({ username: this.loginForm.userName, password: this.loginForm.password })
       login(jsonForm).then(response => {
-        //console.log(response.msg);
+        // console.log(response.msg);
         _this.msg = response.msg
-        if (this.msg === 'userNoExist'){
+        if (this.msg === 'userNoExist') {
           _this.$message({
             type: 'error',
             message: 'userNoExist'
           })
-        } else if (this.msg === 'passwordError'){
+        } else if (this.msg === 'passwordError') {
           _this.$message({
             type: 'error',
             message: 'passwordError'
           })
-         } else if (this.msg === 'systemError') {
+        } else if (this.msg === 'systemError') {
           _this.$message({
             type: 'error',
             message: 'systemError'
           })
         } else {
-          _this.loading = true;
-          _this.$store.dispatch('user/getInfo');
-          _this.$router.push({ path: '/dashboard' });
+          _this.loading = true
+          _this.$store.dispatch('user/getInfo')
+          _this.$router.push({ path: '/dashboard' })
           _this.loading = false
         }
       }).catch(err => {
-         _this.loading = false
+        _this.loading = false
         console.log(err)
       })
     },
     setCookie(c_name, c_pwd, exdays) {
-      let exdate = new Date(); //获取时间
-      exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000 * exdays); //保存的天数
-      //字符串拼接cookie
-      window.document.cookie = "userName" + "=" + c_name + ";path=/;expires=" + exdate.toGMTString();
-      window.document.cookie = "password" + "=" + c_pwd + ";path=/;expires=" + exdate.toGMTString();
+      const exdate = new Date() // 获取时间
+      exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000 * exdays) // 保存的天数
+      // 字符串拼接cookie
+      window.document.cookie = 'userName' + '=' + c_name + ';path=/;expires=' + exdate.toGMTString()
+      window.document.cookie = 'password' + '=' + c_pwd + ';path=/;expires=' + exdate.toGMTString()
     },
-    //读取cookie
+    // 读取cookie
     getCookie: function() {
       if (document.cookie.length > 0) {
-        let arr = document.cookie.split('; '); //这里显示的格式需要切割一下自己可输出看下
+        const arr = document.cookie.split('; ') // 这里显示的格式需要切割一下自己可输出看下
         for (let i = 0; i < arr.length; i++) {
-          let arr2 = arr[i].split('='); //再次切割
-          //判断查找相对应的值
+          const arr2 = arr[i].split('=') // 再次切割
+          // 判断查找相对应的值
           if (arr2[0] == 'userName') {
-            this.loginForm.userName = arr2[1]; //保存到保存数据的地方
+            this.loginForm.userName = arr2[1] // 保存到保存数据的地方
           } else if (arr2[0] == 'password') {
-            this.loginForm.password = arr2[1];
+            this.loginForm.password = arr2[1]
           }
         }
       }
     },
-    //清除cookie
+    // 清除cookie
     clearCookie: function() {
-      this.setCookie("", "", -1); //修改2值都为空，天数为负1天就好了
+      this.setCookie('', '', -1) // 修改2值都为空，天数为负1天就好了
     },
     reDirect() {
       window.location.href = 'http://pass.sdu.edu.cn/cas/login?service=https%3A%2F%2F202.194.7.29%2Fcaslogin.jsp'

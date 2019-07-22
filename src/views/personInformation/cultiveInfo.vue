@@ -3,22 +3,22 @@
     <table class="content" cellspacing="0" width="100%">
       <tbody><tr>
         <td height="300" colspan="8" align="center" valign="top">
-          <table class="content"  width="100%">
+          <table class="content" width="100%">
             <tbody><tr>
-                     <td  colspan="4">
+                     <td colspan="4">
                        <div align="center" style="font-size:16px;color:#A50001">
                          {{ $t('cultivationInformationModal.studentCultivationInfo') }}
                        </div>
                      </td>
                    </tr>
               <tr>
-                <td  width="25%" class="colstyle1">
+                <td width="25%" class="colstyle1">
                   {{ $t('cultivationInformationModal.studentType') }}
                 </td>
                 <td width="25%" class="colstyle2">
                   {{ $t(list2.stuTypeCode) }}
                 </td>
-                <td  width="25%" class="colstyle1">
+                <td width="25%" class="colstyle1">
                   {{ $t('cultivationInformationModal.department') }}
                 </td>
                 <td width="25%" class="colstyle2">
@@ -118,7 +118,7 @@ export default {
       list2: []
     }
   },
-   created() {
+  created() {
     this.fetchData()
   },
   methods: {

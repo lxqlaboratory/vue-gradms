@@ -108,7 +108,7 @@ export default {
     }
   },
   created() {
-    this.fetchData(),
+    this.fetchData()
     this.getRowClass()
   },
   methods: {

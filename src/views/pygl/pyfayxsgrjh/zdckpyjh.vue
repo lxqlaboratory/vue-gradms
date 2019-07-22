@@ -126,12 +126,12 @@
         </template>
       </el-table-column>
       <el-table-column
+        v-if="currentRole"
         :label="$t('publishThesis.operation')"
         align="center"
-        v-if="currentRole"
       >
         <template slot-scope="scope">
-          <el-button size="mini" round class="allBtn" @click="deleteCourse(scope.row.planCourseId)">{{$t('cuiltivatingSchemeCheckAndDrawup.delete')}}</el-button>
+          <el-button size="mini" round class="allBtn" @click="deleteCourse(scope.row.planCourseId)">{{ $t('cuiltivatingSchemeCheckAndDrawup.delete') }}</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -253,12 +253,12 @@
         </template>
       </el-table-column>
       <el-table-column
+        v-if="currentRole"
         :label="$t('publishThesis.operation')"
         align="center"
-        v-if="currentRole"
       >
         <template slot-scope="scope">
-          <el-button size="mini" round class="allBtn" @click="deleteCourse(scope.row.planCourseId)">{{$t('cuiltivatingSchemeCheckAndDrawup.delete')}}</el-button>
+          <el-button size="mini" round class="allBtn" @click="deleteCourse(scope.row.planCourseId)">{{ $t('cuiltivatingSchemeCheckAndDrawup.delete') }}</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -380,12 +380,12 @@
         </template>
       </el-table-column>
       <el-table-column
+        v-if="currentRole"
         :label="$t('publishThesis.operation')"
         align="center"
-        v-if="currentRole"
       >
         <template slot-scope="scope">
-          <el-button size="mini" round class="allBtn" @click="deleteCourse(scope.row.planCourseId)">{{$t('cuiltivatingSchemeCheckAndDrawup.delete')}}</el-button>
+          <el-button size="mini" round class="allBtn" @click="deleteCourse(scope.row.planCourseId)">{{ $t('cuiltivatingSchemeCheckAndDrawup.delete') }}</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -458,20 +458,20 @@
       &nbsp;&nbsp;
     </div>
 
-    <table class="content" cellspacing="0" width="100%" v-if="currentRole">
+    <table v-if="currentRole" class="content" cellspacing="0" width="100%">
       <tbody><tr>
         <td class="head" height="30" colspan="6">
-          <div align="center" style="color: #9b0d14" >
-          培养方案课程
+          <div align="center" style="color: #9b0d14">
+            培养方案课程
           </div>
         </td>
       </tr>
       </tbody></table>
-    <table class="content" cellspacing="0" width="100%" v-else>
+    <table v-else class="content" cellspacing="0" width="100%">
       <tbody><tr>
         <td class="head" height="30" colspan="6">
-          <div align="center" style="color: #9b0d14" >
-            <el-button size="mini" class="allBtn" ><a href="/gradms/api/cultivate/newCultivatePlanPrint" download="course.pdf" style="color: #9b0d14">{{$t('cuiltivatingSchemeCheckAndDrawup.print')}}</a></el-button>
+          <div align="center" style="color: #9b0d14">
+            <el-button size="mini" class="allBtn"><a href="/gradms/api/cultivate/newCultivatePlanPrint" download="course.pdf" style="color: #9b0d14">{{ $t('cuiltivatingSchemeCheckAndDrawup.print') }}</a></el-button>
           </div>
         </td>
       </tr>
@@ -479,6 +479,7 @@
 
     <div>
       <el-table
+        v-if="currentRole"
         :data="schemeRequiredList"
         element-loading-text="Loading"
         border
@@ -487,7 +488,6 @@
         style="width: 100%"
         :span-method="rowSpanMethodRequired"
         :header-cell-style="getRowClass"
-        v-if="currentRole"
       >
         <el-table-column
           :label="$t('cuiltivatingSchemeCheckAndDrawup.type')"
@@ -562,7 +562,7 @@
           align="center"
         >
           <template slot-scope="scope">
-            <el-button size="mini" round  class="allBtn" @click="insertCourse(scope.row.courseNum)">{{$t('publishThesis.add')}}</el-button>
+            <el-button size="mini" round class="allBtn" @click="insertCourse(scope.row.courseNum)">{{ $t('publishThesis.add') }}</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -570,6 +570,7 @@
 
     <div>
       <el-table
+        v-if="currentRole"
         :data="schemeOptionalList"
         element-loading-text="Loading"
         border
@@ -579,7 +580,6 @@
         :span-method="rowSpanMethodOptional"
         :header-cell-style="getRowClass"
         :show-header="false"
-        v-if="currentRole"
       >
         <el-table-column
           :label="$t('cuiltivatingSchemeCheckAndDrawup.type')"
@@ -654,7 +654,7 @@
           align="center"
         >
           <template slot-scope="scope">
-            <el-button size="mini" round class="allBtn" @click="insertCourse(scope.row.courseNum)">{{$t('publishThesis.add')}}</el-button>
+            <el-button size="mini" round class="allBtn" @click="insertCourse(scope.row.courseNum)">{{ $t('publishThesis.add') }}</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -662,6 +662,7 @@
 
     <div>
       <el-table
+        v-if="currentRole"
         :data="schemeBuxiuList"
         element-loading-text="Loading"
         border
@@ -671,7 +672,6 @@
         :span-method="rowSpanMethodBuxiu"
         :header-cell-style="getRowClass"
         :show-header="false"
-        v-if="currentRole"
       >
         <el-table-column
           :label="$t('cuiltivatingSchemeCheckAndDrawup.type')"
@@ -746,7 +746,7 @@
           align="center"
         >
           <template slot-scope="scope">
-            <el-button size="mini" round class="allBtn" @click="insertCourse(scope.row.courseNum)">{{$t('publishThesis.add')}}</el-button>
+            <el-button size="mini" round class="allBtn" @click="insertCourse(scope.row.courseNum)">{{ $t('publishThesis.add') }}</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -755,18 +755,18 @@
     <div>
       &nbsp;&nbsp;
     </div>
-     <div>
-       <table class="content" cellspacing="0" width="100%" v-if="currentRole">
-         <tbody><tr>
-           <td class="head" height="30" colspan="6">
-             <div align="center" style="color: #9b0d14" >
-               <el-button size="mini" class="allBtn" @click="insertPublicCourse">添加公共选修课</el-button>
-               <el-button size="mini" class="allBtn" @click="insertAllCourse">跨学院选课</el-button>
-             </div>
-           </td>
-         </tr>
-         </tbody></table>
-     </div>
+    <div>
+      <table v-if="currentRole" class="content" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td class="head" height="30" colspan="6">
+            <div align="center" style="color: #9b0d14">
+              <el-button size="mini" class="allBtn" @click="insertPublicCourse">添加公共选修课</el-button>
+              <el-button size="mini" class="allBtn" @click="insertAllCourse">跨学院选课</el-button>
+            </div>
+          </td>
+        </tr>
+        </tbody></table>
+    </div>
   </div>
 </template>
 <script>
@@ -800,17 +800,16 @@ export default {
     fetchData() {
       showCultivatePlan().then(res => {
         this.cultSessisonList = res.data.planData.cultSessisonList
-        this.planDataRequiredList  =  res.data.planData.CourseList11
+        this.planDataRequiredList = res.data.planData.CourseList11
         console.log(this.planDataRequiredList)
-        this.planDataRequiredListLength  =  res.data.planData.CourseList11.length
-        this.planDataOptionalList  =  res.data.planData.CourseList12
-        this.planDataOptionalListLength  =  res.data.planData.CourseList12.length
-        this.planDataBuxiuList  =  res.data.planData.CourseList13
-        this.planDataBuxiuListLength  =  res.data.planData.CourseList13.length
-        if(res.data.planState === 1){
+        this.planDataRequiredListLength = res.data.planData.CourseList11.length
+        this.planDataOptionalList = res.data.planData.CourseList12
+        this.planDataOptionalListLength = res.data.planData.CourseList12.length
+        this.planDataBuxiuList = res.data.planData.CourseList13
+        this.planDataBuxiuListLength = res.data.planData.CourseList13.length
+        if (res.data.planState === 1) {
           this.currentRole = false
-        }
-        else{
+        } else {
           this.currentRole = true
           this.schemeBuxiuList = res.data.schemeData.buxiuList
           this.schemeOptionalList = res.data.schemeData.optionalList
@@ -835,32 +834,32 @@ export default {
       })
     },
 
-    deleteCourse(cultPlanId){
+    deleteCourse(cultPlanId) {
       selectCourseDelete({ 'cultPlanId': cultPlanId }).then(res => {
         this.fetchData()
       }).catch(e => {
       })
     },
 
-    insertPublicCourse(){
-      this.$router.push({path: './insertPublicCourse'})
+    insertPublicCourse() {
+      this.$router.push({ path: './insertPublicCourse' })
     },
-    insertAllCourse(){
-      this.$router.push({path: './allCourseQuery'})
+    insertAllCourse() {
+      this.$router.push({ path: './allCourseQuery' })
     },
-    //合并行
+    // 合并行
     rowSpanMethodRequired({ row, column, rowIndex, columnIndex }) {
       if (columnIndex === 0) {
         if (rowIndex % this.schemeRequiredListLength === 0) {
           return {
             rowspan: this.schemeRequiredListLength,
             colspan: 1
-          };
+          }
         } else {
           return {
             rowspan: 0,
             colspan: 0
-          };
+          }
         }
       }
     },
@@ -870,12 +869,12 @@ export default {
           return {
             rowspan: this.schemeOptionalListLength,
             colspan: 1
-          };
+          }
         } else {
           return {
             rowspan: 0,
             colspan: 0
-          };
+          }
         }
       }
     },
@@ -885,12 +884,12 @@ export default {
           return {
             rowspan: this.schemeBuxiuListLength,
             colspan: 1
-          };
+          }
         } else {
           return {
             rowspan: 0,
             colspan: 0
-          };
+          }
         }
       }
     },
@@ -901,12 +900,12 @@ export default {
           return {
             rowspan: this.planDataRequiredListLength,
             colspan: 1
-          };
+          }
         } else {
           return {
             rowspan: 0,
             colspan: 0
-          };
+          }
         }
       }
     },
@@ -916,12 +915,12 @@ export default {
           return {
             rowspan: this.planDataOptionalListLength,
             colspan: 1
-          };
+          }
         } else {
           return {
             rowspan: 0,
             colspan: 0
-          };
+          }
         }
       }
     },
@@ -931,12 +930,12 @@ export default {
           return {
             rowspan: this.planDataBuxiuListLength,
             colspan: 1
-          };
+          }
         } else {
           return {
             rowspan: 0,
             colspan: 0
-          };
+          }
         }
       }
     }

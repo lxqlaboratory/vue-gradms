@@ -10,11 +10,10 @@
       :header-cell-style="getRowClass"
     >
       <el-table-column
-        label="类别"
         :label="$t('cuiltivatingSchemeCheckAndDrawup.type')"
         width="65"
         align="center"
-        >
+      >
         <template slot-scope="scope">
           {{ (scope.row.type) }}
         </template>
@@ -30,7 +29,6 @@
       </el-table-column>
       <el-table-column
         prop="date"
-        label="课程号"
         :label="$t('cuiltivatingSchemeCheckAndDrawup.courseNumber')"
         width="78"
         align="center"
@@ -41,7 +39,6 @@
       </el-table-column>
       <el-table-column
         prop="name"
-        label="课程名"
         :label="$t('cuiltivatingSchemeCheckAndDrawup.courseName')"
         align="center"
       >
@@ -51,7 +48,6 @@
       </el-table-column>
       <el-table-column
         prop="address"
-        label="开课学期"
         :label="$t('cuiltivatingSchemeCheckAndDrawup.courseTerm')"
         align="center"
         width="152"
@@ -62,7 +58,6 @@
       </el-table-column>
       <el-table-column
         prop="address"
-        label="总学时"
         :label="$t('cuiltivatingSchemeCheckAndDrawup.totalClassHours')"
         width="82"
         align="center"
@@ -73,7 +68,6 @@
       </el-table-column>
       <el-table-column
         prop="address"
-        label="学分"
         :label="$t('cuiltivatingSchemeCheckAndDrawup.credit')"
         width="60"
         align="center"
@@ -84,7 +78,6 @@
       </el-table-column>
       <el-table-column
         prop="address"
-        label="任课教师"
         :label="$t('cuiltivatingSchemeCheckAndDrawup.tutor')"
         align="center"
       >
@@ -94,7 +87,6 @@
       </el-table-column>
       <el-table-column
         prop="address"
-        label="考核方式"
         :label="$t('cuiltivatingSchemeCheckAndDrawup.evaluationMode')"
         align="center"
         width="80"
@@ -217,7 +209,7 @@
           width="65"
           align="center"
         >
-          <template slot-scope="scope" >
+          <template slot-scope="scope">
             {{ (scope.row.type) }}
           </template>
         </el-table-column>
@@ -317,11 +309,11 @@ export default {
       requiredList: [],
       optionalList: [],
       buxiuList: [],
-      requiredListLength:'',
-      rowspan:'',
-      colspan:'',
-      row:'',
-      column:''
+      requiredListLength: '',
+      rowspan: '',
+      colspan: '',
+      row: '',
+      column: ''
 
     }
   },
@@ -329,7 +321,7 @@ export default {
     '$route': 'fetchData'
   },
   created() {
-    this.fetchData(),
+    this.fetchData()
     this.rowSpanMethod1()
     this.rowSpanMethod2()
     this.rowSpanMethod3()
@@ -342,7 +334,7 @@ export default {
       this.error = this.post = null
       this.loading = true
       console.log(this.$route.params.schemeId)
-      showCourse({'schemeId': this.$route.params.schemeId}, (err, post) => {
+      showCourse({ 'schemeId': this.$route.params.schemeId }, (err, post) => {
         this.loading = false
         if (err) {
           this.error = err.toString()
@@ -350,31 +342,31 @@ export default {
           this.post = post
         }
       }).then(res => {
-          res.data.requiredList[0].type = "必修课"
-          this.requiredList = res.data.requiredList
-          this.requiredListLength= this.requiredList.length
-          res.data.optionalList[0].type = "选修课"
-          this.optionalList = res.data.optionalList
-          this.optionalListLength = this.optionalList.length
-          res.data.buxiuList[0].type = "补修课"
-          this.buxiuList = res.data.buxiuList
-          this.buxiuListLength = this.buxiuList.length
-        }
+        res.data.requiredList[0].type = '必修课'
+        this.requiredList = res.data.requiredList
+        this.requiredListLength = this.requiredList.length
+        res.data.optionalList[0].type = '选修课'
+        this.optionalList = res.data.optionalList
+        this.optionalListLength = this.optionalList.length
+        res.data.buxiuList[0].type = '补修课'
+        this.buxiuList = res.data.buxiuList
+        this.buxiuListLength = this.buxiuList.length
+      }
       )
     },
-    //合并行
+    // 合并行
     rowSpanMethod1({ row, column, rowIndex, columnIndex }) {
       if (columnIndex === 0) {
         if (rowIndex % this.requiredListLength === 0) {
           return {
             rowspan: this.requiredListLength,
             colspan: 1
-          };
+          }
         } else {
           return {
             rowspan: 0,
             colspan: 0
-          };
+          }
         }
       }
     },
@@ -384,12 +376,12 @@ export default {
           return {
             rowspan: this.optionalListLength,
             colspan: 1
-          };
+          }
         } else {
           return {
             rowspan: 0,
             colspan: 0
-          };
+          }
         }
       }
     },
@@ -399,24 +391,22 @@ export default {
           return {
             rowspan: this.buxiuListLength,
             colspan: 1
-          };
+          }
         } else {
           return {
             rowspan: 0,
             colspan: 0
-          };
+          }
         }
       }
     },
-    getRowClass ({ row, column, rowIndex, columnIndex }) {
+    getRowClass({ row, column, rowIndex, columnIndex }) {
       if (rowIndex === 0) {
         return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
       } else {
         return ''
       }
     }
-
-
 
   }
 }
@@ -429,6 +419,5 @@ export default {
     margin-right: 20px;
     margin-bottom: 30px;
   }
-
 
 </style>

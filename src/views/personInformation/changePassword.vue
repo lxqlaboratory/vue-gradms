@@ -1,24 +1,24 @@
 <template>
-  <div class="app-container" >
-    <el-form ref="ruleForm" :model="ruleForm" status-icon :rules="rules"  class="demo-ruleForm" label-width="150px" >
+  <div class="app-container">
+    <el-form ref="ruleForm" :model="ruleForm" status-icon :rules="rules" class="demo-ruleForm" label-width="150px">
       <el-form-item :label="$t('modifyPasswordModal.oldPassword')" prop="oldPass" style="color: #9b0d14">
         <el-input v-model="ruleForm.oldPass" type="password" autocomplete="off" style="width: 25%;" />
       </el-form-item>
-      <el-form-item :label="$t('modifyPasswordModal.inputNewPassword')" prop="newPass" >
+      <el-form-item :label="$t('modifyPasswordModal.inputNewPassword')" prop="newPass">
         <el-input v-model="ruleForm.newPass" type="password" autocomplete="off" style="width: 25%;" />
       </el-form-item>
       <el-form-item :label="$t('modifyPasswordModal.retypePassword')" prop="checkPass" class="leftSpan" style="color: #9b0d14">
         <el-input v-model="ruleForm.checkPass" type="password" autocomplete="off" style="width: 25%;" />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary"  class="submitBtn"    @click="submitForm()">{{ $t('route.submit')}}</el-button>
-        <el-button  class="resetBtn" @click="resetForm('ruleForm')">{{ $t('modifyPasswordModal.reset')}}</el-button>
+        <el-button type="primary" class="submitBtn" @click="submitForm()">{{ $t('route.submit') }}</el-button>
+        <el-button class="resetBtn" @click="resetForm('ruleForm')">{{ $t('modifyPasswordModal.reset') }}</el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
 <script>
-  import { editPassword } from '@/api/editPassword'
+import { editPassword } from '@/api/editPassword'
 const Base64 = require('js-base64').Base64
 
 export default {
@@ -88,7 +88,7 @@ export default {
             type: 'error',
             message: 'The old password you entered is incorrect'
           })
-      } else if (this.msg === 'userError'){
+        } else if (this.msg === 'userError') {
           this.$message({
             type: 'error',
             message: 'The user does not exist.'

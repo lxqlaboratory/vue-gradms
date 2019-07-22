@@ -3,10 +3,10 @@
     <!--第一行-->
     <el-row>
       <el-col :span="4" class="colstyle1" style="padding-top: 10px;">
-        <label class="title">{{$t('courseQuery.school')}}</label>
+        <label class="title">{{ $t('courseQuery.school') }}</label>
       </el-col>
       <el-col :span="8" class="colstyle2">
-        <el-select style="width: 70%" size="mini" placeholder="please Choose" v-model="choseSchool">
+        <el-select v-model="choseSchool" style="width: 70%" size="mini" placeholder="please Choose">
           <el-option
             v-for="item in collegeList"
             :key="item.value"
@@ -16,24 +16,24 @@
         </el-select>
       </el-col>
       <el-col :span="4" class="colstyle3" style="padding-top: 10px;">
-        <label class="title">{{$t('courseQuery.courseNumber')}}</label>
+        <label class="title">{{ $t('courseQuery.courseNumber') }}</label>
       </el-col>
       <el-col :span="8" class="colstyle4">
-        <el-input style="width: 70%" size="mini" v-model="courseNum" />
+        <el-input v-model="courseNum" style="width: 70%" size="mini" />
       </el-col>
     </el-row>
     <!--第二行-->
     <el-row style="border-bottom: 1px solid black">
       <el-col :span="4" class="colstyle1" style="padding-top: 10px;">
-        <label class="title">{{$t('courseQuery.courseName')}}	</label>
+        <label class="title">{{ $t('courseQuery.courseName') }}	</label>
       </el-col>
       <el-col :span="8" class="colstyle2">
-        <el-input style="width: 70%" size="mini" v-model="courseName"/>
+        <el-input v-model="courseName" style="width: 70%" size="mini" />
       </el-col>
     </el-row>
     <!--第三行-->
     <el-row style="padding-top:10px;border: 0px">
-      <el-button type="primary" class="allBtn" style="width: 25%" @click="showAllCourse">{{$t('courseQuery.query')}} </el-button>
+      <el-button type="primary" class="allBtn" style="width: 25%" @click="showAllCourse">{{ $t('courseQuery.query') }} </el-button>
     </el-row>
     <div>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -140,8 +140,8 @@
 </template>
 
 <script>
-  import { allCourseQueryInit } from '@/api/allCourseQuery.js'
-  import { allCourseQueryDoQuery } from '@/api/allCourseQuery.js'
+import { allCourseQueryInit } from '@/api/allCourseQuery.js'
+import { allCourseQueryDoQuery } from '@/api/allCourseQuery.js'
 export default {
   name: 'Kccx',
   data() {
@@ -164,22 +164,22 @@ export default {
       })
     },
     showAllCourse() {
-      allCourseQueryDoQuery({'collegeId': this.choseSchool ,'courseNum': this.courseNum ,'courseName': this.courseName  }).then(res => {
-        if(res.msg==='学院与（课程名或课程号）不能同时为空'){
+      allCourseQueryDoQuery({ 'collegeId': this.choseSchool, 'courseNum': this.courseNum, 'courseName': this.courseName }).then(res => {
+        if (res.msg === '学院与（课程名或课程号）不能同时为空') {
           this.$message({
             message: '学院与（课程名或课程号）不能同时为空',
             type: 'error'
-          });
-        }else{
+          })
+        } else {
           this.showTable = true
           this.publicCourseList = res.data
         }
-      }).catch(e =>{
+      }).catch(e => {
 
       })
     },
-    insertCourse(courseId){
-      this.$router.push({ name: 'allCourseQueryDetail', params: { courseId}})
+    insertCourse(courseId) {
+      this.$router.push({ name: 'allCourseQueryDetail', params: { courseId }})
     },
     getRowClass({ row, column, rowIndex, columnIndex }) {
       if (rowIndex === 0) {
