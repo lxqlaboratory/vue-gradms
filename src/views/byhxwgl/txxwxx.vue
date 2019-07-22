@@ -3,7 +3,7 @@
     <table width="100%" class="content">
       <tbody>
         <tr>
-          <td style="text-align:left; color: #9b0d14">
+          <td style="text-align:left; color: #9b0d14;font-size: 12px;line-height: 18px">
             {{ $t('fillInTheDegreeInfo.note1') }}<br>
             {{ $t('fillInTheDegreeInfo.note2') }}
           </td>
@@ -68,13 +68,14 @@
       </tbody></table>
     <table class="content" cellspacing="0" width="100%">
       <tbody><tr>
-        <td width="20%" align="left" style="color: #909399">&nbsp;&nbsp;论文介绍(包括<br>&nbsp;&nbsp;论文选题的来源、<br>&nbsp;&nbsp;理论意义和应用价值；<br>&nbsp;&nbsp;论文的创新性及意义；<br>&nbsp;&nbsp;论文的不足之处)<br>&nbsp;&nbsp;(500-800字)
+        <td width="20%" align="left" style="color: #909399;font-size: 12px;line-height: 18px">&nbsp;&nbsp;论文介绍(包括<br>&nbsp;&nbsp;论文选题的来源、<br>&nbsp;&nbsp;理论意义和应用价值；<br>&nbsp;&nbsp;论文的创新性及意义；<br>&nbsp;&nbsp;论文的不足之处)<br>&nbsp;&nbsp;(500-800字)
         </td>
         <td><el-input
           v-model="gradThesisIntroduction"
           type="textarea"
           minlength="500"
           maxlength="800"
+          rows="8"
           show-word-limit
           :autosize="{ minRows: 1, maxRows: 8}"
         /></td>

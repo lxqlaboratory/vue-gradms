@@ -3,7 +3,7 @@
     <table cellspacing="0" width="100%">
       <tbody>
         <tr><td colspan="11">
-          <font color="#9b0d14">
+          <font color="#9b0d14" style="font-size: 12px">
             说明：
             <br> *  1. 请申请本学期毕业的学生选择'是',并提交
             <br>*  2. 本学期不申请毕业的学生请不要操作
@@ -14,7 +14,7 @@
         </td>
         </tr>
         <tr>
-          <td align="center" colspan="3" style="color: #9b0d14 ">
+          <td align="center" colspan="3" style="color: #9b0d14;font-size: 12px ">
             提交毕业申请时间为2017-02-22 08：00：00至2019-12-31 17：01：01，请尽快提交毕业申请
           </td>
         </tr>
@@ -52,7 +52,7 @@
     <table cellspacing="0" width="100%">
       <tbody><tr>
         <td style="text-align:center">
-          <el-button type="primary" size="mini">提交</el-button>
+          <el-button style="background-color:#A50001;color: #ffffff " size="mini">提交</el-button>
         </td>
       </tr>
       </tbody>

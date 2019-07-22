@@ -1,127 +1,89 @@
-<template>
-  <div>
-    <div>aaa</div>
-    <table class="content" width="100%">
-      <tbody>
+<template xmlns="http://www.w3.org/1999/html">
+  <div class="container">
+    <p class="noticeSpan">
+      注意：
+      <br>1、论文基本信息主要用于论文评审，学位报盘、图书馆收录等，论文主题词须以英文逗号（“,”）隔开，3-5个，不能少于3个，也不能多于5个，信息完善后点击修改保存，并随时可以修改，以最后一次修改为准。
+      <br> 2、学位论文终稿用于毕业后论文审核和学术不端检测，请在上传后及时联系导师进行审核，导师审核通过后，可以进行学术不端检测，导师审核通过后，不能再上传论文。
+    </p>
+    <div>
+      <table class="content">
         <tr>
-          <td width="10%" class="colstyle1">创建者</td>
-          <td width="25%" class="colstyle2"> {{ list.perName }}</td>
-          <td width="10%" class="colstyle1">所属学院</td>
-          <td width="20%" class="colstyle2">{{ list.perNum }}</td>
-          <td width="10%" class="colstyle1">课程类别</td>
-          <td width="25%" class="colstyle2">{{ $t(list.stuTypeCode) }}</td>
+          <td class="colspan1">{{$t('uploadThesisPaper.studentNum')}}</td>
+          <td><el-input v-model="input" type="text"  size="mini" class="colspan2" ></el-input></td>
+          <td class="colspan1">{{$t('uploadThesisPaper.name')}}</td>
+          <td><el-input v-model="input"  size="mini" class="colspan2"></el-input></td>
+          <td class="colspan1">{{$t('uploadThesisPaper.language')}}</td>
+          <td><el-input v-model="input"  size="mini" class="colspan2"></el-input></td>
+          <td class="colspan1">{{$t('uploadThesisPaper.typeNum')}}	</td>
+          <td><el-input v-model="input"  size="mini" class="colspan2"></el-input></td>
         </tr>
-        <tr>
-          <td class="colstyle1">课程名</td>
-          <td class="colstyle2">{{ $t(list.college) }}</td>
-          <td class="colstyle1">课程英文名</td>
-          <td class="colstyle2">{{ $t(list.major) }}</td>
-          <td class="colstyle1">开课学院</td>
-          <td class="colstyle2">{{ $t(list.tutor) }}</td>
+        <tr style="width: 100%">
+          <td colspan="2" class="colspan1">{{$t('uploadThesisPaper.theisTitle')}}</td>
+          <td colspan="6" ><el-input v-model="input"  size="mini" class="colspan2"></el-input></td>
         </tr>
-        <tr>
-          <td class="colstyle1">开课学期</td>
-          <td class="colstyle2">{{ $t(list.thesisTopic) }}</td>
-          <td class="colstyle1">总学时</td>
-          <td class="colstyle2">{{ list.answerTime }}</td>
-          <td class="colstyle1"> 学分</td>
-          <td class="colstyle2">{{ list.answerPlace }}</td>
+        <tr style="width: 100%">
+          <td colspan="2" class="colspan1">{{$t('uploadThesisPaper.foreignTitle')}}</td>
+          <td colspan="6" ><el-input v-model="input"  size="mini" class="colspan2"></el-input></td>
         </tr>
-        <tr>
-          <td class="colstyle1">讲课学时</td>
-          <td class="colstyle2">{{ $t(list.thesisTopic) }}</td>
-          <td class="colstyle1">实验课学时</td>
-          <td class="colstyle2">{{ list.answerTime }}</td>
-          <td class="colstyle1"> 上机学时</td>
-          <td class="colstyle2">{{ list.answerPlace }}</td>
+        <tr style="width: 100%">
+          <td colspan="2" class="colspan1">{{$t('uploadThesisPaper.researchDirection')}}</td>
+          <td colspan="6"><el-input v-model="input"  size="mini" class="colspan2"></el-input></td>
         </tr>
-        <tr>
-          <td class="colstyle1">课程属性</td>
-          <td class="colstyle2">{{ $t(list.thesisTopic) }}</td>
-          <td class="colstyle1">教学方式</td>
-          <td class="colstyle2">{{ list.answerTime }}</td>
-          <td class="colstyle1"> 授课语言</td>
-          <td class="colstyle2">{{ list.answerPlace }}</td>
+        <tr style="width: 100%">
+          <td colspan="2" class="colspan1">{{$t('uploadThesisPaper.ChineseKeyWords')}}</td>
+          <td colspan="6"><el-input v-model="input" type="text"  size="mini" class="colspan2"></el-input></td>
         </tr>
-        <tr>
-          <td class="colstyle1">学期持续数</td>
-          <td class="colstyle2">{{ $t(list.thesisTopic) }}</td>
-          <td class="colstyle1">考试方式</td>
-          <td class="colstyle2">{{ list.answerTime }}</td>
-          <td class="colstyle1"> 成绩配置</td>
-          <td class="colstyle2">{{ list.answerPlace }}</td>
+        <tr style="width: 100%">
+          <td colspan="2" class="colspan1">{{$t('uploadThesisPaper.EnglishKeyWords')}}</td>
+          <td colspan="6"><el-input v-model="input"  size="mini" class="colspan2"></el-input></td>
         </tr>
-        <tr>
-          <td class="colstyle1">课程负责人</td>
-          <td class="colstyle2">{{ $t(list.thesisTopic) }}</td>
-          <td class="colstyle1">面向学生类型</td>
-          <td class="colstyle2">{{ list.answerTime }}</td>
-          <td class="colstyle1"> 申请课程类型	</td>
-          <td class="colstyle2">{{ list.answerPlace }}</td>
-        </tr>
-        <tr>
-          <td>其他</td>
-          <td />
-        </tr>
-        <tr>
-          <td>备注</td>
-          <td />
-        </tr>
-      </tbody>
-    </table>
+      </table>
+    </div>
+    <div></div>
   </div>
-
 </template>
 
 <script>
-// import { courseQueryInfo } from '@/api/courseQueryInfo'
-export default {
-  data() {
-    return {
-
-    }
-  },
-
-  created() {
-    this.fetchData()
-  },
-  methods: {
-    fetchData() {
-      courseQueryInfo().then(res => {
-
-      })
-    }
+//  学生上传论文
+  export default {
+    name: 'Xwxxhd'
   }
-}
 </script>
 
 <style scoped>
   .container{
-    width: 100%;
+    margin:20px;
   }
-  .colstyle1,.colstyle2{
+  .noticeSpan{
+    border: 1px solid #EBEEF5;
     font-size: 12px;
-    text-align: center;
-    height: 30px;
-  }
-  .colstyle1{
-    color: #909399;
-    font-weight: bold;
-  }
-  .colstyle2{
-    color: #606266;
+    color: #A50001;
+    padding: 12px;
+    line-height: 18px;
   }
   .content{
     width:100%;
-    border-top: 1px solid #EBEEF5;
-    border-left: 1px solid #EBEEF5;
+    /*border-top: 1px solid #EBEEF5;*/
+    /*border-left: 1px solid #EBEEF5;*/
     border-spacing: 0;/*去掉单元格间隙*/
     margin-top: 15px;
+    margin-bottom: 15px;
   }
   .content td {
-    padding: 10px 30px;
-    border-bottom: 1px solid #EBEEF5;
-    border-right: 1px solid #EBEEF5;
+    padding: 10px 20px;
+    /*border-bottom: 1px solid #EBEEF5;*/
+    /*border-right: 1px solid #EBEEF5;*/
+    text-align: center;
+    font-size: 12px;
+  }
+  .colspan1{
+    color: #909399;
+    font-weight: bold;
+  }
+  .colspan2{
+    border: 1px solid #EBEEF5;
+    border-radius: 4px;
+    outline: none;
   }
 
 </style>
