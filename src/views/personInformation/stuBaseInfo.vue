@@ -1,31 +1,32 @@
 <template>
-  <div class="app-container">
+  <div class="container">
     <el-form>
       <table class="content"  width="100%">
         <tbody><tr>
-          <td align="center" valign="top">
+          <td align="center" valign="top" >
             <table class="content"  width="100%">
-              <tbody><tr>
-                       <td class="head"  colspan="5">
-                         <div align="center" class="form-label">
+              <tbody>
+                <tr>
+                       <td  colspan="5" style="font-size:16px;color:#A50001">
+                         <div >
                            {{ $t('baseInformationModal.personalInformation') }}
                          </div>
                        </td>
-                     </tr>
+                    </tr>
                 <tr>
-                  <td width="15%"  class="form-label">
+                  <td width="15%"   class="colstyle1">
                     {{ $t('baseInformationModal.name') }}
                   </td>
-                  <td>
+                  <td class="colstyle2">
                     {{ list.perName }}
                   </td>
-                  <td width="20%" height="25" align="right" class="form-label">
+                  <td width="20%"  class="colstyle1">
                     {{ $t('baseInformationModal.englishName') }}
                   </td>
-                  <td v-if="isEdit" width="25%">
+                  <td v-if="isEdit" width="25%" class="colstyle2">
                     <input v-model="list.perEnglishName">
                   </td>
-                  <td v-else width="25%">
+                  <td v-else width="25%" class="colstyle2">
                     {{ list.perEnglishName }}
                   </td>
                   <td width="20%" rowspan="4">
@@ -33,132 +34,132 @@
                   </td>
                 </tr>
                 <tr>
-                  <td height="25" width="15%" align="right" class="form-label">
+                  <td width="15%" class="colstyle1">
                     {{ $t('baseInformationModal.studentNumber') }}
                   </td>
-                  <td>
+                  <td class="colstyle2">
                     {{ list.perNum }}
                   </td>
-                  <td height="25" width="15%" align="right" class="form-label">
+                  <td  width="15%" class="colstyle1">
                     {{ $t('baseInformationModal.sex') }}
                   </td>
-                  <td>
+                  <td class="colstyle2">
                     {{ $t(list.genderCode) }}
                   </td>
                 </tr>
                 <tr>
-                  <td height="25" width="15%" align="right" class="form-label">
+                  <td  width="15%" class="colstyle1">
                     {{ $t('baseInformationModal.date') }}
                   </td>
-                  <td>
+                  <td class="colstyle2">
                     {{ list.perBirthday }}
                   </td>
-                  <td height="25" width="15%" align="right" class="form-label">
+                  <td width="15%" class="colstyle1">
                     {{ $t('baseInformationModal.nationality') }}
                   </td>
-                  <td width="25%">
+                  <td width="25%" class="colstyle2">
                     {{ $t(list.nationName) }}
                   </td>
                 </tr>
                 <tr>
-                  <td height="25" width="15%" class="form-label">
+                  <td width="15%" class="colstyle1">
                     {{ $t('baseInformationModal.ID') }}
                   </td>
-                  <td>
+                  <td class="colstyle2">
                     {{ list.perIdCard }}
                   </td>
-                  <td width="15%" height="25" align="right" class="form-label">
+                  <td width="15%"class="colstyle1">
                     {{ $t('baseInformationModal.religion') }}
                   </td>
-                  <td v-if="isEdit" width="25%">
+                  <td v-if="isEdit" width="25%" class="colstyle2">
                     <el-select v-model="religionshow" placeholder="please choose" size="mini" class="el-w">
                       <el-option
                         v-for="item in list.zjxy"
                         :key="item.value"
                         :label="$t(item.name)"
                         :value="item.value"
-                      />
+                      ></el-option>
                     </el-select>
-                  </td>
-                  <td v-else width="25%">
+                  </td >
+                  <td v-else width="25%" class="colstyle2">
                     {{ religionshow }}
                   </td>
                 </tr>
               </tbody></table>
-            <table class="content" cellspacing="0" width="100%">
+            <table class="content"  width="100%">
               <tbody>
                 <tr>
-                  <td height="25" colspan="4" class="form-label">
+                  <td  colspan="4"  style="font-size:16px;color:#A50001">
                     {{ $t('baseInformationModal.person') }}
                   </td>
                 </tr>
                 <tr>
-                  <td height="25" align="right" width="20%" class="form-label">
+                  <td  width="20%" class="colstyle1">
                     {{ $t('baseInformationModal.contact') }}
                   </td>
-                  <td v-if="isEdit">
+                  <td v-if="isEdit" class="colstyle2">
                     <input v-model="list.perTelephone">
                   </td>
-                  <td v-else>
+                  <td v-else class="colstyle2">
                     {{ list.perTelephone }}
                   </td>
-                  <td height="25" align="right" width="20%" class="form-label">
+                  <td  width="20%" class="colstyle1">
                     {{ $t('baseInformationModal.phone') }}
                   </td>
-                  <td v-if="isEdit">
+                  <td v-if="isEdit" class="colstyle2">
                     <input v-model="list.mobilePhone">
                   </td>
-                  <td v-else>
+                  <td v-else class="colstyle2">
                     {{ list.mobilePhone }}
                   </td>
                 </tr>
                 <tr>
-                  <td height="25" align="right" class="form-label">
+                  <td class="colstyle1">
                     {{ $t('baseInformationModal.qq') }}
                   </td>
-                  <td v-if="isEdit">
+                  <td v-if="isEdit" class="colstyle2">
                     <input v-model="list.qq">
                   </td>
-                  <td v-else>
+                  <td v-else class="colstyle2">
                     {{ list.qq }}
                   </td>
-                  <td height="25" align="right" class="form-label">
+                  <td class="colstyle1">
                     {{ $t('baseInformationModal.wechat') }}
                   </td>
-                  <td v-if="isEdit">
+                  <td v-if="isEdit" class="colstyle2">
                     <input v-model="list.wechat">
                   </td>
-                  <td v-else>
+                  <td v-else class="colstyle2">
                     {{ list.wechat }}
                   </td>
                 </tr>
                 <tr>
-                  <td height="25" class="form-label" align="right">
+                  <td class="colstyle1">
                     {{ $t('baseInformationModal.email') }}
                   </td>
-                  <td v-if="isEdit" height="25" colspan="3">
+                  <td v-if="isEdit" colspan="3" class="colstyle2">
                     <input v-model="list.email" style="width: 30%">
                   </td>
-                  <td v-else height="25" colspan="3">
+                  <td v-else colspan="3" class="colstyle2">
                     {{ list.email }}
                   </td>
                 </tr>
                 <tr>
-                  <td height="25" align="right" class="form-label">
+                  <td class="colstyle1">
                     {{ $t('baseInformationModal.remark') }}
                   </td>
-                  <td v-if="isEdit" height="40" colspan="3">
+                  <td v-if="isEdit" height="40" colspan="3" class="colstyle2">
                     <input v-model="list.remark" style="width: 50%">
                   </td>
-                  <td v-else height="25" colspan="3">
+                  <td v-else  colspan="3" class="colstyle2">
                     {{ list.remark }}
                   </td>
                 </tr>
                 <tr>
                   <td height="28" colspan="4">
                     <div align="center">
-                      <el-button v-if="!isEdit" type="danger" name="modifyIt" class="submitbutton" @click="edit">{{ $t('route.modify') }}</el-button>
-                      <el-button v-else type="success" name="modifyIt" class="submitbutton" @click="save">{{ $t('route.save') }}</el-button>
+                      <el-button v-if="!isEdit" name="modifyIt" class="submitbutton" @click="edit">{{ $t('route.modify') }}</el-button>
+                      <el-button v-else  name="modifyIt" class="submitbutton" @click="save">{{ $t('route.save') }}</el-button>
                     </div>
                   </td>
                 </tr>
@@ -167,14 +168,13 @@
         </tr>
         </tbody></table>
       <el-upload
+        class="el-upload-dragger"
         name="file"
-        drag
         action="/gradms/api/student/uploadFile"
         :limit="1"
       >
         <i class="el-icon-upload" />
-        <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-        <div slot="tip" class="el-upload__tip">拖动上传文件</div>
+        <div class="el-upload__text">将文件拖到此处，或<em style="color: #A50001">点击上传</em></div>
       </el-upload>
     </el-form>
   </div>
@@ -238,11 +238,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  td{
-    height: 2.3em;
-    padding:5px;
+  .container{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+  }
+  .content{
+    width:100%;
+    border-top: 1px solid #EBEEF5;
+    border-left: 1px solid #EBEEF5;
+    border-spacing: 0;/*去掉单元格间隙*/
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .content td {
+    padding: 10px 30px;
+    border-bottom: 1px solid #EBEEF5;
+    border-right: 1px solid #EBEEF5;
     text-align: center;
-    border:1px solid #99a9bf;
+    font-size: 12px;
   }
   td input{
     box-sizing: border-box;
@@ -250,23 +264,38 @@ export default {
     padding: 2px;
     border: none;
     border-bottom: 1px solid black;
+    color: #606266;
   }
   td input:focus{
     padding: 2px;
     box-sizing: border-box;
     margin: 0 !important;
     border: none;
-    border-bottom: 1px solid blue;
+    color: #606266;
   }
   .submitbutton{
     width: 12em;
+    background-color: #A50001;
+    border: 0px;
+    color: #ffffff;
   }
-  .form-label{
-    color: #9b0d14;
+  .colstyle1{
+    height: 25px;
+    color: #909399;
+    font-weight: bold;
   }
-  .show-autocomplete{
-    display: flex;
-    flex-direction: row;
+  .colstyle2{
+    height: 25px;
+    color: #606266;
   }
+  .el-upload-dragger{
+    width: 220px;
+    height: 140px;
+  }
+  .el-upload-dragger:hover {
+    border-color: #A50001;
+  }
+
+
 </style>
 

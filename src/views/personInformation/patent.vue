@@ -1,55 +1,52 @@
 <template>
-<div class="app-container">
-  <table  cellspacing="0" width="100%">
+<div class="container">
+  <table   width="100%" class="content">
     <tbody><tr>
-      <td class="head" colspan="11">
-        <div align="center"  style="color: #5a5e66">
+      <td class="head" colspan="24">
+        <div align="center"  style="color: #A50001;font-size: 16px;font-weight: bold">
           {{$t('patent.note')}}
           <input type="hidden" name="isTea" value="0">
         </div>
       </td>
     </tr>
-    <tr><td colspan="11">
-      <font color="#9b0d14">{{$t('patent.note11')}}
+    <tr><td colspan="24" class="thesisExplain">
+      {{$t('patent.note11')}}
         <br>{{$t('patent.note1')}}
         <br>{{$t('patent.note2')}}
         <br>{{$t('patent.note3')}}
-      </font>
     </td>
     </tr>
-    <tr>
-      <td align="left" colspan="3" style="color: #5a5e66">
-        {{$t('publishThesis.publicationTime')}}:
-        <el-date-picker
-          v-model="value1"
-          type="daterange"
-          range-separator="to"
-          start-placeholder="开始日期"
-          end-placeholder="结束日期"
-          size="mini">
-        </el-date-picker>
-      </td>
-      <td align="left" colspan="3" style="color: #5a5e66" width="30%">
-        {{$t('patent.authorRanking')}}
-        <el-select v-model="value" placeholder="请选择" size="mini">
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          >
-          </el-option>
-        </el-select>
-      </td>
-      <td colspan="2">
-        <el-button type="primary" size="mini">{{$t('publishThesis.query')}}</el-button>
-      </td>
-    </tr>
-    </tbody></table>
+    </tbody>
+  </table>
+  <div class="searchDiv">
+    <span class="searchSpan">{{$t('publishThesis.publicationTime')}}:</span>
+    <el-date-picker
+      v-model="value1"
+      type="daterange"
+      range-separator="-"
+      start-placeholder="开始日期"
+      end-placeholder="结束日期"
+      size="mini"
+      style="width: 20%">
+    </el-date-picker>
+    <span class="searchSpan">{{$t('patent.authorRanking')}}</span>
+    <el-select v-model="value" placeholder="请选择" size="mini" style="width: 16%">
+      <el-option
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+      >
+      </el-option>
+    </el-select>
+    <el-button class="queryBtn" size="mini">{{$t('publishThesis.query')}}</el-button>
+  </div>
   <el-table
     :data="tableData"
     border
     size="mini"
+    class="eltable"
+    :header-cell-style="getRowClass"
     style="width: 100%">
     <el-table-column
       prop="date"
@@ -111,12 +108,12 @@
     >
     </el-table-column>
   </el-table>
-  <table  cellspacing="0" width="100%">
+  <table width="100%" style="padding-top: 20px">
     <tbody><tr>
     <td style="text-align:center">
-      <el-button type="primary" size="mini" >{{$t('patent.setOpen')}}</el-button>
-      <el-button type="primary"  size="mini" >{{$t('patent.setNotOpen')}}</el-button>
-      <el-button type="primary"  size="mini" >{{$t('patent.add')}}</el-button>
+      <el-button size="mini" class="setBtn">{{$t('patent.setOpen')}}</el-button>
+      <el-button size="mini" class="setBtn">{{$t('patent.setNotOpen')}}</el-button>
+      <el-button size="mini" class="setBtn" >{{$t('patent.add')}}</el-button>
     </td>
     </tr>
     </tbody>
@@ -126,20 +123,75 @@
 
 <script>
   export default {
-    name: 'patent'
+    data() {
+      return {
+        value1: ''
+      }
+    },
+    created(){
+      this.getRowClass()
+    },
+    methods:{
+      getRowClass({ row, column, rowIndex, columnIndex }) {
+        if (rowIndex === 0) {
+          return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
+        } else {
+          return ''
+        }
+      }
+    }
   }
 </script>
 
 <style scoped>
-  td{
-    height: 2.3em;
-    padding:5px;
-    border:1px solid #f4f4f5;
+  .container{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
   }
-  td input{
-    box-sizing: border-box;
-    margin: 0 !important;
-    padding: 2px;
-    border: none;
+  .content{
+    width:100%;
+    border-top: 1px solid #EBEEF5;
+    border-left: 1px solid #EBEEF5;
+    border-spacing: 0;/*去掉单元格间隙*/
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .content td {
+    padding: 10px 30px;
+    border-bottom: 1px solid #EBEEF5;
+    border-right: 1px solid #EBEEF5;
+    text-align: left;
+    font-size: 12px;
+  }
+  .thesisExplain{
+    color: black;
+    line-height: 18px;
+    letter-spacing:1px;
+    text-align: left !important;
+  }
+  .searchDiv{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .searchSpan{
+    font-size: 14px;
+    margin-left: 10px;
+    margin-bottom: 15px !important;
+    padding-bottom: 15px;
+  }
+  .eltable{
+    margin-top: 20px;
+  }
+  .queryBtn{
+    background-color: #A50001;
+    border: 0px;
+    color: #ffffff;
+    margin-left: 15px;
+  }
+  .setBtn{
+    background-color: #A50001;
+    border: 0px;
+    color: #ffffff;
   }
 </style>

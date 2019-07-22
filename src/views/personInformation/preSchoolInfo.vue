@@ -1,26 +1,26 @@
 <template>
-  <div class="app-container">
-    <table class="content" cellspacing="0" width="100%">
+  <div class="container">
+    <table class="content" width="100%">
       <tbody><tr>
         <td height="300" colspan="8" align="center" valign="top">
-          <table class="content" cellspacing="0" width="100%">
+          <table class="content"  width="100%">
             <tbody><tr>
-                     <td class="form-label" colspan="4">
+                     <td style="font-size:16px;color:#A50001" colspan="4">
                        <div align="center">
                          {{ $t('preSchoolInfoModal.preSchoolInfoDisplay') }}
                        </div>
                      </td>
                    </tr>
               <tr>
-                <td colspan="4" class="form-label">
+                <td colspan="4" style="font-size:12px;color:#A50001">
                   {{ $t('preSchoolInfoModal.undergraduate') }}
                 </td>
               </tr>
               <tr>
-                <td align="right" width="25%" class="form-label">
+                <td  width="25%"  class="colstyle1">
                   {{ $t('preSchoolInfoModal.undergraduateType') }}
                 </td>
-                <td v-if="isEdit2" width="25%">
+                <td v-if="isEdit2" width="25%"  class="colstyle2">
                   <el-select v-model="list3.universityTypeCode" size="mini" class="el-w">
                     <el-option
                       v-for="item in list3.bkbylb"
@@ -30,13 +30,13 @@
                     />
                   </el-select>
                 </td>
-                <td v-else width="25%">
+                <td v-else width="25%" class="colstyle2">
                   {{ $t(list3.universityTypeCode,list3.bkbylb) }}
                 </td>
-                <td align="right" width="25%" class="form-label">
+                <td width="25%"  class="colstyle1">
                   {{ $t('preSchoolInfoModal.undergraduateMajor') }}
                 </td>
-                <td v-if="isEdit2" width="25%">
+                <td v-if="isEdit2" width="25%" class="colstyle2">
                   <el-autocomplete
                     v-model="baseMajor"
                     size="mini"
@@ -48,39 +48,39 @@
                     <template slot-scope="{ item }">
                       <div class="show-autocomplete"><div style="color: #409EFF">
                         {{ $t(item.name) }}
-                      </div> <div>-</div><div>{{ item.value }}</div></div>
+                      </div> <div>-</div><div class="colstyle2">{{ item.value }}</div></div>
                     </template>
                   </el-autocomplete>
                 </td>
-                <td v-else width="25%">
+                <td v-else width="25%" class="colstyle2">
                   {{ baseMajor }}
                 </td>
               </tr>
               <tr>
-                <td class="form-label">
+                <td  class="colstyle1">
                   {{ $t('preSchoolInfoModal.undergraduateDate') }}
                 </td>
-                <td v-if="isEdit2">
+                <td v-if="isEdit2" class="colstyle2">
                   <input v-model="list3.universityDate">
                 </td>
-                <td v-else>
+                <td v-else class="colstyle2">
                   {{ list3.universityDate }}
                 </td>
-                <td align="right" class="form-label">
+                <td  class="colstyle1">
                   {{ $t('preSchoolInfoModal.undergraduateThesisTitle') }}
                 </td>
-                <td v-if="isEdit2">
+                <td v-if="isEdit2" class="colstyle2">
                   <input v-model="list3.universityThesis">
                 </td>
-                <td v-else>
+                <td v-else class="colstyle2">
                   {{ list3.universityThesis }}
                 </td>
               </tr>
               <tr>
-                <td class="form-label">
+                <td  class="colstyle1">
                   {{ $t('preSchoolInfoModal.bachelarDegree') }}
                 </td>
-                <td v-if="isEdit2" width="25%">
+                <td v-if="isEdit2" width="25%" class="colstyle2">
                   <el-select v-model="list3.bachelorDegreeCode" placeholder="please choose" size="mini" class="el-w">
                     <el-option
                       v-for="item in list3.xsxw"
@@ -90,13 +90,13 @@
                     />
                   </el-select>
                 </td>
-                <td v-else width="25%">
+                <td v-else width="25%" class="colstyle2">
                   {{ $t(list3.bachelorDegreeCode,list3.xsxw) }}
                 </td>
-                <td class="form-label">
+                <td  class="colstyle1">
                   {{ $t('preSchoolInfoModal.bachelarDegreeMajor') }}
                 </td>
-                <td v-if="isEdit2" width="25%">
+                <td v-if="isEdit2" width="25%" class="colstyle2">
                   <el-autocomplete
                     v-model="DegreeBaseGradMajor"
                     size="mini"
@@ -112,15 +112,15 @@
                     </template>
                   </el-autocomplete>
                 </td>
-                <td v-else>
+                <td v-else class="colstyle2">
                   {{ DegreeBaseGradMajor }}
                 </td>
               </tr>
               <tr>
-                <td class="form-label">
+                <td  class="colstyle1">
                   {{ $t('preSchoolInfoModal.bachelarDegreeType') }}
                 </td>
-                <td v-if="isEdit2" width="25%">
+                <td v-if="isEdit2" width="25%" class="colstyle2">
                   <el-select v-model="list3.bachelorSubjectTypeCode" placeholder="please choose" size="mini" class="el-w">
                     <el-option
                       v-for="item in list3.xsxkml"
@@ -130,29 +130,29 @@
                     />
                   </el-select>
                 </td>
-                <td v-else width="25%">
+                <td v-else width="25%" class="colstyle2">
                   {{ $t(list3.bachelorSubjectTypeCode,list3.xsxkml) }}
                 </td>
-                <td class="form-label">
+                <td  class="colstyle1">
                   {{ $t('preSchoolInfoModal.bachelarDegreeGrantedDate') }}
                 </td>
-                <td v-if="isEdit2">
+                <td v-if="isEdit2" class="colstyle2">
                   <input v-model="list3.bachelorDegreeDate">
                 </td>
-                <td v-else>
+                <td v-else class="colstyle2">
                   {{ list3.bachelorDegreeDate }}
                 </td>
               </tr>
               <tr>
-                <td colspan="4" class="form-label">
+                <td colspan="4" style="font-size:12px;color:#A50001">
                   {{ $t('preSchoolInfoModal.postgraduate') }}
                 </td>
               </tr>
               <tr>
-                <td class="form-label">
+                <td  class="colstyle1">
                   {{ $t('preSchoolInfoModal.postgraduateType') }}
                 </td>
-                <td v-if="isEdit2" width="25%">
+                <td v-if="isEdit2" width="25%" class="colstyle2">
                   <el-select v-model="list3.masterTypeCode" placeholder="please choose" size="mini" class="el-w">
                     <el-option
                       v-for="item in list3.ssbylb"
@@ -162,13 +162,13 @@
                     />
                   </el-select>
                 </td>
-                <td v-else width="25%">
+                <td v-else width="25%" class="colstyle2">
                   {{ $t(list3.masterTypeCode,list3.ssbylb) }}
                 </td>
-                <td class="form-label">
+                <td  class="colstyle1">
                   {{ $t('preSchoolInfoModal.postgraduateMajor') }}
                 </td>
-                <td v-if="isEdit2" width="25%">
+                <td v-if="isEdit2" width="25%" class="colstyle2">
                   <el-autocomplete
                     v-model="BasePostGradMajor"
                     size="mini"
@@ -178,41 +178,41 @@
                     @select="postGradMajorSelect"
                   >
                     <template slot-scope="{ item }">
-                      <div class="show-autocomplete"><div style="color: #409EFF">
+                      <div class="show-autocomplete"><div  style="color: #409EFF">
                         {{ $t(item.name) }}
                       </div> <div>-</div><div>{{ item.value }}</div></div>
                     </template>
                   </el-autocomplete>
                 </td>
-                <td v-else>
+                <td v-else class="colstyle2">
                   {{ BasePostGradMajor }}
                 </td>
               </tr>
               <tr>
-                <td class="form-label">
+                <td  class="colstyle1">
                   {{ $t('preSchoolInfoModal.postgraduateDate') }}
                 </td>
-                <td v-if="isEdit2">
+                <td v-if="isEdit2" class="colstyle2">
                   <input v-model="list3.masterDate">
                 </td>
-                <td v-else>
+                <td v-else class="colstyle2">
                   {{ list3.masterDate }}
                 </td>
-                <td class="form-label">
+                <td  class="colstyle1">
                   {{ $t('preSchoolInfoModal.postgraduateThesisTitle') }}
                 </td>
-                <td v-if="isEdit2">
+                <td v-if="isEdit2" class="colstyle2">
                   <input v-model="list3.masterThesis">
                 </td>
-                <td v-else>
+                <td v-else class="colstyle2">
                   {{ list3.masterThesis }}
                 </td>
               </tr>
               <tr>
-                <td class="form-label">
+                <td  class="colstyle1">
                   {{ $t('preSchoolInfoModal.MasterDegree') }}
                 </td>
-                <td v-if="isEdit2" width="25%">
+                <td v-if="isEdit2" width="25%" class="colstyle2">
                   <el-select v-model="list3.masterDegreeCode" placeholder="please choose" size="mini" class="el-w">
                     <el-option
                       v-for="item in list3.ssxw"
@@ -222,13 +222,13 @@
                     />
                   </el-select>
                 </td>
-                <td v-else width="25%">
+                <td v-else width="25%" class="colstyle2">
                   {{ $t(list3.masterDegreeCode,list3.ssxw) }}
                 </td>
-                <td class="form-label">
+                <td  class="colstyle1">
                   {{ $t('preSchoolInfoModal.MasterDegreeMajor') }}
                 </td>
-                <td v-if="isEdit2" width="25%">
+                <td v-if="isEdit2" width="25%" class="colstyle2">
                   <el-autocomplete
                     v-model="DegreeBasePostGradMajor"
                     size="mini"
@@ -244,15 +244,15 @@
                     </template>
                   </el-autocomplete>
                 </td>
-                <td v-else>
+                <td v-else class="colstyle2">
                   {{ DegreeBasePostGradMajor }}
                 </td>
               </tr>
               <tr>
-                <td class="form-label">
+                <td  class="colstyle1">
                   {{ $t('preSchoolInfoModal.MasterSubjectType') }}
                 </td>
-                <td v-if="isEdit2" width="25%">
+                <td v-if="isEdit2" width="25%" class="colstyle2">
                   <el-select v-model="list3.masterSubjectTypeCode" placeholder="please choose" size="mini" class="el-w">
                     <el-option
                       v-for="item in list3.ssxkml"
@@ -262,27 +262,27 @@
                     />
                   </el-select>
                 </td>
-                <td v-else width="25%">
+                <td v-else width="25%" class="colstyle2">
                   {{ $t(list3.masterSubjectTypeCode,list3.ssxkml) }}
                 </td>
-                <td class="form-label">
+                <td  class="colstyle1">
                   {{ $t('preSchoolInfoModal.MasterDegreeDate') }}
                 </td>
-                <td v-if="isEdit2">
+                <td v-if="isEdit2" class="colstyle2">
                   <input v-model="list3.masterDegreeDate">
                 </td>
-                <td v-else>
+                <td v-else class="colstyle2">
                   {{ list3.masterDegreeDate }}
                 </td>
               </tr>
               <tr>
-                <td height="25" align="right" class="form-label">
+                <td height="25"  class="colstyle1">
                   {{ $t('preSchoolInfoModal.remark') }}
                 </td>
-                <td v-if="isEdit2" colspan="3">
+                <td v-if="isEdit2" colspan="3" class="colstyle2">
                   <input v-model="list3.remark" style="width: 75%">
                 </td>
-                <td v-else colspan="3">
+                <td v-else colspan="3" class="colstyle2">
                   {{ list3.remark }}
                 </td>
               </tr>
@@ -290,8 +290,8 @@
             <tr>
               <td height="28" colspan="4">
                 <div align="center">
-                  <el-button v-if="!isEdit2" type="danger" name="modifyIt" class="submitbutton" @click="edit2">{{ $t('route.modify') }}</el-button>
-                  <el-button v-else type="success" name="modifyIt" class="submitbutton" @click="save2">{{ $t('route.save') }}</el-button>
+                  <el-button v-if="!isEdit2"  name="modifyIt" class="submitbutton" @click="edit2">{{ $t('route.modify') }}</el-button>
+                  <el-button v-else  name="modifyIt" class="submitbutton" @click="save2">{{ $t('route.save') }}</el-button>
                 </div>
               </td>
             </tr>
@@ -454,11 +454,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  td{
-    height: 2.3em;
-    padding:5px;
+
+  .container{
+    margin-left: 20px;
+    margin-rigt: 20px;
+    margin-bottom: 30px;
+  }
+  .content{
+    width:100%;
+    border-top: 1px solid #EBEEF5;
+    border-left: 1px solid #EBEEF5;
+    border-spacing: 0;/*去掉单元格间隙*/
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .content td {
+    padding: 10px 30px;
+    border-bottom: 1px solid #EBEEF5;
+    border-right: 1px solid #EBEEF5;
     text-align: center;
-    border:1px solid #99a9bf;
+    font-size: 12px;
+    height: 30px;
   }
   td input{
     box-sizing: border-box;
@@ -466,22 +482,30 @@ export default {
     padding: 2px;
     border: none;
     border-bottom: 1px solid black;
+    color: #606266;
   }
   td input:focus{
     padding: 2px;
     box-sizing: border-box;
     margin: 0 !important;
     border: none;
-    border-bottom: 1px solid blue;
+    color: #606266;
   }
   .submitbutton{
     width: 12em;
+    background-color: #A50001;
+    border: 0px;
+    color: #ffffff;
   }
-  .form-label{
-    color:  #9b0d14;
+  .colstyle1{
+    height: 25px;
+    color: #909399;
+    font-weight: bold;
   }
-  .show-autocomplete{
-    display: flex;
-    flex-direction: row;
+  .colstyle2{
+    height: 25px;
+    color: #606266;
   }
+
+
 </style>
