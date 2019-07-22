@@ -1,22 +1,32 @@
 <template >
   <div class="app-container">
+    <table  width="100%" class="content">
+      <tbody>
+      <tr>
+        <td style="text-align:left; color: #9b0d14" >
+          {{$t('fillInTheDegreeInfo.note1')}}<br>
+          {{$t('fillInTheDegreeInfo.note2')}}
+        </td>
+      </tr>
+      </tbody>
+    </table>
     <table class="content"  width="100%" >
       <tbody>
       <tr>
         <td class="head" height="25" colspan="6">
-          <div class="titlable">学生论文信息</div>
+          <div class="titlable">{{$t('fillInTheDegreeInfo.degreeThesisInfo')}}</div>
         </td>
       </tr>
       <tr>
-        <td colspan="2" class="colstyle1">学位论文题目</td>
+        <td colspan="2" class="colstyle1" >{{$t('fillInTheDegreeInfo.thesisDissertation')}}</td>
         <td colspan="4" class="colstyle2"> <el-input v-model="thesisEngName"  size="mini"></el-input>  </td>
       </tr>
       <tr>
-        <td colspan="2" class="colstyle1">论文主题词</td>
+        <td colspan="2" class="colstyle1">{{$t('fillInTheDegreeInfo.thesisKeyWords')}}</td>
         <td colspan="4" class="colstyle2"> <el-input v-model="englishTheme"  size="mini"></el-input>  </td>
       </tr>
       <tr>
-        <td colspan="1" class="colstyle1">论文类型</td>
+        <td colspan="1" class="colstyle1" >{{$t('fillInTheDegreeInfo.thesisType')}}</td>
         <td width="20%" class="colstyle2">
           <el-select v-model="gradThesisTypeCode" placeholder="pleaseChoose" size="mini">
             <el-option
@@ -27,7 +37,7 @@
             </el-option>
           </el-select>
         </td>
-        <td colspan="1" class="colstyle1">论文选题来源</td>
+        <td colspan="1" class="colstyle1" >{{$t('fillInTheDegreeInfo.thesisTopicSource')}}</td>
         <td width="30%" class="colstyle2">
           <el-select v-model="gradThesisTopicSourceCode" placeholder="pleaseChoose" size="mini">
             <el-option
@@ -38,10 +48,43 @@
             </el-option>
           </el-select>
         </td>
-        <td colspan="1" class="colstyle1">论文字数(万) </td>
-        <td  width="10%" class="colstyle2"> <el-input v-model="englishTheme"  size="mini"></el-input>  </td>
+        <td colspan="1" class="colstyle1">{{$t('fillInTheDegreeInfo.thesisWords')}} </td>
+        <td  width="10%" class="colstyle2"> <el-input v-model="gradWordCount"  size="mini"></el-input>  </td>
+      </tr>
+      <tr>
+        <td colspan="1" class="colstyle1">{{$t('fillInTheDegreeInfo.thesisStartDate')}}</td>
+        <td width="20%" class="colstyle2">
+          <el-input v-model="gradThesisStartDate"  size="mini"></el-input>
+        </td>
+        <td colspan="1" class="colstyle1">{{$t('fillInTheDegreeInfo.thesisEndDate')}}</td>
+        <td  class="colstyle2">
+          <el-input v-model="gradThesisEndDate"  size="mini" style="width: 70%"></el-input>
+        </td>
+        <td colspan="1" class="colstyle1">{{$t('fillInTheDegreeInfo.feesPaidByTutor')}}</td>
+        <td  class="colstyle2">
+          <el-input v-model="thesisFee"  size="mini" ></el-input>
+        </td>
       </tr>
       </tbody></table>
+    <table class="content" cellspacing="0" width="100%">
+      <tbody><tr >
+        <td  width="20%" align="left" style="color: #909399">&nbsp;&nbsp;论文介绍(包括<br>&nbsp;&nbsp;论文选题的来源、<br>&nbsp;&nbsp;理论意义和应用价值；<br>&nbsp;&nbsp;论文的创新性及意义；<br>&nbsp;&nbsp;论文的不足之处)<br>&nbsp;&nbsp;(500-800字)
+        </td>
+        <td ></td>
+      </tr>
+      </tbody></table>
+    <div>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <table  width="100%">
+      <tbody>
+      <tr>
+        <td style="text-align:center" >
+          <el-button size="mini" class="allBtn">填写</el-button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -57,6 +100,10 @@ export default {
       gradThesisTypeCode: '',
       gradThesisTypeCodeList: [],
       thesisEngName: '',
+      gradWordCount: '',
+      gradThesisStartDate: '',
+      gradThesisEndDate: '',
+      thesisFee: '',
       englishTheme: ''
     }
   },
@@ -90,6 +137,7 @@ export default {
   }
   .colstyle1{
     color: #909399;
+    max-height: 60px;
     font-weight: bold;
   }
   .colstyle2{

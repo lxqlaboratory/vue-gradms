@@ -466,6 +466,7 @@ export default {
     note3: '3.also can\'t more than 5 (3) working unit of employment information in accordance with the now work unit to fill in',
     degreeThesisInfo: 'Dissertation information',
     thesisKeyWords: 'key words of thesis paper',
+    thesisDissertation: 'Title of dissertation',
     thesisType: 'type of thesis paper',
     thesisTopicSource: 'source of thesis topic',
     thesisWords: 'thesis words(ten thousand)',
