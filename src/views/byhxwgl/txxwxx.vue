@@ -88,7 +88,7 @@
       <tbody>
         <tr>
           <td style="text-align:center">
-            <el-button size="mini" class="allBtn" >填写</el-button>
+            <el-button size="mini" class="allBtn" @click="degreeInfoSubmit">填写</el-button>
           </td>
         </tr>
       </tbody>
@@ -98,6 +98,7 @@
 
 <script>
 import { degreeInfoSubmitInit } from '@/api/degreeInfoSubmit'
+import { degreeInfoSubmit } from '@/api/degreeInfoSubmit'
 export default {
   name: 'Txxwxx',
   data() {
@@ -127,7 +128,54 @@ export default {
         this.gradThesisTopicSourceCode = res.data.gradThesisTopicSourceCode
         this.gradThesisTypeCode = res.data.gradThesisTypeCode
         this.gradThesisTypeCodeList = res.data.gradThesisTypeCodeList
+        this.thesisEngName = res.data.thesisEngName
+        this.englishTheme = res.data.englishTheme
+        this.gradThesisEndDate = res.data.gradThesisEndDate
+        this.gradThesisStartDate = res.data.gradThesisStartDate
+        this.gradWordCount = res.data.gradWordCount
+        this.thesisFee = res.data.thesisFee
       })
+    },
+    degreeInfoSubmit() {
+      if (this.thesisEngName == '') {
+        this.$message({
+          message: '论文题目不能为空',
+          type: 'error'
+        })
+      } else if (this.englishTheme == '') {
+        this.$message({
+          message: '论文主题词不能为空',
+          type: 'error'
+        })
+      } else if (this.gradWordCount == '') {
+        this.$message({
+          message: '论文字数不能为空',
+          type: 'error'
+        })
+      } else if (this.thesisFee == '') {
+        this.$message({
+          message: '完成本论文导师支付的费用不能为空',
+          type: 'error'
+        })
+      } else {
+        degreeInfoSubmit({ 'thesisEngName': this.thesisEngName, 'englishTheme': this.englishTheme, 'gradThesisTypeCode': this.gradThesisTypeCode, 'gradThesisTopicSourceCode': this.gradThesisTopicSourceCode, 'gradThesisStartDate': this.gradThesisStartDate,
+          'gradThesisEndDate': this.gradThesisEndDate, 'thesisFee': this.thesisFee, 'gradWordCount': this.gradWordCount, 'gradThesisIntroduction': this.gradThesisIntroduction }).then(res => {
+          if (res.msg === '论文主题词三到五个，且每个主题词之间需要用\',\'隔开！') {
+            this.$message({
+              message: '论文主题词三到五个，且每个主题词之间需要用\',\'隔开！',
+              type: 'error'
+            })
+          } else {
+            this.$message({
+              message: '论文信息填写完成!',
+              type: 'success'
+            })
+            this.fetchData()
+          }
+        }).catch(e => {
+
+        })
+      }
     }
   }
 }
