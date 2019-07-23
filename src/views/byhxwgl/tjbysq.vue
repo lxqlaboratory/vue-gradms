@@ -27,25 +27,17 @@
     >
       <el-table-column
         prop="category"
-        width="250"
-        label="姓名"
+        :label="$t('baseInformationModal.name')"
         align="center"
       />
       <el-table-column
         prop="xuhao"
-        width="200"
-        label="学号"
+        :label="$t('baseInformationModal.studentNumber')"
         align="center"
       />
       <el-table-column
         prop="kechenghao"
-        width="350"
-        label="查看个人信息"
-        align="center"
-      />
-      <el-table-column
-        prop="kechenghao"
-        label="是否申请毕业"
+        :label="$t('CourseQuery.Whether')"
         align="center"
       />
     </el-table>

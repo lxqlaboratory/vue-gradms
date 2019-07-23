@@ -599,7 +599,7 @@ export default {
     courseStatus: 'Course Status',
     SchoolAdvise: 'Advice of School',
     GraduateAdvise: 'Advice of Postgraduate School',
-    BackUp: 'go back'
-
+    BackUp: 'go back',
+    Whether: 'Whether to apply for graduation'
   }
 }

@@ -609,8 +609,8 @@ export default {
     courseStatus: '课程状态',
     SchoolAdvise: '学院意见',
     GraduateAdvise: '研究生院意见',
-    BackUp: '后退'
-
+    BackUp: '后退',
+    Whether: '是否申请毕业'
   }
 
 }
