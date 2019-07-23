@@ -200,14 +200,6 @@ export const constantRoutes = [
 
       },
       {
-        path: 'applicationSubmit',
-        component: () => import('@/views/pygl/kcyxk/applicationSubmit'),
-        name: 'applicationSubmit',
-        hiden: true,
-        meta: { title: ('route.xsxk'), icon: 'form' }
-
-      },
-      {
         path: 'cjcx',
         component: () => import('@/views/pygl/cjgl/cjcx'),
         name: 'cjcx',
