@@ -111,6 +111,7 @@
 export default {
   data() {
     return {
+        input:'',
       text: '',
       textarea: ''
     }
@@ -160,6 +161,7 @@ export default {
     border-radius: 4px;
     outline: none;
     width: 60%;
+    line-height: 18px;
   }
   .allBtn{
     background-color: #A50001;
