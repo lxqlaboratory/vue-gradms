@@ -1,109 +1,99 @@
-<template>
+<template >
   <div class="app-container">
-    <table width="100%" class="content">
+    <table  width="100%" class="content">
       <tbody>
-        <tr>
-          <td style="text-align:left; color: #9b0d14;font-size: 12px;line-height: 18px">
-            {{ $t('fillInTheDegreeInfo.note1') }}<br>
-            {{ $t('fillInTheDegreeInfo.note2') }}
-          </td>
-        </tr>
+      <tr>
+        <td style="text-align:left; color: #9b0d14" >
+          {{$t('fillInTheDegreeInfo.note1')}}<br>
+          {{$t('fillInTheDegreeInfo.note2')}}
+        </td>
+      </tr>
       </tbody>
     </table>
-    <table class="content" width="100%">
+    <table class="content"  width="100%" >
       <tbody>
-        <tr>
-          <td class="head" height="25" colspan="6">
-            <div class="titlable">{{ $t('fillInTheDegreeInfo.degreeThesisInfo') }}</div>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2" class="colstyle1">{{ $t('fillInTheDegreeInfo.thesisDissertation') }}</td>
-          <td colspan="4" class="colstyle2"> <el-input v-model="thesisEngName" size="mini" />  </td>
-        </tr>
-        <tr>
-          <td colspan="2" class="colstyle1">{{ $t('fillInTheDegreeInfo.thesisKeyWords') }}</td>
-          <td colspan="4" class="colstyle2"> <el-input v-model="englishTheme" size="mini" />  </td>
-        </tr>
-        <tr>
-          <td colspan="1" class="colstyle1">{{ $t('fillInTheDegreeInfo.thesisType') }}</td>
-          <td width="20%" class="colstyle2">
-            <el-select v-model="gradThesisTypeCode" placeholder="pleaseChoose" size="mini">
-              <el-option
-                v-for="item in gradThesisTypeCodeList"
-                :key="item.value"
-                :label="$t(item.name)"
-                :value="item.value"
-              />
-            </el-select>
-          </td>
-          <td colspan="1" class="colstyle1">{{ $t('fillInTheDegreeInfo.thesisTopicSource') }}</td>
-          <td width="30%" class="colstyle2">
-            <el-select v-model="gradThesisTopicSourceCode" placeholder="pleaseChoose" size="mini">
-              <el-option
-                v-for="item in gradThesisTopicSourceCodeList"
-                :key="item.value"
-                :label="$t(item.name)"
-                :value="item.value"
-              />
-            </el-select>
-          </td>
-          <td colspan="1" class="colstyle1">{{ $t('fillInTheDegreeInfo.thesisWords') }} </td>
-          <td width="10%" class="colstyle2"> <el-input v-model="gradWordCount" size="mini" />  </td>
-        </tr>
-        <tr>
-          <td colspan="1" class="colstyle1">{{ $t('fillInTheDegreeInfo.thesisStartDate') }}</td>
-          <td width="20%" class="colstyle2">
-            <el-input v-model="gradThesisStartDate" size="mini" />
-          </td>
-          <td colspan="1" class="colstyle1">{{ $t('fillInTheDegreeInfo.thesisEndDate') }}</td>
-          <td class="colstyle2">
-            <el-input v-model="gradThesisEndDate" size="mini" style="width: 70%" />
-          </td>
-          <td colspan="1" class="colstyle1">{{ $t('fillInTheDegreeInfo.feesPaidByTutor') }}</td>
-          <td class="colstyle2">
-            <el-input v-model="thesisFee" size="mini" />
-          </td>
-        </tr>
+      <tr>
+        <td class="head" height="25" colspan="6">
+          <div class="titlable">{{$t('fillInTheDegreeInfo.degreeThesisInfo')}}</div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="colstyle1" >{{$t('fillInTheDegreeInfo.thesisDissertation')}}</td>
+        <td colspan="4" class="colstyle2"> <el-input v-model="thesisEngName"  size="mini"></el-input>  </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="colstyle1">{{$t('fillInTheDegreeInfo.thesisKeyWords')}}</td>
+        <td colspan="4" class="colstyle2"> <el-input v-model="englishTheme"  size="mini"></el-input>  </td>
+      </tr>
+      <tr>
+        <td colspan="1" class="colstyle1" >{{$t('fillInTheDegreeInfo.thesisType')}}</td>
+        <td width="20%" class="colstyle2">
+          <el-select v-model="gradThesisTypeCode" placeholder="pleaseChoose" size="mini">
+            <el-option
+              v-for="item in gradThesisTypeCodeList"
+              :key="item.value"
+              :label="$t(item.name)"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </td>
+        <td colspan="1" class="colstyle1" >{{$t('fillInTheDegreeInfo.thesisTopicSource')}}</td>
+        <td width="30%" class="colstyle2">
+          <el-select v-model="gradThesisTopicSourceCode" placeholder="pleaseChoose" size="mini">
+            <el-option
+              v-for="item in gradThesisTopicSourceCodeList"
+              :key="item.value"
+              :label="$t(item.name)"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </td>
+        <td colspan="1" class="colstyle1">{{$t('fillInTheDegreeInfo.thesisWords')}} </td>
+        <td  width="10%" class="colstyle2"> <el-input v-model="gradWordCount"  size="mini"></el-input>  </td>
+      </tr>
+      <tr>
+        <td colspan="1" class="colstyle1">{{$t('fillInTheDegreeInfo.thesisStartDate')}}</td>
+        <td width="20%" class="colstyle2">
+          <el-input v-model="gradThesisStartDate"  size="mini"></el-input>
+        </td>
+        <td colspan="1" class="colstyle1">{{$t('fillInTheDegreeInfo.thesisEndDate')}}</td>
+        <td  class="colstyle2">
+          <el-input v-model="gradThesisEndDate"  size="mini" style="width: 70%"></el-input>
+        </td>
+        <td colspan="1" class="colstyle1">{{$t('fillInTheDegreeInfo.feesPaidByTutor')}}</td>
+        <td  class="colstyle2">
+          <el-input v-model="thesisFee"  size="mini" ></el-input>
+        </td>
+      </tr>
       </tbody></table>
     <table class="content" cellspacing="0" width="100%">
-      <tbody><tr>
-        <td width="20%" align="left" style="color: #909399;font-weight:bold;font-size: 12px;line-height: 18px">&nbsp;&nbsp;论文介绍(包括<br>&nbsp;&nbsp;论文选题的来源、<br>&nbsp;&nbsp;理论意义和应用价值；<br>&nbsp;&nbsp;论文的创新性及意义；<br>&nbsp;&nbsp;论文的不足之处)<br>&nbsp;&nbsp;(500-800字)
+      <tbody><tr >
+        <td  width="20%" align="left" style="color: #909399">&nbsp;&nbsp;论文介绍(包括<br>&nbsp;&nbsp;论文选题的来源、<br>&nbsp;&nbsp;理论意义和应用价值；<br>&nbsp;&nbsp;论文的创新性及意义；<br>&nbsp;&nbsp;论文的不足之处)<br>&nbsp;&nbsp;(500-800字)
         </td>
-        <td><el-input
-          v-model="gradThesisIntroduction"
-          type="textarea"
-          minlength="500"
-          maxlength="800"
-          rows="8"
-          show-word-limit
-          :autosize="{ minRows: 1, maxRows: 8}"
-        /></td>
+        <td ></td>
       </tr>
       </tbody></table>
     <div>
       &nbsp;&nbsp;&nbsp;&nbsp;
     </div>
-    <table width="100%">
+    <table  width="100%">
       <tbody>
-        <tr>
-          <td style="text-align:center">
-            <el-button size="mini" class="allBtn" @click="degreeInfoSubmit">保存</el-button>
-          </td>
-        </tr>
+      <tr>
+        <td style="text-align:center" >
+          <el-button size="mini" class="allBtn">填写</el-button>
+        </td>
+      </tr>
       </tbody>
     </table>
   </div>
 </template>
 
 <script>
-import { degreeInfoSubmitInit } from '@/api/degreeInfoSubmit'
-import { degreeInfoSubmit } from '@/api/degreeInfoSubmit'
+  import { degreeInfoSubmitInit } from '@/api/degreeInfoSubmit'
 export default {
   name: 'Txxwxx',
   data() {
     return {
-      textarea: '',
       gradThesisIntroduction: '',
       gradThesisTopicSourceCode: '',
       gradThesisTopicSourceCodeList: [],
@@ -128,54 +118,7 @@ export default {
         this.gradThesisTopicSourceCode = res.data.gradThesisTopicSourceCode
         this.gradThesisTypeCode = res.data.gradThesisTypeCode
         this.gradThesisTypeCodeList = res.data.gradThesisTypeCodeList
-        this.thesisEngName = res.data.thesisEngName
-        this.englishTheme = res.data.englishTheme
-        this.gradThesisEndDate = res.data.gradThesisEndDate
-        this.gradThesisStartDate = res.data.gradThesisStartDate
-        this.gradWordCount = res.data.gradWordCount
-        this.thesisFee = res.data.thesisFee
       })
-    },
-    degreeInfoSubmit() {
-      if (this.thesisEngName == '') {
-        this.$message({
-          message: '论文题目不能为空',
-          type: 'error'
-        })
-      } else if (this.englishTheme == '') {
-        this.$message({
-          message: '论文主题词不能为空',
-          type: 'error'
-        })
-      } else if (this.gradWordCount == '') {
-        this.$message({
-          message: '论文字数不能为空',
-          type: 'error'
-        })
-      } else if (this.thesisFee == '') {
-        this.$message({
-          message: '完成本论文导师支付的费用不能为空',
-          type: 'error'
-        })
-      } else {
-        degreeInfoSubmit({ 'thesisEngName': this.thesisEngName, 'englishTheme': this.englishTheme, 'gradThesisTypeCode': this.gradThesisTypeCode, 'gradThesisTopicSourceCode': this.gradThesisTopicSourceCode, 'gradThesisStartDate': this.gradThesisStartDate,
-          'gradThesisEndDate': this.gradThesisEndDate, 'thesisFee': this.thesisFee, 'gradWordCount': this.gradWordCount, 'gradThesisIntroduction': this.gradThesisIntroduction }).then(res => {
-          if (res.msg === '论文主题词三到五个，且每个主题词之间需要用\',\'隔开！') {
-            this.$message({
-              message: '论文主题词三到五个，且每个主题词之间需要用\',\'隔开！',
-              type: 'error'
-            })
-          } else {
-            this.$message({
-              message: '论文信息填写完成!',
-              type: 'success'
-            })
-            this.fetchData()
-          }
-        }).catch(e => {
-
-        })
-      }
     }
   }
 }
@@ -196,7 +139,6 @@ export default {
     color: #909399;
     max-height: 60px;
     font-weight: bold;
-
   }
   .colstyle2{
     color: #606266;
@@ -209,7 +151,7 @@ export default {
     margin-top: 15px;
   }
   .content td {
-    padding: 10px 25px;
+    padding: 10px 30px;
     border-bottom: 1px solid #EBEEF5;
     border-right: 1px solid #EBEEF5;
   }

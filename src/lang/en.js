@@ -20,6 +20,18 @@ export default {
   menu: {
     application_menu: 'application menu'
   },
+  notify: {
+    notice: 'Notice'
+  },
+  message: {
+    ok:{
+      '插入成功':'Inserted successfully',
+    },
+    error:{
+      '学院与（课程名或课程号）不能同时为空': '学院与（课程名或课程号）不能同时为空',
+      'userError': 'userError'
+    }
+  },
   route: {
     loginTitle: 'title',
     personInformation: 'personal information',
@@ -602,4 +614,5 @@ export default {
     BackUp: 'go back',
     Whether: 'Whether to apply for graduation'
   }
+
 }

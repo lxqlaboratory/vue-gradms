@@ -1,7 +1,8 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
+    <div class="dashboard-text">{{ $t('notify.notice') }}:</div>
   </div>
+
 </template>
 
 <script>
@@ -23,6 +24,10 @@ export default {
     margin: 30px;
   }
   &-text {
+    font-size: 30px;
+    line-height: 46px;
+  }
+  &-notify {
     font-size: 30px;
     line-height: 46px;
   }

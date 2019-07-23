@@ -28,7 +28,7 @@ service.interceptors.response.use(
   },
   error => {
     Message({
-      message: error.message,
+      message: error.translation,
       type: 'error',
       duration: 5 * 1000
     })

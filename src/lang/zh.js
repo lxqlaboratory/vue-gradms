@@ -20,6 +20,18 @@ export default {
   menu: {
     application_menu: '应用菜单'
   },
+  notify:{
+    notice:'通知'
+  },
+  message:{
+    ok:{
+      '插入成功': '插入成功'
+    },
+    error:{
+      '学院与（课程名或课程号）不能同时为空': 'College and (course name or course number) cannot be empty at the same time',
+      'userError': 'userError'
+    }
+  },
   route: {
     loginTitle: '标题',
     personInformation: '个人信息',

@@ -140,8 +140,9 @@
 </template>
 
 <script>
-import { allCourseQueryInit } from '@/api/allCourseQuery.js'
-import { allCourseQueryDoQuery } from '@/api/allCourseQuery.js'
+  import { allCourseQueryInit } from '@/api/allCourseQuery.js'
+  import { allCourseQueryDoQuery } from '@/api/allCourseQuery.js'
+  import { translation } from '@/utils/translation'
 export default {
   name: 'Kccx',
   data() {
@@ -164,13 +165,14 @@ export default {
       })
     },
     showAllCourse() {
-      allCourseQueryDoQuery({ 'collegeId': this.choseSchool, 'courseNum': this.courseNum, 'courseName': this.courseName }).then(res => {
-        if (res.msg === '学院与（课程名或课程号）不能同时为空') {
+      allCourseQueryDoQuery({'collegeId': this.choseSchool ,'courseNum': this.courseNum ,'courseName': this.courseName  }).then(res => {
+        let result = translation(res.msg)
+        if(result.code == 1){
           this.$message({
-            message: '学院与（课程名或课程号）不能同时为空',
-            type: 'error'
-          })
-        } else {
+            message: $t(result.path),
+            type: result.type
+          });
+        }else{
           this.showTable = true
           this.publicCourseList = res.data
         }
