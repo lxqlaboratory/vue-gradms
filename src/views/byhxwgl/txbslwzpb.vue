@@ -10,20 +10,20 @@
         </tr>
         <tr>
           <td width="25%" class="colspan1">论文题目</td>
-          <td width="75%" class="colspan2" >
-            <el-input v-model="input" type="text" size="mini" class="elinput"></el-input>
+          <td width="75%" class="colspan2">
+            {{ $t(thesisName) }}
           </td>
         </tr>
         <tr>
           <td class="colspan1">学科专业（二级学科名称）</td>
           <td class="colspan2">
-            <el-input v-model="input" size="mini" class="elinput"></el-input>
+            {{ $t(majorName) }}
           </td>
         </tr>
         <tr>
           <td class="colspan1">研究方向</td>
           <td class="colspan2">
-            <el-input v-model="input" size="mini" class="elinput"></el-input>
+            {{ $t(raseResearch) }}
             <span class="noticeSpan"> 研究方向可以在学生上传学位论文页面维护</span>
           </td>
         </tr>
@@ -35,47 +35,44 @@
         </tr>
         <tr>
           <td width="25%" class="colspan1">创新点1</td>
-          <td width="75%" class="colspan2" >
+          <td width="75%" class="colspan2">
             <el-input
+              v-model="gradInnovation1"
               class="elinput"
               type="textarea"
-              v-model="textarea"
               placeholder="请输入内容"
               maxlength="100"
               rows="4"
               show-word-limit
-            >
-            </el-input>
+            />
           </td>
         </tr>
         <tr>
           <td class="colspan1">创新点2</td>
           <td class="colspan2">
             <el-input
+              v-model="gradInnovation2"
               class="elinput"
               type="textarea"
-              v-model="textarea"
               placeholder="请输入内容"
               maxlength="100"
               rows="4"
               show-word-limit
-            >
-            </el-input>
+            />
           </td>
         </tr>
         <tr>
           <td class="colspan1">创新点3</td>
           <td class="colspan2">
             <el-input
+              v-model="gradInnovation3"
               class="elinput"
               type="textarea"
-              v-model="textarea"
               placeholder="请输入内容"
               maxlength="100"
               rows="4"
               show-word-limit
-            >
-            </el-input>
+            />
           </td>
         </tr>
         <tr>
@@ -85,20 +82,19 @@
           <td class="colspan1">不足之处</td>
           <td class="colspan2">
             <el-input
+              v-model="gradShortage"
               class="elinput"
               type="textarea"
-              v-model="textarea"
               placeholder="请输入内容"
               maxlength="100"
               rows="4"
               show-word-limit
-            >
-            </el-input>
+            />
           </td>
         </tr>
         <tr>
           <td colspan="8" align="center">
-            <el-button class="allBtn" size="mini">提交</el-button>
+            <el-button class="allBtn" size="mini" @click="thesisShortSubmit">提交</el-button>
             <el-button class="allBtn" size="mini">自评表下载查看</el-button>
           </td>
         </tr>
@@ -108,11 +104,54 @@
 </template>
 
 <script>
+import { doctorThesisSelfEstimationInit } from '@/api/doctorThesisSelfEstimation'
+import { doctorThesisSelfEstimationInsert } from '@/api/doctorThesisSelfEstimation'
 export default {
   data() {
     return {
       text: '',
-      textarea: ''
+      textarea: '',
+      thesisName: '',
+      majorName: '',
+      raseResearch: '',
+      gradInnovation1: '',
+      gradInnovation2: '',
+      gradInnovation3: '',
+      gradShortage: ''
+    }
+  },
+  created() {
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+      doctorThesisSelfEstimationInit().then(res => {
+        this.thesisName = res.data.thesisName
+        this.majorName = res.data.majorName
+        this.raseResearch = res.data.raseResearch
+        this.gradInnovation1 = res.data.gradInnovation1
+        this.gradInnovation2 = res.data.gradInnovation2
+        this.gradInnovation3 = res.data.gradInnovation3
+        this.gradShortage = res.data.gradShortage
+      })
+    },
+    thesisShortSubmit() {
+      doctorThesisSelfEstimationInsert({ 'gradInnovation1': this.gradInnovation1, 'gradInnovation2': this.gradInnovation2, 'gradInnovation3': this.gradInnovation3, 'gradShortage': this.gradShortage }).then(res => {
+        if (res.msg === 'sucess') {
+          this.$message({
+            message: '提交成功',
+            type: 'success'
+          })
+        } else {
+          this.$message({
+            message: '提交失败',
+            type: 'error'
+          })
+          this.fetchData()
+        }
+      }).catch(e => {
+
+      })
     }
   }
 }

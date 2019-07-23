@@ -55,7 +55,18 @@ export default {
     },
     thesisShortSubmit() {
       inputThesisShortInfo({ 'WorkAndShort': this.workAndShort }).then(res => {
-
+        if (res.msg === 'sucess') {
+          this.$message({
+            message: '提交成功',
+            type: 'success'
+          })
+        } else {
+          this.$message({
+            message: '提交失败',
+            type: 'error'
+          })
+          this.fetchData()
+        }
       }).catch(e => {
 
       })
