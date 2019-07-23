@@ -24,7 +24,7 @@
       <tr>
         <td colspan="12" align="center">
           <el-button class="allBtn" size="mini" @click="thesisShortSubmit">保存</el-button>
-          <el-button class="allBtn" size="mini">下载学位申请书</el-button>
+          <el-button class="allBtn" size="mini"><a href="/gradms/api/degree/degreeThesisApplyDownload" download="xwsqs.pdf">下载学位申请书</a></el-button>
         </td>
       </tr>
     </table>

@@ -4,14 +4,18 @@
       <tbody>
         <tr>
           <td style="text-align:center">
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeThesisApplyDownload" download="xwsqs.pdf">学位申请书</a></el-button>
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeThesisApprovalDownload" download="xwsps.pdf">学位审批书</a></el-button>
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreethesisAnswerRecordDownload" download="dbjlz.pdf">答辩记录纸</a></el-button>
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeGraduationAuditFormDownload" download="byspb.pdf">毕业审批表</a></el-button>
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreePrintApplyTable" download="bsdjb.pdf">博士申请登记表</a></el-button>
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeResearchRewardFormDownload" download="kyjlb.pdf">科研和奖励情况表</a></el-button>
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/downLoadZiPingBiao" download="bszpb.pdf">博士自评表下载</a></el-button>
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeThesisAttachmentDownload" download="xwlwzzg.pdf">学位论文终稿</a></el-button>
+            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeThesisApplyDownload" download="xwsqs.pdf">{{$t('reviewTheDefenseInformation.ApplicationForDegree')}}</a></el-button>
+            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeThesisApprovalDownload" download="xwsps.pdf">{{$t('reviewTheDefenseInformation.DegreeApproval')}}</a></el-button>
+            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreethesisAnswerRecordDownload" download="dbjlz.pdf">{{$t('reviewTheDefenseInformation.DefenseRecord')}}</a></el-button>
+            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeGraduationAuditFormDownload" download="byspb.pdf">{{$t('reviewTheDefenseInformation.GraduationApprovalForm')}}</a></el-button>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align:center">
+            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreePrintApplyTable" download="bsdjb.pdf">{{$t('reviewTheDefenseInformation.DoctorApplicationRegistrationForm')}}</a></el-button>
+            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeResearchRewardFormDownload" download="kyjlb.pdf">{{$t('reviewTheDefenseInformation.TableOfResearcAndAwards')}}</a></el-button>
+            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/downLoadZiPingBiao" download="bszpb.pdf">{{$t('reviewTheDefenseInformation.DownloadDoctorSelfEvaluationForm')}}</a></el-button>
+            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeThesisAttachmentDownload" download="xwlwzzg.pdf">{{$t('reviewTheDefenseInformation.FinalDissertation')}}</a></el-button>
           </td>
         </tr>
       </tbody>
@@ -20,31 +24,31 @@
     <table class="content" width="100%">
       <tbody><tr>
                <td class="head" height="25" colspan="6">
-                 <div class="titlable">学生基本信息</div>
+                 <div class="titlable">{{$t('reviewTheDefenseInformation.studentBasicInfomation')}}</div>
                </td>
              </tr>
         <tr>
-          <td width="10%" class="colstyle1">姓 名</td>
+          <td width="10%" class="colstyle1">{{$t('reviewTheDefenseInformation.name')}} </td>
           <td width="25%" class="colstyle2"> {{ list.perName }}</td>
-          <td width="10%" class="colstyle1">学 号</td>
+          <td width="10%" class="colstyle1">{{$t('reviewTheDefenseInformation.studentNum')}}</td>
           <td width="20%" class="colstyle2">{{ list.perNum }}</td>
-          <td width="10%" class="colstyle1">学生类型</td>
+          <td width="10%" class="colstyle1">{{$t('reviewTheDefenseInformation.studentType')}}</td>
           <td width="25%" class="colstyle2">{{ $t(list.stuTypeCode) }}</td>
         </tr>
         <tr>
-          <td class="colstyle1">所属学院</td>
+          <td class="colstyle1">{{$t('reviewTheDefenseInformation.belongingCollege')}}</td>
           <td class="colstyle2">{{ $t(list.college) }}</td>
-          <td class="colstyle1">所属专业</td>
+          <td class="colstyle1">{{$t('reviewTheDefenseInformation.major')}}</td>
           <td class="colstyle2">{{ $t(list.major) }}</td>
-          <td class="colstyle1">导师</td>
+          <td class="colstyle1">{{$t('reviewTheDefenseInformation.tutur')}}</td>
           <td class="colstyle2">{{ $t(list.tutor) }}</td>
         </tr>
         <tr>
-          <td class="colstyle1">论文题目</td>
+          <td class="colstyle1">{{$t('reviewTheDefenseInformation.title')}}</td>
           <td class="colstyle2">{{ $t(list.thesisTopic) }}</td>
-          <td class="colstyle1">答辩时间</td>
+          <td class="colstyle1">{{$t('reviewTheDefenseInformation.defenceTime')}}</td>
           <td class="colstyle2">{{ list.answerTime }}</td>
-          <td class="colstyle1"> 答辩地点</td>
+          <td class="colstyle1"> {{$t('reviewTheDefenseInformation.defencePlace')}}</td>
           <td class="colstyle2">{{ list.answerPlace }}</td>
         </tr>
       </tbody></table>
@@ -52,7 +56,7 @@
     <table class="content" width="100%">
       <tbody><tr>
         <td class="head" style="border-bottom: 0px">
-          <div class="titlable">学位论文评阅信息</div>
+          <div class="titlable">{{$t('reviewTheDefenseInformation.DissertationEvaluationInformation')}}</div>
         </td>
       </tr>
       </tbody>
@@ -66,7 +70,7 @@
     >
       <el-table-column
         prop="date"
-        label="进程"
+        :label="$t('reviewTheDefenseInformation.process')"
         width="70"
         align="center"
       >
@@ -76,7 +80,7 @@
       </el-table-column>
       <el-table-column
         prop="name"
-        label="姓名"
+        :label="$t('reviewTheDefenseInformation.name1')"
         align="center"
       >
         <template slot-scope="scope">
@@ -86,7 +90,7 @@
       <el-table-column
         prop="address"
         width="120"
-        label="专业技术职务"
+        :label="$t('reviewTheDefenseInformation.ProfessionalAndTechnicalPosts')"
         align="center"
       >
         <template slot-scope="scope">
@@ -96,7 +100,7 @@
       <el-table-column
         prop="address"
         width="120"
-        label="博/硕导"
+        :label="$t('reviewTheDefenseInformation.mastersupervisor2')"
         align="center"
       >
         <template slot-scope="scope">
@@ -105,7 +109,7 @@
       </el-table-column>
       <el-table-column
         prop="address"
-        label="工作单位"
+        :label="$t('reviewTheDefenseInformation.workUnit')"
         align="center"
       >
         <template slot-scope="scope">
@@ -115,7 +119,7 @@
       <el-table-column
         prop="address"
         width="120"
-        label="总体评价等级"
+        :label="$t('reviewTheDefenseInformation.OverallRating')"
         align="center"
       >
         <template slot-scope="scope">
@@ -124,7 +128,7 @@
       </el-table-column>
       <el-table-column
         prop="address"
-        label="总体评价结论"
+        :label="$t('reviewTheDefenseInformation.OverallConclusion')"
         align="center"
         width="120"
       >
@@ -137,7 +141,7 @@
     <table class="content">
       <tbody><tr>
         <td class="head" style="border-bottom: 0px">
-          <div class="titlable">答辩委员会成员</div>
+          <div class="titlable">{{$t('reviewTheDefenseInformation.MemberofDefenseCommittee')}}</div>
         </td>
       </tr>
       </tbody></table>
@@ -150,7 +154,7 @@
     >
       <el-table-column
         prop="date"
-        label="成员身份"
+        :label="$t('reviewTheDefenseInformation.Membership')"
         align="center"
       >
         <template slot-scope="scope">
@@ -159,7 +163,7 @@
       </el-table-column>
       <el-table-column
         prop="name"
-        label="成员姓名"
+        :label="$t('reviewTheDefenseInformation.MemberName')"
         align="center"
       >
         <template slot-scope="scope">
@@ -168,7 +172,7 @@
       </el-table-column>
       <el-table-column
         prop="address"
-        label="专业技术职务"
+        :label="$t('reviewTheDefenseInformation.ProfessionalAndTechnicalPosts')"
         align="center"
       >
         <template slot-scope="scope">
@@ -177,7 +181,7 @@
       </el-table-column>
       <el-table-column
         prop="address"
-        label="所属单位"
+        :label="$t('reviewTheDefenseInformation.unit')"
         align="center"
       >
         <template slot-scope="scope">
@@ -186,7 +190,7 @@
       </el-table-column>
       <el-table-column
         prop="address"
-        label="博/硕导"
+        :label="$t('reviewTheDefenseInformation.mastersupervisor2')"
         align="center"
       >
         <template slot-scope="scope">
@@ -198,43 +202,43 @@
     <table class="content">
       <tbody>
         <tr>
-          <td class="leftsidespan">学位论文答辩委员会决议(不能少于500字且不能多于800字)
+          <td class="leftsidespan">{{$t('reviewTheDefenseInformation.NOTE1')}}
           </td>
           <td class="rightsidespan">{{ list.gradCommitIdea }} </td>
         </tr>
-        <tr><td class="leftsidespan">学位论文答辩记录</td>
+        <tr><td class="leftsidespan">{{$t('reviewTheDefenseInformation.NOTE2')}}</td>
           <td class="rightsidespan">{{ list.gradSceneRecord }}</td>
         </tr><tr>
-          <td align="center" colspan="2" style="font-size: 12px;color:  #606266">答辩委员会对学位论文及答辩情况的总体评价: {{ $t(list.wholeEvaluate) }}
+          <td align="center" colspan="2" style="font-size: 12px;color:  #606266">{{$t('reviewTheDefenseInformation.NOTE3')}}{{ $t(list.wholeEvaluate) }}
           </td>
         </tr>
         <tr>
           <td align="center" colspan="2">
             <table class="content" width="100%">
               <tbody><tr>
-                       <td class="titlable" colspan="6">学位论文答辩委员会表决情况</td>
+                       <td class="titlable" colspan="6">{{$t('reviewTheDefenseInformation.NOTE4')}}</td>
                      </tr>
                 <tr>
                   <td colspan="1">
-                    <div class="part_bottom_1">出席委员人数</div>
+                    <div class="part_bottom_1">{{$t('reviewTheDefenseInformation.NumberOfMembers')}}</div>
                   </td>
                   <td colspan="2" class="part_bottom_2">{{ list.gradAttendanceNum }}</td>
                   <td colspan="1">
-                    <div class="part_bottom_1">缺席委员人数</div>
+                    <div class="part_bottom_1">{{$t('reviewTheDefenseInformation.NumberOfAb')}}</div>
                   </td>
                   <td colspan="2" class="part_bottom_2">{{ list.gradAbsenceNum }}</td>
                 </tr>
                 <tr>
                   <td colspan="1" width="16%">
-                    <div class="part_bottom_1">建议授予学位票数</div>
+                    <div class="part_bottom_1">{{$t('reviewTheDefenseInformation.DegreeVotes')}}</div>
                   </td>
                   <td colspan="1" width="16%" class="part_bottom_2">{{ list.gradAgreeNum }}</td>
                   <td colspan="1" width="16%">
-                    <div class="part_bottom_1">建议不授予学位票数</div>
+                    <div class="part_bottom_1">{{$t('reviewTheDefenseInformation.DegreeVotesNot')}}</div>
                   </td>
                   <td colspan="1" width="16%" class="part_bottom_2">{{ list.gradDisagreeNum }}</td>
                   <td colspan="1" width="16%">
-                    <div class="part_bottom_1">建议修改论文重新答辩</div>
+                    <div class="part_bottom_1">{{$t('reviewTheDefenseInformation.ReviseAndRedefend')}}</div>
                   </td>
                   <td colspan="1" width="16%" class="part_bottom_2">{{ list.gradSuggestModifyNum }}</td>
                 </tr>
