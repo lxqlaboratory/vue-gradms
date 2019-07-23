@@ -7,24 +7,23 @@
         </td>
       </tr>
       <tr>
-        <td style="border-right:0px !important;"></td>
+        <td style="border-right:0px !important;" />
         <td style="border-right:0px !important;">
           <el-input
+            v-model="workAndShort"
             class="inputSpan"
             type="textarea"
-            v-model="textarea"
             placeholder="请输入内容"
             maxlength="300"
             rows="12"
             show-word-limit
-          >
-          </el-input>
+          />
         </td>
-        <td></td>
+        <td />
       </tr>
       <tr>
         <td colspan="12" align="center">
-          <el-button class="allBtn" size="mini">保存</el-button>
+          <el-button class="allBtn" size="mini" @click="thesisShortSubmit">保存</el-button>
           <el-button class="allBtn" size="mini">下载学位申请书</el-button>
         </td>
       </tr>
@@ -33,16 +32,36 @@
 </template>
 
 <script>
-  import ElButton from "../../../node_modules/element-ui/packages/button/src/button";
-  export default {
-    components: {ElButton},
-    data() {
-      return {
-        text: '',
-        textarea: ''
-      }
+import { inputThesisShortInfoInit } from '@/api/inputThesisShort'
+import { inputThesisShortInfo } from '@/api/inputThesisShort'
+import ElButton from '../../../node_modules/element-ui/packages/button/src/button'
+export default {
+  components: { ElButton },
+  data() {
+    return {
+      text: '',
+      textarea: '',
+      workAndShort: ''
+    }
+  },
+  created() {
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+      inputThesisShortInfoInit().then(res => {
+        this.workAndShort = res.data.workAndShort
+      })
+    },
+    thesisShortSubmit() {
+      inputThesisShortInfo({ 'WorkAndShort': this.workAndShort }).then(res => {
+
+      }).catch(e => {
+
+      })
     }
   }
+}
 </script>
 
 <style scoped>
