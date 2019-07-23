@@ -111,7 +111,7 @@ export default {
       }).then(res => {
         this.list = res.data
       }, function(err) {
-
+        console.log(err)
       }
       )
     }
