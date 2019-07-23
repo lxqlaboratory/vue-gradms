@@ -21,7 +21,7 @@
                   {{ $t('preSchoolInfoModal.undergraduateType') }}
                 </td>
                 <td v-if="isEdit2" width="25%" class="colstyle2">
-                  <el-select v-model="list3.universityTypeCode" size="mini" class="el-w">
+                  <el-select  v-model="list3.universityTypeCode" size="mini" class="el-w">
                     <el-option
                       v-for="item in list3.bkbylb"
                       :key="item.value"

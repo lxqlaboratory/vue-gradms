@@ -600,6 +600,7 @@ export default {
     SchoolAdvise: 'Advice of School',
     GraduateAdvise: 'Advice of Postgraduate School',
     BackUp: 'go back',
-    Whether: 'Whether to apply for graduation'
+    Whether: 'Whether to apply for graduation',
+    Whether2: 'No graduation application was submitted'
   }
 }

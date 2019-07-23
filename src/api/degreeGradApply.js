@@ -7,3 +7,11 @@ export function degreeGradApplyInit() {
     data: {}
   })
 }
+
+export function degreeGradApplyInsert() {
+  return request({
+    url: '/api/degree/degreeGradApplyInsert',
+    method: 'POST',
+    data: {}
+  })
+}
