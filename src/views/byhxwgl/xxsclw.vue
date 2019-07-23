@@ -1,6 +1,6 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div class="container">
-    <p class="noticeSpan">{{$t('uploadThesisPaper.note')}}
+    <p class="noticeSpan" style="border: 1px solid #EBEEF5;">{{$t('uploadThesisPaper.note')}}
       <br>{{$t('uploadThesisPaper.note1')}}
       <br>{{$t('uploadThesisPaper.note2')}}
     </p>
@@ -156,7 +156,7 @@
     margin:20px;
   }
   .noticeSpan{
-    border: 1px solid #EBEEF5;
+    /*border: 1px solid #EBEEF5;*/
     font-size: 12px;
     color: #A50001;
     padding: 12px;

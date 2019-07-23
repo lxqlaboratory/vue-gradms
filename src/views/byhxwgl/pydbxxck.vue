@@ -304,7 +304,7 @@ export default {
     margin-top: 15px;
   }
   .content td {
-    padding: 10px 30px;
+    padding: 10px 25px;
     border-bottom: 1px solid #EBEEF5;
     border-right: 1px solid #EBEEF5;
   }
@@ -318,13 +318,14 @@ export default {
     width:13%;
     font-size: 12px;
     color: #909399;
+    font-weight: bold;
     letter-spacing:2px;
   }
   .rightsidespan{
     align:center;
     font-size: 12px;
     color: #606266;
-    letter-spacing:3px;
+    letter-spacing:2px;
     text-indent:30px;
     line-height: 18px;
   }
@@ -332,6 +333,7 @@ export default {
     font-size: 12px;
     text-align: center;
     color: #909399;
+    font-weight: bold;
   }
   .part_bottom_2{
     font-size: 12px;

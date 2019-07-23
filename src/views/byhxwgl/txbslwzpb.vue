@@ -24,7 +24,7 @@
           <td class="colspan1">研究方向</td>
           <td class="colspan2">
             {{ $t(raseResearch) }}
-            <span class="noticeSpan"> 研究方向可以在学生上传学位论文页面维护</span>
+            <!--<span class="noticeSpan"> 研究方向可以在学生上传学位论文页面维护</span>-->
           </td>
         </tr>
       </table>
@@ -109,7 +109,7 @@ import { doctorThesisSelfEstimationInsert } from '@/api/doctorThesisSelfEstimati
 export default {
   data() {
     return {
-        input:'',
+      input:'',
       text: '',
       textarea: '',
       thesisName: '',
