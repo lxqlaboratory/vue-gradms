@@ -237,8 +237,8 @@ export const constantRoutes = [
         component: () => import('@/views/byhxwgl/txbslwzpb'),
         meta: {
           title: ('route.txbslwzpb'),
-          icon: 'form',
-          roles: [117]
+          icon: 'form'
+          //roles: [116]
         }
       },
       {
