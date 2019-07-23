@@ -1,4 +1,4 @@
-<template xmlns="http://www.w3.org/1999/html">
+<template>
   <div class="container">
     <p class="noticeSpan" style="border: 1px solid #EBEEF5;">{{$t('uploadThesisPaper.note')}}
       <br>{{$t('uploadThesisPaper.note1')}}
@@ -8,25 +8,25 @@
       <table class="content">
         <tr>
           <td class="colspan1">{{$t('uploadThesisPaper.studentNum')}}</td>
-          <td class="colspan2"><el-input v-model="input" type="text"  size="mini" class="elinput2" ></el-input></td>
+          <td class="colspan2"></td>
           <td class="colspan1">{{$t('uploadThesisPaper.name')}}</td>
-          <td class="colspan2"><el-input v-model="input"  size="mini" class="elinput2"></el-input></td>
+          <td class="colspan2"></td>
           <td class="colspan1">{{$t('uploadThesisPaper.language')}}</td>
-          <td class="colspan2"><el-input v-model="input"  size="mini" class="elinput2"></el-input></td>
+          <td class="colspan2"></td>
           <td class="colspan1">{{$t('uploadThesisPaper.typeNum')}}	</td>
-          <td class="colspan2"><el-input v-model="input"  size="mini" class="elinput2"></el-input></td>
+          <td class="colspan2"></td>
         </tr>
         <tr>
           <td colspan="2" class="colspan1">{{$t('uploadThesisPaper.theisTitle')}}</td>
-          <td colspan="6" class="colspan2"><el-input v-model="input"  size="mini" class="elinput"></el-input></td>
+          <td colspan="6" class="colspan2"><el-input v-model="input" type="text" size="mini" class="elinput"></el-input></td>
         </tr>
         <tr>
           <td colspan="2" class="colspan1">{{$t('uploadThesisPaper.foreignTitle')}}</td>
-          <td colspan="6" class="colspan2"><el-input v-model="input"  size="mini" class="elinput"></el-input></td>
+          <td colspan="6" class="colspan2"><el-input v-model="input" type="text" size="mini" class="elinput"></el-input></td>
         </tr>
         <tr>
           <td colspan="2" class="colspan1">{{$t('uploadThesisPaper.researchDirection')}}</td>
-          <td colspan="6" class="colspan2"><el-input v-model="input"  size="mini" class="elinput"></el-input></td>
+          <td colspan="6" class="colspan2"><el-input v-model="input" type="text" size="mini" class="elinput"></el-input></td>
         </tr>
         <tr>
           <td colspan="2" class="colspan1">{{$t('uploadThesisPaper.ChineseKeyWords')}}</td>
@@ -34,7 +34,7 @@
         </tr>
         <tr>
           <td colspan="2" class="colspan1">{{$t('uploadThesisPaper.EnglishKeyWords')}}</td>
-          <td colspan="6" class="colspan2"><el-input v-model="input"  size="mini" class="elinput"></el-input></td>
+          <td colspan="6" class="colspan2"><el-input v-model="input" type="text" size="mini" class="elinput"></el-input></td>
         </tr>
         <tr>
           <td colspan="2" class="colspan1">{{$t('uploadThesisPaper.EnglilshAbstract')}}</td>
@@ -113,7 +113,6 @@
               :on-remove="handleRemove"
               :before-remove="beforeRemove"
               :limit="1"
-              show-file-list="false"
               :file-list="fileList">
               <el-button size="mini" class="uploadBtn">{{$t('uploadThesisPaper.selectFiles')}}</el-button>
             </el-upload>
@@ -131,13 +130,27 @@
 
 <script>
 //  学生上传论文
+  import { uploadCheckThesisInit } from '@/api/uploadCheckThesis'
   export default {
     data(){
         return{
-          fileList: []
+          fileList: [],
+          input:'',
+          textarea:''
         }
     },
+    created() {
+      this.fetchData();
+    },
     medthods:{
+      fetchData() {
+          alert(111)
+        uploadCheckThesisInit().then( res => {
+          this.list == res.data
+          console.log(this.list)
+        })
+      },
+
       handleRemove(file, fileList) {
         console.log(file, fileList);
       },
