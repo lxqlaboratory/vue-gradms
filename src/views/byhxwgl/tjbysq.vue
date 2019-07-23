@@ -79,7 +79,7 @@ export default {
   methods: {
     fetchData() {
       degreeGradApplyInit().then(res => {
-        if (res.code === 1) {
+        if (res.code == 1) {
           this.message = false
         } else {
           this.message = true
@@ -105,7 +105,6 @@ export default {
             message: '学院审核已通过，不能再提交',
             type: 'error'
           })
-          this.fetchData()
         }
       }).catch(e => {
 
