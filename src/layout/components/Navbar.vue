@@ -15,7 +15,7 @@
       </div>
       <el-dropdown class="avatar-container" style="position: absolute;right: 1%;top:-2px;float: right" trigger="click">
         <div class="avatar-wrapper">
-          <img src="@/assets/main/简历.png" class="user-avatar" style="vertical-align: middle; ">
+          <!--<img src="@/assets/main/简历.png" class="user-avatar" style="vertical-align: middle; ">-->
           <span style="font-size: 9px;color: white">{{ this.name }}</span>
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown" style="margin-top: 0px">

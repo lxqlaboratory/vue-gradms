@@ -9,7 +9,7 @@
         :header-cell-style="getRowClass"
       >
         <el-table-column
-          :label="$t('gradeQuery.seqNum')"
+          :label="$t('selectCourse.courseNum')"
           fixed="left"
           width="73"
           align="center"
@@ -20,7 +20,7 @@
           </template>
         </el-table-column>
         <el-table-column
-          :label="$t('gradeQuery.courseNum')"
+          :label="$t('selectCourse.courseName')"
           width="125"
           align="center"
         >
@@ -29,7 +29,7 @@
           </template>
         </el-table-column>
         <el-table-column
-          :label="$t('gradeQuery.courseName')"
+          :label="$t('selectCourse.courseSeq')"
           align="center"
         >
           <template slot-scope="scope">
@@ -37,7 +37,7 @@
           </template>
         </el-table-column>
         <el-table-column
-          :label="$t('gradeQuery.teacher')"
+          :label="$t('selectCourse.courseProperty')"
           width="120"
           align="center"
         >
@@ -46,7 +46,7 @@
           </template>
         </el-table-column>
         <el-table-column
-          :label="$t('gradeQuery.credit')"
+          :label="$t('selectCourse.exammeans')"
           width="70"
           align="center"
         >
@@ -55,7 +55,7 @@
           </template>
         </el-table-column>
         <el-table-column
-          :label="$t('gradeQuery.courseProperty')"
+          :label="$t('selectCourse.teacher')"
           width="130"
           align="center"
         >
@@ -64,7 +64,7 @@
           </template>
         </el-table-column>
         <el-table-column
-          label="成绩"
+          :label="$t('selectCourse.semester')"
           width="80"
           align="center"
         >
@@ -73,7 +73,52 @@
           </template>
         </el-table-column>
         <el-table-column
-          :label="$t('gradeQuery.examTime')"
+          :label="$t('selectCourse.restCourse')"
+          width="110"
+          align="center"
+        >
+          <template slot-scope="scope">
+            {{ $t(scope.row.examTime) }}
+          </template>
+        </el-table-column>
+        <el-table-column
+          :label="$t('selectCourse.examPlace')"
+          width="110"
+          align="center"
+        >
+          <template slot-scope="scope">
+            {{ $t(scope.row.examTime) }}
+          </template>
+        </el-table-column>
+        <el-table-column
+          :label="$t('selectCourse.examTime')"
+          width="110"
+          align="center"
+        >
+          <template slot-scope="scope">
+            {{ $t(scope.row.examTime) }}
+          </template>
+        </el-table-column>
+        <el-table-column
+          :label="$t('selectCourse.remark')"
+          width="110"
+          align="center"
+        >
+          <template slot-scope="scope">
+            {{ $t(scope.row.examTime) }}
+          </template>
+        </el-table-column>
+        <el-table-column
+          :label="$t('selectCourse.courseArrangement')"
+          width="110"
+          align="center"
+        >
+          <template slot-scope="scope">
+      {{ $t(scope.row.examTime) }}
+      </template>
+      </el-table-column>
+        <el-table-column
+          :label="$t('selectCourse.operation')"
           width="110"
           align="center"
         >
@@ -87,6 +132,7 @@
 </template>
 
 <script>
+  import { coursenewStuSelectInit } from '@/api/studentSelectCourse'
 export default {
   name: 'Xsxk',
   data() {
@@ -107,11 +153,10 @@ export default {
   },
   methods: {
     fetchData() {
-      stuGradeQuery().then(res => {
+      coursenewStuSelectInit().then(res => {
         this.gradeList = res.data
-        console.log(this.gradeList)
       })
-    },
+    }
     // getRowClass({ row, column, rowIndex, columnIndex }) {
     //   if (rowIndex === 0) {
     //     return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
