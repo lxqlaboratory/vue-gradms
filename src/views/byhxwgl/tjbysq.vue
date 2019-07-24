@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div v-if="message" class="app-container">
     <table cellspacing="0" width="100%">
       <tbody>
         <tr><td colspan="11">
@@ -19,45 +19,58 @@
           </td>
         </tr>
       </tbody></table>
-    <el-table
-      :data="courseExportList"
-      border
-      size="mini"
-      style="width: 100%;"
-    >
-      <el-table-column
-        prop="category"
-        :label="$t('baseInformationModal.name')"
-        align="center"
-      />
-      <el-table-column
-        prop="xuhao"
-        :label="$t('baseInformationModal.studentNumber')"
-        align="center"
-      />
-      <el-table-column
-        prop="kechenghao"
-        :label="$t('CourseQuery.Whether')"
-        align="center"
-      />
-    </el-table>
+
+    <table cellspacing="0" width="100%">
+      <tbody><tr>
+               <td class="colstyle1" style="text-align: center;width: 30%">
+                 {{ $t('baseInformationModal.name') }}
+               </td>
+               <td class="colstyle1" style="text-align: center;width: 30%">
+                 {{ $t('baseInformationModal.studentNumber') }}
+               </td>
+               <td class="colstyle1" style="text-align: center;width: 30%">
+                 {{ $t('CourseQuery.Whether') }}
+               </td>
+             </tr>
+        <tr>
+          <td class="colstyle2" style="text-align: center;width: 30%">
+            {{ $t(perNum) }}
+          </td>
+          <td class="colstyle2" style="text-align: center;width: 30%">
+            {{ $t(perName) }}
+          </td>
+          <td class="colstyle2" style="text-align: center;width: 30%">
+            {{ $t('CourseQuery.Whether2') }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
     <table cellspacing="0" width="100%">
       <tbody><tr>
         <td style="text-align:center">
-          <el-button style="background-color:#A50001;color: #ffffff " size="mini">提交</el-button>
+          <el-button style="background-color:#A50001;color: #ffffff " size="mini" @click="degreeGradApplySubmit">提交</el-button>
         </td>
       </tr>
       </tbody>
     </table>
   </div>
+  <div v-else class="app-container">
+    <div style="color: #9b0d14">
+      毕业状态:不是研究生院同意提交毕业申请状态，不能提交毕业申请!
+    </div>
+  </div>
 </template>
 
 <script>
 import { degreeGradApplyInit } from '@/api/degreeGradApply'
+import { degreeGradApplyInsert } from '@/api/degreeGradApply'
 export default {
   data() {
     return {
-      list: []
+      list: [],
+      perName: '',
+      perNum: '',
+      message: true
     }
   },
   created() {
@@ -66,7 +79,35 @@ export default {
   methods: {
     fetchData() {
       degreeGradApplyInit().then(res => {
-        this.list = res.data
+        if (res.code == 1) {
+          this.message = false
+        } else {
+          this.message = true
+          this.perName = res.data.perName
+          this.perNum = res.data.perNum
+        }
+      })
+    },
+    degreeGradApplySubmit() {
+      degreeGradApplyInsert().then(res => {
+        if (res.msg === '提交成功,不可在申请，可在查看毕业及学位状态功能查看自己的状态') {
+          this.$message({
+            message: '提交成功,不可在申请，可在查看毕业及学位状态功能查看自己的状态',
+            type: 'success'
+          })
+        } else if (res.msg === '您已提交毕业申请，不能再提交') {
+          this.$message({
+            message: '您已提交毕业申请，不能再提交',
+            type: 'error'
+          })
+        } else {
+          this.$message({
+            message: '学院审核已通过，不能再提交',
+            type: 'error'
+          })
+        }
+      }).catch(e => {
+
       })
     }
   }
@@ -75,7 +116,7 @@ export default {
 
 <style scoped>
   td{
-    height: 2.3em;
+    height:3em;
     padding:5px;
     border:1px solid #f4f4f5;
   }
@@ -84,5 +125,14 @@ export default {
     margin: 0 !important;
     padding: 2px;
     border: none;
+  }
+  .colstyle1{
+    height: 25px;
+    color: #909399;
+    font-weight: bold;
+  }
+  .colstyle2{
+    height: 25px;
+    color: #606266;
   }
 </style>

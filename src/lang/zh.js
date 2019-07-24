@@ -622,7 +622,8 @@ export default {
     SchoolAdvise: '学院意见',
     GraduateAdvise: '研究生院意见',
     BackUp: '后退',
-    Whether: '是否申请毕业'
+    Whether: '是否申请毕业',
+    Whether2: '没有提交毕业申请'
   }
 
 }
