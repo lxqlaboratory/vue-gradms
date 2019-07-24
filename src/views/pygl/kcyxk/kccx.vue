@@ -140,9 +140,9 @@
 </template>
 
 <script>
-import { allCourseQueryInit } from '@/api/allCourseQuery.js'
-import { allCourseQueryDoQuery } from '@/api/allCourseQuery.js'
-import { translation } from '@/utils/translation'
+  import { allCourseQueryInit } from '@/api/allCourseQuery.js'
+  import { allCourseQueryDoQuery } from '@/api/allCourseQuery.js'
+  import { translation } from '@/utils/translation'
 export default {
   name: 'Kccx',
   data() {
@@ -158,30 +158,29 @@ export default {
   created() {
     this.fetchData()
   },
+  computed: {
+    language() {
+      return this.$store.getters.language
+    }
+  },
   methods: {
     fetchData() {
       allCourseQueryInit().then(res => {
         this.collegeList = res.data.collegeList
       })
     },
-    showAllCourse: function() {
-      allCourseQueryDoQuery({
-        'collegeId': this.choseSchool,
-        'courseNum': this.courseNum,
-        'courseName': this.courseName
-      }).then(res => {
-        if (res.msg === '学院与（课程名或课程号）不能同时为空') {
+    showAllCourse() {
+      allCourseQueryDoQuery({'collegeId': this.choseSchool ,'courseNum': this.courseNum ,'courseName': this.courseName  }).then(res => {
+        if(res.code == 1){
           this.$message({
-            message: '学院与（课程名或课程号）不能同时为空',
+            message: translation(res,this.language).message,
             type: 'error'
-          })
-        } else {
+          });
+        }else{
           this.showTable = true
           this.publicCourseList = res.data
         }
-      }).catch(e => {
-
-      })
+        })
     },
     insertCourse(courseId) {
       this.$router.push({ name: 'allCourseQueryDetail', params: { courseId }})

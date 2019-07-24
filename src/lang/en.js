@@ -28,7 +28,7 @@ export default {
       '插入成功':'Inserted successfully',
     },
     error:{
-      '学院与（课程名或课程号）不能同时为空': '学院与（课程名或课程号）不能同时为空',
+      '学院与（课程名或课程号）不能同时为空': 'College and (course name or course number) cannot be empty at the same time',
       'userError': 'userError'
     }
   },

@@ -3,43 +3,62 @@
  *
  *  提示信息中英文转换
  *  数据格式：
- *      传入数据：{'code':'','msg':''},其中code代表提示信息的类型是OKorError, msg是消息的内容
- *      返回数据：{'type':'', 'code':'', 'path':''},其中type代表提示信息的类型是OKorError，cod代表key匹配的结果0代表失败，1代表成功，path代表key的路径
+ *      传入数据：res={'code':'','msg':''},其中code代表提示信息的类型是OKorError, msg是消息的内容
+ *               lang='en'//'zh'代表当前的语言类型
+ *      返回数据：{'type':'', 'code':'', 'message':''}
+ *                其中type代表提示信息的类型是OKorError，code代表key匹配的结果0代表失败，1代表成功，message代表信息
  * */
 import zhLocal from '@/lang/zh'
-export function translation(res) {
-  if(res.code == 0){
+import enLocal from '@/lang/en'
+export function translation(res,lang) {
+  if(res.code == 1){ //失败类型的消息
     for(let i in zhLocal.message.error){
-      if(typeof i == 'object'){
+      if(typeof i == 'object'){ //是嵌套对象
         for(let key in i){
           if(key === res.msg){
-            return {'type':'error', 'code':1, 'path':'translation.js.i.key'}
-          }else{
-            return {'type':'error', 'code':0, 'path':'translation.js.i.key'}
+            if(lang == 'en'){
+              console.log(i);
+              return {'type': 'error', 'code':'1', 'message':enLocal.message.error.i[key]}
+            }else if(lang == 'zh'){
+              return {'type': 'error', 'code':'1', 'message':zhLocal.message.error.i[key]}
+            }
           }
         }
+        return {'type':'error', 'code':0, 'message':res.msg}
       }else if(i === res.msg){
-        return {'type': 'error', 'code':'1', 'path':'translation.js.i'}
-      }else{
-        return {'type': 'error', 'code':'0', 'path':''}
+        if(lang == 'en'){
+          console.log(i);
+          return {'type': 'error', 'code':'1', 'message':enLocal.message.error[i]}
+        }else if(lang == 'zh'){
+          return {'type': 'error', 'code':'1', 'message':zhLocal.message.error[i]}
+        }
       }
     }
-  }else if(res.code == 1){
+    return {'type': 'error', 'code':'0', 'message':res.msg}
+  }else if(res.code ==0){ //成功类型的消息
     for(let i in zhLocal.message.ok){
       if(typeof i == 'object'){
         for(let key in i){
           if(key === res.msg){
-            return {'type':'ok', 'code':1, 'path':'translation.js.i.key'}
-          }else{
-            return {'type':'ok', 'code':0, 'path':'translation.js.i.key'}
+            if(lang == 'en'){
+              console.log(i);
+              return {'type': 'success', 'code':'1', 'message':enLocal.message.error.i[key]}
+            }else if(lang == 'zh'){
+              return {'type': 'success', 'code':'1', 'message':zhLocal.message.error.i[key]}
+            }
           }
         }
+        return {'type':'success', 'code':0, 'message':res.msg}
       }else if(i === res.msg){
-        return {'type':'ok', 'code':'1', 'path':'translation.js.i'}
-      }else{
-        return {'type':'ok', 'code':'0', 'path':''}
+        if(lang == 'en'){
+          console.log(i);
+          return {'type': 'success', 'code':'1', 'message':enLocal.message.error[i]}
+        }else if(lang == 'zh'){
+          return {'type': 'success', 'code':'1', 'message':zhLocal.message.error[i]}
+        }
       }
     }
+    return {'type': 'ok', 'code':'0', 'message':res.msg}
   }
 
 }
