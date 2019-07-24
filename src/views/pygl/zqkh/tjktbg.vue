@@ -70,7 +70,7 @@
         </tr>
         <tr>
           <td colspan="8" align="center">
-            <el-button class="allBtn" size="mini" @click="thesisShortSubmit">{{ $t('route.submit') }}</el-button>
+            <el-button class="allBtn" size="mini" @click="stuOpenSubmit">{{ $t('route.submit') }}</el-button>
           </td>
         </tr>
       </table>
@@ -80,6 +80,7 @@
 </template>
 <script>
 import { stuOpenTopicReportInit } from '@/api/stuOpenTopicReport'
+import { stuOpenTopicReportInsert } from '@/api/stuOpenTopicReport'
 export default {
   name: 'Tjktbg',
   data() {
@@ -113,6 +114,23 @@ export default {
         this.midJudgeState = res.data.midJudgeState
         this.midJudgeTimeStr = res.data.midJudgeTimeStr
         this.title = res.data.title
+      })
+    },
+    stuOpenSubmit() {
+      stuOpenTopicReportInsert({ 'itemIntroduce': this.itemIntroduce }).then(res => {
+        if (res.msg === 'sucess') {
+          this.$message({
+            message: '提交成功',
+            type: 'success'
+          })
+        } else {
+          this.$message({
+            message: '提交失败',
+            type: 'error'
+          })
+        }
+      }).catch(e => {
+
       })
     }
   }
