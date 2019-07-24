@@ -10,55 +10,54 @@
  * */
 import zhLocal from '@/lang/zh'
 import enLocal from '@/lang/en'
-export function translation(res,lang) {
-  if(res.code == 1){ //失败类型的消息
-    for(let i in zhLocal.message.error){
-      if(typeof i == 'object'){ //是嵌套对象
-        for(let key in i){
-          if(key === res.msg){
-            if(lang == 'en'){
-              console.log(i);
-              return {'type': 'error', 'code':'1', 'message':enLocal.message.error.i[key]}
-            }else if(lang == 'zh'){
-              return {'type': 'error', 'code':'1', 'message':zhLocal.message.error.i[key]}
+export function translation(res, lang) {
+  console.log(res);
+  if (res.code == 1) { // 失败类型的消息
+    for (const i in zhLocal.message.error) {
+      if (typeof i === 'object') { // 是嵌套对象
+        for (const key in i) {
+          if (key === res.msg) {
+            if (lang === 'en') {
+              console.log(i)
+              return { 'type': 'error', 'code': '1', 'message': enLocal.message.error.i[key] }
+            } else if (lang === 'zh') {
+              return { 'type': 'error', 'code': '1', 'message': zhLocal.message.error.i[key] }
             }
           }
         }
-        return {'type':'error', 'code':0, 'message':res.msg}
-      }else if(i === res.msg){
-        if(lang == 'en'){
-          console.log(i);
-          return {'type': 'error', 'code':'1', 'message':enLocal.message.error[i]}
-        }else if(lang == 'zh'){
-          return {'type': 'error', 'code':'1', 'message':zhLocal.message.error[i]}
+        return { 'type': 'error', 'code': 0, 'message': res.msg }
+      } else if (i === res.msg) {
+        if (lang === 'en') {
+          console.log(i)
+          return { 'type': 'error', 'code': '1', 'message': enLocal.message.error[i] }
+        } else if (lang === 'zh') {
+          return { 'type': 'error', 'code': '1', 'message': zhLocal.message.error[i] }
         }
       }
     }
-    return {'type': 'error', 'code':'0', 'message':res.msg}
-  }else if(res.code ==0){ //成功类型的消息
-    for(let i in zhLocal.message.ok){
-      if(typeof i == 'object'){
-        for(let key in i){
-          if(key === res.msg){
-            if(lang == 'en'){
-              console.log(i);
-              return {'type': 'success', 'code':'1', 'message':enLocal.message.error.i[key]}
-            }else if(lang == 'zh'){
-              return {'type': 'success', 'code':'1', 'message':zhLocal.message.error.i[key]}
+    return { 'type': 'error', 'code': '0', 'message': res.msg }
+  } else if (res.code == 0) { // 成功类型的消息
+    for (const i in zhLocal.message.ok) {
+      if (typeof i == 'object') {
+        for (const key in i) {
+          if (key == res.msg) {
+            if (lang == 'en') {
+              console.log(i)
+              return { 'type': 'success', 'code': '1', 'message': enLocal.message.ok.i[key] }
+            } else if (lang == 'zh') {
+              return { 'type': 'success', 'code': '1', 'message': zhLocal.message.ok.i[key] }
             }
           }
         }
-        return {'type':'success', 'code':0, 'message':res.msg}
-      }else if(i === res.msg){
-        if(lang == 'en'){
-          console.log(i);
-          return {'type': 'success', 'code':'1', 'message':enLocal.message.error[i]}
-        }else if(lang == 'zh'){
-          return {'type': 'success', 'code':'1', 'message':zhLocal.message.error[i]}
+        return { 'type': 'success', 'code': 0, 'message': res.msg }
+      } else if (i == res.msg) {
+        if (lang == 'en') {
+          return { 'type': 'success', 'code': '1', 'message': enLocal.message.ok[i] }
+        } else if (lang == 'zh') {
+          return { 'type': 'success', 'code': '1', 'message': zhLocal.message.ok[i] }
         }
       }
     }
-    return {'type': 'ok', 'code':'0', 'message':res.msg}
+    return { 'type': 'ok', 'code': '0', 'message': res.msg }
   }
-
 }

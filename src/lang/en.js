@@ -26,10 +26,12 @@ export default {
   message: {
     ok:{
       '插入成功':'Inserted successfully',
+      '该课程已锁定，不能退选！': 'This course is locked and cannot be dropped!'
     },
     error:{
       '学院与（课程名或课程号）不能同时为空': 'College and (course name or course number) cannot be empty at the same time',
-      'userError': 'userError'
+      'userError': 'userError',
+      '该课程已锁定，不能退选！': 'This course is locked and cannot be dropped!'
     }
   },
   route: {
