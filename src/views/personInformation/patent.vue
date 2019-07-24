@@ -18,28 +18,7 @@
         </tr>
       </tbody>
     </table>
-    <div class="searchDiv">
-      <span class="searchSpan">{{ $t('publishThesis.publicationTime') }}:</span>
-      <el-date-picker
-        v-model="value1"
-        type="daterange"
-        range-separator="-"
-        start-placeholder="开始日期"
-        end-placeholder="结束日期"
-        size="mini"
-        style="width: 20%"
-      />
-      <span class="searchSpan">{{ $t('patent.authorRanking') }}</span>
-      <el-select v-model="value" placeholder="请选择" size="mini" style="width: 16%">
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        />
-      </el-select>
-      <el-button class="queryBtn" size="mini">{{ $t('publishThesis.query') }}</el-button>
-    </div>
+
     <el-table
       :data="tableData"
       border
@@ -107,8 +86,6 @@
     <table width="100%" style="padding-top: 20px">
       <tbody><tr>
         <td style="text-align:center">
-          <el-button size="mini" class="setBtn">{{ $t('patent.setOpen') }}</el-button>
-          <el-button size="mini" class="setBtn">{{ $t('patent.setNotOpen') }}</el-button>
           <el-button size="mini" class="setBtn">{{ $t('patent.add') }}</el-button>
         </td>
       </tr>

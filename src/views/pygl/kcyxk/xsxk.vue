@@ -122,9 +122,7 @@
           width="110"
           align="center"
         >
-          <template slot-scope="scope">
-            {{ $t(scope.row.examTime) }}
-          </template>
+          <el-button size="mini" class="setBtn">{{ $t('cuiltivatingSchemeCheckAndDrawup.delete') }}</el-button>
         </el-table-column>
       </el-table>
     </div>
@@ -133,6 +131,7 @@
 
 <script>
   import { coursenewStuSelectInit } from '@/api/studentSelectCourse'
+  import { newcultivateCourseOperation } from '@/api/studentSelectCourse'
 export default {
   name: 'Xsxk',
   data() {
@@ -156,6 +155,9 @@ export default {
       coursenewStuSelectInit().then(res => {
         this.gradeList = res.data
       })
+    },
+    deleteCourse(){
+
     }
     // getRowClass({ row, column, rowIndex, columnIndex }) {
     //   if (rowIndex === 0) {

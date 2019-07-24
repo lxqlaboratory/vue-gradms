@@ -7,3 +7,11 @@ export function coursenewStuSelectInit() {
     data: {}
   })
 }
+
+export function newcultivateCourseOperation(data) {
+  return request({
+    url: '/api/course/newcultivateCourseOperation',
+    method: 'POST',
+    data
+  })
+}
