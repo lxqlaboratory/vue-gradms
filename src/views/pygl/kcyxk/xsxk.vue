@@ -29,6 +29,7 @@
           </template>
         </el-table-column>
         <el-table-column
+          width="125"
           :label="$t('selectCourse.courseSeq')"
           align="center"
         >
@@ -47,7 +48,7 @@
         </el-table-column>
         <el-table-column
           :label="$t('selectCourse.exammeans')"
-          width="70"
+          width="100"
           align="center"
         >
           <template slot-scope="scope">
