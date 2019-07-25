@@ -116,8 +116,6 @@
     <table width="100%" style="padding-top: 20px">
       <tbody><tr>
         <td align="center">
-          <el-button size="mini" class="setBtn">{{ $t('patent.setOpen') }}</el-button>
-          <el-button size="mini" class="setBtn">{{ $t('patent.setNotOpen') }}</el-button>
           <el-button size="mini" class="setBtn">{{ $t('patent.add') }}</el-button>
         </td>
       </tr>

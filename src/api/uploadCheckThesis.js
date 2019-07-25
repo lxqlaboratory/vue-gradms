@@ -7,7 +7,15 @@ export function uploadCheckThesisInit() {
     data: {}
   })
 }
-
+// 修改信息
+export function thesisModifyTitle(data) {
+  return request({
+    url: '/api/degree/thesisModifyTitle',
+    method: 'POST',
+    data
+  })
+}
+// 提交
 export function uploadCheckThesis(data) {
   return request({
     url: '/api/degree/uploadCheckThesis',
