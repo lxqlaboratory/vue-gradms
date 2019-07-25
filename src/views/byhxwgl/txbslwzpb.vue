@@ -138,17 +138,16 @@ export default {
     },
     thesisShortSubmit() {
       doctorThesisSelfEstimationInsert({ 'gradInnovation1': this.gradInnovation1, 'gradInnovation2': this.gradInnovation2, 'gradInnovation3': this.gradInnovation3, 'gradShortage': this.gradShortage }).then(res => {
-        if (res.msg === 'sucess') {
+        if (res.code == 0) {
           this.$message({
             message: '提交成功',
-            type: 'success'
+            type: 'sucess'
           })
         } else {
           this.$message({
-            message: '提交成功',
-            type: 'error'
+            message: '提交失败',
+            type: 'sucess'
           })
-          this.fetchData()
         }
       }).catch(e => {
 
