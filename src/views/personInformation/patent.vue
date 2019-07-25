@@ -86,7 +86,7 @@
     <table width="100%" style="padding-top: 20px">
       <tbody><tr>
         <td style="text-align:center">
-          <el-button size="mini" class="setBtn">{{ $t('patent.add') }}</el-button>
+          <el-button size="mini" class="setBtn" @click="insertPatent">{{ $t('patent.add') }}</el-button>
         </td>
       </tr>
       </tbody>
@@ -111,6 +111,9 @@ export default {
       getAchievementPatentInfoList().then(res => {
 
       })
+    },
+    insertPatent(){
+      this.$router.push({ path: './patentDetail' })
     },
     getRowClass({ row, column, rowIndex, columnIndex }) {
       if (rowIndex === 0) {
