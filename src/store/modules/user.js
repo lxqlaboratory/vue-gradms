@@ -1,5 +1,5 @@
 import { login, logout, getInfo } from '@/api/user'
-import { getToken, setToken, removeToken} from "@/utils/auth"
+import { getToken, setToken, removeToken } from '@/utils/auth'
 import router from '@/router'
 
 const state = {
@@ -12,7 +12,7 @@ const state = {
 }
 
 const mutations = {
-  SET_TOKEN: (state, token) =>{
+  SET_TOKEN: (state, token) => {
     state.token = token
   },
   SET_INTRODUCTION: (state, introduction) => {
@@ -20,7 +20,7 @@ const mutations = {
   },
   SET_NAME: (state, name) => {
     state.name = name
-    window.localStorage.setItem('name', JSON.stringify(name));
+    window.localStorage.setItem('name', JSON.stringify(name))
   },
   SET_NUM: (state, usernum) => {
     state.usernum = usernum
@@ -30,16 +30,16 @@ const mutations = {
   },
   SET_ROLES: (state, roles) => {
     state.roles = roles
-    console.log("SET_ROLES"+state.roles)
-  },
+    console.log('SET_ROLES' + state.roles)
+  }
 }
 const actions = {
   // user login
-  login({ commit }, userInfo){
+  login({ commit }, userInfo) {
     const { username, password } = userInfo
     return new Promise((resolve, reject) => {
-      login({ username: username.trim(), password: password }).then(response =>{
-        const { data } = response;
+      login({ username: username.trim(), password: password }).then(response => {
+        const { data } = response
         // Cookies.set('Token', response.data.data);
         commit('SET_TOKEN', data.token)
         setToken(data.token)
@@ -51,20 +51,20 @@ const actions = {
   },
 
   // get user info
-  getInfo({ commit, state }){
+  getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
       getInfo(state.token).then(response => {
-        const data = response.data;
+        const data = response.data
         console.log(response.data)
 
-        if(!data){
+        if (!data) {
           reject('Verification failed, please Login again.')
         }
 
         const { perName, roleId, perNum } = data
 
-        //roles must be a non-empty array
-        if(!roleId || roleId.length <= 0){
+        // roles must be a non-empty array
+        if (!roleId || roleId.length <= 0) {
           reject('getInfo: roles must be a non-null array!')
         }
 

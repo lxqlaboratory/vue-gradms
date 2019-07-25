@@ -36,6 +36,12 @@ import FixiOSBug from './FixiOSBug'
 export default {
   name: 'SidebarItem',
   components: { Item, AppLink },
+  computed:{
+    ...mapGetters([
+      'sidebar',
+      'roles'
+    ])
+  },
   mixins: [FixiOSBug],
   props: {
     // route object
@@ -67,6 +73,7 @@ export default {
         return true
       }
       for (let role of routeItem.meta.roles) {
+        console.log("这是sidebar"+this.roles)
         return role == this.roles
       }
     },

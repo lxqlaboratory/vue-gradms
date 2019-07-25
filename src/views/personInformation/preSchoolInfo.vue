@@ -21,7 +21,7 @@
                   {{ $t('preSchoolInfoModal.undergraduateType') }}
                 </td>
                 <td v-if="isEdit2" width="25%" class="colstyle2">
-                  <el-select v-model="list3.universityTypeCode" size="mini" class="el-w">
+                  <el-select  v-model="list3.universityTypeCode" size="mini" class="el-w">
                     <el-option
                       v-for="item in list3.bkbylb"
                       :key="item.value"
@@ -46,9 +46,9 @@
                     @select="handleSelect"
                   >
                     <template slot-scope="{ item }">
-                      <div class="show-autocomplete"><div style="color: #409EFF">
+                      <div class="show-autocomplete">
                         {{ $t(item.name) }}
-                      </div> <div>-</div><div class="colstyle2">{{ item.value }}</div></div>
+                     </div>
                     </template>
                   </el-autocomplete>
                 </td>
@@ -106,9 +106,9 @@
                     @select="BachelorDegreeSelect"
                   >
                     <template slot-scope="{ item }">
-                      <div class="show-autocomplete"><div style="color: #409EFF">
+                      <div class="show-autocomplete">
                         {{ $t(item.name) }}
-                      </div> <div>-</div><div>{{ item.value }}</div></div>
+                     </div>
                     </template>
                   </el-autocomplete>
                 </td>
@@ -178,9 +178,9 @@
                     @select="postGradMajorSelect"
                   >
                     <template slot-scope="{ item }">
-                      <div class="show-autocomplete"><div style="color: #409EFF">
+                      <div class="show-autocomplete">
                         {{ $t(item.name) }}
-                      </div> <div>-</div><div>{{ item.value }}</div></div>
+                      </div>
                     </template>
                   </el-autocomplete>
                 </td>
@@ -238,9 +238,9 @@
                     @select="MasterDegreeSelect"
                   >
                     <template slot-scope="{ item }">
-                      <div class="show-autocomplete"><div style="color: #409EFF">
+                      <div class="show-autocomplete">
                         {{ $t(item.name) }}
-                      </div> <div>-</div><div>{{ item.value }}</div></div>
+                      </div>
                     </template>
                   </el-autocomplete>
                 </td>

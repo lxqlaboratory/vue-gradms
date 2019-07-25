@@ -51,7 +51,8 @@ export const constantRoutes = [
   {
     path: '/dashboard',
     component: Layout,
-    hidden : true,
+    hidden: true,
+    redirect: '/dashboard/index',
     children: [{
       path: 'index',
       name: 'dashboard',
@@ -163,21 +164,21 @@ export const constantRoutes = [
         path: 'insertPublicCourse',
         component: () => import('@/views/pygl/pyfayxsgrjh/insertPublicCourse'),
         name: 'insertPublicCourse',
-        hidden : true,
+        hidden: true,
         meta: { title: ('route.zdckpyjh'), icon: 'form' }
       },
       {
         path: 'allCourseQuery',
         component: () => import('@/views/pygl/pyfayxsgrjh/allCourseQuery'),
         name: 'allCourseQuery',
-        hidden : true,
+        hidden: true,
         meta: { title: ('route.zdckpyjh'), icon: 'form' }
       },
       {
         path: 'allCourseQueryDetail',
         component: () => import('@/views/pygl/pyfayxsgrjh/allCourseQueryDetail'),
         name: 'allCourseQueryDetail',
-        hidden : true,
+        hidden: true,
         meta: { title: ('route.zdckpyjh'), icon: 'form' }
       },
       {
@@ -225,20 +226,20 @@ export const constantRoutes = [
         component: () => import('@/views/byhxwgl/txxwxx'),
         meta: { title: ('route.txxwxx'), icon: 'form' }
       },
-      {//填写论文工作与不足
+      {// 填写论文工作与不足
         path: 'txlwgzybz',
         name: 'txlwgzybz',
         component: () => import('@/views/byhxwgl/txlwgzybz'),
         meta: { title: ('route.txlwgzybz'), icon: 'form' }
       },
-      {//填写博士论文自评表
+      {// 填写博士论文自评表
         path: 'txbslwzpb',
         name: 'txbslwzpb',
         component: () => import('@/views/byhxwgl/txbslwzpb'),
         meta: {
           title: ('route.txbslwzpb'),
-          icon: 'form'
-          //roles: [116]
+          icon: 'form',
+          roles: [117]
         }
       },
       {
@@ -320,7 +321,7 @@ export const constantRoutes = [
     meta: {
       title: ('route.dagl'),
       icon: 'form',
-      roles:[99]
+      roles: [117]
     },
     children: [
       {
@@ -352,7 +353,7 @@ export const asyncRoutes = [
     meta: {
       title: ('route.dagl'),
       icon: 'form',
-      roles:['1']
+      roles: ['1']
     },
     children: [
       {
@@ -362,7 +363,7 @@ export const asyncRoutes = [
         meta: {
           title: ('route.txqnml'),
           icon: 'form',
-          roles:['1']
+          roles: ['1']
         }
       }
     ]
@@ -373,7 +374,7 @@ export const asyncRoutes = [
 
 ]
 
-//实例化vue的时候只挂载constantRouter
+// 实例化vue的时候只挂载constantRouter
 const createRouter = () => new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),

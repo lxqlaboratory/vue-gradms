@@ -167,15 +167,15 @@
           </td>
         </tr>
         </tbody></table>
-      <el-upload
-        class="el-upload-dragger"
-        name="file"
-        action="/gradms/api/student/uploadFile"
-        :limit="1"
-      >
-        <i class="el-icon-upload" />
-        <div class="el-upload__text">将文件拖到此处，或<em style="color: #A50001">点击上传</em></div>
-      </el-upload>
+      <!--<el-upload-->
+        <!--class="el-upload-dragger"-->
+        <!--name="file"-->
+        <!--action="/gradms/api/student/uploadFile"-->
+        <!--:limit="1"-->
+      <!--&gt;-->
+        <!--<i class="el-icon-upload" />-->
+        <!--<div class="el-upload__text">将文件拖到此处，或<em style="color: #A50001">点击上传</em></div>-->
+      <!--</el-upload>-->
     </el-form>
   </div>
 </template>

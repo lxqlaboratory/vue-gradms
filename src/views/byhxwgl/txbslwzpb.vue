@@ -95,7 +95,7 @@
         <tr>
           <td colspan="8" align="center">
             <el-button class="allBtn" size="mini" @click="thesisShortSubmit">提交</el-button>
-            <el-button class="allBtn" size="mini">自评表下载查看</el-button>
+            <el-button class="allBtn" size="mini"><a href="/gradms/api/degree/downLoadZiPingBiao" download="bszpb.pdf">{{$t('reviewTheDefenseInformation.DownloadDoctorSelfEvaluationForm')}}</a></el-button>
           </td>
         </tr>
       </table>

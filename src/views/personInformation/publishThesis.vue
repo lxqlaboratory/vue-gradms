@@ -18,38 +18,7 @@
         </tr>
       </tbody>
     </table>
-    <div class="searchDiv">
-      <span class="searchSpan">{{ $t('publishThesis.publicationYear') }}:</span>
-      <el-select v-model="value" placeholder="请选择" size="mini" style="width: 10%">
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        />
-      </el-select>
-      <span class="searchSpan">{{ $t('publishThesis.publicationTime') }}:</span>
-      <el-date-picker
-        v-model="value1"
-        type="daterange"
-        range-separator="-"
-        start-placeholder="开始日期"
-        end-placeholder="结束日期"
-        size="mini"
-        style="width: 20%"
-      />
-      <span class="searchSpan">{{ $t('publishThesis.authorRanking') }}:</span>
-      <el-select v-model="value" placeholder="请选择" size="mini" style="width: 10%">
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        />
-      </el-select>
-      <el-button class="queryBtn" size="mini">{{ $t('publishThesis.query') }}</el-button>
-      <el-button class="queryBtn" size="mini">{{ $t('publishThesis.export') }}</el-button>
-    </div>
+
     <el-table
       :data="tableData"
       border

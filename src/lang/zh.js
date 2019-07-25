@@ -20,6 +20,20 @@ export default {
   menu: {
     application_menu: '应用菜单'
   },
+  notify:{
+    notice:'通知'
+  },
+  message:{
+    ok:{
+      '插入成功': '插入成功',
+      '该课程已锁定，不能退选！': '该课程已锁定，不能退选！'
+    },
+    error:{
+      '学院与（课程名或课程号）不能同时为空': '学院与（课程名或课程号）不能同时为空',
+      'userError': '用户信息错误',
+      '该课程已锁定，不能退选！': '该课程已锁定，不能退选！'
+    }
+  },
   route: {
     loginTitle: '标题',
     personInformation: '个人信息',
@@ -609,8 +623,9 @@ export default {
     courseStatus: '课程状态',
     SchoolAdvise: '学院意见',
     GraduateAdvise: '研究生院意见',
-    BackUp: '后退'
-
+    BackUp: '后退',
+    Whether: '是否申请毕业',
+    Whether2: '没有提交毕业申请'
   }
 
 }
