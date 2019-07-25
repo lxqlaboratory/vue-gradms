@@ -24,7 +24,6 @@ export function saveAchievementWordTypeInfo(data) {
   })
 }
 
-
 export function deleteAchievementWordTypeInfo(data) {
   return request({
     url: '/api/student/deleteAchievementWordTypeInfo',

@@ -6,59 +6,89 @@
       </tr>
       <tr>
         <td  class="colspan1">论文名称</td>
-        <td  class="colspan2"><el-input v-model="formData" type="text" size="mini" class="elinput"></el-input></td>
+        <td  class="colspan2"><el-input v-model="formData.achName" type="text" size="mini" class="elinput"></el-input></td>
       </tr>
 
       <tr>
         <td  class="colspan1">期刊或会议名称</td>
-        <td  class="colspan2"><el-input v-model="formData" type="text" size="mini" class="elinput"></el-input></td>
+        <td  class="colspan2"><el-input v-model="formData.magazineName" type="text" size="mini" class="elinput"></el-input></td>
       </tr>
       <tr>
-        <td  class="colspan1">发表刊物刊号(没有请填写无)</td>
-        <td  class="colspan2"><el-input  type="text"  size="mini" class="elinput"></el-input></td>
+        <td  class="colspan1">发表刊物刊号</td>
+        <td  class="colspan2">
+          <el-input v-model="formData.magazineNum" type="text"  size="mini" class="elinput"></el-input>
+          <span class="noticeSpan">没有请填写无</span>
+        </td>
       </tr>
       <tr>
         <td  class="colspan1">论文级别</td>
-        <td  class="colspan2"><el-input v-model="formData" type="text" size="mini" class="elinput"></el-input></td>
+        <td  class="colspan2">
+          <el-select v-model="formData.levelCode"  size="mini" class="elinput">
+            <el-option
+              v-for="item in levelCode"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </td>
       </tr>
       <tr>
-        <td  class="colspan1">影响因子 **(没有请填写无)</td>
-        <td  class="colspan2"><el-input v-model="formData" type="text" size="mini" class="elinput"></el-input></td>
+        <td  class="colspan1">影响因子</td>
+        <td  class="colspan2">
+          <el-input v-model="formData.impactFactor" type="text" size="mini" class="elinput"></el-input>
+          <span class="noticeSpan">没有请填写无</span>
+        </td>
       </tr>
       <tr>
         <td  class="colspan1">是否清样 </td>
-        <td  class="colspan2"><el-input v-model="formData" type="text" size="mini" class="elinput"></el-input></td>
+        <td  class="colspan2">
+          <el-radio v-model="formData.isQingYang" label="1" size="mini" fill=" #A50001" text-color="#A50001">是</el-radio>
+          <el-radio v-model="formData.isQingYang" label="2" size="mini" fill=" #A50001">否</el-radio>
+        </td>
       </tr>
       <tr>
         <td  class="colspan1">论文发表时间</td>
-        <td  class="colspan2"><el-input v-model="formData" type="text" size="mini" class="elinput"></el-input></td>
+        <td  class="colspan2">
+          <el-input v-model="formData.useTime" type="text" size="mini" class="elinput"></el-input>
+          <span class="noticeSpan"> (如20090101)</span>
+        </td>
       </tr>
       <tr>
         <td  class="colspan1">第几卷 </td>
-        <td  class="colspan2"><el-input  type="text"  size="mini" class="elinput"></el-input></td>
+        <td  class="colspan2">
+          <el-input v-model="formData.publishTome" type="text"  size="mini" class="elinput"></el-input>
+          <span class="noticeSpan">没有请填写无</span>
+        </td>
       </tr>
       <tr>
         <td  class="colspan1">第几期</td>
-        <td  class="colspan2"><el-input v-model="formData" type="text" size="mini" class="elinput"></el-input></td>
+        <td  class="colspan2">
+          <el-input v-model="formData.publishVolumn" type="text" size="mini" class="elinput"></el-input>
+          <span class="noticeSpan">没有请填写无</span>
+        </td>
       </tr>
       <tr>
         <td  class="colspan1">起始页</td>
-        <td  class="colspan2"><el-input v-model="formData" type="text" size="mini" class="elinput"></el-input></td>
+        <td  class="colspan2"><el-input v-model="formData.beginPage" type="text" size="mini" class="elinput"></el-input></td>
       </tr>
       <tr>
         <td  class="colspan1">终止页 </td>
-        <td  class="colspan2"><el-input  type="text"  size="mini" class="elinput"></el-input></td>
+        <td  class="colspan2"><el-input v-model="formData.endPage" type="text"  size="mini" class="elinput"></el-input></td>
       </tr>
       <tr>
         <td  class="colspan1">收录方式</td>
-        <td  class="colspan2"><el-input v-model="formData" type="text" size="mini" class="elinput"></el-input></td>
+        <td  class="colspan2"><el-input v-model="formData.include" type="text" size="mini" class="elinput"></el-input></td>
       </tr>
       <tr>
         <td  class="colspan1">录入EI检索号</td>
-        <td  class="colspan2"><el-input v-model="formData" type="text" size="mini" class="elinput"></el-input></td>
+        <td  class="colspan2">
+          <el-input v-model="formData.inputEIIndexNum" type="text" size="mini" class="elinput"></el-input>
+          <span class="noticeSpan">没有请填写无</span>
+        </td>
       </tr>
       <tr>
-        <td colspan="8"><el-button class="submitBtn" size="mini">提交</el-button></td>
+        <td colspan="8"><el-button class="submitBtn" size="mini" @click="addThesis()">提交</el-button></td>
       </tr>
     </table>
   </div>
@@ -71,8 +101,22 @@
     data(){
       return{
         formData:{
-
+          achName: '' ,
+          magazineName: '' ,//刊物名称
+          magazineNum: '' ,//刊物编号
+          qkNum: '' ,//期刊号
+          levelCode: '' ,//论文级别
+          impactFactor: '' ,//影响因子
+          isQingYang: '' ,//是否是清样
+          useTime: '' ,//出版日期
+          publishTome: '' ,//
+          publishVolumn: '' ,//
+          beginPage: '' ,//起始页
+          endPage: '' ,//终止页
+          include: '' ,//收录情况 论文收录方式码
+          inputEIIndexNum: '' ,//录入EI检索号
         },
+        radio: '1'
         /*languageKinds: [{
           value: '01',
           label: '中文'
@@ -93,7 +137,7 @@
 
     },
     methods: {
-      submitBtn(){
+      addThesis(){
         console.log(this.formData)
         saveAchievementWordTypeInfo(this.formData).then(res => {
           this.$message({
@@ -111,9 +155,13 @@
     margin:20px;
   }
   .titleSpan{
-    font-size: 16px;
+    font-size: 15px !important;
     color: #A50001;
     font-weight: bold;
+  }
+  .noticeSpan{
+    font-size: 12px;
+    color: #A50001;
   }
   .content{
     width:100%;
@@ -141,6 +189,7 @@
   .colspan2{
     color:  #606266;
     width: 70%;
+    text-align:left !important;
   }
   .elinput{
     border: 1px solid #EBEEF5;

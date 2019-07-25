@@ -20,7 +20,7 @@
     </table>
 
     <el-table
-      :data="tableData"
+      :data="formData"
       border
       size="mini"
       class="eltable"
@@ -102,26 +102,25 @@
 export default {
   data() {
     return {
-      tableData: '' ,
+      formData: '' ,
       row: '',
     }
   },
   created() {
-    this.getRowClass()
     this.fetchData()
+    this.getRowClass()
   },
   methods: {
     fetchData() {
+       // alert(111)
       getAchievementWordTypeInfoList().then(res => {
-        console.log(res.data)
-        this.tableData = res.data
+          //alert("chenggong")
+        console.log(res)
       })
     },
     thesisAdd(){
       this.$router.push({ path: './thesisAdd'})
     },
-
-
 
 
 
