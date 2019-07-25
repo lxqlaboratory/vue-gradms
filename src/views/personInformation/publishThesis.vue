@@ -31,7 +31,11 @@
         prop="date"
         :label="$t('publishThesis.number')"
         width="100"
-      />
+      >
+        <template slot-scope="scope">
+          {{ scope.$index+1 }}
+        </template>
+      </el-table-column>
       <el-table-column
         prop="name"
         :label="$t('publishThesis.choice')"
@@ -85,7 +89,7 @@
     <table width="100%" style="padding-top: 20px">
       <tbody><tr>
         <td align="center">
-          <el-button size="mini" class="setBtn">{{ $t('patent.add') }}</el-button>
+          <el-button size="mini" class="setBtn" @click="thesisAdd()">{{ $t('patent.add') }}</el-button>
         </td>
       </tr>
       </tbody>
@@ -94,16 +98,33 @@
 </template>
 
 <script>
+  import { getAchievementWordTypeInfoList } from '@/api/getAchievementWordType'
 export default {
   data() {
     return {
-      value1: ''
+      tableData: '' ,
+      row: '',
     }
   },
   created() {
     this.getRowClass()
+    this.fetchData()
   },
   methods: {
+    fetchData() {
+      getAchievementWordTypeInfoList().then(res => {
+        console.log(res.data)
+        this.tableData = res.data
+      })
+    },
+    thesisAdd(){
+      this.$router.push({ path: './thesisAdd'})
+    },
+
+
+
+
+
     getRowClass({ row, column, rowIndex, columnIndex }) {
       if (rowIndex === 0) {
         return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
