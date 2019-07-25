@@ -8,17 +8,42 @@ export function getAchievementWordTypeInfoList() {
   })
 }
 
-export function saveAchievementWordTypeInfoInit() {
+export function saveAchievementWordTypeInfoInit(data) {
   return request({
     url: '/api/student/saveAchievementWordTypeInfoInit',
     method: 'POST',
-    data: {}
+    data
   })
 }
 
 export function saveAchievementWordTypeInfo(data) {
   return request({
     url: '/api/student/saveAchievementWordTypeInfo',
+    method: 'POST',
+    data
+  })
+}
+
+
+export function deleteAchievementWordTypeInfo(data) {
+  return request({
+    url: '/api/student/deleteAchievementWordTypeInfo',
+    method: 'POST',
+    data
+  })
+}
+
+export function saveAchievementWordTypeRemarkInit(data) {
+  return request({
+    url: '/api/student/saveAchievementWordTypeRemarkInit',
+    method: 'POST',
+    data
+  })
+}
+
+export function saveAchievementWordTypeRemark(data) {
+  return request({
+    url: '/api/student/saveAchievementWordTypeRemark',
     method: 'POST',
     data
   })
