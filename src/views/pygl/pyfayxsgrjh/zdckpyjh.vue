@@ -470,8 +470,8 @@
     <table v-else class="content" cellspacing="0" width="100%">
       <tbody><tr>
         <td class="head" height="30" colspan="6">
-          <div align="center" style="color: #9b0d14">
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/cultivate/newCultivatePlanPrint" download="course.pdf" style="color: #9b0d14">{{ $t('cuiltivatingSchemeCheckAndDrawup.print') }}</a></el-button>
+          <div align="center" >
+            <el-button size="mini" class="allBtn"><a href="/gradms/api/cultivate/newCultivatePlanPrint" download="course.pdf" >{{ $t('cuiltivatingSchemeCheckAndDrawup.print') }}</a></el-button>
           </div>
         </td>
       </tr>

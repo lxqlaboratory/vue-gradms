@@ -95,6 +95,7 @@
 </template>
 
 <script>
+  import { getAchievementPatentInfoList } from '@/api/getAchievementPatent'
 export default {
   data() {
     return {
@@ -102,9 +103,15 @@ export default {
     }
   },
   created() {
+    this.fetchData()
     this.getRowClass()
   },
   methods: {
+    fetchData(){
+      getAchievementPatentInfoList().then(res => {
+
+      })
+    },
     getRowClass({ row, column, rowIndex, columnIndex }) {
       if (rowIndex === 0) {
         return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
