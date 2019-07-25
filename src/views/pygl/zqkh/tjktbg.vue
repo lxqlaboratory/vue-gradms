@@ -14,7 +14,7 @@
         <tr>
           <td class="colspan1" colspan="2">{{ $t('submitOpeningReport.thesisType') }}</td>
           <td class="colspan2" colspan="2">
-            <el-select v-model="ptsslwlxlistCode" placeholder="pleaseChoose" size="mini" style="width: 70%">
+            <el-select v-model="thesisSort" placeholder="pleaseChoose" size="mini" style="width: 70%">
               <el-option
                 v-for="item in ptsslwlxlist"
                 :key="item.value"
@@ -25,7 +25,7 @@
           </td>
           <td class="colspan1" colspan="2">{{ $t('submitOpeningReport.thesisTopic') }}</td>
           <td class="colspan2" colspan="2">
-            <el-select v-model="ptsslwlxlistCode" placeholder="pleaseChoose" size="mini" style="width: 70%">
+            <el-select v-model="topicSource" placeholder="pleaseChoose" size="mini" style="width: 70%">
               <el-option
                 v-for="item in ptssxtlylist"
                 :key="item.value"
@@ -38,17 +38,17 @@
         <tr>
           <td class="colspan1" colspan="2">{{ $t('submitOpeningReport.opentingReportResult') }}</td>
           <td class="colspan2" colspan="2">
-            {{ midJudgeState }}
+            {{ judgeState }}
           </td>
           <td class="colspan1" colspan="2">{{ $t('submitOpeningReport.opentingReportTime') }}</td>
           <td class="colspan2" colspan="2">
-            {{ midJudgeTimeStr }}
+            {{ judgeTimeStr }}
           </td>
         </tr>
         <tr>
           <td colspan="2" class="colspan1">{{ $t('submitOpeningReport.midtermResult') }}</td>
           <td colspan="6" class="colspan2">
-            {{ judgeTimeStr }}
+            {{ midJudgeState }}
           </td>
         </tr>
         <tr>
@@ -87,6 +87,7 @@ export default {
     return {
       gradeList: '',
       title: '',
+      judgeState: '',
       thesisSort: '',
       topicSource: '',
       ptsslwlxlist: [],
@@ -114,10 +115,11 @@ export default {
         this.midJudgeState = res.data.midJudgeState
         this.midJudgeTimeStr = res.data.midJudgeTimeStr
         this.title = res.data.title
+        this.judgeState = res.data.judgeState
       })
     },
     stuOpenSubmit() {
-      stuOpenTopicReportInsert({ 'itemIntroduce': this.itemIntroduce }).then(res => {
+      stuOpenTopicReportInsert({ 'itemIntroduce': this.itemIntroduce ,'topicSource': this.topicSource,'title': this.title }).then(res => {
         if (res.msg === 'sucess') {
           this.$message({
             message: '提交成功',

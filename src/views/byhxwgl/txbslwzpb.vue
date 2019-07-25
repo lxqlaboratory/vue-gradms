@@ -145,7 +145,7 @@ export default {
           })
         } else {
           this.$message({
-            message: '提交失败',
+            message: '提交成功',
             type: 'error'
           })
           this.fetchData()

@@ -137,22 +137,22 @@ export default {
       })
     },
     degreeInfoSubmit() {
-      if (this.thesisEngName == '') {
+      if (this.thesisEngName === '') {
         this.$message({
           message: '论文题目不能为空',
           type: 'error'
         })
-      } else if (this.englishTheme == '') {
+      } else if (this.englishTheme === '') {
         this.$message({
           message: '论文主题词不能为空',
           type: 'error'
         })
-      } else if (this.gradWordCount == '') {
+      } else if (this.gradWordCount === '') {
         this.$message({
           message: '论文字数不能为空',
           type: 'error'
         })
-      } else if (this.thesisFee == '') {
+      } else if (this.thesisFee === '') {
         this.$message({
           message: '完成本论文导师支付的费用不能为空',
           type: 'error'
