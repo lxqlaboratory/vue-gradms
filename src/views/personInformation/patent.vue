@@ -81,7 +81,14 @@
         prop="address"
         width="150"
         :label="$t('patent.operation')"
-      />
+      >
+        <template slot-scope="scope">
+          <el-button size="mini" round class="setBtn" type="text" >编辑</el-button>
+        </template>
+        <template slot-scope="scope">
+          <el-button size="mini" round class="setBtn" type="text" >删除</el-button>
+        </template>
+      </el-table-column>
     </el-table>
     <table width="100%" style="padding-top: 20px">
       <tbody><tr>

@@ -90,6 +90,7 @@ export default {
       judgeState: '',
       thesisSort: '',
       topicSource: '',
+      topicSelectSort: '',
       ptsslwlxlist: [],
       ptssxtlylist: [],
       judgeTimeStr: '',
@@ -116,10 +117,11 @@ export default {
         this.midJudgeTimeStr = res.data.midJudgeTimeStr
         this.title = res.data.title
         this.judgeState = res.data.judgeState
+        this.topicSelectSort = res.data.topicSelectSort
       })
     },
     stuOpenSubmit() {
-      stuOpenTopicReportInsert({ 'itemIntroduce': this.itemIntroduce ,'topicSource': this.topicSource,'title': this.title }).then(res => {
+      stuOpenTopicReportInsert({ 'itemIntroduce': this.itemIntroduce ,'topicSource': this.topicSource,'title': this.title,'topicSelectSort': this.topicSelectSort }).then(res => {
         if (res.msg === 'sucess') {
           this.$message({
             message: '提交成功',
