@@ -73,11 +73,10 @@
         <td><el-input
           v-model="gradThesisIntroduction"
           type="textarea"
-          minlength="500"
+          placeholder="请输入内容"
           maxlength="800"
-          rows="8"
+          rows="5"
           show-word-limit
-          :autosize="{ minRows: 1, maxRows: 8}"
         /></td>
       </tr>
       </tbody></table>

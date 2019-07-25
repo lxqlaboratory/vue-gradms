@@ -14,7 +14,7 @@
         <tr>
           <td class="colspan1" colspan="2">{{ $t('submitOpeningReport.thesisType') }}</td>
           <td class="colspan2" colspan="2">
-            <el-select v-model="thesisSort" placeholder="pleaseChoose" size="mini" style="width: 70%">
+            <el-select v-model="gradThesisTypeCode" placeholder="pleaseChoose" size="mini" style="width: 70%">
               <el-option
                 v-for="item in ptsslwlxlist"
                 :key="item.value"
@@ -25,7 +25,7 @@
           </td>
           <td class="colspan1" colspan="2">{{ $t('submitOpeningReport.thesisTopic') }}</td>
           <td class="colspan2" colspan="2">
-            <el-select v-model="topicSource" placeholder="pleaseChoose" size="mini" style="width: 70%">
+            <el-select v-model="gradThesisTopicSourceCode" placeholder="pleaseChoose" size="mini" style="width: 70%">
               <el-option
                 v-for="item in ptssxtlylist"
                 :key="item.value"
@@ -88,8 +88,8 @@ export default {
       gradeList: '',
       title: '',
       judgeState: '',
-      thesisSort: '',
-      topicSource: '',
+      gradThesisTypeCode: '',
+      gradThesisTopicSourceCode: '',
       topicSelectSort: '',
       ptsslwlxlist: [],
       ptssxtlylist: [],
@@ -109,8 +109,8 @@ export default {
       stuOpenTopicReportInit().then(res => {
         this.ptsslwlxlist = res.data.ptsslwlxlist
         this.ptssxtlylist = res.data.ptssxtlylist
-        this.thesisSort = res.data.thesisSort
-        this.topicSource = res.data.topicSource
+        this.gradThesisTypeCode = res.data.gradThesisTypeCode
+        this.gradThesisTopicSourceCode = res.data.gradThesisTopicSourceCode
         this.itemIntroduce = res.data.itemIntroduce
         this.judgeTimeStr = res.data.judgeTimeStr
         this.midJudgeState = res.data.midJudgeState
@@ -121,21 +121,29 @@ export default {
       })
     },
     stuOpenSubmit() {
-      stuOpenTopicReportInsert({ 'itemIntroduce': this.itemIntroduce ,'topicSource': this.topicSource,'title': this.title,'topicSelectSort': this.topicSelectSort }).then(res => {
-        if (res.msg === 'sucess') {
-          this.$message({
-            message: '提交成功',
-            type: 'success'
-          })
-        } else {
-          this.$message({
-            message: '提交失败',
-            type: 'error'
-          })
-        }
-      }).catch(e => {
+      if(this.title == null){
+        this.$message({
+          message: '论文题目不能为空',
+          type: 'error'
+        })
+      }else {
+        stuOpenTopicReportInsert({ 'itemIntroduce': this.itemIntroduce ,'gradThesisTypeCode': this.gradThesisTypeCode, 'title': this.title ,'gradThesisTopicSourceCode': this.gradThesisTopicSourceCode }).then(res => {
+          if (res.code == 0) {
+            this.$message({
+              message: '提交成功',
+              type: 'success'
+            })
+          } else {
+            this.$message({
+              message: '提交失败',
+              type: 'error'
+            })
+          }
+        }).catch(e => {
 
-      })
+        })
+      }
+
     }
   }
 }

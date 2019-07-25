@@ -112,9 +112,7 @@ export default {
   },
   methods: {
     fetchData() {
-       // alert(111)
       getAchievementWordTypeInfoList().then(res => {
-          //alert("chenggong")
         console.log(res)
       })
     },

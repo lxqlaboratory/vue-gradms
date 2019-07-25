@@ -167,6 +167,26 @@ module.exports = {
 }
 </script>
 
+<style lang="scss">
+  .el-checkbox__input.is-checked+ .el-checkbox__label{
+    color: #9b0d14;
+  }
+  .el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate.el-checkbox__inner{
+    background-color: #9b0d14;
+    border-color: #9b0d14;
+  }
+  .el-checkbox__inner:hover{
+    border-color: #9b0d14;
+  }
+  .el-checkbox__input.is-focus.el-checkbox__inner{
+    border-color: #9b0d14;
+  }
+  .el-checkbox__label{
+    border-color: #9b0d14;
+  }
+</style>
+
+
 <style lang="scss" scoped>
   $topicColor:#930E14;
 
