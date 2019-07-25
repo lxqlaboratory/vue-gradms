@@ -39,7 +39,7 @@
         </tr>
         <tr>
           <td colspan="2" class="colspan1">{{$t('uploadThesisPaper.ChineseKeyWords')}}</td>
-          <td colspan="6" class="colspan2"><el-input v-model="formData.setThesisName" type="text"  size="mini" class="elinput"></el-input></td>
+          <td colspan="6" class="colspan2"><el-input  type="text"  size="mini" class="elinput"></el-input></td>
         </tr>
         <tr>
           <td colspan="2" class="colspan1">{{$t('uploadThesisPaper.EnglishKeyWords')}}</td>
