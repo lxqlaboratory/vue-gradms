@@ -25,9 +25,9 @@
         <td  class="colspan2">
           <el-select v-model="formData.levelCode"  size="mini" class="elinput">
             <el-option
-              v-for="item in levelCode"
+              v-for="item in levelCodeList"
               :key="item.value"
-              :label="item.label"
+              :label="$t(item.name)"
               :value="item.value">
             </el-option>
           </el-select>
@@ -41,17 +41,28 @@
         </td>
       </tr>
       <tr>
-        <td  class="colspan1">是否清样 </td>
+        <td  class="colspan1">论文发表时间</td>
         <td  class="colspan2">
-          <el-radio v-model="formData.isQingYang" label="1" size="mini" fill=" #A50001" text-color="#A50001">是</el-radio>
-          <el-radio v-model="formData.isQingYang" label="2" size="mini" fill=" #A50001">否</el-radio>
+          <el-date-picker
+            v-model="formData.useTime"
+            class="elinput"
+            size="mini"
+            type="date"
+            placeholder="选择日期">
+          </el-date-picker>
         </td>
       </tr>
       <tr>
-        <td  class="colspan1">论文发表时间</td>
+        <td  class="colspan1">作者位次</td>
         <td  class="colspan2">
-          <el-input v-model="formData.useTime" type="text" size="mini" class="elinput"></el-input>
-          <span class="noticeSpan"> (如20090101)</span>
+          <el-select v-model="formData.personNum"  size="mini" class="elinput">
+            <el-option
+              v-for="item in personNumArr"
+              :key="item.value"
+              :label="$t(item.name)"
+              :value="item.value">
+            </el-option>
+          </el-select>
         </td>
       </tr>
       <tr>
@@ -78,7 +89,16 @@
       </tr>
       <tr>
         <td  class="colspan1">收录方式</td>
-        <td  class="colspan2"><el-input v-model="formData.include" type="text" size="mini" class="elinput"></el-input></td>
+        <td  class="colspan2">
+          <el-select v-model="formData.include"  size="mini" class="elinput">
+            <el-option
+              v-for="item in includeList"
+              :key="item.value"
+              :label="$t(item.name)"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </td>
       </tr>
       <tr>
         <td  class="colspan1">录入EI检索号</td>
@@ -97,6 +117,7 @@
 <script>
   //  学生上传论文
   import { saveAchievementWordTypeInfo } from '@/api/getAchievementWordType'
+  import { getAchievementWordTypeInfoInitList } from '@/api/getAchievementWordType'
   export default {
     data(){
       return{
@@ -107,8 +128,8 @@
           qkNum: '' ,//期刊号
           levelCode: '' ,//论文级别
           impactFactor: '' ,//影响因子
-          isQingYang: '' ,//是否是清样
           useTime: '' ,//出版日期
+          personNum:'' ,//作者位次
           publishTome: '' ,//
           publishVolumn: '' ,//
           beginPage: '' ,//起始页
@@ -116,34 +137,34 @@
           include: '' ,//收录情况 论文收录方式码
           inputEIIndexNum: '' ,//录入EI检索号
         },
-        radio: '1'
-        /*languageKinds: [{
-          value: '01',
-          label: '中文'
-        }, {
-          value: '02',
-          label: '英文'
-        }, {
-          value: '03',
-          label: '日文'
-        }, {
-          value: '04',
-          label: '韩文'
-        }],
-        value: ''*/
+        levelCodeList: [],
+        includeList : [],
+        personNumArr : [{
+            value : '1',
+            name : '第一位'
+        },{
+          value : '2',
+          name : '第二位'
+        }]
       }
     },
     created() {
-
+        this.fetchData()
     },
     methods: {
+      fetchData(){
+        getAchievementWordTypeInfoInitList().then(res => {
+            this.includeList = res.data.includeList
+            this.levelCodeList = res.data.levelCodeList
+        })
+      },
       addThesis(){
-        console.log(this.formData)
         saveAchievementWordTypeInfo(this.formData).then(res => {
           this.$message({
             type: 'info',
             message: '提交成功'
           });
+          this.$router.push({ path: './publishThesis'})
         })
       },
     }

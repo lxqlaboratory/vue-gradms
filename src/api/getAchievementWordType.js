@@ -8,6 +8,14 @@ export function getAchievementWordTypeInfoList() {
   })
 }
 
+export function getAchievementWordTypeInfoInitList() {
+  return request({
+    url: '/api/student/saveAchievementWordTypeInfoInit',
+    method: 'POST',
+    data: {}
+  })
+}
+
 export function saveAchievementWordTypeInfoInit(data) {
   return request({
     url: '/api/student/saveAchievementWordTypeInfoInit',

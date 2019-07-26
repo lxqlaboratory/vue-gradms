@@ -30,61 +30,96 @@
       <el-table-column
         prop="date"
         :label="$t('publishThesis.number')"
-        width="100"
+        width="73"
+        align="center"
       >
         <template slot-scope="scope">
           {{ scope.$index+1 }}
         </template>
       </el-table-column>
       <el-table-column
-        prop="name"
-        :label="$t('publishThesis.choice')"
-        width="80"
-      />
-      <el-table-column
         prop="address"
         :label="$t('publishThesis.thesisName')"
-        width="250"
-      />
+        width="350"
+        align="center"
+      >
+        <template slot-scope="scope">
+          {{ scope.row.achName }}
+        </template>
+      </el-table-column>
       <el-table-column
         prop="address"
         :label="$t('publishThesis.publicationTime1')"
         width="180"
-      />
+        align="center"
+      >
+        <template slot-scope="scope">
+          {{ scope.row.useTime }}
+        </template>
+      </el-table-column>
       <el-table-column
         prop="address"
         :label="$t('publishThesis.conferenceTitle')"
-        width="230"
-      />
+        width="220"
+        align="center"
+      >
+        <template slot-scope="scope">
+          {{ scope.row.magazineName }}
+        </template>
+      </el-table-column>
       <el-table-column
         prop="address"
         :label="$t('publishThesis.level')"
-        width="80"
-      />
+        width="100"
+        align="center"
+      >
+        <template slot-scope="scope">
+          {{ $t(scope.row.levelCodeNmae) }}
+        </template>
+      </el-table-column>
       <el-table-column
         prop="address"
         :label="$t('publishThesis.inclusion')"
-        width="180"
-      />
+        width="90"
+        align="center"
+      >
+        <template slot-scope="scope">
+          {{ $t(scope.row.includeNmae) }}
+        </template>
+      </el-table-column>
       <el-table-column
         prop="address"
         :label="$t('publishThesis.selfRank')"
-        width="120"
-      />
-      <el-table-column
-        prop="address"
-        :label="$t('publishThesis.openOrNot')"
-        width="120"
-      />
+        width="95"
+        align="center"
+      >
+        <template slot-scope="scope">
+          {{ scope.row.orderCode }}
+        </template>
+      </el-table-column>
       <el-table-column
         prop="address"
         :label="$t('publishThesis.status')"
         width="80"
-      />
+        align="center"
+      >
+        <template slot-scope="scope">
+          {{ scope.row.isCheck }}
+        </template>
+      </el-table-column>
       <el-table-column
         prop="address"
-        :label="$t('publishThesis.operation')"
-      />
+        width="150"
+        align="center"
+        :label="$t('patent.operation')"
+      >
+        <template slot-scope="scope">
+          <el-button size="mini"  class="operateBtn" type="text" >编辑</el-button>
+        </template>
+        <template slot-scope="scope">
+          <el-button size="mini"  class="operateBtn" type="text" >删除</el-button>
+        </template>
+      </el-table-column>
     </el-table>
     <table width="100%" style="padding-top: 20px">
       <tbody><tr>
@@ -103,7 +138,6 @@ export default {
   data() {
     return {
       formData: '' ,
-      row: '',
     }
   },
   created() {
@@ -113,14 +147,12 @@ export default {
   methods: {
     fetchData() {
       getAchievementWordTypeInfoList().then(res => {
-        console.log(res)
+        this.formData = res.data
       })
     },
     thesisAdd(){
       this.$router.push({ path: './thesisAdd'})
     },
-
-
 
     getRowClass({ row, column, rowIndex, columnIndex }) {
       if (rowIndex === 0) {
@@ -173,15 +205,12 @@ export default {
   .eltable{
     margin-top: 20px;
   }
-  .queryBtn{
-    background-color: #A50001;
-    border: 0px;
-    color: #ffffff;
-    margin-left: 10px;
-  }
   .setBtn{
     background-color: #A50001;
     border: 0px;
     color: #ffffff;
+  }
+  .operateBtn{
+    color: #A50001;
   }
 </style>
