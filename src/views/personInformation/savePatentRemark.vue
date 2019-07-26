@@ -31,7 +31,7 @@
       </tr>
       <tr>
         <td class="colspan1">颁证日/登记日期 </td>
-        <td class="colspan2"><el-input v-model="applyTime" type="text" size="mini" class="elinput"  />
+        <td class="colspan2"><el-input v-model="applyTime" type="text" size="mini" class="elinput" />
           <span class="noticeSpan">格式为：yyyy-MM-DD</span>
         </td>
       </tr>
@@ -60,8 +60,8 @@
         /></td>
       </tr>
 
-      <tr >
-        <td colspan="8" ><el-button  class="submitBtn" size="mini" @click="submitPatent">提交</el-button>
+      <tr>
+        <td colspan="8"><el-button class="submitBtn" size="mini" @click="submitPatent">提交</el-button>
         </td>
       </tr>
     </table>
@@ -69,11 +69,9 @@
 </template>
 
 <script>
-import { saveAchievementPatentInfoInit } from '@/api/getAchievementPatent'
-import { saveAchievementPatentInfo } from '@/api/getAchievementPatent'
-import { saveAchievementPatentInfoInitById } from '@/api/getAchievementPatent'
+  import { saveAchievementPatentRemarkInit } from '@/api/getAchievementPatent'
 export default {
-  name: 'PatentDetail',
+  name: 'SavePatentRemark',
   data() {
     return {
       loading: false,
@@ -109,11 +107,7 @@ export default {
   },
   methods: {
     fetchData() {
-      saveAchievementPatentInfoInit().then(res => {
-        this.patentTypeList = res.data.patentTypeList
-        this.bzw = false
-      })
-      saveAchievementPatentInfoInitById({ 'achPanId': this.$route.params.achPanId }, (err, post) => {
+      saveAchievementPatentRemarkInit({ 'achPanId': this.$route.params.achPanId }, (err, post) => {
         this.loading = false
         if (err) {
           this.error = err.toString()
@@ -121,23 +115,9 @@ export default {
           this.post = post
         }
       }).then(res => {
-        this.achPanId =res.data.form.achPanId
-        this.applyNum = res.data.form.applyNum
-        this.patentName = res.data.form.patentName
-        this.patentType = res.data.form.patentType
-        this.remark = res.data.form.remark
-        this.applyTime = res.data.form.applyTime
-        this.typeNum = res.data.form.typeNum
-        this.personNum = res.data.form.personNum
-      }
-      )
-    },
-    submitPatent() {
-      saveAchievementPatentInfo({ 'patentName': this.patentName, 'patentType': this.patentType, 'achPanId': this.achPanId, 'remark': this.remark, 'applyTime': this.applyTime, 'applyNum': this.applyNum, 'typeNum': this.typeNum, 'personNum': this.personNum }).then(res => {
-        this.$router.push({ path: './patent' })
-      }).catch(e => {
 
-      })
+        }
+      )
     }
   }
 }

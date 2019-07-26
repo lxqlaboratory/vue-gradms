@@ -117,6 +117,13 @@ export const constantRoutes = [
         hidden: true,
         component: () => import('@/views/personInformation/patentDetail'),
         meta: { title: ('patent.note'), icon: 'form' }
+      },
+      {
+        path: 'savePatentRemark',
+        name: 'savePatentRemark',
+        hidden: true,
+        component: () => import('@/views/personInformation/savePatentRemark'),
+        meta: { title: ('patent.note'), icon: 'form' }
       }
     ]
   },

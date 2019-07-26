@@ -25,7 +25,8 @@ export default {
   },
   message: {
     ok:{
-      '插入成功':'Inserted successfully',
+      '插入成功': 'Inserted successfully',
+      '删除成功': 'successfully delete',
       '该课程已锁定，不能退选！': 'This course is locked and cannot be dropped!'
     },
     error:{

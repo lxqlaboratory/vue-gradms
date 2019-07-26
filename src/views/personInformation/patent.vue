@@ -120,11 +120,18 @@
 
 <script>
 import { getAchievementPatentInfoList } from '@/api/getAchievementPatent'
+import { deleteAchievementPatentInfo } from '@/api/getAchievementPatent'
+import { translation } from '@/utils/translation'
 export default {
   data() {
     return {
       value1: '',
       tableData: ''
+    }
+  },
+  computed: {
+    language() {
+      return this.$store.getters.language
     }
   },
   created() {
@@ -144,10 +151,25 @@ export default {
       this.$router.push({ name: 'patentDetail', params: { achPanId }})
     },
     deletePatent(achPanId) {
+      deleteAchievementPatentInfo({ 'achPanId': achPanId }).then(res => {
+        if (res.code == 1) {
+          this.$message({
+            message: '删除失败',
+            type: 'error'
+          })
+        } else {
+          this.$message({
+            message: translation(res, this.language).message,
+            type: 'success'
+          })
+          this.fetchData()
+        }
+      }).catch(e => {
 
+      })
     },
     remarkPatent(achPanId) {
-
+      this.$router.push({ name: 'savePatentRemark', params: { achPanId }})
     },
     getRowClass({ row, column, rowIndex, columnIndex }) {
       if (rowIndex === 0) {
