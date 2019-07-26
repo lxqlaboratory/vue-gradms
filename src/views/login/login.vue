@@ -67,7 +67,7 @@
 import { login } from '@/api/user'
 import LangSelect from '@/components/LangSelect'
 
-module.exports = {
+export default {
   name: 'Prelogin',
   components: { LangSelect },
   data() {

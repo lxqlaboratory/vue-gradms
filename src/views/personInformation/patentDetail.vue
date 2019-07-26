@@ -58,8 +58,9 @@
         /></td>
       </tr>
 
-      <tr>
-        <td colspan="8"><el-button class="submitBtn" size="mini" @click="submitPatent">提交</el-button></td>
+      <tr >
+        <td colspan="8" ><el-button  class="submitBtn" size="mini" @click="submitPatent">提交</el-button>
+        </td>
       </tr>
     </table>
   </div>
@@ -76,6 +77,7 @@ export default {
       loading: false,
       post: null,
       error: null,
+      bzw: '',
       textarea: '',
       patentName: '',
       achPanId: '',
@@ -107,6 +109,7 @@ export default {
     fetchData() {
       saveAchievementPatentInfoInit().then(res => {
         this.patentTypeList = res.data.patentTypeList
+        this.bzw = false
       })
       saveAchievementPatentInfoInitById({ 'achPanId': this.$route.params.achPanId }, (err, post) => {
         this.loading = false
@@ -116,18 +119,19 @@ export default {
           this.post = post
         }
       }).then(res => {
-          this.applyNum = res.data.form.applyNum
-          this.patentName = res.data.form.patentName
-          this.patentType = res.data.form.patentType
-          this.remark = res.data.form.remark
-          this.applyTime = res.data.form.applyTime
-          this.typeNum = res.data.form.typeNum
-          this.personNum = res.data.form.personNum
+        this.achPanId =res.data.form.achPanId
+        this.applyNum = res.data.form.applyNum
+        this.patentName = res.data.form.patentName
+        this.patentType = res.data.form.patentType
+        this.remark = res.data.form.remark
+        this.applyTime = res.data.form.applyTime
+        this.typeNum = res.data.form.typeNum
+        this.personNum = res.data.form.personNum
       }
       )
     },
     submitPatent() {
-      saveAchievementPatentInfo({ 'patentName': this.patentName, 'patentType': this.patentType, 'remark': this.remark, 'applyTime': this.applyTime, 'applyNum': this.applyNum, 'typeNum': this.typeNum, 'personNum': this.personNum }).then(res => {
+      saveAchievementPatentInfo({ 'patentName': this.patentName, 'patentType': this.patentType, 'achPanId': this.achPanId, 'remark': this.remark, 'applyTime': this.applyTime, 'applyNum': this.applyNum, 'typeNum': this.typeNum, 'personNum': this.personNum }).then(res => {
         this.$router.push({ path: './patent' })
       }).catch(e => {
 
