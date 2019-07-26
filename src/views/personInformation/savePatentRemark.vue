@@ -5,49 +5,6 @@
         <td colspan="8" class="titleSpan">专利/著作权信息添加</td>
       </tr>
       <tr>
-        <td class="colspan1">{{ $t('patent.patentInfo') }}</td>
-        <td class="colspan2"><el-input v-model="patentName" type="text" size="mini" class="elinput" /></td>
-      </tr>
-
-      <tr>
-        <td class="colspan1">专利/著作权类别</td>
-        <td class="colspan2"> <el-select v-model="patentType" placeholder="pleaseChoose" size="mini" style="width: 70%;">
-          <el-option
-            v-for="item in patentTypeList"
-            :key="item.value"
-            :label="$t(item.name)"
-            :value="item.value"
-          />
-        </el-select></td>
-      </tr>
-
-      <tr>
-        <td class="colspan1">{{ $t('patent.patentNo') }}</td>
-        <td class="colspan2"><el-input v-model="applyNum" type="text" size="mini" class="elinput" /></td>
-      </tr>
-      <tr>
-        <td class="colspan1">{{ $t('patent.typeNo') }}</td>
-        <td class="colspan2"><el-input v-model="typeNum" type="text" size="mini" class="elinput" /></td>
-      </tr>
-      <tr>
-        <td class="colspan1">颁证日/登记日期 </td>
-        <td class="colspan2"><el-input v-model="applyTime" type="text" size="mini" class="elinput" />
-          <span class="noticeSpan">格式为：yyyy-MM-DD</span>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="colspan1">作者位次</td>
-        <td class="colspan2"> <el-select v-model="personNum" placeholder="pleaseChoose" size="mini" style="width: 70%;">
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          /></el-select></td>
-      </tr>
-
-      <tr>
         <td class="colspan1">备注</td>
         <td class="colspan2"> <el-input
           v-model="remark"
@@ -59,9 +16,8 @@
           show-word-limit
         /></td>
       </tr>
-
       <tr>
-        <td colspan="8"><el-button class="submitBtn" size="mini" @click="submitPatent">提交</el-button>
+        <td colspan="8"><el-button class="submitBtn" size="mini" @click="submitPatentRemark">提交</el-button>
         </td>
       </tr>
     </table>
@@ -69,7 +25,8 @@
 </template>
 
 <script>
-  import { saveAchievementPatentRemarkInit } from '@/api/getAchievementPatent'
+import { saveAchievementPatentRemarkInit } from '@/api/getAchievementPatent'
+import { saveAchievementPatentRemark } from '@/api/getAchievementPatent'
 export default {
   name: 'SavePatentRemark',
   data() {
@@ -77,26 +34,9 @@ export default {
       loading: false,
       post: null,
       error: null,
-      bzw: '',
       textarea: '',
-      patentName: '',
       achPanId: '',
-      patentType: '',
-      typeNum: '',
-      applyTime: '',
-      patentTypeName: '',
-      applyNum: '',
-      isCheck: '',
-      personNum: '',
-      remark: '',
-      patentTypeList: [],
-      options: [{
-        value: 1,
-        label: '第一位'
-      }, {
-        value: 2,
-        label: '第二位'
-      }]
+      remark: ''
     }
   },
   watch: {
@@ -106,7 +46,7 @@ export default {
     this.fetchData()
   },
   methods: {
-    fetchData() {
+    fetchData: function() {
       saveAchievementPatentRemarkInit({ 'achPanId': this.$route.params.achPanId }, (err, post) => {
         this.loading = false
         if (err) {
@@ -115,10 +55,19 @@ export default {
           this.post = post
         }
       }).then(res => {
-
-        }
+        this.remark = res.data.remark
+        this.achPanId = res.data.achPanId
+      }
       )
+    },
+    submitPatentRemark() {
+      saveAchievementPatentRemark({ 'achPanId': this.achPanId, 'remark': this.remark }).then(res => {
+        this.$router.push({ path: './patent' })
+      }).catch(e => {
+
+      })
     }
+
   }
 }
 </script>
