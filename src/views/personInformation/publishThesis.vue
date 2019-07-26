@@ -100,11 +100,11 @@
       <el-table-column
         prop="address"
         :label="$t('publishThesis.status')"
-        width="80"
+        width="85"
         align="center"
       >
         <template slot-scope="scope">
-          {{ scope.row.isCheck }}
+          {{ scope.row.isCheck ? '审核未通过' : '审核通过' }}
         </template>
       </el-table-column>
       <el-table-column
@@ -114,17 +114,16 @@
         :label="$t('patent.operation')"
       >
         <template slot-scope="scope">
-          <el-button size="mini"  class="operateBtn" type="text" >编辑</el-button>
-        </template>
-        <template slot-scope="scope">
-          <el-button size="mini"  class="operateBtn" type="text" >删除</el-button>
+          <el-button v-if="scope.row.isCheck" size="mini"  class="operateBtn" type="text" @click="editThesis(scope.row.achwtId)">编辑</el-button>
+          <el-button v-if="!scope.row.isCheck" size="mini"  class="operateBtn" type="text" @click="remarkThesis(scope.row.achwtId)">修改</el-button>
+          <el-button v-if="scope.row.isCheck" size="mini"  class="operateBtn" type="text" @click="deleteThesis(scope.row.achwtId)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
     <table width="100%" style="padding-top: 20px">
       <tbody><tr>
         <td align="center">
-          <el-button size="mini" class="setBtn" @click="thesisAdd()">{{ $t('patent.add') }}</el-button>
+          <el-button size="mini" class="setBtn" @click="addThesis()">{{ $t('patent.add') }}</el-button>
         </td>
       </tr>
       </tbody>
@@ -134,10 +133,13 @@
 
 <script>
   import { getAchievementWordTypeInfoList } from '@/api/getAchievementWordType'
+  import { deleteAchievementWordTypeInfo } from '@/api/getAchievementWordType'
+  import { translation } from '@/utils/translation'
 export default {
   data() {
     return {
       formData: '' ,
+      achwtId:''
     }
   },
   created() {
@@ -150,8 +152,31 @@ export default {
         this.formData = res.data
       })
     },
-    thesisAdd(){
+    addThesis(){
       this.$router.push({ path: './thesisAdd'})
+    },
+    editThesis(achwtId) {
+      alert(achwtId)
+      this.$router.push({ name: 'thesisAdd', params: { achwtId }})
+    },
+    deleteThesis(achwtId) {
+      deleteAchievementWordTypeInfo({ 'achwtId': achwtId }).then(res => {
+        if (res.code == 1) {
+          this.$message({
+            message: '删除失败',
+            type: 'error'
+          })
+        } else {
+          this.$message({
+            message: translation(res, this.language).message,
+            type: 'success'
+          })
+          this.fetchData()
+        }
+      })
+    },
+    remarkThesis(achwtId) {
+      this.$router.push({ name: 'thesisAdd', params: { achwtId }})
     },
 
     getRowClass({ row, column, rowIndex, columnIndex }) {
