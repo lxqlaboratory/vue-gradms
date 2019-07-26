@@ -5,68 +5,133 @@
         <td colspan="8" class="titleSpan">专利/著作权信息添加</td>
       </tr>
       <tr>
-        <td  class="colspan1">专利/著作权名称</td>
-        <td  class="colspan2"><el-input v-model="patentName" type="text" size="mini" class="elinput"></el-input></td>
+        <td class="colspan1">{{ $t('patent.patentInfo') }}</td>
+        <td class="colspan2"><el-input v-model="patentName" type="text" size="mini" class="elinput" /></td>
       </tr>
 
       <tr>
-        <td  class="colspan1">专利/著作权类别</td>
-        <td  class="colspan2"> <el-select v-model="patentType" placeholder="pleaseChoose" size="mini" style="width: 70%;">
+        <td class="colspan1">专利/著作权类别</td>
+        <td class="colspan2"> <el-select v-model="patentType" placeholder="pleaseChoose" size="mini" style="width: 70%;">
           <el-option
-            v-for="item in ptsslwlxlist"
+            v-for="item in patentTypeList"
             :key="item.value"
             :label="$t(item.name)"
             :value="item.value"
           />
         </el-select></td>
       </tr>
+
       <tr>
-        <td  class="colspan1">专利号/著作登记号</td>
-        <td  class="colspan2"><el-input  type="text"  size="mini" class="elinput"></el-input></td>
+        <td class="colspan1">{{ $t('patent.patentNo') }}</td>
+        <td class="colspan2"><el-input v-model="applyNum" type="text" size="mini" class="elinput" /></td>
       </tr>
       <tr>
-        <td  class="colspan1">分类号</td>
-        <td  class="colspan2"><el-input v-model="formData" type="text" size="mini" class="elinput"></el-input></td>
+        <td class="colspan1">{{ $t('patent.typeNo') }}</td>
+        <td class="colspan2"><el-input v-model="typeNum" type="text" size="mini" class="elinput" /></td>
       </tr>
       <tr>
-        <td  class="colspan1">是否已转让</td>
-        <td  class="colspan2"><el-input v-model="formData" type="text" size="mini" class="elinput"></el-input></td>
+        <td class="colspan1">颁证日/登记日期 </td>
+        <td class="colspan2"><el-input v-model="applyTime" type="text" size="mini" class="elinput" /></td>
       </tr>
+
       <tr>
-        <td  class="colspan1">备注</td>
-        <td  class="colspan2"> <el-input
-          v-model="gradInnovation2"
+        <td class="colspan1">作者位次</td>
+        <td class="colspan2"> <el-select v-model="personNum" placeholder="pleaseChoose" size="mini" style="width: 70%;">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          /></el-select></td>
+      </tr>
+
+      <tr>
+        <td class="colspan1">备注</td>
+        <td class="colspan2"> <el-input
+          v-model="remark"
           class="elinput"
           type="textarea"
           placeholder="请输入内容"
-          maxlength="100"
+          maxlength="300"
           rows="5"
           show-word-limit
         /></td>
       </tr>
+
       <tr>
-        <td colspan="8"><el-button class="submitBtn" size="mini">提交</el-button></td>
+        <td colspan="8"><el-button class="submitBtn" size="mini" @click="submitPatent">提交</el-button></td>
       </tr>
     </table>
   </div>
 </template>
 
 <script>
+import { saveAchievementPatentInfoInit } from '@/api/getAchievementPatent'
+import { saveAchievementPatentInfo } from '@/api/getAchievementPatent'
+import { saveAchievementPatentInfoInitById } from '@/api/getAchievementPatent'
 export default {
   name: 'PatentDetail',
   data() {
     return {
+      loading: false,
+      post: null,
+      error: null,
       textarea: '',
       patentName: '',
       achPanId: '',
       patentType: '',
-      prospectus: '',
       typeNum: '',
+      applyTime: '',
       patentTypeName: '',
       applyNum: '',
       isCheck: '',
       personNum: '',
-      remark: ''
+      remark: '',
+      patentTypeList: [],
+      options: [{
+        value: 1,
+        label: '第一位'
+      }, {
+        value: 2,
+        label: '第二位'
+      }]
+    }
+  },
+  watch: {
+    '$route': 'fetchData'
+  },
+  created() {
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+      saveAchievementPatentInfoInit().then(res => {
+        this.patentTypeList = res.data.patentTypeList
+      })
+      saveAchievementPatentInfoInitById({ 'achPanId': this.$route.params.achPanId }, (err, post) => {
+        this.loading = false
+        if (err) {
+          this.error = err.toString()
+        } else {
+          this.post = post
+        }
+      }).then(res => {
+          this.applyNum = res.data.form.applyNum
+          this.patentName = res.data.form.patentName
+          this.patentType = res.data.form.patentType
+          this.remark = res.data.form.remark
+          this.applyTime = res.data.form.applyTime
+          this.typeNum = res.data.form.typeNum
+          this.personNum = res.data.form.personNum
+      }
+      )
+    },
+    submitPatent() {
+      saveAchievementPatentInfo({ 'patentName': this.patentName, 'patentType': this.patentType, 'remark': this.remark, 'applyTime': this.applyTime, 'applyNum': this.applyNum, 'typeNum': this.typeNum, 'personNum': this.personNum }).then(res => {
+        this.$router.push({ path: './patent' })
+      }).catch(e => {
+
+      })
     }
   }
 }

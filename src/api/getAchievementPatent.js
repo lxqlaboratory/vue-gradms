@@ -8,7 +8,15 @@ export function getAchievementPatentInfoList() {
   })
 }
 
-export function saveAchievementPatentInfoInit(data) {
+export function saveAchievementPatentInfoInit() {
+  return request({
+    url: '/api/student/saveAchievementPatentInfoInit',
+    method: 'POST',
+    data: {}
+  })
+}
+
+export function saveAchievementPatentInfoInitById(data) {
   return request({
     url: '/api/student/saveAchievementPatentInfoInit',
     method: 'POST',

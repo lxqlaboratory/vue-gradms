@@ -30,66 +30,83 @@
       <el-table-column
         prop="date"
         :label="$t('publishThesis.number')"
-        width="120"
-      />
+        width="60"
+      >
+        <template slot-scope="scope">
+          {{ scope.$index+1 }}
+        </template>
+      </el-table-column>
       <el-table-column
-        prop="name"
-        :label="$t('patent.choice')"
-        width="100"
-      />
-      <el-table-column
-        prop="address"
+        prop="date"
         :label="$t('patent.patentInfo')"
-        width="250"
-      />
+      >
+        <template slot-scope="scope">
+          {{ scope.row.patentName }}
+        </template>
+      </el-table-column>
       <el-table-column
         prop="address"
         :label="$t('patent.type')"
-        width="80"
-      />
+      >
+        <template slot-scope="scope">
+          {{ $t(scope.row.patentTypeName) }}
+        </template>
+      </el-table-column>
       <el-table-column
         prop="address"
         :label="$t('patent.patentNo')"
-        width="280"
-      />
+      >
+        <template slot-scope="scope">
+          {{ scope.row.applyNum }}
+        </template>
+      </el-table-column>
       <el-table-column
         prop="address"
         :label="$t('patent.typeNo')"
-        width="180"
-      />
+      >
+        <template slot-scope="scope">
+          {{ scope.row.typeNum }}
+        </template>
+      </el-table-column>
       <el-table-column
         prop="address"
         :label="$t('patent.grantingDate')"
-        width="180"
-      />
+      >
+        <template slot-scope="scope">
+          {{ scope.row.applyTime }}
+        </template>
+      </el-table-column>
       <el-table-column
         prop="address"
         :label="$t('patent.selfRank')"
-        width="180"
-      />
-      <el-table-column
-        prop="address"
-        :label="$t('patent.openOrNot')"
-        width="180"
-      />
+        width="100"
+      >
+        <template slot-scope="scope">
+          {{ scope.row.personNum }}
+        </template>
+      </el-table-column>
       <el-table-column
         prop="address"
         :label="$t('patent.status')"
         width="100"
-      />
+      >
+        <template slot-scope="scope">
+          {{ scope.row.isCheck ? '审核未通过' : '审核通过' }}
+        </template>
+      </el-table-column>
       <el-table-column
         prop="address"
         width="150"
         :label="$t('patent.operation')"
       >
         <template slot-scope="scope">
-          <el-button size="mini" round class="setBtn" type="text" >编辑</el-button>
-        </template>
-        <template slot-scope="scope">
-          <el-button size="mini" round class="setBtn" type="text" >删除</el-button>
+          <el-button v-if="scope.row.isCheck" size="mini" round class="setBtn" type="text" @click="editPatent(scope.row.achPanId)">编辑</el-button>
+          <el-button v-if="!scope.row.isCheck" size="mini" round class="setBtn" type="text" @click="remarkPatent(scope.row.achPanId)">修改</el-button>
+          <el-button v-if="scope.row.isCheck" size="mini" round class="setBtn" type="text" @click="deletePatent(scope.row.achPanId)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
+
     <table width="100%" style="padding-top: 20px">
       <tbody><tr>
         <td style="text-align:center">
@@ -102,11 +119,12 @@
 </template>
 
 <script>
-  import { getAchievementPatentInfoList } from '@/api/getAchievementPatent'
+import { getAchievementPatentInfoList } from '@/api/getAchievementPatent'
 export default {
   data() {
     return {
-      value1: ''
+      value1: '',
+      tableData: ''
     }
   },
   created() {
@@ -114,13 +132,22 @@ export default {
     this.getRowClass()
   },
   methods: {
-    fetchData(){
+    fetchData() {
       getAchievementPatentInfoList().then(res => {
-
+        this.tableData = res.data
       })
     },
-    insertPatent(){
+    insertPatent() {
       this.$router.push({ path: './patentDetail' })
+    },
+    editPatent(achPanId) {
+      this.$router.push({ name: 'patentDetail', params: { achPanId }})
+    },
+    deletePatent(achPanId) {
+
+    },
+    remarkPatent(achPanId) {
+
     },
     getRowClass({ row, column, rowIndex, columnIndex }) {
       if (rowIndex === 0) {
