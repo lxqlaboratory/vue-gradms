@@ -31,8 +31,16 @@
       </tr>
       <tr>
         <td class="colspan1">颁证日/登记日期 </td>
-        <td class="colspan2"><el-input v-model="applyTime" type="text" size="mini" class="elinput"  />
-          <span class="noticeSpan">格式为：yyyy-MM-DD</span>
+        <td class="colspan2">
+          <el-date-picker
+            v-model="applyTime"
+            class="elinput"
+            size="mini"
+            type="date"
+            placeholder="选择日期"
+            value-format="yyyy-MM-dd"
+          >
+          </el-date-picker>
         </td>
       </tr>
 
