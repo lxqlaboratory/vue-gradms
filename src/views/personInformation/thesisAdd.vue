@@ -16,7 +16,7 @@
       <tr>
         <td  class="colspan1">发表刊物刊号</td>
         <td  class="colspan2">
-          <el-input v-model="formData.magazineNum" type="text"  size="mini" class="elinput"></el-input>
+          <el-input v-model="formData.pubNum" type="text"  size="mini" class="elinput"></el-input>
           <span class="noticeSpan">没有请填写无</span>
         </td>
       </tr>
@@ -46,18 +46,18 @@
           <el-date-picker
             v-model="formData.useTime"
             class="elinput"
-            size="mini"
             type="date"
-            placeholder="选择日期">
+            size="mini"
+            value-format="yyyy-MM-dd">
           </el-date-picker>
         </td>
       </tr>
       <tr>
         <td  class="colspan1">作者位次</td>
         <td  class="colspan2">
-          <el-select v-model="formData.personNum"  size="mini" class="elinput">
+          <el-select v-model="formData.orderCode"  size="mini" class="elinput">
             <el-option
-              v-for="item in personNumArr"
+              v-for="item in orderCodeArr"
               :key="item.value"
               :label="$t(item.name)"
               :value="item.value">
@@ -108,6 +108,20 @@
         </td>
       </tr>
       <tr>
+        <td class="colspan1">备注</td>
+        <td class="colspan2">
+          <el-input
+          v-model="formData.attachRemark"
+          class="elinput"
+          type="textarea"
+          placeholder="请输入内容"
+          maxlength="300"
+          rows="5"
+          show-word-limit
+        />
+        </td>
+      </tr>
+      <tr>
         <td colspan="8"><el-button class="submitBtn" size="mini" @click="addThesis()">提交</el-button></td>
       </tr>
     </table>
@@ -118,35 +132,39 @@
   //  学生上传论文
   import { saveAchievementWordTypeInfo } from '@/api/getAchievementWordType'
   import { getAchievementWordTypeInfoInitList } from '@/api/getAchievementWordType'
+  import { getAchievementWordTypeInfoInitById } from '@/api/getAchievementWordType'
   export default {
     data(){
       return{
         formData:{
           achName: '' ,
           magazineName: '' ,//刊物名称
-          magazineNum: '' ,//刊物编号
-          qkNum: '' ,//期刊号
+          pubNum: '' ,//发表刊物编号
           levelCode: '' ,//论文级别
           impactFactor: '' ,//影响因子
           useTime: '' ,//出版日期
-          personNum:'' ,//作者位次
+          orderCode:'' ,//作者位次
           publishTome: '' ,//
           publishVolumn: '' ,//
           beginPage: '' ,//起始页
           endPage: '' ,//终止页
           include: '' ,//收录情况 论文收录方式码
           inputEIIndexNum: '' ,//录入EI检索号
+          attachRemark:''//备注
         },
         levelCodeList: [],
         includeList : [],
-        personNumArr : [{
-            value : '1',
-            name : '第一位'
+        orderCodeArr : [{
+          value : '1',
+          name : '第一位'
         },{
           value : '2',
           name : '第二位'
         }]
       }
+    },
+    watch: {
+      '$route': 'fetchData'
     },
     created() {
         this.fetchData()
@@ -156,9 +174,21 @@
         getAchievementWordTypeInfoInitList().then(res => {
             this.includeList = res.data.includeList
             this.levelCodeList = res.data.levelCodeList
-        })
+        }),
+        getAchievementWordTypeInfoInitById({ 'achwtId': this.$route.params.achwtId }, (err, post) => {
+          this.loading = false
+          if (err) {
+            this.error = err.toString()
+          } else {
+            this.post = post
+          }
+        }).then(res => {
+            this.formData = res.data.form
+          }
+        )
       },
       addThesis(){
+        this.formData.orderCode = parseInt(this.formData.orderCode)
         saveAchievementWordTypeInfo(this.formData).then(res => {
           this.$message({
             type: 'info',
@@ -167,6 +197,7 @@
           this.$router.push({ path: './publishThesis'})
         })
       },
+
     }
   }
 </script>

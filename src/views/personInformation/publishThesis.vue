@@ -138,8 +138,15 @@
 export default {
   data() {
     return {
-      formData: '' ,
+      formData: {
+        orderCodeName:''
+      } ,
       achwtId:''
+    }
+  },
+  computed: {
+    language() {
+      return this.$store.getters.language
     }
   },
   created() {
@@ -152,13 +159,15 @@ export default {
         this.formData = res.data
       })
     },
+    //添加
     addThesis(){
       this.$router.push({ path: './thesisAdd'})
     },
+    //编辑
     editThesis(achwtId) {
-      alert(achwtId)
       this.$router.push({ name: 'thesisAdd', params: { achwtId }})
     },
+    //删除
     deleteThesis(achwtId) {
       deleteAchievementWordTypeInfo({ 'achwtId': achwtId }).then(res => {
         if (res.code == 1) {
@@ -175,8 +184,9 @@ export default {
         }
       })
     },
+    //修改
     remarkThesis(achwtId) {
-      this.$router.push({ name: 'thesisAdd', params: { achwtId }})
+      this.$router.push({ name: 'remarkThesis', params: { achwtId }})
     },
 
     getRowClass({ row, column, rowIndex, columnIndex }) {

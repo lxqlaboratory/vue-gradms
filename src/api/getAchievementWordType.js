@@ -16,6 +16,14 @@ export function getAchievementWordTypeInfoInitList() {
   })
 }
 
+export function getAchievementWordTypeInfoInitById(data) {
+  return request({
+    url: '/api/student/saveAchievementWordTypeInfoInit',
+    method: 'POST',
+    data
+  })
+}
+
 export function saveAchievementWordTypeInfoInit(data) {
   return request({
     url: '/api/student/saveAchievementWordTypeInfoInit',
@@ -40,7 +48,7 @@ export function deleteAchievementWordTypeInfo(data) {
   })
 }
 
-export function saveAchievementWordTypeRemarkInit(data) {
+export function getAchievementWordTypeRemarkInit(data) {
   return request({
     url: '/api/student/saveAchievementWordTypeRemarkInit',
     method: 'POST',

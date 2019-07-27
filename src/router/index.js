@@ -106,6 +106,13 @@ export const constantRoutes = [
         meta: { title: ('publishThesis.publishThesis'), icon: 'form' }
       },
       {
+        path: 'remarkThesis',
+        name: 'remarkThesis',
+        hidden: true,
+        component: () => import('@/views/personInformation/remarkThesis'),
+        meta: { title: ('publishThesis.publishThesis'), icon: 'form' }
+      },
+      {
         path: 'patent',
         name: 'patent',
         component: () => import('@/views/personInformation/patent'),
