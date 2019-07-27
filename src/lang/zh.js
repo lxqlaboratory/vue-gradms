@@ -627,6 +627,25 @@ export default {
     BackUp: '后退',
     Whether: '是否申请毕业',
     Whether2: '没有提交毕业申请'
+  },
+  //博士论文自评
+  DoctorPaperSelfEvaluate:{
+    note:'请确认学生表现信息中的已发表论文已经通过学院秘书审核，并认真填写完成与学位论文相关信息，以确保自评表信息完整',
+    title:'山东大学博士学位论文自评表（匿名评审专用） ',
+    paperTitle:'论文题目 ',
+    subjectMajor:'学科专业（二级学科名称）',
+    researchDirection:'研究方向',
+    note1:'论文主要创新点（每点不超过100字） ',
+    sequence:'序号',
+    innovationalPoints:'创新点',
+    innovationPoints1:'创新点1:',
+    innovationPoints2:'创新点2:',
+    innovationPoints3:'创新点3:',
+    shortcomings:'论文的不足之处（含原因及改进方法）:',
+    shortcomings1:'不足之处:',
+    submit:'提交',
+    reset:'重置',
+    downloadSelfEvalutionForm:'自评表下载查看',
   }
 
 }

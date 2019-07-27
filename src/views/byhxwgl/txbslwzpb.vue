@@ -3,25 +3,25 @@
     <div>
       <table class="content">
         <tr>
-          <td colspan="8" class="noticeSpan">请确认学生表现信息中的已发表论文已经通过学院秘书审核，并认真填写完成与学位论文相关信息，以确保自评表信息完整</td>
+          <td colspan="8" class="noticeSpan">{{$t('DoctorPaperSelfEvaluate.note')}}</td>
         </tr>
         <tr>
-          <td colspan="8" style="text-align: center;font-size: 15px;font-weight: bold">山东大学博士学位论文自评表（匿名评审专用）</td>
+          <td colspan="8" style="text-align: center;font-size: 15px;font-weight: bold">{{$t('DoctorPaperSelfEvaluate.title')}}</td>
         </tr>
         <tr>
-          <td width="25%" class="colspan1">论文题目</td>
+          <td width="25%" class="colspan1">{{$t('DoctorPaperSelfEvaluate.paperTitle')}}</td>
           <td width="75%" class="colspan2">
             {{ $t(thesisName) }}
           </td>
         </tr>
         <tr>
-          <td class="colspan1">学科专业（二级学科名称）</td>
+          <td class="colspan1">{{$t('DoctorPaperSelfEvaluate.subjectMajor')}}</td>
           <td class="colspan2">
             {{ $t(majorName) }}
           </td>
         </tr>
         <tr>
-          <td class="colspan1">研究方向</td>
+          <td class="colspan1">{{$t('DoctorPaperSelfEvaluate.researchDirection')}}</td>
           <td class="colspan2">
             {{ $t(raseResearch) }}
             <!--<span class="noticeSpan"> 研究方向可以在学生上传学位论文页面维护</span>-->
@@ -30,11 +30,11 @@
       </table>
       <table class="content">
         <tr>
-          <td width="25%" class="colspan1">序号</td>
-          <td width="75%" class="colspan1">论文主要创新点（每点不超过100字）</td>
+          <td width="25%" class="colspan1">{{$t('DoctorPaperSelfEvaluate.sequence')}}</td>
+          <td width="75%" class="colspan1">{{$t('DoctorPaperSelfEvaluate.note1')}}</td>
         </tr>
         <tr>
-          <td width="25%" class="colspan1">创新点1</td>
+          <td width="25%" class="colspan1">{{$t('DoctorPaperSelfEvaluate.innovationPoints1')}}</td>
           <td width="75%" class="colspan2">
             <el-input
               v-model="gradInnovation1"
@@ -48,7 +48,7 @@
           </td>
         </tr>
         <tr>
-          <td class="colspan1">创新点2</td>
+          <td class="colspan1">{{$t('DoctorPaperSelfEvaluate.innovationPoints2')}}</td>
           <td class="colspan2">
             <el-input
               v-model="gradInnovation2"
@@ -62,7 +62,7 @@
           </td>
         </tr>
         <tr>
-          <td class="colspan1">创新点3</td>
+          <td class="colspan1">{{$t('DoctorPaperSelfEvaluate.innovationPoints3')}}</td>
           <td class="colspan2">
             <el-input
               v-model="gradInnovation3"
@@ -76,10 +76,10 @@
           </td>
         </tr>
         <tr>
-          <td colspan="8" class="colspan1">论文的不足之处（含原因及改进方法）</td>
+          <td colspan="8" class="colspan1">{{$t('DoctorPaperSelfEvaluate.shortcomings')}}</td>
         </tr>
         <tr>
-          <td class="colspan1">不足之处</td>
+          <td class="colspan1">{{$t('DoctorPaperSelfEvaluate.shortcomings1')}}</td>
           <td class="colspan2">
             <el-input
               v-model="gradShortage"
@@ -94,7 +94,7 @@
         </tr>
         <tr>
           <td colspan="8" align="center">
-            <el-button class="allBtn" size="mini" @click="thesisShortSubmit">提交</el-button>
+            <el-button class="allBtn" size="mini" @click="thesisShortSubmit">{{$t('DoctorPaperSelfEvaluate.submit')}}</el-button>
             <el-button class="allBtn" size="mini"><a href="/gradms/api/degree/downLoadZiPingBiao" download="bszpb.pdf">{{$t('reviewTheDefenseInformation.DownloadDoctorSelfEvaluationForm')}}</a></el-button>
           </td>
         </tr>
