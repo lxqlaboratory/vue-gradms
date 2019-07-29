@@ -4,7 +4,7 @@
       <el-option
         v-for="item in termList"
         :key="item.value"
-        :label="item.label"
+        :label="$t(item.name)"
         :value="item.value"
       />
     </el-select>
@@ -155,8 +155,8 @@ export default {
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
-        const tHeader = ['CourseNum', 'CourseName', 'CourseNo', 'ClassLocation', 'YearSemester', 'CoursePlace']
-        const filterVal = ['courseNum', 'courseName', 'courseIndex', 'roomName', 'termName', 'roomName']
+        const tHeader = ['CourseNo', 'CourseName', 'CourseNum', 'ClassLocation', 'YearSemester', 'OddOrEvenWeek', 'CourseDate', 'StartWeek', 'StartWeekNumber', 'CourseSection', 'Teacher']
+        const filterVal = ['courseIndex', 'courseName', 'courseNum', 'roomName', 'termName', 'isOddEvenWeek', 'weekDay', 'startWeek', 'period', 'classTime', 'personName']
         const courseExportList = this.courseExportList
         const data = this.formatJson(filterVal, courseExportList)
         excel.export_json_to_excel({
@@ -171,11 +171,7 @@ export default {
     },
     formatJson(filterVal, jsonData) {
       return jsonData.map(v => filterVal.map(j => {
-        if (j === 'timestamp') {
-          return parseTime(v[j])
-        } else {
-          return v[j]
-        }
+        return this.$t(v[j])
       }))
     },
     getRowClass({ row, column, rowIndex, columnIndex }) {
