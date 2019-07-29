@@ -14,7 +14,6 @@
       :data="planDataRequiredList"
       element-loading-text="Loading"
       border
-      fit="true"
       size="mini"
       style="width: 100%"
       :span-method="rowPlanSpanMethodRequire"
@@ -140,7 +139,6 @@
       :data="planDataOptionalList"
       element-loading-text="Loading"
       border
-      fit="true"
       size="mini"
       style="width: 100%"
       :show-header="false"
@@ -267,7 +265,6 @@
       :data="planDataBuxiuList"
       element-loading-text="Loading"
       border
-      fit="true"
       size="mini"
       style="width: 100%"
       :show-header="false"
@@ -407,7 +404,6 @@
       :data="cultSessisonList"
       element-loading-text="Loading"
       border
-      fit="true"
       size="mini"
       style="width: 100%"
       max-height="700"
@@ -483,7 +479,6 @@
         :data="schemeRequiredList"
         element-loading-text="Loading"
         border
-        fit="true"
         size="mini"
         style="width: 100%"
         :span-method="rowSpanMethodRequired"
@@ -574,7 +569,6 @@
         :data="schemeOptionalList"
         element-loading-text="Loading"
         border
-        fit="true"
         size="mini"
         style="width: 100%"
         :span-method="rowSpanMethodOptional"
@@ -666,7 +660,6 @@
         :data="schemeBuxiuList"
         element-loading-text="Loading"
         border
-        fit="true"
         size="mini"
         style="width: 100%"
         :span-method="rowSpanMethodBuxiu"

@@ -138,9 +138,7 @@
 export default {
   data() {
     return {
-      formData: {
-        orderCodeName:''
-      } ,
+      formData:[],
       achwtId:''
     }
   },

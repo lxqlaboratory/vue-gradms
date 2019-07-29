@@ -25,7 +25,7 @@
           align="center"
         >
           <template slot-scope="scope">
-            {{ $t(scope.row.courseNum) }}
+            {{ scope.row.courseNum }}
           </template>
         </el-table-column>
         <el-table-column
@@ -51,7 +51,7 @@
           align="center"
         >
           <template slot-scope="scope">
-            {{ $t(scope.row.credit) }}
+            {{ scope.row.credit }}
           </template>
         </el-table-column>
         <el-table-column
@@ -69,7 +69,7 @@
           align="center"
         >
           <template slot-scope="scope">
-            {{ $t(scope.row.subItemScorePrint) }}
+            {{ scope.row.subItemScorePrint }}
           </template>
         </el-table-column>
         <el-table-column
@@ -78,7 +78,7 @@
           align="center"
         >
           <template slot-scope="scope">
-            {{ $t(scope.row.examTime) }}
+            {{ scope.row.examTime }}
           </template>
         </el-table-column>
       </el-table>
@@ -92,7 +92,7 @@ import { stuGradeQuery } from '@/api/stuGradeQuery'
 export default {
   data() {
     return {
-      gradeList: '',
+      gradeList: [],
       courseNum: '',
       courseName: '',
       teaName: '',
@@ -109,7 +109,6 @@ export default {
     fetchData() {
       stuGradeQuery().then(res => {
         this.gradeList = res.data
-        console.log(this.gradeList)
       })
     }
   }

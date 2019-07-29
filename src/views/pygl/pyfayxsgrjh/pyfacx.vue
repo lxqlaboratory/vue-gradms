@@ -36,7 +36,6 @@
       :data="cultivateFormList"
       element-loading-text="Loading"
       border
-      fit="true"
       size="mini"
       style="width: 100%"
       max-height="700"
@@ -97,7 +96,7 @@ export default {
   data() {
     return {
       tablelist: [],
-      cultivateFormList: '',
+      cultivateFormList: [],
       collegeNameList: [],
       majorList: [],
       stuTypeList: [],
