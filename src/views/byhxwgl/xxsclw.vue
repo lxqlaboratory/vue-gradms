@@ -49,12 +49,12 @@
           <td colspan="2" class="colspan1">{{$t('uploadThesisPaper.ChineseAbstract')}}</td>
           <td colspan="6" class="colspan2">
             <el-input
-            class="elinput"
-            type="textarea"
-            v-model="formData.setChineseAbstract"
-            maxlength="100"
-            rows="4"
-            show-word-limit
+              class="elinput"
+              type="textarea"
+              v-model="formData.setChineseAbstract"
+              maxlength="100"
+              rows="4"
+              show-word-limit
             >
             </el-input>
           </td>
@@ -116,14 +116,20 @@
           <td width="25%" class="colspan1">{{$t('uploadThesisPaper.upload')}}</td>
           <td width="75%" class="colspan2" >
             <el-upload
-              action="https://jsonplaceholder.typicode.com/posts/"
-              class="fileUpload"
-              :on-preview="handlePreview"
-              :on-remove="handleRemove"
-              :before-remove="beforeRemove"
+              action="http://localhost:9528/gradms/api/student/testUpload"
+              ref="upload"
+              :multiple="false"
+              :data="formData1"
+              :file-list="fileList"
+              :with-credentials="true"
+              :auto-upload="false"
               :limit="1"
-              :file="file">
+              accept=".doc,.pdf,.txt"
+              :on-success="uploadSuccess"
+              :on-change="onChange"
+            >
               <el-button size="mini" class="uploadBtn">{{$t('uploadThesisPaper.selectFiles')}}</el-button>
+              <p slot="tip" class="el-upload-list__item-name">只能上传.doc/.pdf/.txt文件</p>
             </el-upload>
           </td>
         </tr>
@@ -138,29 +144,37 @@
 </template>
 
 <script>
-//  学生上传论文
+  //  学生上传论文
   import { uploadCheckThesisInit , thesisModifyTitle , uploadCheckThesis } from '@/api/uploadCheckThesis'
   export default {
     data(){
-        return{
-          file:{url: '',name:''},
-          formData:{
-            setStuNum:'',
-            setStuName: '' ,
-            setThesisLanguageKind: '' ,
-            setThesisClassNumber: '' ,
-            setThesisName: '' ,
-            setThesisEngName: '' ,
-            setResearchWay: '' ,
-            setEnglishTheme: '' ,
-            setChineseAbstract: '' ,
-            setEnglishAbstract: '' ,
-            setThesisReference: '' ,
-            setContentCheckState: '' , //是否审核
-            setDuplicateCheckState: '' , //审核意见
-            setStatus: '' ,   //是否通过
-          },
-          languageKinds: [{
+      return{
+        fileList:[],
+        formData1:{
+          title: 'uyjg',
+          desc: 'fjfj',
+          priority: '',
+          occurDate: '',
+          file:''
+        },
+        formData:{
+          setStuNum:'',
+          setStuName: '' ,
+          setThesisLanguageKind: '' ,
+          setThesisClassNumber: '' ,
+          setThesisName: '' ,
+          setThesisEngName: '' ,
+          setResearchWay: '' ,
+          setEnglishTheme: '' ,
+          setChineseAbstract: '' ,
+          setEnglishAbstract: '' ,
+          setThesisReference: '' ,
+          setContentCheckState: '' , //是否审核
+          setDuplicateCheckState: '' , //审核意见
+          setStatus: '' ,   //是否通过
+        },
+        languageKinds: [
+          {
             value: '01',
             label: '中文'
           }, {
@@ -172,9 +186,9 @@
           }, {
             value: '04',
             label: '韩文'
-          }],
-          value: ''
-        }
+          }
+        ],
+      }
     },
     created() {
       this.fetchData()
@@ -187,30 +201,24 @@
       },
       modifyBtn() {
         thesisModifyTitle(this.formData).then(res => {
-            this.$message({
-              type: 'info',
-              message: '修改成功'
-            });
-          })
-        },
+          this.$message({
+            type: 'info',
+            message: '修改成功'
+          });
+        })
+      },
+
+      onChange(file,fileList){
+        this.fileList[0]=file
+      },
+      //上传完表单后 回调方法。response是返回值
+      uploadSuccess:function (response) {
+
+      },
       submitBtn(){
-          console.log(this.file)
-        uploadCheckThesis(this.file).then(res => {
-            this.$message({
-              type: 'info',
-              message: '提交成功'
-            });
-          })
-        },
-        handleRemove(file, fileList) {
-          console.log(file, fileList);
-        },
-        handlePreview(file) {
-          console.log(file);
-        },
-        beforeRemove(file, fileList) {
-          return this.$confirm(`确定移除 ${ file.name }？`);
-        }
+//        console.log("submit")
+        this.$refs.upload.submit()
+      }
     }
   }
 </script>
