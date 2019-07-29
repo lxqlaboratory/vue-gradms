@@ -1,13 +1,13 @@
 <template>
-<div>
-  hahhahah
-</div>
+  <div>
+    hahhahah
+  </div>
 </template>
 
 <script>
-  export default {
-    name: 'applicationSubmit'
-  }
+export default {
+  name: 'ApplicationSubmit'
+}
 </script>
 
 <style scoped>

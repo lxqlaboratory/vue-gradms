@@ -6,7 +6,7 @@
         border
         size="mini"
         style="width: 100%;"
-        :header-cell-style="getRowClass"
+        :header-cell-style="{background:'#eef1f6',color:'#606266',fontSize: '14px'}"
       >
         <el-table-column
           :label="$t('gradeQuery.seqNum')"
@@ -104,7 +104,6 @@ export default {
   },
   created() {
     this.fetchData()
-    this.getRowClass()
   },
   methods: {
     fetchData() {
@@ -112,13 +111,6 @@ export default {
         this.gradeList = res.data
         console.log(this.gradeList)
       })
-    },
-    getRowClass({ row, column, rowIndex, columnIndex }) {
-      if (rowIndex === 0) {
-        return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
-      } else {
-        return ''
-      }
     }
   }
 }

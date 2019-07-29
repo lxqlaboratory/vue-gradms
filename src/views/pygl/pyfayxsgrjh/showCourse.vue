@@ -7,7 +7,7 @@
       size="mini"
       :span-method="rowSpanMethod1"
       width="100%"
-      :header-cell-style="getRowClass"
+      :header-cell-style="{background:'#eef1f6',color:'#606266',fontSize: '14px'}"
     >
       <el-table-column
         :label="$t('cuiltivatingSchemeCheckAndDrawup.type')"
@@ -325,7 +325,6 @@ export default {
     this.rowSpanMethod1()
     this.rowSpanMethod2()
     this.rowSpanMethod3()
-    this.getRowClass()
   },
 
   methods: {
@@ -399,15 +398,7 @@ export default {
           }
         }
       }
-    },
-    getRowClass({ row, column, rowIndex, columnIndex }) {
-      if (rowIndex === 0) {
-        return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
-      } else {
-        return ''
-      }
     }
-
   }
 }
 

@@ -15,7 +15,7 @@
       size="mini"
       style="width: 100%;"
       class="eltable"
-      :header-cell-style="getRowClass"
+      :header-cell-style="{background:'#eef1f6',color:'#606266',fontSize: '14px'}"
     >
       <el-table-column
         prop="category"
@@ -122,7 +122,6 @@
   </div>
 </template>
 <script>
-import { parseTime } from '@/utils'
 import { newCultivateCourseExportInit } from '@/api/exportTeachingArrangement'
 export default {
   data() {
@@ -143,7 +142,6 @@ export default {
   },
   created() {
     this.fetchData()
-    this.getRowClass()
   },
   methods: {
     fetchData() {
@@ -173,13 +171,6 @@ export default {
       return jsonData.map(v => filterVal.map(j => {
         return this.$t(v[j])
       }))
-    },
-    getRowClass({ row, column, rowIndex, columnIndex }) {
-      if (rowIndex === 0) {
-        return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
-      } else {
-        return ''
-      }
     }
   }
 }

@@ -24,8 +24,8 @@
       border
       size="mini"
       class="eltable"
-      :header-cell-style="getRowClass"
-      style="width: 100%"
+      :header-cell-style="{background:'#eef1f6',color:'#606266',fontSize: '14px'}"
+      style="width: 100%;"
     >
       <el-table-column
         prop="date"
@@ -126,7 +126,7 @@ export default {
   data() {
     return {
       value1: '',
-      tableData: ''
+      tableData: []
     }
   },
   computed: {
@@ -136,7 +136,6 @@ export default {
   },
   created() {
     this.fetchData()
-    this.getRowClass()
   },
   methods: {
     fetchData() {
@@ -170,13 +169,6 @@ export default {
     },
     remarkPatent(achPanId) {
       this.$router.push({ name: 'savePatentRemark', params: { achPanId }})
-    },
-    getRowClass({ row, column, rowIndex, columnIndex }) {
-      if (rowIndex === 0) {
-        return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
-      } else {
-        return ''
-      }
     }
   }
 }

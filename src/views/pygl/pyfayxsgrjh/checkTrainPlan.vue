@@ -19,7 +19,7 @@
       style="width: 100%"
       max-height="700"
       class="eltable"
-      :header-cell-style="getRowClass"
+      :header-cell-style="{background:'#eef1f6',color:'#606266',fontSize: '14px'}"
     >
       <el-table-column
         :label="$t('cuiltivatingSchemeCheckAndDrawup.number')"
@@ -203,13 +203,6 @@ export default {
         this.cultSessisonList = res.data.planData.cultSessisonList
         console.log(this.cultSessisonList)
       })
-    },
-    getRowClass({ row, column, rowIndex, columnIndex }) {
-      if (rowIndex === 0) {
-        return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
-      } else {
-        return ''
-      }
     }
   }
 }

@@ -4,7 +4,7 @@
       <tbody>
         <tr>
           <td class="head" colspan="24">
-            <div align="center" style="color: #A50001;font-size: 16px;font-weight: bold">
+            <div align="center" style="color: #A50001;font-size: 16px;">
               {{ $t('publishThesis.thesisInfo') }}
               <input type="hidden" name="isTea" value="0">
             </div>
@@ -24,7 +24,7 @@
       border
       size="mini"
       class="eltable"
-      :header-cell-style="getRowClass"
+      :header-cell-style="{background:'#eef1f6',color:'#606266',fontSize: '14px'}"
       style="width: 100%"
     >
       <el-table-column
@@ -151,7 +151,6 @@ export default {
   },
   created() {
     this.fetchData()
-    this.getRowClass()
   },
   methods: {
     fetchData() {
@@ -187,14 +186,6 @@ export default {
     //修改
     remarkThesis(achwtId) {
       this.$router.push({ name: 'remarkThesis', params: { achwtId }})
-    },
-
-    getRowClass({ row, column, rowIndex, columnIndex }) {
-      if (rowIndex === 0) {
-        return 'background:#eef1f6;color:#606266;font-size:14px;font-weight:bold;'
-      } else {
-        return ''
-      }
     }
   }
 }
