@@ -10,7 +10,7 @@
     </el-select>
     <el-button :loading="downloadLoading" class="exportBtn" type="primary" size="mini" @click="handleDownload">{{ $t('achievement.export') }}</el-button>
     <el-table
-      :data="courseExportList"
+      :data="tableList"
       border
       size="mini"
       style="width: 100%;"
@@ -133,6 +133,14 @@ export default {
       value: ''
     }
   },
+  computed: {
+    'tableList': function() {
+      return this.courseExportList.filter(item => {
+        if (!this.value || item.termId == this.value) { return true }
+        return false
+      })
+    }
+  },
   created() {
     this.fetchData()
     this.getRowClass()
@@ -147,8 +155,8 @@ export default {
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
-        const tHeader = ['CourseNum', 'CourseName', 'CourseNo', 'ClassLocation']
-        const filterVal = ['courseNum', 'courseName', 'courseIndex', 'roomName']
+        const tHeader = ['CourseNum', 'CourseName', 'CourseNo', 'ClassLocation', 'YearSemester', 'CoursePlace']
+        const filterVal = ['courseNum', 'courseName', 'courseIndex', 'roomName', 'termName', 'roomName']
         const courseExportList = this.courseExportList
         const data = this.formatJson(filterVal, courseExportList)
         excel.export_json_to_excel({

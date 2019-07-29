@@ -32,7 +32,8 @@ export default {
     error:{
       '学院与（课程名或课程号）不能同时为空': 'College and (course name or course number) cannot be empty at the same time',
       'userError': 'userError',
-      '该课程已锁定，不能退选！': 'This course is locked and cannot be dropped!'
+      '该课程已锁定，不能退选！': 'This course is locked and cannot be dropped!',
+      '您输入的旧密码不正确': 'The old password you entered is incorrect'
     }
   },
   route: {
@@ -609,6 +610,7 @@ export default {
     Reference: 'Reference',
     PreClass: 'Pre-courses',
     courseStatement: 'Course Statement',
+    courseIntroduction: 'Course introduction',
     teachingOutline: 'Teaching Outline', // 教学大纲
     note: 'Note',
     courseStatus: 'Course Status',
@@ -617,6 +619,27 @@ export default {
     BackUp: 'go back',
     Whether: 'Whether to apply for graduation',
     Whether2: 'No graduation application was submitted'
+  },
+  //博士论文自评
+  DoctorPaperSelfEvaluate:{
+    note:'Please confirm that the published papers in the student performance information have been approved'+
+      'by the secretary of the school, and carefully fill in the information related to the dissertation, so as to'+
+      'ensure the complete information of the self-evaluation form',
+    title:'Self-evaluation Form for Doctoral Dissertation of Shandong University (for Anonymous Evaluation Only)',
+    paperTitle:'Paper Title',
+    subjectMajor:'Subject and Major(Name of second-level discipline)',
+    researchDirection:'Research Direction',
+    note1:'The research direction can be maintained on the page where students upload their dissertations',
+    sequence:'Sequence',
+    innovationalPoints:'The Main Innovation Points of This Paper（no more than 100 words for each points）',
+    innovationPoints1:'Innovation Points 1:',
+    innovationPoints2:'Innovation Points 2:',
+    innovationPoints3:'Innovation Points 3:',
+    shortcomings:'Shortcomings of Your Paper:',
+    shortcomings1:'shortcomings:',
+    submit:'submit',
+    reset:'reset',
+    downloadSelfEvalutionForm:'Download and View the Self-evaluation Form',
   }
 
 }

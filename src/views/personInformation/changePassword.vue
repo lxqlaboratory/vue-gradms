@@ -20,7 +20,7 @@
 <script>
 import { editPassword } from '@/api/editPassword'
 const Base64 = require('js-base64').Base64
-
+import { translation } from '@/utils/translation'
 export default {
 
   data() {
@@ -74,6 +74,11 @@ export default {
           { validator: validateNewPass2, trigger: 'blur' }
         ]
       }
+    }
+  },
+  computed: {
+    language() {
+      return this.$store.getters.language
     }
   },
   methods: {

@@ -2,7 +2,7 @@
   <div class="app-container">
     <!--<div>-->
     <span class="searchSpan">{{ $t('cultivatingSchemeQuery.studentType') }}:</span>
-    <el-select v-model="stuTypecode" style="width: 15%;" size="mini" filterable placeholder="请选择" @change="getMajor">
+    <el-select v-model="stuTypecode" style="width: 15%;" size="mini" filterable placeholder="please choose" @change="getMajor">
       <el-option
         v-for="item in stuTypeList"
         :key="item.value"
@@ -11,7 +11,7 @@
       />
     </el-select>
     <span class="searchSpan">{{ $t('cultivatingSchemeQuery.school') }}:</span>
-    <el-select v-model="collegeType" style="width: 15%" size="mini" filterable placeholder="请选择" @change="getMajor">
+    <el-select v-model="collegeType" style="width: 15%" size="mini" filterable placeholder="please choose" @change="getMajor">
       <el-option
         v-for="item in collegeNameList"
         :key="item.value"
@@ -20,7 +20,7 @@
       />
     </el-select>
     <span class="searchSpan">{{ $t('cultivatingSchemeQuery.major') }}:</span>
-    <el-select v-model="majorTypeCode" style="width: 15%" size="mini" filterable placeholder="请选择">
+    <el-select v-model="majorTypeCode" style="width: 15%" size="mini" filterable placeholder="please choose">
       <el-option
         v-for="item in majorList"
         :key="item.value"
@@ -29,8 +29,8 @@
       />
     </el-select>
     <span class="searchSpan">{{ $t('cultivatingSchemeQuery.year') }}:</span>
-    <el-input v-model="year" placeholder="请输入年份" style="width: 15%" size="mini" />
-    <el-button size="mini" type="primary" class="queryBtn" @click="getTableList">查询</el-button>
+    <el-input v-model="year" placeholder="year" style="width: 15%" size="mini" />
+    <el-button size="mini" type="primary" class="queryBtn" @click="getTableList">{{$t('CourseQuery.query')}}</el-button>
 
     <el-table
       :data="cultivateFormList"
@@ -85,7 +85,7 @@
         :label="$t('cultivatingSchemeQuery.detail')"
       >
         <template slot-scope="scope">
-          <el-button class="infoBtn" type="text" @click="pushInfo(scope.row.schemeId , scope.row.majorName, scope.row.studentType )">详细</el-button>
+          <el-button class="infoBtn" type="text" @click="pushInfo(scope.row.schemeId , scope.row.majorName, scope.row.studentType )">{{$t('cultivatingSchemeQuery.detail')}}</el-button>
         </template>
       </el-table-column>
     </el-table>

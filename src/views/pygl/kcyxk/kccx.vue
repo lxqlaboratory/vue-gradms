@@ -75,7 +75,7 @@
         </template>
       </el-table-column>
       <el-table-column
-        label="课程属性"
+        :label="$t('courseQuery.courseProperty')"
         width="100"
         align="center"
       >
@@ -84,9 +84,8 @@
         </template>
       </el-table-column>
       <el-table-column
-        width="50"
         align="center"
-        label="学时"
+        :label="$t('CourseQuery.total')"
       >
         <template slot-scope="scope">
           {{ scope.row.classHour }}
@@ -103,7 +102,6 @@
       </el-table-column>
       <el-table-column
         :label="$t('cuiltivatingSchemeCheckAndDrawup.courseTerm')"
-        width="100"
         align="center"
       >
         <template slot-scope="scope">
@@ -112,7 +110,6 @@
       </el-table-column>
       <el-table-column
         :label="$t('cuiltivatingSchemeCheckAndDrawup.evaluationMode')"
-        width="100"
         align="center"
       >
         <template slot-scope="scope">
@@ -120,7 +117,7 @@
         </template>
       </el-table-column>
       <el-table-column
-        label="负责人"
+        :label="$t('CourseQuery.CoursePerson')"
         align="center"
       >
         <template slot-scope="scope">
@@ -132,7 +129,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          <el-button size="mini" round class="allBtn" type="text" @click="insertCourse(scope.row.courseId)">详细</el-button>
+          <el-button size="mini" round class="allBtn" type="text" @click="insertCourse(scope.row.courseId)">{{$t('cultivatingSchemeQuery.detail')}}</el-button>
         </template>
       </el-table-column>
     </el-table>
