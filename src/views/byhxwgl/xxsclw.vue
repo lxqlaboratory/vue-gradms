@@ -116,7 +116,7 @@
           <td width="25%" class="colspan1">{{$t('uploadThesisPaper.upload')}}</td>
           <td width="75%" class="colspan2" >
             <el-upload
-              action="http://localhost:9528/gradms/api/student/testUpload"
+              action="http://localhost:9528/gradms/api/degree/uploadCheckThesis"
               ref="upload"
               :multiple="false"
               :data="formData1"
@@ -129,7 +129,7 @@
               :on-change="onChange"
             >
               <el-button size="mini" class="uploadBtn">{{$t('uploadThesisPaper.selectFiles')}}</el-button>
-              <p slot="tip" class="el-upload-list__item-name">只能上传.doc/.pdf/.txt文件</p>
+              <p slot="tip" class="el-upload-list__item-name">只能上传.pdf格式文件</p>
             </el-upload>
           </td>
         </tr>
