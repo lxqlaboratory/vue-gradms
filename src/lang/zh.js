@@ -32,7 +32,8 @@ export default {
     error:{
       '学院与（课程名或课程号）不能同时为空': '学院与（课程名或课程号）不能同时为空',
       'userError': '用户信息错误',
-      '该课程已锁定，不能退选！': '该课程已锁定，不能退选！'
+      '该课程已锁定，不能退选！': '该课程已锁定，不能退选！',
+      '您输入的旧密码不正确': '您输入的旧密码不正确'
     }
   },
   route: {
@@ -593,7 +594,7 @@ export default {
     courseNum: '课程号',
     query: '查询',
     creator: '创建者',
-    college1: '所属学院', // 所属学院
+    college1: '所属学院', // 所属学院负责人
     courseType: '课程类别', // 课程类别
     courseName: '课程名', // 课程名
     courseEName: '课程英文名', // 课程英文名
@@ -619,6 +620,7 @@ export default {
     Reference: '参考书目',
     PreClass: '预修需求',
     courseStatement: '课程说明',
+    courseIntroduction: '课程简介',
     teachingOutline: '教学大纲', // 教学大纲
     note: '备注',
     courseStatus: '课程状态',

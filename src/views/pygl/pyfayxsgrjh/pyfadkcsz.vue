@@ -8,7 +8,7 @@
     width="100%"
   >
     <el-table-column
-      label="类别"
+      :label="$t('cuiltivatingSchemeCheckAndDrawup.type')"
       width="70"
       align="center"
     >
@@ -18,7 +18,7 @@
     </el-table-column>
     <el-table-column
       prop="category"
-      label="序号"
+      :label="$t('cuiltivatingSchemeCheckAndDrawup.number')"
       width="52"
       align="center"
     >
@@ -28,7 +28,7 @@
     </el-table-column>
     <el-table-column
       prop="courseNum"
-      label="课程号"
+      :label="$t('cuiltivatingSchemeCheckAndDrawup.courseNumber')"
       width="102"
       align="center"
     >
@@ -38,7 +38,7 @@
     </el-table-column>
     <el-table-column
       prop="courseName"
-      label="课程名"
+      :label="$t('cuiltivatingSchemeCheckAndDrawup.courseName')"
       width="204"
       align="center"
     >
@@ -48,7 +48,7 @@
     </el-table-column>
     <el-table-column
       prop="term"
-      label="开课学期"
+      :label="$t('cuiltivatingSchemeCheckAndDrawup.courseTerm')"
       width="102"
       align="center"
     >
@@ -58,19 +58,19 @@
     </el-table-column>
     <el-table-column
       prop="classHour"
-      label="总学时"
+      :label="$t('cuiltivatingSchemeCheckAndDrawup.totalClassHours')"
       width="102"
       align="center"
     />
     <el-table-column
       prop="credit"
-      label="学分"
+      :label="$t('cuiltivatingSchemeCheckAndDrawup.credit')"
       width="102"
       align="center"
     />
     <el-table-column
       prop="teacherGroup"
-      label="任课教师"
+      :label="$t('cuiltivatingSchemeCheckAndDrawup.tutor')"
       width="102"
       align="center"
     >
@@ -80,8 +80,7 @@
     </el-table-column>
     <el-table-column
       prop="examStyle"
-      label="考核方式"
-      width="102"
+      :label="$t('cuiltivatingSchemeCheckAndDrawup.evaluationMode')"
       align="center"
     >
       <template slot-scope="scope">

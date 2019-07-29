@@ -32,7 +32,8 @@ export default {
     error:{
       '学院与（课程名或课程号）不能同时为空': 'College and (course name or course number) cannot be empty at the same time',
       'userError': 'userError',
-      '该课程已锁定，不能退选！': 'This course is locked and cannot be dropped!'
+      '该课程已锁定，不能退选！': 'This course is locked and cannot be dropped!',
+      '您输入的旧密码不正确': 'The old password you entered is incorrect'
     }
   },
   route: {
@@ -609,6 +610,7 @@ export default {
     Reference: 'Reference',
     PreClass: 'Pre-courses',
     courseStatement: 'Course Statement',
+    courseIntroduction: 'Course introduction',
     teachingOutline: 'Teaching Outline', // 教学大纲
     note: 'Note',
     courseStatus: 'Course Status',

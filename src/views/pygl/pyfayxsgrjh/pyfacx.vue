@@ -30,7 +30,7 @@
     </el-select>
     <span class="searchSpan">{{ $t('cultivatingSchemeQuery.year') }}:</span>
     <el-input v-model="year" placeholder="请输入年份" style="width: 15%" size="mini" />
-    <el-button size="mini" type="primary" class="queryBtn" @click="getTableList">查询</el-button>
+    <el-button size="mini" type="primary" class="queryBtn" @click="getTableList">{{$t('CourseQuery.query')}}</el-button>
 
     <el-table
       :data="cultivateFormList"
@@ -85,7 +85,7 @@
         :label="$t('cultivatingSchemeQuery.detail')"
       >
         <template slot-scope="scope">
-          <el-button class="infoBtn" type="text" @click="pushInfo(scope.row.schemeId , scope.row.majorName, scope.row.studentType )">详细</el-button>
+          <el-button class="infoBtn" type="text" @click="pushInfo(scope.row.schemeId , scope.row.majorName, scope.row.studentType )">{{$t('cultivatingSchemeQuery.detail')}}</el-button>
         </template>
       </el-table-column>
     </el-table>
