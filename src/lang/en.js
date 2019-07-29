@@ -59,8 +59,8 @@ export default {
     tjktbg: 'submit opening report',
     byhxwgl: 'graduation and degree',
     txxwxx: 'degree information',
-    txlwgzybz: '填写论文工作与不足',
-    txbslwzpb: '填写博士论文自评表',
+    txlwgzybz: 'work and shortcomings of paper',
+    txbslwzpb: 'self-evaluation of doctoral thesis',
     tjbysq: 'graduation application',
     xxsclw: 'thesis uploading',
     cklwpyjg: 'thesis review',
@@ -640,6 +640,9 @@ export default {
     submit:'submit',
     reset:'reset',
     downloadSelfEvalutionForm:'Download and View the Self-evaluation Form',
+  },
+  //提交毕业申请
+  tjbysq:{
+    byzt: 'Graduation status: if the graduate school does not agree to submit the graduation application status, you can not submit the graduation application!'
   }
-
 }

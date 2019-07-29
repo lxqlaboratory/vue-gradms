@@ -56,7 +56,7 @@
   </div>
   <div v-else class="app-container">
     <div style="color: #9b0d14">
-      毕业状态:不是研究生院同意提交毕业申请状态，不能提交毕业申请!
+      {{$t('tjbysq.byzt')}}
     </div>
   </div>
 </template>

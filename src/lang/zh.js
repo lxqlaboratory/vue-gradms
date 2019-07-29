@@ -648,6 +648,9 @@ export default {
     submit:'提交',
     reset:'重置',
     downloadSelfEvalutionForm:'自评表下载查看',
+  },
+  //提交毕业申请
+  tjbysq:{
+    byzt: '毕业状态:不是研究生院同意提交毕业申请状态，不能提交毕业申请!'
   }
-
 }
