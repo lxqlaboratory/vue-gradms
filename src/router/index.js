@@ -358,8 +358,7 @@ export const constantRoutes = [
         component: () => import('@/views/dagl/txqnml'),
         meta: {
           title: ('route.txqnml'),
-          icon: 'form',
-          roles: [98]
+          icon: 'form'
         }
       }
     ]

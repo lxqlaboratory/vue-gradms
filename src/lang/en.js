@@ -644,5 +644,17 @@ export default {
   //提交毕业申请
   tjbysq:{
     byzt: 'Graduation status: if the graduate school does not agree to submit the graduation application status, you can not submit the graduation application!'
+  },
+  //填写卷内记录
+  FilesDirectory: {
+    title: 'File Directory(A full-time doctoral candidate)',
+    name: 'Name',
+    degreeTime: 'Degree awarding time',
+    degreeCertificate: 'degree certificate number',
+    materialName: 'Material name',
+    formationTime: 'formation time',
+    copies: 'copies',
+    pages: 'pages',
+    remark: 'remark'
   }
 }

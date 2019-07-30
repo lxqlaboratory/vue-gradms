@@ -70,7 +70,7 @@ export default {
     byxxhd: '毕业信息核对',
     xwxxhd: '学位信息核对',
     dagl: '档案管理',
-    txqnml: '填写圈内目录',
+    txqnml: '填写卷内目录',
     submit: '提交',
     modify: '修改',
     save: '保存',
@@ -652,5 +652,19 @@ export default {
   //提交毕业申请
   tjbysq:{
     byzt: '毕业状态:不是研究生院同意提交毕业申请状态，不能提交毕业申请!'
-  }
+  },
+
+  //填写卷内记录
+  FilesDirectory:{
+    title:'卷内目录 （全日制攻读博士学位研究生)',
+    name:'姓名',
+    degreeTime:'授学位时间',
+    degreeCertificate:'学位证书号',
+    materialName:'材料名称',
+    formationTime:'形成时间',
+    copies:'份数',
+    pages:'页数',
+    remark:'备注'
+}
+
 }

@@ -71,7 +71,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ (scope.row.courseName) }}
+          {{ $t(scope.row.courseName) }}
         </template>
       </el-table-column>
       <el-table-column
@@ -80,7 +80,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ scope.row.courseAttribute }}
+          {{ $t(scope.row.courseAttribute) }}
         </template>
       </el-table-column>
       <el-table-column
@@ -107,7 +107,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ scope.row.termCodeName }}
+          {{ $t(scope.row.termCodeName) }}
         </template>
       </el-table-column>
       <el-table-column
@@ -116,7 +116,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ scope.row.examTypeName }}
+          {{ $t(scope.row.examTypeName) }}
         </template>
       </el-table-column>
       <el-table-column
