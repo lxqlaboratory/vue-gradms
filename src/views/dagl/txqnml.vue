@@ -36,7 +36,7 @@
         </el-table-column>
         <el-table-column
           prop="name"
-          :label="$t('FilesDirectory.formationTime')"
+          :label="$t('FilesDirectory.formationTime')+'      ****.**'"
           align="center"
         >
           <template slot-scope="scope">
@@ -67,7 +67,7 @@
           align="center"
         >
           <template slot-scope="scope">
-            <el-input v-model="scope.row.pageNumValue" size="mini" />
+            <el-input v-model="scope.row.remark" size="mini" />
           </template>
         </el-table-column>
       </el-table>
