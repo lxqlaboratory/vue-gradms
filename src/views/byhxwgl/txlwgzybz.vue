@@ -2,8 +2,7 @@
   <div class="container">
     <table class="content">
       <tr>
-        <td colspan="12" style="color: #A50001">内容的格式必须是：本文的主要工作是.............。本文的不足之处是...........。
-          请写在一段话里即可，不用分段，字数请控制在200-300字，以免超出300的部分被删除。
+        <td colspan="12" style="color: #A50001">{{$t('tjbysq.txlwgzybz')}}
         </td>
       </tr>
       <tr>
@@ -13,7 +12,7 @@
             v-model="workAndShort"
             class="inputSpan"
             type="textarea"
-            placeholder="请输入内容"
+            placeholder="Please enter the content"
             maxlength="300"
             rows="12"
             show-word-limit
@@ -23,8 +22,8 @@
       </tr>
       <tr>
         <td colspan="12" align="center">
-          <el-button class="allBtn" size="mini" @click="thesisShortSubmit">保存</el-button>
-          <el-button class="allBtn" size="mini"><a href="/gradms/api/degree/degreeThesisApplyDownload" download="xwsqs.pdf">下载学位申请书</a></el-button>
+          <el-button class="allBtn" size="mini" @click="thesisShortSubmit">{{$t('route.save')}}</el-button>
+          <el-button class="allBtn" size="mini"><a href="/gradms/api/degree/degreeThesisApplyDownload" download="xwsqs.pdf">{{$t('reviewTheDefenseInformation.ApplicationForDegree')}}</a></el-button>
         </td>
       </tr>
     </table>

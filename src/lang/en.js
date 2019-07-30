@@ -643,7 +643,8 @@ export default {
   },
   //提交毕业申请
   tjbysq:{
-    byzt: 'Graduation status: if the graduate school does not agree to submit the graduation application status, you can not submit the graduation application!'
+    byzt: 'Graduation status: if the graduate school does not agree to submit the graduation application status, you can not submit the graduation application!',
+    txlwgzybz: 'The format of the content must be: The main work of this paper is.............。The shortcoming of this article is...........。Please write in a paragraph, no segmentation, please control the number of words in 200-300 words, so that the part beyond 300 is deleted.'
   },
   //填写卷内记录
   FilesDirectory: {
