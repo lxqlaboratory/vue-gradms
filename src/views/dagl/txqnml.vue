@@ -114,7 +114,7 @@ export default {
       })
     },
     entryInfoSubmit() {
-      entryInfoSubmit(this.contentFormList).then(res => {
+      entryInfoSubmit({'contentFormList': this.contentFormList}).then(res => {
         this.$message({
           type: 'info',
           message: '提交成功'
