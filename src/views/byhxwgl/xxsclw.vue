@@ -113,29 +113,20 @@
           <td width="75%" class="colspan2" ><el-input v-model="formData.setDuplicateCheckState" size="mini" class="elinput" disabled></el-input></td>
         </tr>
         <tr>
-          <td width="25%" class="colspan1">{{$t('uploadThesisPaper.upload')}}</td>
+          <td width="25%" class="colspan1">{{$t('uploadThesisPaper.uploadImage.vue')}}</td>
           <td width="75%" class="colspan2" >
-            <el-upload
-              action="http://localhost:9528/gradms/api/degree/uploadCheckThesis"
-              ref="upload"
-              :multiple="false"
-              :file-list="fileList"
-              :with-credentials="true"
-              :auto-upload="false"
-              :limit="1"
-              accept=".doc,.pdf,.txt"
-              :on-success="uploadSuccess"
-              :on-change="onChange"
-            >
-              <el-button size="mini" class="uploadBtn">{{$t('uploadThesisPaper.selectFiles')}}</el-button>
-              <p slot="tip" class="el-upload-list__item-name">只能上传.pdf格式文件</p>
-            </el-upload>
+
+            <fileupload url="/api/degree/uploadCheckThesis"
+                        accepttype=".pdf"
+                        @successcallback="onSuccess"
+                        @preview="onPreview"
+                        remarks="只能上pdf">{{$t('uploadThesisPaper.selectFiles')}}</fileupload>
+
           </td>
         </tr>
         <tr>
           <td colspan="8" align="center">
             <el-button class="allBtn" size="mini" @click="submitBtn">{{$t('uploadThesisPaper.submit')}}</el-button>
-            <el-button class="allBtn" size="mini" id="dowmloadBtn">下载</el-button>
           </td>
         </tr>
       </table>
@@ -145,13 +136,11 @@
 
 <script>
   //  学生上传论文
-  import { uploadCheckThesisInit , thesisModifyTitle , uploadCheckThesis } from '@/api/uploadCheckThesis'
-  import ElButton from "../../../node_modules/element-ui/packages/button/src/button";
+  import { uploadCheckThesisInit , thesisModifyTitle  } from '@/api/uploadCheckThesis'
+  import  fileupload  from '../../components/upload/fileupload'
   export default {
-    components: {ElButton},
     data(){
       return{
-        fileList:[],
         formData:{
           setStuNum:'',
           setStuName: '' ,
@@ -185,10 +174,23 @@
         ],
       }
     },
+    components:{fileupload},
     created() {
       this.fetchData()
     },
     methods: {
+      onPreview:function(file){
+        console.log(file)
+        //window.location.href=file.response.url
+      },
+      submitBtn(){
+        console.log("submit")
+        this.$refs.upload.submit()
+      },
+      onSuccess(res,file){
+        console.log(res)
+        console.log(file)
+      },
       fetchData() {
         uploadCheckThesisInit().then( res => {
           this.formData = res.data
@@ -202,32 +204,6 @@
           });
         })
       },
-
-      onChange(file,fileList){
-        this.fileList[0]=file
-      },
-      //上传完表单后 回调方法。response是返回值
-      uploadSuccess:function (res) {
-          if(res.msg != null){
-            this.$message({
-              type: 'error',
-              message: res.msg
-            });
-          }else if(res.code === 0){
-            var button =document.getElementById("dowmloadBtn");
-            var downLoadLink = document.createElement("a");
-            button.setAttribute("href", "/gradms/api/degree/degreeThesisAttachmentDownload");
-  //        button.setAttribute("class", class);
-  //        button.style.width = "12%";
-  //        button.setAttribute("onclick", "function(this.id)");
-            button.appendChild(downLoadLink);
-          }
-
-      },
-      submitBtn(){
-//        console.log("submit")
-        this.$refs.upload.submit()
-      }
     }
   }
 </script>

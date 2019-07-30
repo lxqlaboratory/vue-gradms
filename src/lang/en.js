@@ -524,7 +524,7 @@ export default {
     uploadingResult: 'Uploading result',
     reviewingResult: 'Audit result',
     reviewingAdvice: 'Audit advice',
-    upload: 'upload',
+    upload: 'uploadImage.vue',
     selectFiles: 'select a file',
     submit: 'submit'
   },
