@@ -89,6 +89,7 @@
 <script>
 import { initInfoMethod } from '@/api/tianxiejnml'
 import { entryInfoSubmit } from '@/api/tianxiejnml'
+import { translation } from '@/utils/translation'
 export default {
   name: 'Txqnml',
   data() {
@@ -106,6 +107,11 @@ export default {
   created() {
     this.fetchData()
   },
+  computed: {
+    language() {
+      return this.$store.getters.language
+    }
+  },
   methods: {
     fetchData() {
       initInfoMethod().then(res => {
@@ -115,10 +121,13 @@ export default {
     },
     entryInfoSubmit() {
       entryInfoSubmit({'contentFormList': this.contentFormList}).then(res => {
-        this.$message({
-          type: 'info',
-          message: '提交成功'
-        })
+        if(res.code == 1){
+        }else{
+          this.$message({
+            message: translation(res,this.language).message,
+            type: 'success'
+          })
+        }
       })
     }
   }
