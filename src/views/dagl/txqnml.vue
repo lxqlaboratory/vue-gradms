@@ -78,7 +78,7 @@
         <tbody>
           <tr>
             <td style="text-align:center">
-              <el-button size="mini" class="allBtn" @click="entryInfoSubmit">提交</el-button>
+              <el-button size="mini" class="allBtn" @click="entryInfoSubmit">{{$t('DoctorPaperSelfEvaluate.submit')}}</el-button>
             </td>
           </tr>
         </tbody>

@@ -70,7 +70,7 @@ export default {
     byxxhd: 'check the graduatrion information',
     xwxxhd: 'degree information check',
     dagl: 'archive management',
-    txqnml: '填写圈内目录',
+    txqnml: 'file directory',
     submit: 'submit',
     modify: 'modify',
     save: 'save',
