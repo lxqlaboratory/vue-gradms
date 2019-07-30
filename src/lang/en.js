@@ -644,7 +644,13 @@ export default {
   //提交毕业申请
   tjbysq:{
     byzt: 'Graduation status: if the graduate school does not agree to submit the graduation application status, you can not submit the graduation application!',
-    txlwgzybz: 'The format of the content must be: The main work of this paper is.............。The shortcoming of this article is...........。Please write in a paragraph, no segmentation, please control the number of words in 200-300 words, so that the part beyond 300 is deleted.'
+    txlwgzybz: 'The format of the content must be: The main work of this paper is.............。The shortcoming of this article is...........。Please write in a paragraph, no segmentation, please control the number of words in 200-300 words, so that the part beyond 300 is deleted.',
+    txxwxx1: 'Paper introduction(include',
+    txxwxx2: 'Source of the topic',
+    txxwxx3: 'Theoretical significance and application value',
+    txxwxx4: 'The innovation and significance of the thesis',
+    txxwxx5: 'Inadequacies of the paper',
+    txxwxx6: '(500-800 words)'
   },
   //填写卷内记录
   FilesDirectory: {

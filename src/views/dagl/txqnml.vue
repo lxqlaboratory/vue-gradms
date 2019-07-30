@@ -8,11 +8,11 @@
              </tr>
         <tr>
           <td width="10%" class="colstyle1">{{$t('FilesDirectory.name')}}	 </td>
-          <td width="25%" class="colstyle2">{{ form.perName }}</td>
-          <td width="10%" class="colstyle1">{{$t('FilesDirectory.degreeTime')}}	</td>
+          <td width="15%" class="colstyle2">{{ form.perName }}</td>
+          <td width="15%" class="colstyle1">{{$t('FilesDirectory.degreeTime')}}	</td>
           <td width="20%" class="colstyle2">{{ form.gradTime }}</td>
-          <td width="10%" class="colstyle1">{{$t('FilesDirectory.degreeCertificate')}}</td>
-          <td width="25%" class="colstyle2">{{ form.contentNum }}</td>
+          <td width="15%" class="colstyle1">{{$t('FilesDirectory.degreeCertificate')}}</td>
+          <td width="20%" class="colstyle2">{{ form.contentNum }}</td>
         </tr>
       </tbody></table>
     <div>
