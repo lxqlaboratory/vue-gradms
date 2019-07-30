@@ -119,7 +119,6 @@
               action="http://localhost:9528/gradms/api/degree/uploadCheckThesis"
               ref="upload"
               :multiple="false"
-              :data="formData1"
               :file-list="fileList"
               :with-credentials="true"
               :auto-upload="false"
@@ -136,6 +135,7 @@
         <tr>
           <td colspan="8" align="center">
             <el-button class="allBtn" size="mini" @click="submitBtn">{{$t('uploadThesisPaper.submit')}}</el-button>
+            <el-button class="allBtn" size="mini" id="dowmloadBtn">下载</el-button>
           </td>
         </tr>
       </table>
@@ -146,17 +146,12 @@
 <script>
   //  学生上传论文
   import { uploadCheckThesisInit , thesisModifyTitle , uploadCheckThesis } from '@/api/uploadCheckThesis'
+  import ElButton from "../../../node_modules/element-ui/packages/button/src/button";
   export default {
+    components: {ElButton},
     data(){
       return{
         fileList:[],
-        formData1:{
-          title: 'uyjg',
-          desc: 'fjfj',
-          priority: '',
-          occurDate: '',
-          file:''
-        },
         formData:{
           setStuNum:'',
           setStuName: '' ,
@@ -212,7 +207,21 @@
         this.fileList[0]=file
       },
       //上传完表单后 回调方法。response是返回值
-      uploadSuccess:function (response) {
+      uploadSuccess:function (res) {
+          if(res.msg != null){
+            this.$message({
+              type: 'error',
+              message: res.msg
+            });
+          }else if(res.code === 0){
+            var button =document.getElementById("dowmloadBtn");
+            var downLoadLink = document.createElement("a");
+            button.setAttribute("href", "/gradms/api/degree/degreeThesisAttachmentDownload");
+  //        button.setAttribute("class", class);
+  //        button.style.width = "12%";
+  //        button.setAttribute("onclick", "function(this.id)");
+            button.appendChild(downLoadLink);
+          }
 
       },
       submitBtn(){
