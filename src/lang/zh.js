@@ -368,7 +368,8 @@ export default {
     cultivatingSchemeName: '培养方案名称',
     major1: '所属专业',
     startTime: '起始时间',
-    detail: '详细'
+    detail: '详细',
+    fulu: '附：本培养方案的课程设置'
   },
 
   // 培养方案详细信息

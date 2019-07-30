@@ -109,7 +109,7 @@
     </div>
     <!--第三部分-->
     <div class="part3">
-      <el-button type="text" style="color:#A50001;font-size: 12px" @click="showCourseSetting">附：本培养方案的课程设置 </el-button><br>
+      <el-button type="text" style="color:#A50001;font-size: 12px" @click="showCourseSetting">{{$t('cultivatingSchemeQuery.fulu')}}</el-button><br>
     </div>
   </div>
 

@@ -356,7 +356,8 @@ export default {
     cultivatingSchemeName: 'Cultivating Scheme Name',
     major1: 'Major',
     startTime: 'Starting Time',
-    detail: 'Detail'
+    detail: 'Detail',
+    fulu: 'Attachment: Course setting of this training program'
   },
 
   // 培养方案详细信息
