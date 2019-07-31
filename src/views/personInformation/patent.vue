@@ -96,13 +96,13 @@
       </el-table-column>
       <el-table-column
         prop="address"
-        width="150"
+        width="250"
         :label="$t('patent.operation')"
       >
         <template slot-scope="scope">
-          <el-button v-if="scope.row.isCheck" size="mini" round style="color: #9b0d14" t type="text" @click="editPatent(scope.row.achPanId)">编辑</el-button>
-          <el-button v-if="!scope.row.isCheck" size="mini" round style="color: #9b0d14" t type="text" @click="remarkPatent(scope.row.achPanId)">修改</el-button>
-          <el-button v-if="scope.row.isCheck" size="mini" round style="color: #9b0d14" type="text" @click="deletePatent(scope.row.achPanId)">删除</el-button>
+          <el-button v-if="scope.row.isCheck" size="mini" round style="color: #9b0d14" t type="text" @click="editPatent(scope.row.achPanId)">{{$t('patent.edit')}}</el-button>
+          <el-button v-if="!scope.row.isCheck" size="mini" round style="color: #9b0d14" t type="text" @click="remarkPatent(scope.row.achPanId)">{{$t('patent.modify')}}</el-button>
+          <el-button v-if="scope.row.isCheck" size="mini" round style="color: #9b0d14" type="text" @click="deletePatent(scope.row.achPanId)">{{$t('patent.delete')}}</el-button>
         </template>
       </el-table-column>
     </el-table>

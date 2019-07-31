@@ -109,14 +109,14 @@
       </el-table-column>
       <el-table-column
         prop="address"
-        width="150"
+        width="250"
         align="center"
         :label="$t('patent.operation')"
       >
         <template slot-scope="scope">
-          <el-button v-if="scope.row.isCheck" size="mini"  class="operateBtn" type="text" @click="editThesis(scope.row.achwtId)">编辑</el-button>
-          <el-button v-if="!scope.row.isCheck" size="mini"  class="operateBtn" type="text" @click="remarkThesis(scope.row.achwtId)">修改</el-button>
-          <el-button v-if="scope.row.isCheck" size="mini"  class="operateBtn" type="text" @click="deleteThesis(scope.row.achwtId)">删除</el-button>
+          <el-button v-if="scope.row.isCheck" size="mini"  class="operateBtn" type="text" @click="editThesis(scope.row.achwtId)">{{$t('patent.edit')}}</el-button>
+          <el-button v-if="!scope.row.isCheck" size="mini"  class="operateBtn" type="text" @click="remarkThesis(scope.row.achwtId)">{{$t('patent.modify')}}</el-button>
+          <el-button v-if="scope.row.isCheck" size="mini"  class="operateBtn" type="text" @click="deleteThesis(scope.row.achwtId)">{{$t('patent.delete')}}</el-button>
         </template>
       </el-table-column>
     </el-table>

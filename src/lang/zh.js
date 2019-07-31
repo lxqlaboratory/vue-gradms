@@ -279,6 +279,9 @@ export default {
     operation: '操作',
     note12: 'SORRY:没有符合的数据!',
     setOpen: '设置公开',
+    edit: '编辑',
+    modify: '修改',
+    delete: '删除',
     setNotOpen: '设置不公开',
     add: '添加'
   },
@@ -674,6 +677,27 @@ export default {
     copies:'份数',
     pages:'页数',
     remark:'备注'
-}
+},
+  //论文信息添加
+  paperInfoAdd:{
+    paperInfoAdd:'论文信息添加',
+    thesisName:'论文名称',
+    periodical:'期刊或会议名称',
+    publicationNumber:'发表刊物刊号',
+    thesisClass:'论文级别',
+    note:'没有请填写无',
+    factor:'影响因子',
+    publicationTime:'发表时间',
+    authorRank:'作者位次',
+    volume:'第几卷',
+    series:'s第几期',
+    startPage:'起始页',
+    endPage:'终止页',
+    CollectingWays:'收录方式',
+    enterEI:'录入EI检索号',
+    remark:'备注',
+  }
+
+
 
 }
