@@ -8,18 +8,19 @@ export function login(jsonForm) {
   })
 }
 
-export function getInfo(data) {
+export function getInfo() {
   return request({
     url: '/api/getInfo',
     method: 'post',
-    data
+    data:{}
   })
 }
 
 export function logout() {
   return request({
     url: '/api/logout',
-    method: 'post'
+    method: 'post',
+    data:{}
   })
 }
 

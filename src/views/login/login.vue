@@ -123,6 +123,7 @@ export default {
             message: 'systemError'
           })
         } else {
+          console.log("执行方法了");
           _this.loading = true
           _this.$store.dispatch('user/getInfo')
           _this.$router.push({ path: '/dashboard' })
