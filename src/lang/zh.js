@@ -283,6 +283,9 @@ export default {
     modify: '修改',
     delete: '删除',
     setNotOpen: '设置不公开',
+    infoadd: '专利/著作权信息添加',
+    patentTypeq: '专利/著作权类别',
+    patentDate1: '颁证日/登记日期',
     add: '添加'
   },
 

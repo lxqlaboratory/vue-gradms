@@ -48,7 +48,7 @@
     <table cellspacing="0" width="100%">
       <tbody><tr>
         <td style="text-align:center">
-          <el-button style="background-color:#A50001;color: #ffffff " size="mini" @click="degreeGradApplySubmit">提交</el-button>
+          <el-button style="background-color:#A50001;color: #ffffff " size="mini" @click="degreeGradApplySubmit">{{$t('route.submit')}}</el-button>
         </td>
       </tr>
       </tbody>

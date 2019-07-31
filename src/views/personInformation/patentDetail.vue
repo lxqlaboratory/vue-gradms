@@ -2,7 +2,7 @@
   <div class="container">
     <table class="content">
       <tr>
-        <td colspan="8" class="titleSpan">专利/著作权信息添加</td>
+        <td colspan="8" class="titleSpan">{{ $t('patent.infoadd') }}</td>
       </tr>
       <tr>
         <td class="colspan1">{{ $t('patent.patentInfo') }}</td>
@@ -10,7 +10,7 @@
       </tr>
 
       <tr>
-        <td class="colspan1">专利/著作权类别</td>
+        <td class="colspan1">{{ $t('patent.patentTypeq') }}</td>
         <td class="colspan2"> <el-select v-model="patentType" placeholder="pleaseChoose" size="mini" style="width: 70%;">
           <el-option
             v-for="item in patentTypeList"
@@ -30,14 +30,13 @@
         <td class="colspan2"><el-input v-model="typeNum" type="text" size="mini" class="elinput" /></td>
       </tr>
       <tr>
-        <td class="colspan1">颁证日/登记日期 </td>
+        <td class="colspan1">{{ $t('patent.patentDate1') }} </td>
         <td class="colspan2">
           <el-date-picker
             v-model="applyTime"
             class="elinput"
             size="mini"
             type="date"
-            placeholder="选择日期"
             value-format="yyyy-MM-dd"
           >
           </el-date-picker>
@@ -45,7 +44,7 @@
       </tr>
 
       <tr>
-        <td class="colspan1">作者位次</td>
+        <td class="colspan1">{{ $t('achievement.authorRanking') }}</td>
         <td class="colspan2"> <el-select v-model="personNum" placeholder="pleaseChoose" size="mini" style="width: 70%;">
           <el-option
             v-for="item in options"
@@ -56,12 +55,11 @@
       </tr>
 
       <tr>
-        <td class="colspan1">备注</td>
+        <td class="colspan1">{{ $t('baseInformationModal.remark') }}</td>
         <td class="colspan2"> <el-input
           v-model="remark"
           class="elinput"
           type="textarea"
-          placeholder="请输入内容"
           maxlength="300"
           rows="5"
           show-word-limit
@@ -69,7 +67,7 @@
       </tr>
 
       <tr >
-        <td colspan="8" ><el-button  class="submitBtn" size="mini" @click="submitPatent">提交</el-button>
+        <td colspan="8" ><el-button  class="submitBtn" size="mini" @click="submitPatent">{{$t('route.submit')}}</el-button>
         </td>
       </tr>
     </table>

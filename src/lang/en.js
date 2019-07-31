@@ -266,6 +266,9 @@ export default {
     edit: 'edit',
     modify: 'modify',
     delete: 'delete',
+    infoadd: 'Patent/copyright information added',
+    patentTypeq: 'Patent/copyright category',
+    patentDate1: 'Certificate date / registration date',
     add: 'add'
   },
 
