@@ -143,12 +143,12 @@
                   {{ list3.bachelorDegreeDate }}
                 </td>
               </tr>
-              <tr>
+              <tr v-if="roleJudge">
                 <td colspan="4" style="font-size:12px;color:#A50001">
                   {{ $t('preSchoolInfoModal.postgraduate') }}
                 </td>
               </tr>
-              <tr>
+              <tr v-if="roleJudge">
                 <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.postgraduateType') }}
                 </td>
@@ -188,7 +188,7 @@
                   {{ BasePostGradMajor }}
                 </td>
               </tr>
-              <tr>
+              <tr v-if="roleJudge">
                 <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.postgraduateDate') }}
                 </td>
@@ -208,7 +208,7 @@
                   {{ list3.masterThesis }}
                 </td>
               </tr>
-              <tr>
+              <tr v-if="roleJudge">
                 <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.MasterDegree') }}
                 </td>
@@ -248,7 +248,7 @@
                   {{ DegreeBasePostGradMajor }}
                 </td>
               </tr>
-              <tr>
+              <tr v-if="roleJudge">
                 <td class="colstyle1">
                   {{ $t('preSchoolInfoModal.MasterSubjectType') }}
                 </td>
@@ -275,7 +275,7 @@
                   {{ list3.masterDegreeDate }}
                 </td>
               </tr>
-              <tr>
+              <tr v-if="roleJudge">
                 <td height="25" class="colstyle1">
                   {{ $t('preSchoolInfoModal.remark') }}
                 </td>
@@ -303,11 +303,13 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
 import { getStudentPreSchoolInfo, updateStudentPreSchoolInfo } from '@/api/studentPreSchoolInfo'
 export default {
   data() {
     return {
       list3: [],
+      master: '',
       baseMajor: '',
       BasePostGradMajor: '',
       DegreeBaseGradMajor: '',
@@ -315,8 +317,16 @@ export default {
       length1: [],
       activeName: 'first',
       bkbyzym: [],
+      roleJudge: '',
       isEdit2: false
     }
+  },
+  computed: {
+    ...mapGetters([
+      'sidebar',
+      'avatar',
+      'roles'
+    ])
   },
   watch: {
     'list3.BaseGradMajorCode': function(val, old) {
@@ -386,6 +396,12 @@ export default {
       getStudentPreSchoolInfo().then(res => {
         console.log(res)
         this.list3 = res.data
+        this.master = res.data.isMaster
+        if(this.master == 0){
+          this.roleJudge = true
+        }else{
+          this.roleJudge = false
+        }
       })
     },
     save2() {
