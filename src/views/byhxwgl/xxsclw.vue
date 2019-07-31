@@ -120,13 +120,16 @@
                         accepttype=".pdf"
                         @successcallback="onSuccess"
                         @preview="onPreview"
-                        remarks="只能上pdf">{{$t('uploadThesisPaper.selectFiles')}}</fileupload>
-
+                        remarks="只能上传.pdf文件"
+            >上传文件
+            </fileupload>
           </td>
         </tr>
-        <tr>
-          <td colspan="8" align="center">
-            <el-button class="allBtn" size="mini" @click="submitBtn">{{$t('uploadThesisPaper.submit')}}</el-button>
+        <tr v-if="showDownloadBtn">
+          <td colspan="8" align="center" id="downloadBtn">
+            <el-button class="allBtn" size="mini">
+              <a :href="'/gradms/api/degree/degreeThesisAttachmentDownload?degreeAttachId='+this.degreeAttachId" download="xwlwzg.pdf">下载</a>
+            </el-button>
           </td>
         </tr>
       </table>
@@ -139,6 +142,7 @@
   import { uploadCheckThesisInit , thesisModifyTitle  } from '@/api/uploadCheckThesis'
   import  fileupload  from '../../components/upload/fileupload'
   export default {
+
     data(){
       return{
         formData:{
@@ -172,6 +176,8 @@
             label: '韩文'
           }
         ],
+        degreeAttachId :'',
+        showDownloadBtn :false,
       }
     },
     components:{fileupload},
@@ -181,15 +187,16 @@
     methods: {
       onPreview:function(file){
         console.log(file)
-        //window.location.href=file.response.url
-      },
-      submitBtn(){
-        console.log("submit")
-        this.$refs.upload.submit()
+        //window.location.href = file.response.url
       },
       onSuccess(res,file){
         console.log(res)
         console.log(file)
+        this.degreeAttachId =  res.data.degreeAttachId
+        this.showDownloadBtn = !this.showDownloadBtn;
+        /*if(res.code === 0){
+          alert(111)
+        }*/
       },
       fetchData() {
         uploadCheckThesisInit().then( res => {

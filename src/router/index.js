@@ -361,6 +361,15 @@ export const constantRoutes = [
           icon: 'form'
         }
       }
+      // {
+      //   path: 'test',
+      //   name: 'test',
+      //   component: () => import('@/views/dagl/test'),
+      //   meta: {
+      //     title: ('route.test'),
+      //     icon: 'form'
+      //   }
+      // }
     ]
   },
 

@@ -10,6 +10,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/index.scss' // global css
 import i18n from './lang' // Internationalization
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import App from './App'
 import store from './store'
 import router from './router'
@@ -36,6 +38,8 @@ Vue.use(ElementUI, {
 
 Vue.config.productionTip = false
 
+Vue.use(VueAxios, axios)
+Vue.prototype.$axios = axios
 new Vue({
   el: '#app',
   router,

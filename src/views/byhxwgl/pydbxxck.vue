@@ -15,7 +15,7 @@
             <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreePrintApplyTable" download="bsdjb.pdf">{{$t('reviewTheDefenseInformation.DoctorApplicationRegistrationForm')}}</a></el-button>
             <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeResearchRewardFormDownload" download="kyjlb.pdf">{{$t('reviewTheDefenseInformation.TableOfResearcAndAwards')}}</a></el-button>
             <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/downLoadZiPingBiao" download="bszpb.pdf">{{$t('reviewTheDefenseInformation.DownloadDoctorSelfEvaluationForm')}}</a></el-button>
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeThesisAttachmentDownload" download="xwlwzzg.pdf">{{$t('reviewTheDefenseInformation.FinalDissertation')}}</a></el-button>
+            <el-button size="mini" class="allBtn" @click="test">{{$t('reviewTheDefenseInformation.FinalDissertation')}}</el-button>
           </td>
         </tr>
       </tbody>
@@ -250,7 +250,9 @@
 </template>
 
 <script>
+  import axios from 'axios'
 import { thesisReviewAndReplyInfoShow } from '@/api/thesisReviewAndReplyInfoShow'
+import { degreeThesisAttachmentDownload } from '@/api/allCourseQuery'
 export default {
   data() {
     return {
@@ -273,7 +275,22 @@ export default {
     },
     cfbjcsqb() {
 
-    }
+    },
+    test(){
+      axios({
+        url:'http://localhost:9528/gradms/api/degree/degreeThesisAttachmentDownload',
+        method:'get',
+        responseType: 'blob',
+        params:{
+          attachId: '93797'
+        },
+
+      }).then(({data})=>{
+          alert('111111111')
+
+      })
+    },
+
   }
 }
 </script>

@@ -13,7 +13,7 @@
         :on-preview="onPreview"
 
       >
-        <el-button size="small" type="primary">
+        <el-button size="small"  class="styleBtn">
           <slot></slot>
         </el-button>
         <div slot="tip" class="el-upload__tip">{{remarks}}</div>
@@ -82,5 +82,10 @@
 </script>
 
 <style scoped>
+  .styleBtn{
+    background-color: #A50001;
+    border: none;
+    color: #ffffff;
+  }
 
 </style>

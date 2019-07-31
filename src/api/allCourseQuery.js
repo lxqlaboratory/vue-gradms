@@ -23,3 +23,12 @@ export function newCultivateCourseDetail(data) {
     data
   })
 }
+
+
+export function degreeThesisAttachmentDownload(data) {
+  return request({
+    url: '/api/degree/degreeThesisAttachmentDownload',
+    method: 'GET',
+    data
+  })
+}
