@@ -263,6 +263,9 @@ export default {
     note12: 'SORRY:No approprrate data!!',
     setOpen: 'set open',
     setNotOpen: 'set not open',
+    edit: 'edit',
+    modify: 'modify',
+    delete: 'delete',
     add: 'add'
   },
 
@@ -664,5 +667,24 @@ export default {
     copies: 'copies',
     pages: 'pages',
     remark: 'remark'
+  },
+  //论文信息添加
+  paperInfoAdd:{
+    paperInfoAdd:'Add thesis information',
+    thesisName:'Thesis Title',
+    periodical:'Periodical and conference',
+    publicationNumber:'Publication periodical number',
+    thesisClass:'Level of thisis',
+    note:'If there is not, please fill in no',
+    factor:'Impact factor',
+    publicationTime:'Publication time',
+    authorRank:'Rank of author',
+    volume:'volume number',
+    series:'series number',
+    startPage:'Start page',
+    endPage:'End page',
+    CollectingWays:'Ways of collection',
+    enterEI:'Enter EI searching number',
+    remark:'remark',
   }
 }

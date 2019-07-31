@@ -2,26 +2,26 @@
   <div class="container">
     <table class="content">
       <tr>
-        <td colspan="8" class="titleSpan">论文信息添加</td>
+        <td colspan="8" class="titleSpan">{{$t('paperInfoAdd.paperInfoAdd')}}</td>
       </tr>
       <tr>
-        <td  class="colspan1">论文名称</td>
+        <td  class="colspan1">{{$t('paperInfoAdd.thesisName')}}</td>
         <td  class="colspan2"><el-input v-model="formData.achName" type="text" size="mini" class="elinput"></el-input></td>
       </tr>
 
       <tr>
-        <td  class="colspan1">期刊或会议名称</td>
+        <td  class="colspan1">{{$t('paperInfoAdd.periodical')}}</td>
         <td  class="colspan2"><el-input v-model="formData.magazineName" type="text" size="mini" class="elinput"></el-input></td>
       </tr>
       <tr>
-        <td  class="colspan1">发表刊物刊号</td>
+        <td  class="colspan1">{{$t('paperInfoAdd.publicationNumber')}}</td>
         <td  class="colspan2">
           <el-input v-model="formData.pubNum" type="text"  size="mini" class="elinput"></el-input>
-          <span class="noticeSpan">没有请填写无</span>
+          <span class="noticeSpan">{{$t('paperInfoAdd.note')}}</span>
         </td>
       </tr>
       <tr>
-        <td  class="colspan1">论文级别</td>
+        <td  class="colspan1">{{$t('paperInfoAdd.thesisClass')}}</td>
         <td  class="colspan2">
           <el-select v-model="formData.levelCode"  size="mini" class="elinput">
             <el-option
@@ -34,14 +34,14 @@
         </td>
       </tr>
       <tr>
-        <td  class="colspan1">影响因子</td>
+        <td  class="colspan1">{{$t('paperInfoAdd.factor')}}</td>
         <td  class="colspan2">
           <el-input v-model="formData.impactFactor" type="text" size="mini" class="elinput"></el-input>
-          <span class="noticeSpan">没有请填写无</span>
+          <span class="noticeSpan">{{$t('paperInfoAdd.note')}}</span>
         </td>
       </tr>
       <tr>
-        <td  class="colspan1">论文发表时间</td>
+        <td  class="colspan1">{{$t('paperInfoAdd.publicationTime')}}</td>
         <td  class="colspan2">
           <el-date-picker
             v-model="formData.useTime"
@@ -53,7 +53,7 @@
         </td>
       </tr>
       <tr>
-        <td  class="colspan1">作者位次</td>
+        <td  class="colspan1">{{$t('paperInfoAdd.authorRank')}}</td>
         <td  class="colspan2">
           <el-select v-model="formData.orderCode"  size="mini" class="elinput">
             <el-option
@@ -66,29 +66,29 @@
         </td>
       </tr>
       <tr>
-        <td  class="colspan1">第几卷 </td>
+        <td  class="colspan1">{{$t('paperInfoAdd.volume')}} </td>
         <td  class="colspan2">
           <el-input v-model="formData.publishTome" type="text"  size="mini" class="elinput"></el-input>
-          <span class="noticeSpan">没有请填写无</span>
+          <span class="noticeSpan">{{$t('paperInfoAdd.note')}}</span>
         </td>
       </tr>
       <tr>
-        <td  class="colspan1">第几期</td>
+        <td  class="colspan1">{{$t('paperInfoAdd.series')}}</td>
         <td  class="colspan2">
           <el-input v-model="formData.publishVolumn" type="text" size="mini" class="elinput"></el-input>
-          <span class="noticeSpan">没有请填写无</span>
+          <span class="noticeSpan">{{$t('paperInfoAdd.note')}}</span>
         </td>
       </tr>
       <tr>
-        <td  class="colspan1">起始页</td>
+        <td  class="colspan1">{{$t('paperInfoAdd.startPage')}}</td>
         <td  class="colspan2"><el-input v-model="formData.beginPage" type="text" size="mini" class="elinput"></el-input></td>
       </tr>
       <tr>
-        <td  class="colspan1">终止页 </td>
+        <td  class="colspan1">{{$t('paperInfoAdd.endPage')}} </td>
         <td  class="colspan2"><el-input v-model="formData.endPage" type="text"  size="mini" class="elinput"></el-input></td>
       </tr>
       <tr>
-        <td  class="colspan1">收录方式</td>
+        <td  class="colspan1">{{$t('paperInfoAdd.CollectingWays')}}</td>
         <td  class="colspan2">
           <el-select v-model="formData.include"  size="mini" class="elinput">
             <el-option
@@ -101,14 +101,14 @@
         </td>
       </tr>
       <tr>
-        <td  class="colspan1">录入EI检索号</td>
+        <td  class="colspan1">{{$t('paperInfoAdd.enterEI')}}</td>
         <td  class="colspan2">
           <el-input v-model="formData.inputEIIndexNum" type="text" size="mini" class="elinput"></el-input>
-          <span class="noticeSpan">没有请填写无</span>
+          <span class="noticeSpan">{{$t('paperInfoAdd.note')}}</span>
         </td>
       </tr>
       <tr>
-        <td class="colspan1">备注</td>
+        <td class="colspan1">{{$t('paperInfoAdd.remark')}}</td>
         <td class="colspan2">
           <el-input
           v-model="formData.attachRemark"
@@ -122,7 +122,7 @@
         </td>
       </tr>
       <tr>
-        <td colspan="8"><el-button class="submitBtn" size="mini" @click="addThesis()">提交</el-button></td>
+        <td colspan="8"><el-button class="submitBtn" size="mini" @click="addThesis()">{{$t('FilesDirectory.Submit')}}</el-button></td>
       </tr>
     </table>
   </div>
