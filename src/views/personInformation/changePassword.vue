@@ -20,23 +20,40 @@
 <script>
 import { editPassword } from '@/api/editPassword'
 const Base64 = require('js-base64').Base64
-import { translation } from '@/utils/translation'
 export default {
 
   data() {
     var validateOldPass = (rule, value, callback) => {
       if (!value) {
-        return callback(new Error('Old passwords cannot be empty'))
+        return callback(new Error(this.$t('modifyPasswordModal.oldpwdEmpty')))
       }
       callback()
     }
     var validateNewPass = (rule, value, callback) => {
+      var c
+      var low = false
+      var up = false
+      var num = false
+      var other = false
+      for (var i = 0; i < value.length; i++) {
+        c = value.charAt(i)
+        if (c >= 'a' && c <= 'z') { low = true } else if (c >= 'A' && c <= 'Z') { low = true } else if (c >= '0' && c <= '9') { num = true } else { other = true }
+      }
+      var count = 0
+      if (low) { count++ }
+      if (up) { count++ }
+      if (num) { count++ }
+      if (other) { count++ }
       if (value === '') {
-        callback(new Error('Please enter a new password!'))
+        callback(new Error(this.$t('modifyPasswordModal.inputNewPassword')))
+      } else if (count < 2) {
+        callback(new Error(this.$t('modifyPasswordModal.passwordzf')))
+      } else if (value.length < 8) {
+        callback(new Error(this.$t('modifyPasswordModal.passwordminLength')))
       }
       setTimeout(() => {
         if (value.length > 20) {
-          callback(new Error('The maximum password length is 20'))
+          callback(new Error(this.$t('modifyPasswordModal.passwordLength')))
         } else {
           callback()
         }
@@ -44,9 +61,9 @@ export default {
     }
     var validateNewPass2 = (rule, value, callback) => {
       if (value === '') {
-        callback(new Error('Please enter your password again'))
+        callback(new Error(this.$t('modifyPasswordModal.passwordWrong1')))
       } else if (value !== this.ruleForm.newPass) {
-        callback(new Error('The two passwords you typed do not match!'))
+        callback(new Error(this.$t('modifyPasswordModal.passwordWrong')))
       }
       setTimeout(() => {
         if (value.length > 20) {

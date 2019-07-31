@@ -84,8 +84,12 @@ export default {
     oldPassword: 'Previous password',
     inputNewPassword: 'Input new password',
     retypePassword: 'Retype password',
+    passwordminLength: 'The password must be longer than or equal to 8 characters. Please re-enter!',
     passwordLength: 'The maximum length of the password is 20',
     passwordWrong: 'Inconsistent password entered twice',
+    passwordWrong1: 'Please re-enter the new password',
+    oldpwdEmpty: 'Old password cannot be empty',
+    passwordzf: 'The password must contain at least two types of uppercase letters, lowercase letters, numbers and symbols. Please re-enter!',
     reset: 'reset'
   },
 
