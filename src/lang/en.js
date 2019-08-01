@@ -11,9 +11,12 @@ export default {
     placeholdUsername: 'please input your username',
     placeholdPassword: 'please input your password',
     loginTitle: 'Login',
+    verification: 'Verification code',
     authenticationLogin: 'Unified authentication login ',
     manaegerTitle: 'SDU Graduates Academic Affairs Portal',
     noticeTitle: 'Friendship tips',
+    inputverification: 'please enter verification code',
+    correctverification: 'Please enter the correct verification code',
     notice1: 'The default password is prefix D (Doctor)/Master (M)+7 digits after the ID number. The letters in the ID number are capital letters.',
     notice2: 'It is recommended to use IE browser or Google browser above 9.0, and 360 browser should choose extreme speed mode'
   },

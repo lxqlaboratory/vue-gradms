@@ -26,6 +26,17 @@
               </el-button>
             </div>
           </div>
+          <el-row style=" position: relative; margin-top: 15px; width: 100%">
+            <el-col style="width: 50%" align="left">
+            <el-input v-model="code"  maxlength="4" type="text" size="medium" :placeholder="$t('login.verification')" @keyup.enter.native="login" />
+            </el-col>
+            <el-col align="right" style="width: 50%">
+            <div @click="refreshCode">
+              <!--验证码组件-->
+              <s-identify :identify-code="identifyCode" />
+            </div>
+            </el-col>
+          </el-row>
           <div style="width: 100%;">
             <el-row>
               <el-col>
@@ -66,13 +77,16 @@
 <script>
 import { login } from '@/api/user'
 import LangSelect from '@/components/LangSelect'
-
+import SIdentify from '../../components/Sidentify/index'
 export default {
   name: 'Prelogin',
-  components: { LangSelect },
+  components: { LangSelect, SIdentify },
   data() {
     return {
       msg: '',
+      identifyCode: '',
+      code: '',
+      identifyCodes: '1234567890',
       showPassword: false,
       loading: false,
       loginForm: {
@@ -83,8 +97,13 @@ export default {
       swiperList: ['https://gradms.sdu.edu.cn/applogin/images/back1.png', 'https://gradms.sdu.edu.cn/applogin/images/back2.png', 'https://gradms.sdu.edu.cn/applogin/images/back3.png']
     }
   },
+  created() {
+    this.refreshCode()
+  },
   mounted() {
     this.getCookie()
+    this.identifyCode = ''
+    this.makeCode(this.identifyCodes, 4)
     // alert(this.getCookie())
   },
   methods: {
@@ -92,47 +111,63 @@ export default {
       this.$router.push({ path: '/preregister' })
     },
     login: function() {
-      const _this = this
-      // 判断复选框是否被勾选 勾选则调用配置cookie方法
-      if (_this.ydxy == true) {
-        console.log('checked == true')
-        // 传入账号名，密码，和保存天数3个参数
-        _this.setCookie(_this.loginForm.userName, _this.loginForm.password, 7)
+      if (this.code === '') {
+        this.$message({
+          type: 'error',
+          message: this.$t('login.inputverification')
+        })
+        this.loading = false
+      } else if (this.identifyCode !== this.code) {
+        this.code = ''
+        this.refreshCode()
+        this.$message({
+          type: 'error',
+          message: this.$t('login.correctverification')
+        })
+        this.loading = false
       } else {
-        console.log('清空Cookie')
-        // 清空Cookie
-        _this.clearCookie()
-      }
-      const jsonForm = JSON.stringify({ username: this.loginForm.userName, password: this.loginForm.password })
-      login(jsonForm).then(response => {
-        // console.log(response.msg);
-        _this.msg = response.msg
-        if (this.msg === 'userNoExist') {
-          _this.$message({
-            type: 'error',
-            message: 'userNoExist'
-          })
-        } else if (this.msg === 'passwordError') {
-          _this.$message({
-            type: 'error',
-            message: 'passwordError'
-          })
-        } else if (this.msg === 'systemError') {
-          _this.$message({
-            type: 'error',
-            message: 'systemError'
-          })
+        const _this = this
+        // 判断复选框是否被勾选 勾选则调用配置cookie方法
+        if (_this.ydxy == true) {
+          console.log('checked == true')
+          // 传入账号名，密码，和保存天数3个参数
+          _this.setCookie(_this.loginForm.userName, _this.loginForm.password, 7)
         } else {
-          console.log("执行方法了");
-          _this.loading = true
-          _this.$store.dispatch('user/getInfo')
-          _this.$router.push({ path: '/dashboard' })
-          _this.loading = false
+          console.log('清空Cookie')
+          // 清空Cookie
+          _this.clearCookie()
         }
-      }).catch(err => {
-        _this.loading = false
-        console.log(err)
-      })
+        const jsonForm = JSON.stringify({ username: this.loginForm.userName, password: this.loginForm.password })
+        login(jsonForm).then(response => {
+        // console.log(response.msg);
+          _this.msg = response.msg
+          if (this.msg === 'userNoExist') {
+            _this.$message({
+              type: 'error',
+              message: 'userNoExist'
+            })
+          } else if (this.msg === 'passwordError') {
+            _this.$message({
+              type: 'error',
+              message: 'passwordError'
+            })
+          } else if (this.msg === 'systemError') {
+            _this.$message({
+              type: 'error',
+              message: 'systemError'
+            })
+          } else {
+            console.log('执行方法了')
+            _this.loading = true
+            _this.$store.dispatch('user/getInfo')
+            _this.$router.push({ path: '/dashboard' })
+            _this.loading = false
+          }
+        }).catch(err => {
+          _this.loading = false
+          console.log(err)
+        })
+      }
     },
     setCookie(c_name, c_pwd, exdays) {
       const exdate = new Date() // 获取时间
@@ -162,6 +197,21 @@ export default {
     },
     reDirect() {
       window.location.href = 'http://pass.sdu.edu.cn/cas/login?service=https%3A%2F%2F202.194.7.29%2Fcaslogin.jsp'
+    },
+
+    // 验证码
+    randomNum(min, max) {
+      return Math.floor(Math.random() * (max - min) + min)
+    },
+    refreshCode() {
+      this.identifyCode = ''
+      this.makeCode(this.identifyCodes, 4)
+    },
+    makeCode(o, l) {
+      for (let i = 0; i < l; i++) {
+        this.identifyCode += this.identifyCodes[this.randomNum(0, this.identifyCodes.length)]
+      }
+      console.log(this.identifyCode)
     }
   }
 
@@ -186,7 +236,6 @@ export default {
     border-color: #9b0d14;
   }
 </style>
-
 
 <style lang="scss" scoped>
   $topicColor:#930E14;
@@ -299,5 +348,7 @@ export default {
         }
       }
     }
-
+  .login-code{
+    cursor: pointer;
+  }
 </style>

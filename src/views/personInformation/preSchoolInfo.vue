@@ -178,10 +178,10 @@
                     @select="postGradMajorSelect"
                   >
                     <template slot-scope="{ item }">
-                      <div class="show-autocomplete">
-                        {{ $t(item.name) }}
-                      </div>
-                    </template>
+                    <div class="show-autocomplete">
+                      {{ $t(item.name) }}
+                    </div>
+                  </template>
                   </el-autocomplete>
                 </td>
                 <td v-else class="colstyle2">
