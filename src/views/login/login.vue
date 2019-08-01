@@ -13,10 +13,16 @@
         <div class="input-form">
           <div style="width: 100%;">
             <div style="position: relative;width: 100%;margin-top: 15px;">
-              <input v-model="loginForm.userName" :placeholder="$t('login.placeholdUsername')" maxlength="11" class="login-form-input">
+               <span class="svg-container" >
+               <svg-icon icon-class="user" />
+               </span>
+              <input v-model="loginForm.userName" :placeholder="$t('login.placeholdUsername')" maxlength="11" class="login-form-input" style="width: 93%">
             </div>
             <div style="position: relative;width: 100%;margin-top: 30px;">
-              <input v-model="loginForm.password" maxlength="12" :placeholder="$t('login.placeholdPassword')" :type="showPassword?'':'password'" class="login-form-input">
+               <span class="svg-container">
+             <svg-icon icon-class="password" />
+           </span>
+              <input v-model="loginForm.password" maxlength="12" :placeholder="$t('login.placeholdPassword')" :type="showPassword?'':'password'" class="login-form-input" style="width: 93%">
               <el-button
                 type="text"
                 style="position: absolute;top:0;right: 0px;padding-top: 5px;color: #9b0d14"
@@ -350,5 +356,9 @@ export default {
     }
   .login-code{
     cursor: pointer;
+  }
+  .svg-container {
+    color: #889aa4;
+    display: inline-block;
   }
 </style>
