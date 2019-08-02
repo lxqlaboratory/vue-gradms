@@ -24,8 +24,8 @@
         width="70"
         align="center"
       >
-        <template slot-scope="scope">
-          必修课
+        <template >
+          {{$t('cuiltivatingSchemeCheckAndDrawup.compulsoryCourse')}}
         </template>
       </el-table-column>
       <el-table-column

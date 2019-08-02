@@ -421,6 +421,7 @@ export default {
     addPublic: 'Add a public elective course',
     interCollege: 'Inter-college selection',
     isPubSelectCourse: 'isPubSelectCourse',
+    compulsoryCourse: ' Compulsory course',
     delete: 'delete'
   },
 

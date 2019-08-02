@@ -432,6 +432,7 @@ export default {
     addPublic: '添加公共选修课',
     interCollege: '跨学院选课',
     isPubSelectCourse: '是否公选课',
+    compulsoryCourse: '必修课',
     delete: '删除'
   },
 
