@@ -417,6 +417,9 @@ export default {
     form: 'form',
     statement: 'statement',
     print: 'print',
+    trainProgram: 'Training program',
+    addPublic: 'Add a public elective course',
+    interCollege: 'Inter-college selection',
     isPubSelectCourse: 'isPubSelectCourse',
     delete: 'delete'
   },
@@ -696,5 +699,15 @@ export default {
     CollectingWays:'Ways of collection',
     enterEI:'Enter EI searching number',
     remark:'remark',
+  },
+  //说明
+  statement:{
+    discript: 'Description',
+    note1:'For those applying to graduate this semester,please choose yes and submit',
+    note2:'For those who do not apply to graduate this semester,please do not operate',
+    note3:'For those who apply to graduate, please fill in and confirm the student status information and degree information',
+    note4:'This information is used for national offers,please fill in seriously',
+    note5:'Please read the statement carefully before you fill in',
+    note:'You can only submit the graduation application from 2017-02-02 08:00 to 2019-12-31 17:01:01, please fill in the application immediately',
   }
 }

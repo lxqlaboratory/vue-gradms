@@ -428,6 +428,9 @@ export default {
     form: '形式',
     statement: '说明',
     print: '打印',
+    trainProgram: '培养方案课程',
+    addPublic: '添加公共选修课',
+    interCollege: '跨学院选课',
     isPubSelectCourse: '是否公选课',
     delete: '删除'
   },
@@ -706,7 +709,18 @@ export default {
     CollectingWays:'收录方式',
     enterEI:'录入EI检索号',
     remark:'备注',
+  },
+  //说明
+  statement:{
+    discript: '说明',
+    note1:'请申请本学期毕业的学生选择是，并提交',
+    note2:'本学期不申请毕业的学生请不要操作',
+    note3:'申请毕业的学生请及时填写并确认学籍信息和学位信息',
+    note4:'这些信息用于国家报盘，请认真填写各项信息',
+    note5:'填写之前请认真阅读填写说明',
+    note:'填写别业申请时间为 2017-02-02 08:00 至 2019-12-31 17:01:01, 请尽快提交毕业申请',
   }
+
 
 
 

@@ -4,18 +4,18 @@
       <tbody>
         <tr><td colspan="11">
           <font color="#9b0d14" style="font-size: 12px">
-            说明：
-            <br> *  1. 请申请本学期毕业的学生选择'是',并提交
-            <br>*  2. 本学期不申请毕业的学生请不要操作
-            <br> *  3. 申请毕业的学生请及时填写并确认学籍信息和学位信息
-            <br> *  4. 这些信息用于国家报盘，请认真填写各项信息
-            <br> *  5. 填写之前请认真阅读填写说明
+            {{$t('statement.discript')}}：
+            <br> *  1. {{$t('statement.note1')}}
+            <br>*  2. {{$t('statement.note2')}}
+            <br> *  3. {{$t('statement.note3')}}
+            <br> *  4. {{$t('statement.note4')}}
+            <br> *  5. {{$t('statement.note5')}}
           </font>
         </td>
         </tr>
         <tr>
           <td align="center" colspan="3" style="color: #9b0d14;font-size: 12px ">
-            提交毕业申请时间为2017-02-22 08：00：00至2019-12-31 17：01：01，请尽快提交毕业申请
+            {{$t('statement.note')}}
           </td>
         </tr>
       </tbody></table>

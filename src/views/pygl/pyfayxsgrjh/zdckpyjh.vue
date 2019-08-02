@@ -50,7 +50,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ (scope.row.courseName) }}
+          {{ $t(scope.row.courseName) }}
         </template>
       </el-table-column>
       <el-table-column
@@ -59,7 +59,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ scope.row.termName }}
+          {{ $t(scope.row.termName) }}
         </template>
       </el-table-column>
       <el-table-column
@@ -86,7 +86,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ scope.row.examTypeName }}
+          {{ $t(scope.row.examTypeName) }}
         </template>
       </el-table-column>
       <el-table-column
@@ -104,7 +104,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ scope.row.teachers }}
+          {{ $t(scope.row.teachers) }}
         </template>
       </el-table-column>
       <el-table-column
@@ -176,7 +176,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ (scope.row.courseName) }}
+          {{ $t(scope.row.courseName) }}
         </template>
       </el-table-column>
       <el-table-column
@@ -185,7 +185,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ scope.row.termName }}
+          {{ $t(scope.row.termName) }}
         </template>
       </el-table-column>
       <el-table-column
@@ -212,7 +212,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ scope.row.examTypeName }}
+          {{ $t(scope.row.examTypeName) }}
         </template>
       </el-table-column>
       <el-table-column
@@ -230,7 +230,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ scope.row.teachers }}
+          {{ $t(scope.row.teachers) }}
         </template>
       </el-table-column>
       <el-table-column
@@ -302,7 +302,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ (scope.row.courseName) }}
+          {{ $t(scope.row.courseName) }}
         </template>
       </el-table-column>
       <el-table-column
@@ -311,7 +311,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ scope.row.termName }}
+          {{ $t(scope.row.termName) }}
         </template>
       </el-table-column>
       <el-table-column
@@ -338,7 +338,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ scope.row.examTypeName }}
+          {{  $t(scope.row.examTypeName) }}
         </template>
       </el-table-column>
       <el-table-column
@@ -356,7 +356,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          {{ scope.row.teachers }}
+          {{ $t(scope.row.teachers) }}
         </template>
       </el-table-column>
       <el-table-column
@@ -458,7 +458,7 @@
       <tbody><tr>
         <td class="head" height="30" colspan="6">
           <div align="center" style="color: #9b0d14">
-            培养方案课程
+          {{$t('cuiltivatingSchemeCheckAndDrawup.trainProgram')}}
           </div>
         </td>
       </tr>
@@ -753,8 +753,8 @@
         <tbody><tr>
           <td class="head" height="30" colspan="6">
             <div align="center" style="color: #9b0d14">
-              <el-button size="mini" class="allBtn" @click="insertPublicCourse">添加公共选修课</el-button>
-              <el-button size="mini" class="allBtn" @click="insertAllCourse">跨学院选课</el-button>
+              <el-button size="mini" class="allBtn" @click="insertPublicCourse">{{$t('cuiltivatingSchemeCheckAndDrawup.addPublic')}}</el-button>
+              <el-button size="mini" class="allBtn" @click="insertAllCourse">{{$t('cuiltivatingSchemeCheckAndDrawup.interCollege')}}</el-button>
             </div>
           </td>
         </tr>
@@ -794,7 +794,6 @@ export default {
       showCultivatePlan().then(res => {
         this.cultSessisonList = res.data.planData.cultSessisonList
         this.planDataRequiredList = res.data.planData.CourseList11
-        console.log(this.planDataRequiredList)
         this.planDataRequiredListLength = res.data.planData.CourseList11.length
         this.planDataOptionalList = res.data.planData.CourseList12
         this.planDataOptionalListLength = res.data.planData.CourseList12.length
