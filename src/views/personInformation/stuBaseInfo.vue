@@ -30,7 +30,7 @@
                     {{ list.perEnglishName }}
                   </td>
                   <td width="20%" rowspan="4">
-                    <img src="/gradms/api/student/getStudentPhotoData" height="120" align="middle" border="0" alt="photo">
+                    <img v-if="show" :src="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+dataKey" height="120" align="middle" border="0" alt="photo">
                   </td>
                 </tr>
                 <tr>
@@ -179,6 +179,8 @@ export default {
       list: [],
       length1: [],
       activeName: 'first',
+      dataKey: '',
+      show: false,
       isEdit: false
     }
   },
@@ -213,6 +215,12 @@ export default {
       getStudentBaseicInfo().then(res => {
         console.log(res)
         this.list = res.data
+        this.dataKey = res.data.dataKey
+        if (this.dataKey == null) {
+          this.show = false
+        } else {
+          this.show = true
+        }
       })
     },
     save() {
