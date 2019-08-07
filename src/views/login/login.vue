@@ -14,15 +14,15 @@
           <div style="width: 100%;">
             <div style="position: relative;width: 100%;margin-top: 15px;">
                <span class="svg-container" >
-               <svg-icon icon-class="user" />
+               <svg-icon icon-class="user" style="margin-top: 10px ;" />
                </span>
-              <input v-model="loginForm.userName" :placeholder="$t('login.placeholdUsername')" maxlength="11" class="login-form-input" style="width: 93%">
+              <input v-model="loginForm.userName" :placeholder="$t('login.placeholdUsername')" maxlength="12" class="login-form-input" style="width: 91%">
             </div>
             <div style="position: relative;width: 100%;margin-top: 30px;">
                <span class="svg-container">
              <svg-icon icon-class="password" />
            </span>
-              <input v-model="loginForm.password" maxlength="12" :placeholder="$t('login.placeholdPassword')" :type="showPassword?'':'password'" class="login-form-input" style="width: 93%">
+              <input v-model="loginForm.password" maxlength="12" :placeholder="$t('login.placeholdPassword')" :type="showPassword?'':'password'" class="login-form-input" style="width: 91%">
               <el-button
                 type="text"
                 style="position: absolute;top:0;right: 0px;padding-top: 5px;color: #9b0d14"
@@ -34,7 +34,7 @@
           </div>
           <el-row style=" position: relative; margin-top: 15px; width: 100%">
             <el-col style="width: 50%" align="left">
-            <el-input v-model="code"  maxlength="4" type="text" size="medium" :placeholder="$t('login.verification')" @keyup.enter.native="login" />
+            <el-input v-model="code"  maxlength="4" type="text" size="small" :placeholder="$t('login.verification')" @keyup.enter.native="login" />
             </el-col>
             <el-col align="right" style="width: 50%">
             <div @click="refreshCode">
@@ -43,13 +43,13 @@
             </div>
             </el-col>
           </el-row>
-          <div style="width: 100%;">
+          <div style="width: 100%;margin-top: 10px">
             <el-row>
               <el-col>
-                <el-button type="danger" style="width: 100%;margin-bottom: 5%;background: #9b0d14" :loading="loading" @click="login">{{ $t('login.loginTitle') }}</el-button>
+                <el-button type="danger" class="loginBtn" style="width: 100%;margin-bottom: 5%;background: #9b0d14" :loading="loading" @click="login">{{ $t('login.loginTitle') }}</el-button>
               </el-col>
               <el-col>
-                <el-button type="danger" style="width: 100%;background: #9b0d14" :loading="loading" @click="reDirect">{{ $t('login.authenticationLogin') }}</el-button>
+                <el-button type="danger" class="loginBtn" style="width: 100%;background: #9b0d14" :loading="loading" @click="reDirect">{{ $t('login.authenticationLogin') }}</el-button>
               </el-col>
             </el-row>
             <div style="display: flex;flex-direction: row;justify-content: space-between;align-items: center;width: 100%;margin-top: 25px;color:#9b0d14">
@@ -351,8 +351,16 @@ export default {
         box-sizing: border-box;
         border-radius: 5px;
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.14);
-        }
       }
+      .loginBtn{
+        height: 32px;
+        /*line-height: 15px;*/
+        vertical-align: middle;
+        padding:  0px 0px !important;
+
+      }
+    }
+
     }
   .login-code{
     cursor: pointer;
