@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp8" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="xwlwzg.pdf"></a>
     <p class="noticeSpan" style="border: 1px solid #EBEEF5;">{{$t('uploadThesisPaper.note')}}
       <br>{{$t('uploadThesisPaper.note1')}}
       <br>{{$t('uploadThesisPaper.note2')}}
@@ -127,9 +128,7 @@
         </tr>
         <tr v-if="showDownloadBtn">
           <td colspan="8" align="center" id="downloadBtn">
-            <el-button class="allBtn" size="mini">
-              <a :href="'/gradms/api/degree/degreeThesisAttachmentDownload?degreeAttachId='+this.degreeAttachId" download="xwlwzg.pdf">下载</a>
-            </el-button>
+            <el-button class="allBtn" size="mini" @click="xwlwzg()">下载</el-button>
           </td>
         </tr>
       </table>
@@ -141,6 +140,7 @@
   //  学生上传论文
   import { uploadCheckThesisInit , thesisModifyTitle  } from '@/api/uploadCheckThesis'
   import  fileupload  from '../../components/upload/fileupload'
+  import { degreeThesisAttachmentDownload } from '@/api/thesisReviewAndReplyInfoShow'
   export default {
 
     data(){
@@ -211,6 +211,20 @@
           });
         })
       },
+      //学位论文终稿
+      xwlwzg(){
+        degreeThesisAttachmentDownload().then(res => {
+          this.dataKey = res.data
+          if (this.dataKey != null) {
+            this.$refs.temp8.click();
+          } else (
+            this.$message({
+              message: '下载失败',
+              type: 'error'
+            })
+          )
+        })
+      }
     }
   }
 </script>

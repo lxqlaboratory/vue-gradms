@@ -1,21 +1,29 @@
 <template>
   <div class="app-container">
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp1" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="xwsqs.pdf">shadow</a>
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp2" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="xwsps.pdf">shadow</a>
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp3" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="dbjlz.pdf">shadow</a>
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp4" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="byspb.pdf">shadow</a>
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp5" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="bssqdjb.pdf">shadow</a>
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp6" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="kyhjlqkb.pdf">shadow</a>
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp7" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="bszpb.pdf">shadow</a>
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp8" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="xwlwzg.pdf">shadow</a>
     <table width="100%">
       <tbody>
         <tr>
           <td style="text-align:center">
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeThesisApplyDownload" download="xwsqs.pdf">{{$t('reviewTheDefenseInformation.ApplicationForDegree')}}</a></el-button>
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeThesisApprovalDownload" download="xwsps.pdf">{{$t('reviewTheDefenseInformation.DegreeApproval')}}</a></el-button>
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreethesisAnswerRecordDownload" download="dbjlz.pdf">{{$t('reviewTheDefenseInformation.DefenseRecord')}}</a></el-button>
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeGraduationAuditFormDownload" download="byspb.pdf">{{$t('reviewTheDefenseInformation.GraduationApprovalForm')}}</a></el-button>
+            <el-button size="mini" class="allBtn" @click="xwsqs()">{{$t('reviewTheDefenseInformation.ApplicationForDegree')}}</el-button>
+            <el-button size="mini" class="allBtn" @click="xwsps()">{{$t('reviewTheDefenseInformation.DegreeApproval')}}</el-button>
+            <el-button size="mini" class="allBtn" @click="dbjlz()">{{$t('reviewTheDefenseInformation.DefenseRecord')}}</el-button>
+            <el-button size="mini" class="allBtn" @click="byspb()">{{$t('reviewTheDefenseInformation.GraduationApprovalForm')}}</el-button>
           </td>
         </tr>
         <tr>
           <td style="text-align:center">
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreePrintApplyTable" download="bsdjb.pdf">{{$t('reviewTheDefenseInformation.DoctorApplicationRegistrationForm')}}</a></el-button>
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/degreeResearchRewardFormDownload" download="kyjlb.pdf">{{$t('reviewTheDefenseInformation.TableOfResearcAndAwards')}}</a></el-button>
-            <el-button size="mini" class="allBtn"><a href="/gradms/api/degree/downLoadZiPingBiao" download="bszpb.pdf">{{$t('reviewTheDefenseInformation.DownloadDoctorSelfEvaluationForm')}}</a></el-button>
-            <el-button size="mini" class="allBtn" @click="test">{{$t('reviewTheDefenseInformation.FinalDissertation')}}</el-button>
+            <el-button size="mini" class="allBtn" @click="bssqdjb()">{{$t('reviewTheDefenseInformation.DoctorApplicationRegistrationForm')}}</el-button>
+            <el-button size="mini" class="allBtn" @click="kyhjlqkb()">{{$t('reviewTheDefenseInformation.TableOfResearcAndAwards')}}</el-button>
+            <el-button size="mini" class="allBtn" @click="bszpb()">{{$t('reviewTheDefenseInformation.DownloadDoctorSelfEvaluationForm')}}</el-button>
+            <el-button size="mini" class="allBtn" @click="xwlwzg()">{{$t('reviewTheDefenseInformation.FinalDissertation')}}</el-button>
           </td>
         </tr>
       </tbody>
@@ -250,16 +258,23 @@
 </template>
 
 <script>
-  import axios from 'axios'
 import { thesisReviewAndReplyInfoShow } from '@/api/thesisReviewAndReplyInfoShow'
-import { degreeThesisAttachmentDownload } from '@/api/allCourseQuery'
+import { degreeThesisApplyDownload } from '@/api/thesisReviewAndReplyInfoShow'
+import { degreeThesisApprovalDownload } from '@/api/thesisReviewAndReplyInfoShow'
+import { degreethesisAnswerRecordDownload } from '@/api/thesisReviewAndReplyInfoShow'
+import { degreeGraduationAuditFormDownload } from '@/api/thesisReviewAndReplyInfoShow'
+import { degreePrintApplyTable } from '@/api/thesisReviewAndReplyInfoShow'
+import { degreeResearchRewardFormDownload } from '@/api/thesisReviewAndReplyInfoShow'
+import { downLoadZiPingBiao } from '@/api/thesisReviewAndReplyInfoShow'
+import { degreeThesisAttachmentDownload } from '@/api/thesisReviewAndReplyInfoShow'
 export default {
   data() {
     return {
       list: [],
       mList: [],
       cList: [],
-      tableData: []
+      tableData: [],
+      dataKey:'',
     }
   },
   created() {
@@ -273,24 +288,124 @@ export default {
         this.cList = res.data.cList
       })
     },
-    cfbjcsqb() {
-
-    },
-    test(){
-      axios({
-        url:'http://localhost:9528/gradms/api/degree/degreeThesisAttachmentDownload',
-        method:'get',
-        responseType: 'blob',
-        params:{
-          attachId: '93797'
-        },
-
-      }).then(({data})=>{
-          alert('111111111')
-
+    //学位申请书
+    xwsqs(){
+      degreeThesisApplyDownload().then(res => {
+        this.dataKey = res.data
+        if(this.dataKey != null){
+          this.$refs.temp1.click();
+        }else (
+          this.$message({
+            message: '下载失败',
+            type: 'error'
+          })
+        )
       })
     },
-
+    //学位审批书
+    xwsps(){
+      degreeThesisApprovalDownload().then(res => {
+        this.dataKey = res.data
+        if(this.dataKey != null){
+          this.$refs.temp2.click();
+        }else (
+          this.$message({
+            message: '下载失败',
+            type: 'error'
+          })
+        )
+      })
+    },
+    //答辩记录纸
+    dbjlz(){
+      degreethesisAnswerRecordDownload().then(res => {
+        this.dataKey = res.data
+        if(this.dataKey != null){
+          this.$refs.temp3.click();
+        }else (
+          this.$message({
+            message: '下载失败',
+            type: 'error'
+          })
+        )
+      })
+    },
+    //毕业审批表
+    byspb(){
+      degreeGraduationAuditFormDownload().then(res => {
+        this.dataKey = res.data
+        if(this.dataKey != null){
+          this.$refs.temp4.click();
+        }else (
+          this.$message({
+            message: '下载失败',
+            type: 'error'
+          })
+        )
+      })
+    },
+    //博士申请登记表
+    bssqdjb(){
+      degreePrintApplyTable().then(res => {
+        this.dataKey = res.data
+        if(this.dataKey != null){
+          this.$refs.temp5.click();
+        }else (
+          this.$message({
+            message: '下载失败',
+            type: 'error'
+          })
+        )
+      })
+    },
+    //科研和奖励情况表
+    kyhjlqkb(){
+      degreeResearchRewardFormDownload().then(res => {
+        this.dataKey = res.data
+        if(this.dataKey != null){
+          this.$refs.temp6.click();
+        }else (
+          this.$message({
+            message: '下载失败',
+            type: 'error'
+          })
+        )
+      })
+    },
+    //博士自评表
+    bszpb(){
+      downLoadZiPingBiao().then(res => {
+        this.dataKey = res.data
+        if(this.dataKey != null){
+          this.$refs.temp7.click();
+        }else (
+          this.$message({
+            message: '下载失败',
+            type: 'error'
+          })
+        )
+      })
+    },
+    //学位论文终稿
+    xwlwzg(){
+      degreeThesisAttachmentDownload().then(res => {
+        this.dataKey = res.data
+        if(this.dataKey != null){
+//          console.log(this.dataKey)
+//          /*let a = document.createElement('a')
+//          a.href = "/gradms/api/base/getBytesBufferDataByDataKey?dataKey="+this.dataKey
+//          a.download="xwlwzg.pdf"
+//          window.open(a.href)*/
+//          window.open("../../Statics/download/带电作业电动工具单页资料.pdf");
+          this.$refs.temp8.click();
+        }else (
+          this.$message({
+            message: '下载失败',
+            type: 'error'
+          })
+        )
+      })
+    }
   }
 }
 </script>
