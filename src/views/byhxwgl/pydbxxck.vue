@@ -1,13 +1,13 @@
 <template>
   <div class="app-container">
-    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp1" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="xwsqs.pdf">shadow</a>
-    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp2" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="xwsps.pdf">shadow</a>
-    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp3" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="dbjlz.pdf">shadow</a>
-    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp4" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="byspb.pdf">shadow</a>
-    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp5" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="bssqdjb.pdf">shadow</a>
-    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp6" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="kyhjlqkb.pdf">shadow</a>
-    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp7" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="bszpb.pdf">shadow</a>
-    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp8" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="xwlwzg.pdf">shadow</a>
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp1" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="xwsqs.pdf"></a>
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp2" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="xwsps.pdf"></a>
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp3" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="dbjlz.pdf"></a>
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp4" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="byspb.pdf"></a>
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp5" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="bssqdjb.pdf"></a>
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp6" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="kyhjlqkb.pdf"></a>
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp7" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="bszpb.pdf"></a>
+    <a  style="position: fixed;z-index:-1;top: 0;left: 0;" ref="temp8" :href="'/gradms/api/base/getBytesBufferDataByDataKey?dataKey='+this.dataKey" download="xwlwzg.pdf"></a>
     <table width="100%">
       <tbody>
         <tr>
@@ -294,7 +294,12 @@ export default {
         this.dataKey = res.data
         if(this.dataKey != null){
           this.$refs.temp1.click();
-        }else (
+        }else if(res.msg!=null||res.msg!="") {
+          this.$message({
+            message: res.msg,
+            type: 'error'
+          })
+        }else  (
           this.$message({
             message: '下载失败',
             type: 'error'
@@ -308,7 +313,12 @@ export default {
         this.dataKey = res.data
         if(this.dataKey != null){
           this.$refs.temp2.click();
-        }else (
+        }else if(res.msg!=null||res.msg!="") {
+          this.$message({
+            message: res.msg,
+            type: 'error'
+          })
+        }else  (
           this.$message({
             message: '下载失败',
             type: 'error'
@@ -322,7 +332,12 @@ export default {
         this.dataKey = res.data
         if(this.dataKey != null){
           this.$refs.temp3.click();
-        }else (
+        }else if(res.msg!=null||res.msg!="") {
+          this.$message({
+            message: res.msg,
+            type: 'error'
+          })
+        }else  (
           this.$message({
             message: '下载失败',
             type: 'error'
@@ -336,7 +351,12 @@ export default {
         this.dataKey = res.data
         if(this.dataKey != null){
           this.$refs.temp4.click();
-        }else (
+        }else if(res.msg!=null||res.msg!="") {
+          this.$message({
+            message: res.msg,
+            type: 'error'
+          })
+        }else  (
           this.$message({
             message: '下载失败',
             type: 'error'
@@ -350,7 +370,12 @@ export default {
         this.dataKey = res.data
         if(this.dataKey != null){
           this.$refs.temp5.click();
-        }else (
+        }else if(res.msg!=null||res.msg!="") {
+          this.$message({
+            message: res.msg,
+            type: 'error'
+          })
+        }else  (
           this.$message({
             message: '下载失败',
             type: 'error'
@@ -364,7 +389,12 @@ export default {
         this.dataKey = res.data
         if(this.dataKey != null){
           this.$refs.temp6.click();
-        }else (
+        }else if(res.msg!=null||res.msg!="") {
+          this.$message({
+            message: res.msg,
+            type: 'error'
+          })
+        }else  (
           this.$message({
             message: '下载失败',
             type: 'error'
@@ -378,7 +408,12 @@ export default {
         this.dataKey = res.data
         if(this.dataKey != null){
           this.$refs.temp7.click();
-        }else (
+        }else if(res.msg!=null||res.msg!="") {
+          this.$message({
+            message: res.msg,
+            type: 'error'
+          })
+        }else  (
           this.$message({
             message: '下载失败',
             type: 'error'
@@ -398,7 +433,12 @@ export default {
 //          window.open(a.href)*/
 //          window.open("../../Statics/download/带电作业电动工具单页资料.pdf");
           this.$refs.temp8.click();
-        }else (
+        }else if(res.msg!=null||res.msg!="") {
+          this.$message({
+            message: res.msg,
+            type: 'error'
+          })
+        }else  (
           this.$message({
             message: '下载失败',
             type: 'error'
